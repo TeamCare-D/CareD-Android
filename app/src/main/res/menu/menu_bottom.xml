@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/productFragment"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/product" />
+
+    <item
+        android:id="@+id/cadiZoneFragment"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="@string/cadiZone" />
+
+    <item
+        android:id="@+id/mypageFragment"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="@string/mypage" />
+
+</menu>

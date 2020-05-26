@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">cadi</string>
+
+    <string name="home">home</string>
+    <string name="product">product</string>
+    <string name="cadiZone">cadiZone</string>
+    <string name="mypage">mypage</string>
 </resources>
