@@ -4,11 +4,9 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowManager
 import com.song2.cadi.R
 import kotlinx.android.synthetic.main.activity_research_gender.*
-import kotlinx.android.synthetic.main.activity_research_name.*
 
 class ResearchGenderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
