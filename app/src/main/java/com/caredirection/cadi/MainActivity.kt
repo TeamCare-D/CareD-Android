@@ -1,4 +1,4 @@
-package com.song2.cadi
+package com.caredirection.cadi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

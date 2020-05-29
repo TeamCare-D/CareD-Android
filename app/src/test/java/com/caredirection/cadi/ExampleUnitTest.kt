@@ -1,4 +1,4 @@
-package com.song2.cadi
+package com.caredirection.cadi
 
 import org.junit.Test
 

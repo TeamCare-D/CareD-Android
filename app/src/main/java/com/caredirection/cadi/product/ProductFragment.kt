@@ -1,7 +1,7 @@
-package com.song2.cadi.product
+package com.caredirection.cadi.product
 
 import androidx.fragment.app.Fragment
-import com.song2.cadi.R
+import com.caredirection.cadi.R
 
 class ProductFragment : Fragment(R.layout.fragment_product) {
 }
