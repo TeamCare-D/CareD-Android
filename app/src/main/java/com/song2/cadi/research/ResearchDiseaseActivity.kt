@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.widget.CheckBox
 import android.widget.CheckedTextView
+import android.widget.Toast
 import com.song2.cadi.R
 import kotlinx.android.synthetic.main.activity_research_disease.*
 import kotlinx.android.synthetic.main.activity_research_gender.*
@@ -27,16 +28,20 @@ class ResearchDiseaseActivity : AppCompatActivity() {
         )
         //TODO: 이어하기_keeper 연결
 
-        makeConroller()
+        makeController()
     }
 
     // 사용자 입력 확인
-    private fun makeConroller() {
+    private fun makeController() {
         disButtons.forEachIndexed { index, checkedTextView ->
             disButtons[index].setOnClickListener {
                 disButtons[index].isChecked = !disButtons[index].isChecked
                 checkNextButton()
             }
+        }
+
+        btn_disease_search.setOnClickListener {
+            Toast.makeText(this,"아직 못찾지롱", Toast.LENGTH_SHORT).show()
         }
 
         btn_disease_back.setOnClickListener {

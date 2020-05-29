@@ -21,11 +21,11 @@ class ResearchNicknameActivity : AppCompatActivity() {
 
         //TODO: 이어하기_keeper 연결
 
-        makeConroller()
+        makeController()
     }
 
     // 사용자 입력 확인
-    private fun makeConroller(){
+    private fun makeController(){
         // 이름 입력 실시간 검사
         edt_nick?.addTextChangedListener(object: TextWatcher{
             var nick_length = 0

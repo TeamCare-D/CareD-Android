@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.Toast
 import com.song2.cadi.R
 import kotlinx.android.synthetic.main.activity_research_gender.*
 
@@ -19,11 +20,11 @@ class ResearchGenderActivity : AppCompatActivity() {
 
         //TODO: 이어하기_keeper 연결
 
-        makeConroller()
+        makeController()
     }
 
     // 사용자 입력 확인
-    private fun makeConroller() {
+    private fun makeController() {
         val intent = getIntent()
         val nick = intent.getStringExtra("nick")
 
@@ -44,6 +45,7 @@ class ResearchGenderActivity : AppCompatActivity() {
         btn_year?.setOnClickListener {
             btn_year?.isChecked = true
             checkNextButton()
+            Toast.makeText(this,"아직 안했지롱", Toast.LENGTH_SHORT).show()
         }
 
         btn_gender_back?.setOnClickListener {
