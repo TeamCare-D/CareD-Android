@@ -5,7 +5,8 @@
     android:layout_width="96dp"
     android:layout_height="115dp"
     android:layout_marginEnd="8dp"
-    android:background="@color/very_light_pink">
+    android:background="@color/colorPointGray"
+    app:layout_constraintDimensionRatio="1">
 
     <ImageView
         android:id="@+id/img_rv_item_care"
@@ -13,9 +14,9 @@
         android:layout_height="34dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="18dp"
+        android:background="@color/colorPointBlue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/very_light_pink" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_rv_item_care_name"

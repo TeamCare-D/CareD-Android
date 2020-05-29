@@ -77,14 +77,14 @@
                     android:layout_height="200dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="20dp"
+                    android:background="@color/colorPointBlue"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/txt_home_vitamin_desc"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_home_vitamin_desc"
-                    android:background="@color/dodger_blue" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_home_vitamin_desc" />
 
                 <TextView
                     android:id="@+id/txt_home_user_name"
-                    style="@style/TextStyle"
+                    style="@style/bold20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
@@ -99,7 +99,7 @@
 
                 <TextView
                     android:id="@+id/txt_home_vitamin_desc"
-                    style="@style/TextStyle2"
+                    style="@style/light12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -124,12 +124,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
                 <TextView
                     android:id="@+id/txt_home_care_title"
-                    style="@style/TextStyle"
+                    style="@style/bold20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
@@ -153,7 +152,7 @@
 
                 <TextView
                     android:id="@+id/txt_home_my_care_desc"
-                    style="@style/TextStyle2"
+                    style="@style/light12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -167,16 +166,16 @@
                     android:id="@+id/rv_home_my_care"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
-                    android:layout_marginStart="28dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginEnd="28dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/txt_home_my_care_desc"
                     app:layout_constraintTop_toBottomOf="@+id/txt_home_my_care_desc" />
 
                 <TextView
                     android:id="@+id/txt_home_care_similar"
-                    style="@style/TextStyle2"
+                    style="@style/light12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
@@ -192,6 +191,7 @@
                     android:layout_height="120dp"
                     android:layout_marginTop="18dp"
                     app:layout_constraintEnd_toEndOf="@+id/rv_home_my_care"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/rv_home_my_care"
                     app:layout_constraintTop_toBottomOf="@+id/txt_home_care_similar" />
             </androidx.constraintlayout.widget.ConstraintLayout>
