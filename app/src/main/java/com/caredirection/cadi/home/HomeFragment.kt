@@ -1,10 +1,10 @@
-package com.song2.cadi.home
+package com.caredirection.cadi.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.song2.cadi.R
-import com.song2.cadi.home.homecare.HomeCareRvAdapter
+import com.caredirection.cadi.R
+import com.caredirection.cadi.home.homecare.HomeCareRvAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(R.layout.fragment_home) {

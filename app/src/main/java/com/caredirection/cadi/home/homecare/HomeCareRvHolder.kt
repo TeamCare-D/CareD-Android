@@ -1,10 +1,10 @@
-package com.song2.cadi.home.homecare
-
+package com.caredirection.cadi.home.homecare
 import android.content.Context
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.song2.cadi.R
+import com.caredirection.cadi.R
+
 import kotlinx.android.synthetic.main.rv_item_home_care.view.*
 
 class HomeCareRvHolder(private val view: View, private val context: Context):RecyclerView.ViewHolder(view){

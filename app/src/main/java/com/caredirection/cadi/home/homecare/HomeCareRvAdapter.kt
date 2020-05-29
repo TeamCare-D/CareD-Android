@@ -1,11 +1,11 @@
-package com.song2.cadi.home.homecare
+package com.caredirection.cadi.home.homecare
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.song2.cadi.R
-import kotlinx.android.synthetic.main.fragment_home.view.*
+import com.caredirection.cadi.R
+
 
 class HomeCareRvAdapter (private val context:Context):RecyclerView.Adapter<HomeCareRvHolder>(){
     var data = arrayListOf<String>()
