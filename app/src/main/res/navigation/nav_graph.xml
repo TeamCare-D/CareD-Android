@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.song2.cadi.home.HomeFragment"
+        android:name="com.caredirection.cadi.home.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/productFragment"
-        android:name="com.song2.cadi.product.ProductFragment"
+        android:name="com.caredirection.cadi.product.ProductFragment"
         android:label="@string/product"
         tools:layout="@layout/fragment_product" />
 
     <fragment
         android:id="@+id/cadiZoneFragment"
-        android:name="com.song2.cadi.cadizone.CadiZoneFragment"
+        android:name="com.caredirection.cadi.cadizone.CadiZoneFragment"
         android:label="@string/cadiZone"
         tools:layout="@layout/fragment_cadi_zone" />
 
     <fragment
         android:id="@+id/mypageFragment"
-        android:name="com.song2.cadi.mypage.MypageFragment"
+        android:name="com.caredirection.cadi.mypage.MypageFragment"
         android:label="@string/mypage"
         tools:layout="@layout/fragment_mypage" />
 </navigation>
