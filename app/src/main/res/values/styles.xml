@@ -7,4 +7,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <color name="grapefruit">#ff6258</color>
+    <color name="dodger_blue">#358fff</color>
+    <color name="very_light_pink">#c3c3c3</color>
+
 </resources>
