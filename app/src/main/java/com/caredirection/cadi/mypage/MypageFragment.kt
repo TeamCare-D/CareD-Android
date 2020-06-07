@@ -1,7 +1,7 @@
-package com.song2.cadi.mypage
+package com.caredirection.cadi.mypage
 
 import androidx.fragment.app.Fragment
-import com.song2.cadi.R
+import com.caredirection.cadi.R
 
 class MypageFragment : Fragment(R.layout.fragment_mypage) {
 }

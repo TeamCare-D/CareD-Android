@@ -8,9 +8,8 @@
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
 
-    <!-- main color -->
+    <!-- point color -->
     <color name="colorPointRed">#ff6258</color>
     <color name="colorPointBlue">#358fff</color>
     <color name="colorPointGray">#c3c3c3</color>
-
 </resources>

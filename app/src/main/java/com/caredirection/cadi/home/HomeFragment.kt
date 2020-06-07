@@ -1,7 +1,7 @@
-package com.song2.cadi.home
+package com.caredirection.cadi.home
 
 import androidx.fragment.app.Fragment
-import com.song2.cadi.R
+import com.caredirection.cadi.R
 
 
 class HomeFragment : Fragment(R.layout.fragment_home) {

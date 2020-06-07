@@ -7,7 +7,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.song2.cadi"
+        applicationId "com.caredirection.cadi"
         minSdkVersion 28
         targetSdkVersion 29
         versionCode 1
