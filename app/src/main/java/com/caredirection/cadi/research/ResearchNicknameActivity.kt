@@ -1,4 +1,4 @@
-package com.song2.cadi.research
+package com.caredirection.cadi.research
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.WindowManager
-import com.song2.cadi.R
+import com.caredirection.cadi.R
 import kotlinx.android.synthetic.main.activity_research_name.*
 
 class ResearchNicknameActivity : AppCompatActivity() {
@@ -39,7 +39,7 @@ class ResearchNicknameActivity : AppCompatActivity() {
                 // 입력값 없는 경우
                 else{
                     btn_nick_next?.isEnabled = false
-                    btn_nick_next?.setTextColor(resources.getColor(R.color.light_gray))
+                    btn_nick_next?.setTextColor(resources.getColor(R.color.colorDarkGray))
                 }
             }
 

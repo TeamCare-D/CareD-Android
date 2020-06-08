@@ -1,16 +1,14 @@
-package com.song2.cadi.research
+package com.caredirection.cadi.research
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
-import android.widget.CheckBox
 import android.widget.CheckedTextView
 import android.widget.Toast
-import com.song2.cadi.R
+import com.caredirection.cadi.R
 import kotlinx.android.synthetic.main.activity_research_disease.*
-import kotlinx.android.synthetic.main.activity_research_gender.*
 
 class ResearchDiseaseActivity : AppCompatActivity() {
 
@@ -63,7 +61,7 @@ class ResearchDiseaseActivity : AppCompatActivity() {
         }
         else{
             btn_disease_next.isEnabled = false
-            btn_disease_next.setTextColor(resources.getColor(R.color.light_gray))
+            btn_disease_next.setTextColor(resources.getColor(R.color.colorDarkGray))
         }
 
     }

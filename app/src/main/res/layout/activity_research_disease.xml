@@ -232,7 +232,7 @@
         android:textSize="15sp"
         android:lineSpacingExtra="7sp"
         android:includeFontPadding="false"
-        android:textColor="@color/dodger_blue"
+        android:textColor="@color/colorPointBlue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_disease_G" />
@@ -249,7 +249,7 @@
         android:includeFontPadding="false"
         android:lineSpacingExtra="6sp"
         android:text="다음으로 넘어가기"
-        android:textColor="@color/light_gray"
+        android:textColor="@color/colorDarkGray"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

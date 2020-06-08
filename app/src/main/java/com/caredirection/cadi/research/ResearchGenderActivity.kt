@@ -1,4 +1,4 @@
-package com.song2.cadi.research
+package com.caredirection.cadi.research
 
 import android.content.Context
 import android.content.Intent
@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Toast
-import com.song2.cadi.R
+import com.caredirection.cadi.R
 import kotlinx.android.synthetic.main.activity_research_gender.*
 
 class ResearchGenderActivity : AppCompatActivity() {
@@ -63,7 +63,7 @@ class ResearchGenderActivity : AppCompatActivity() {
     private fun checkNextButton(){
         btn_gender_next.isEnabled = (btn_women.isChecked || btn_man.isChecked) && btn_year.isChecked
         if(btn_gender_next.isEnabled) btn_gender_next.setTextColor(resources.getColor(R.color.colorWhite))
-        else btn_gender_next.setTextColor(resources.getColor(R.color.light_gray))
+        else btn_gender_next.setTextColor(resources.getColor(R.color.colorDarkGray))
     }
 
     // 상태바 투명 설정

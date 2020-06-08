@@ -12,4 +12,10 @@
     <color name="colorPointRed">#ff6258</color>
     <color name="colorPointBlue">#358fff</color>
     <color name="colorPointGray">#c3c3c3</color>
+
+    <!-- sub color -->
+    <color name="colorFontGray">#bbbcc1</color>
+    <color name="colorLightGray">#f2f3f5</color>
+    <color name="colorBorderGray">#c8c8c8</color>
+    <color name="colorDarkGray">#8e8f93</color>
 </resources>
