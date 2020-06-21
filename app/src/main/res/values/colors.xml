@@ -18,4 +18,7 @@
     <color name="colorLightGray">#f2f3f5</color>
     <color name="colorBorderGray">#c8c8c8</color>
     <color name="colorDarkGray">#8e8f93</color>
+
+    <color name="colorScrollYellow">#febd2d</color>
+    <color name="colorScrollGray">#f3f3f3</color>
 </resources>

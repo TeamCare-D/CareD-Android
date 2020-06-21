@@ -22,7 +22,7 @@ class ResearchDiseaseActivity : AppCompatActivity() {
         cl_research_disease.setPadding(0, statusBarHeight(this), 0, 0)
 
         disButtons = listOf(
-            btn_disease_A, btn_disease_B, btn_disease_C, btn_disease_D, btn_disease_E, btn_disease_F, btn_disease_G, btn_disease_H
+            btn_disease_none, btn_disease_1, btn_disease_2, btn_disease_3, btn_disease_4, btn_disease_5, btn_disease_6, btn_disease_7
         )
         //TODO: 이어하기_keeper 연결
 
@@ -38,9 +38,9 @@ class ResearchDiseaseActivity : AppCompatActivity() {
             }
         }
 
-        btn_disease_search.setOnClickListener {
-            Toast.makeText(this,"아직 못찾지롱", Toast.LENGTH_SHORT).show()
-        }
+//        btn_disease_search.setOnClickListener {
+//            Toast.makeText(this,"아직 못찾지롱", Toast.LENGTH_SHORT).show()
+//        }
 
         btn_disease_back.setOnClickListener {
             finish()
