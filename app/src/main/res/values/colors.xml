@@ -7,11 +7,17 @@
     <!-- main color -->
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTransparentWhite">#ccffffff</color>
+
 
     <!-- point color -->
     <color name="colorPointRed">#ff6258</color>
     <color name="colorPointBlue">#358fff</color>
     <color name="colorPointGray">#c3c3c3</color>
     <color name="colorDarkGray">#929293</color>
+
+
+    <color name="colorYellow">#FEBD2D</color>
+
 
 </resources>

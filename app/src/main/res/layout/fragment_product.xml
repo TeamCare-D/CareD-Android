@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorDarkGray"
     tools:context=".MainActivity">
 
    <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +23,7 @@
        android:layout_marginRight="24dp"
        android:layout_width="44dp"
        android:layout_height="44dp"
-       android:src="@drawable/ic_launcher_background"/>
+       android:src="@drawable/btn_present"/>
 
    <TextView
        android:id="@+id/txt_product_title"
@@ -45,19 +46,18 @@
        android:layout_marginTop="19dp"
        android:layout_width="124dp"
        android:layout_height="34dp"
-       android:src="@color/colorBlack"
+       android:src="@drawable/btn_product_search"
        />
 
    </androidx.constraintlayout.widget.ConstraintLayout>
 
-   <ScrollView
-       app:layout_constraintTop_toBottomOf="@id/layout_product_top"
-       android:layout_width="match_parent"
-       android:layout_height="400dp"
-       >
+
       <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
-          android:layout_height="match_parent">
+          android:layout_height="0dp"
+          app:layout_constraintTop_toBottomOf="@+id/layout_product_top"
+          android:background="@color/colorWhite"
+          >
 
          <TextView
              android:id="@+id/txt_product_suggestion"
@@ -68,9 +68,7 @@
              android:layout_width="wrap_content"
              android:layout_height="29dp"
              android:text="Suggestion"
-             android:textSize="20dp"
-             android:textColor="@color/colorBlack"
-             android:lineHeight="29sp"
+             style="@style/bold20"
              />
          <TextView
              android:id="@+id/txt_product_suggestion_explain"
@@ -79,41 +77,59 @@
              app:layout_constraintStart_toStartOf="@id/txt_product_suggestion"
              app:layout_constraintTop_toBottomOf="@id/txt_product_suggestion"
              android:text="비슷한 사람들이 가장 많이 섭취하고 있는 성분이에요."
-             android:textSize="12dp"
-             android:textColor="@color/colorBlack"
+             style="@style/light12"
+             android:layout_marginTop="8dp"
             />
 
          <TextView
              android:id="@+id/txt_product_suggestion_item1"
              android:layout_width="98dp"
              android:layout_height="42dp"
-             app:layout_constraintStart_toStartOf="@id/txt_product_suggestion_explain"
-             app:layout_constraintTop_toBottomOf="@id/txt_product_suggestion_explain"
              android:layout_marginTop="18dp"
-             android:text="홍삼"
+             android:background="@drawable/btn_component_line"
              android:gravity="center"
-             />
+             android:text="홍삼"
+             android:textColor="@color/colorBlack"
+             android:textSize="12dp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintEnd_toStartOf="@+id/txt_product_suggestion_item2"
+             app:layout_constraintHorizontal_weight="1"
+             app:layout_constraintTop_toBottomOf="@id/txt_product_suggestion_explain"
+             app:layout_constraintHorizontal_chainStyle="packed"
+             tools:layout_editor_absoluteX="118dp" />
 
          <TextView
              android:id="@+id/txt_product_suggestion_item2"
              android:layout_width="98dp"
              android:layout_height="42dp"
+             android:background="@drawable/btn_component_line"
              android:gravity="center"
-             android:text="홍삼"
-             android:layout_marginLeft="5dp"
+             android:text="오메가3"
+             android:textColor="@color/colorBlack"
+             android:textSize="12dp"
              app:layout_constraintStart_toEndOf="@id/txt_product_suggestion_item1"
-             app:layout_constraintTop_toTopOf="@id/txt_product_suggestion_item1" />
+             app:layout_constraintEnd_toStartOf="@id/txt_product_suggestion_item3"
+             app:layout_constraintHorizontal_weight="1"
+             app:layout_constraintTop_toTopOf="@id/txt_product_suggestion_item1"
+             android:layout_marginLeft="5dp"
+             android:layout_marginRight="5dp"
+             tools:layout_editor_absoluteX="216dp" />
 
          <TextView
              android:id="@+id/txt_product_suggestion_item3"
              android:layout_width="98dp"
              android:layout_height="42dp"
+             android:background="@drawable/btn_component_line"
              android:gravity="center"
-             android:text="홍삼"
-             android:layout_marginLeft="5dp"
-             app:layout_constraintStart_toEndOf="@+id/txt_product_suggestion_item2"
-             app:layout_constraintTop_toTopOf="@id/txt_product_suggestion_item2" />
-         
+             android:text="비타민D"
+             android:textColor="@color/colorBlack"
+             android:textSize="12dp"
+             app:layout_constraintHorizontal_weight="1"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toEndOf="@id/txt_product_suggestion_item2"
+             app:layout_constraintTop_toTopOf="@id/txt_product_suggestion_item2"
+             tools:layout_editor_absoluteX="314dp" />
+
          <TextView
              android:id="@+id/txt_product_magazine"
              app:layout_constraintStart_toStartOf="parent"
@@ -122,12 +138,20 @@
              android:layout_width="wrap_content"
              android:layout_height="29dp"
              android:text="CARE Magazine"
-             android:layout_marginTop="50dp"
+             android:layout_marginTop="62dp"
              style="@style/bold20"
              />
-         
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/rv_product_magazine_interested"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/txt_product_magazine"
+             android:layout_marginTop="16dp"
+             tools:listitem="@layout/rv_magazine_direction"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"/>
 
       </androidx.constraintlayout.widget.ConstraintLayout>
 
-   </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
