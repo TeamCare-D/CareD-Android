@@ -7,6 +7,7 @@ import android.view.WindowManager
 import android.widget.CheckedTextView
 import android.widget.Toast
 import com.caredirection.cadi.R
+import kotlinx.android.synthetic.main.activity_research_disease.*
 import kotlinx.android.synthetic.main.activity_research_medicine.*
 
 class ResearchMedicineActivity : AppCompatActivity() {
@@ -17,9 +18,7 @@ class ResearchMedicineActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_medicine)
 
-        // 상태바 투명 설정
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        cl_research_medicine.setPadding(0, statusBarHeight(this), 0, 0)
+        setStatusBarTransparent()
 
         medButtons = listOf(
             btn_medicine_A, btn_medicine_B, btn_medicine_C, btn_medicine_D, btn_medicine_E, btn_medicine_F, btn_medicine_G, btn_medicine_H
@@ -63,7 +62,13 @@ class ResearchMedicineActivity : AppCompatActivity() {
     }
 
     // 상태바 투명 설정
-    fun statusBarHeight(context: Context): Int {
+    private fun setStatusBarTransparent(){
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        cl_research_medicine.setPadding(0, statusBarHeightInfo(this), 0, 0)
+    }
+
+    // 상태바 높이 정보
+    private fun statusBarHeightInfo(context: Context): Int {
         val resourceId = context.resources.getIdentifier("status_bar_height", "dimen", "android")
 
         return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)

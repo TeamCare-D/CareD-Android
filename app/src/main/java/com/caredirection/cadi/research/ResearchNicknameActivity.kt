@@ -15,11 +15,7 @@ class ResearchNicknameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_name)
 
-        // 상태바 투명 설정
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        cl_research_nick.setPadding(0, statusBarHeight(this), 0, 0)
-
-        //TODO: 이어하기_keeper 연결
+        setStatusBarTransparent()
 
         makeController()
     }
@@ -62,7 +58,13 @@ class ResearchNicknameActivity : AppCompatActivity() {
     }
 
     // 상태바 투명 설정
-    fun statusBarHeight(context: Context): Int {
+    private fun setStatusBarTransparent(){
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        cl_research_nick.setPadding(0, statusBarHeightInfo(this), 0, 0)
+    }
+
+    // 상태바 높이 정보
+    private fun statusBarHeightInfo(context: Context): Int {
         val resourceId = context.resources.getIdentifier("status_bar_height", "dimen", "android")
 
         return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
