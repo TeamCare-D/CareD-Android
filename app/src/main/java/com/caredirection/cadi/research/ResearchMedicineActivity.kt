@@ -64,11 +64,11 @@ class ResearchMedicineActivity : AppCompatActivity() {
     // 상태바 투명 설정
     private fun setStatusBarTransparent(){
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        cl_research_medicine.setPadding(0, statusBarHeightInfo(this), 0, 0)
+        cl_research_medicine.setPadding(0, getStatusBarHeight(this), 0, 0)
     }
 
     // 상태바 높이 정보
-    private fun statusBarHeightInfo(context: Context): Int {
+    private fun getStatusBarHeight(context: Context): Int {
         val resourceId = context.resources.getIdentifier("status_bar_height", "dimen", "android")
 
         return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
