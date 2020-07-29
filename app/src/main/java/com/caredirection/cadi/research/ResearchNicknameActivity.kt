@@ -24,7 +24,10 @@ class ResearchNicknameActivity : AppCompatActivity() {
 
     // 버튼 클릭리스너 지정
     private fun makeListener(){
-        // 다음 버튼 처리
+        setNextClickListener()
+    }
+
+    private fun setNextClickListener(){
         btn_nickNext?.setOnClickListener{
             val genderIntent = Intent(this,ResearchGenderActivity::class.java)
             genderIntent.putExtra("nick", edt_nick.text.toString())
