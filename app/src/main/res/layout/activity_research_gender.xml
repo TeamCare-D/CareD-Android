@@ -60,7 +60,7 @@
 
     <CheckedTextView
         android:id="@+id/btn_women"
-        android:layout_width="129dp"
+        android:layout_width="0dp"
         android:layout_height="44dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="70dp"
@@ -81,7 +81,7 @@
 
     <CheckedTextView
         android:id="@+id/btn_man"
-        android:layout_width="129dp"
+        android:layout_width="0dp"
         android:layout_height="44dp"
         android:layout_marginTop="70dp"
         android:layout_marginEnd="40dp"
@@ -101,7 +101,7 @@
 
     <CheckedTextView
         android:id="@+id/btn_year"
-        android:layout_width="280dp"
+        android:layout_width="0dp"
         android:layout_height="44dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="154dp"
@@ -122,9 +122,11 @@
 
     <Button
         android:id="@+id/btn_gender_next"
-        android:layout_width="304dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="80dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginBottom="169dp"
         android:background="@drawable/selector_research_next"
         android:enabled="false"
