@@ -17,25 +17,38 @@ class ResearchNicknameActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-        makeController()
+        checkNicknameEmpty()
+
+        makeListener()
+    }
+
+    // 버튼 클릭리스너 지정
+    private fun makeListener(){
+        // 다음 버튼 처리
+        btn_nickNext?.setOnClickListener{
+            val genderIntent = Intent(this,ResearchGenderActivity::class.java)
+            genderIntent.putExtra("nick", edt_nick.text.toString())
+
+            startActivity(genderIntent)
+        }
     }
 
     // 사용자 입력 확인
-    private fun makeController(){
+    private fun checkNicknameEmpty(){
         // 이름 입력 실시간 검사
         edt_nick?.addTextChangedListener(object: TextWatcher{
-            var nick_length = 0
+            var nickLength = 0
             override fun afterTextChanged(p0: Editable?) {
-                nick_length = edt_nick?.length()!!
+                nickLength = edt_nick?.length()!!
                 // 입력값 있는 경우
-                if(nick_length > 0){
-                    btn_nick_next?.isEnabled = true
-                    btn_nick_next?.setTextColor(resources.getColor(R.color.colorWhite))
+                if(nickLength > 0){
+                    btn_nickNext?.isEnabled = true
+                    btn_nickNext?.setTextColor(resources.getColor(R.color.colorWhite))
                 }
                 // 입력값 없는 경우
                 else{
-                    btn_nick_next?.isEnabled = false
-                    btn_nick_next?.setTextColor(resources.getColor(R.color.colorDarkGray))
+                    btn_nickNext?.isEnabled = false
+                    btn_nickNext?.setTextColor(resources.getColor(R.color.colorDarkGray))
                 }
             }
 
@@ -47,20 +60,12 @@ class ResearchNicknameActivity : AppCompatActivity() {
                 //TODO("Not yet implemented")
             }
         })
-
-        // 다음 버튼 처리
-        btn_nick_next?.setOnClickListener{
-            val gender_intent = Intent(this,ResearchGenderActivity::class.java)
-            gender_intent.putExtra("nick", edt_nick.text.toString())
-
-            startActivity(gender_intent)
-        }
     }
 
     // 상태바 투명 설정
     private fun setStatusBarTransparent(){
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        cl_research_nick.setPadding(0, getStatusBarHeight(this), 0, 0)
+        cl_researchNick.setPadding(0, getStatusBarHeight(this), 0, 0)
     }
 
     // 상태바 높이 정보
