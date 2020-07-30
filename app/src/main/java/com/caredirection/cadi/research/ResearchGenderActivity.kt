@@ -2,12 +2,20 @@ package com.caredirection.cadi.research
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
+import android.widget.Button
+import android.widget.NumberPicker
+import androidx.appcompat.app.AlertDialog
 import com.caredirection.cadi.R
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_research_gender.*
+import kotlinx.android.synthetic.main.dialog_research_year.*
 
 class ResearchGenderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,9 +59,72 @@ class ResearchGenderActivity : AppCompatActivity() {
 
     private fun setYearClickListener(){
         btn_year?.setOnClickListener {
-            btn_year?.isChecked = true
             checkNextButton()
-            Toast.makeText(this,"아직 안했지롱", Toast.LENGTH_SHORT).show()
+
+            showYearPicker()
+        }
+    }
+
+    private fun showYearPicker(){
+        val yearDialog = BottomSheetDialog(this)
+        val yearLayout : LayoutInflater = LayoutInflater.from(this)
+        val yearView : View = yearLayout.inflate(R.layout.dialog_research_year,null)
+
+        val npYear : NumberPicker = yearView.findViewById(R.id.np_year)
+        val btnCancel : Button = yearView.findViewById(R.id.btn_cancel)
+        val btnConfirm : Button = yearView.findViewById(R.id.btn_confirm)
+
+        npYear.minValue = 1900
+        npYear.maxValue = 2020
+        npYear.value = 1997
+
+        npYear.wrapSelectorWheel = false
+        npYear.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
+
+        setDividerColor(npYear, this.resources.getColor(R.color.colorWhite))
+
+        btnCancel.setOnClickListener {
+            yearDialog.dismiss()
+            yearDialog.cancel()
+        }
+
+        btnConfirm.setOnClickListener {
+            btn_year.text = npYear.value.toString()
+            btn_year?.isChecked = true
+
+            yearDialog.dismiss()
+            yearDialog.cancel()
+        }
+
+        yearDialog.setContentView(yearView)
+        yearDialog.setCanceledOnTouchOutside(false)
+        yearDialog.create()
+        yearDialog.show()
+    }
+
+    private fun setDividerColor(picker: NumberPicker, color: Int)
+    {
+        val pickerFields = NumberPicker::class.java.declaredFields
+        for (pf in pickerFields) {
+            if (pf.name == "mSelectionDivider")
+            {
+                pf.isAccessible = true
+                try
+                {
+                    val colorDrawable = ColorDrawable(color)
+                    pf.set(picker, colorDrawable)
+                } catch (e: IllegalArgumentException)
+                {
+                    e.printStackTrace()
+                } catch (e: Resources.NotFoundException)
+                {
+                    e.printStackTrace()
+                } catch (e: IllegalAccessException)
+                {
+                    e.printStackTrace()
+                }
+                break
+            }
         }
     }
 
