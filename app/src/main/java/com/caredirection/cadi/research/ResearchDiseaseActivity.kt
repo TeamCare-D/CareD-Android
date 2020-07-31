@@ -21,31 +21,40 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
+        initButtons()
+
+        makeListener()
+    }
+
+    private fun initButtons(){
         disButtons = listOf(
             btn_disease_none, btn_disease_1, btn_disease_2, btn_disease_3, btn_disease_4, btn_disease_5, btn_disease_6, btn_disease_7
         )
-        //TODO: 이어하기_keeper 연결
-
-        makeController()
     }
 
-    // 사용자 입력 확인
-    private fun makeController() {
+    // 버튼 클릭리스너 지정
+    private fun makeListener(){
+        setButtonsClickListener()
+        setBackClickListener()
+        setNextClickListener()
+    }
+
+    private fun setButtonsClickListener() {
         disButtons.forEachIndexed { index, checkedTextView ->
             disButtons[index].setOnClickListener {
                 disButtons[index].isChecked = !disButtons[index].isChecked
                 checkNextButton()
             }
         }
+    }
 
-//        btn_disease_search.setOnClickListener {
-//            Toast.makeText(this,"아직 못찾지롱", Toast.LENGTH_SHORT).show()
-//        }
-
+    private fun setBackClickListener(){
         btn_disease_back.setOnClickListener {
             finish()
         }
+    }
 
+    private fun setNextClickListener(){
         btn_disease_next.setOnClickListener {
             val medicine_intent = Intent(this, ResearchMedicineActivity::class.java)
 
@@ -63,7 +72,6 @@ class ResearchDiseaseActivity : AppCompatActivity() {
             btn_disease_next.isEnabled = false
             btn_disease_next.setTextColor(resources.getColor(R.color.colorDarkGray))
         }
-
     }
 
     // 상태바 투명 설정
