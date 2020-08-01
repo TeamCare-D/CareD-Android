@@ -20,30 +20,40 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
+        initButtons()
+
+        makeListener()
+    }
+
+    private fun initButtons(){
         medButtons = listOf(
             btn_medicine_A, btn_medicine_B, btn_medicine_C, btn_medicine_D, btn_medicine_E, btn_medicine_F, btn_medicine_G, btn_medicine_H
         )
-        //TODO: 이어하기_keeper 연결
-
-        makeController()
     }
 
-    private fun makeController(){
+    // 버튼 클릭리스너 지정
+    private fun makeListener(){
+        setButtonsClickListener()
+        setBackClickListener()
+        setNextClickListener()
+    }
+
+    private fun setButtonsClickListener(){
         medButtons.forEachIndexed { index, checkedTextView ->
             medButtons[index].setOnClickListener {
                 medButtons[index].isChecked = !medButtons[index].isChecked
                 checkNextButton()
             }
         }
+    }
 
-        btn_medicine_add.setOnClickListener {
-            Toast.makeText(this,"아직 추가못하지롱",Toast.LENGTH_SHORT).show()
-        }
-
+    private fun setBackClickListener(){
         btn_medicine_back.setOnClickListener {
             finish()
         }
+    }
 
+    private fun setNextClickListener(){
         btn_medicine_next.setOnClickListener {
             Toast.makeText(this,"끝이지롱",Toast.LENGTH_SHORT).show()
         }
