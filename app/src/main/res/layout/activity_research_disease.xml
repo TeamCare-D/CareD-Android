@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".research.ResearchDiseaseActivity"
+    tools:context=".research.disease.ResearchDiseaseActivity"
     android:id="@+id/cl_research_disease">
 
     <ImageView
@@ -411,8 +411,10 @@
 
     <Button
         android:id="@+id/btn_disease_next"
-        android:layout_width="304dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginBottom="80dp"
         android:background="@drawable/selector_research_next"
         android:enabled="false"
