@@ -3,6 +3,7 @@ package com.caredirection.cadi.research
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -11,14 +12,19 @@ import android.widget.NumberPicker
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
+import com.caredirection.cadi.research.disease.ResearchDiseaseActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_research_gender.*
 
 class ResearchGenderActivity : AppCompatActivity() {
 
+    private var displayMetrics = DisplayMetrics()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_gender)
+
+        windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
         setStatusBarTransparent()
 
@@ -36,25 +42,22 @@ class ResearchGenderActivity : AppCompatActivity() {
 
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT,ConstraintLayout.LayoutParams.WRAP_CONTENT)
-        param.width = getDeviceWidth()/5
-        param.height = getDeviceHeight()/5
+        param.width = displayMetrics.widthPixels/5
+        param.height = getDisplayHeight()/5
 
         pb_gender.layoutParams = param
         pb_gender.progress = 100
     }
 
-    private fun getDeviceWidth():Int{
-        val display = windowManager.defaultDisplay
-        val size = Point()
-        display.getRealSize(size)
-        return size.x
-    }
+    private fun getDisplayHeight():Int{
+        val displayHeight = displayMetrics.heightPixels
+        val statusBarHeight = getStatusBarHeight(this)
 
-    private fun getDeviceHeight():Int{
-        val display = windowManager.defaultDisplay
-        val size = Point()
-        display.getRealSize(size)
-        return size.y
+        if(getNavigationBarInfo(this)){
+            val navigationBarHeight = getNavigationBarHeight(this)
+            return displayHeight-statusBarHeight-navigationBarHeight
+        }
+        return displayHeight-statusBarHeight
     }
 
     // 버튼 클릭리스너 지정
@@ -160,5 +163,20 @@ class ResearchGenderActivity : AppCompatActivity() {
 
         return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
         else 0
+    }
+
+    // 네비게이션바 높이 정보
+    private fun getNavigationBarHeight(context: Context): Int{
+        val resourceBottom = context.resources.getIdentifier("navigation_bar_height", "dimen", "android")
+
+        return if (resourceBottom > 0) context.resources.getDimensionPixelSize(resourceBottom)
+        else 0
+    }
+
+    // 네비게이션바 구분(소프트/하드)
+    private fun getNavigationBarInfo(context: Context):Boolean{
+        val resourceBottom = context.resources.getIdentifier("config_showNavigationBar", "bool", "android")
+
+        return context.resources.getBoolean(resourceBottom)
     }
 }
