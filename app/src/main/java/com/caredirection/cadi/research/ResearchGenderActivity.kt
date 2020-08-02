@@ -2,16 +2,13 @@ package com.caredirection.cadi.research
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.Resources
-import android.graphics.Point
-import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.NumberPicker
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -84,8 +81,6 @@ class ResearchGenderActivity : AppCompatActivity() {
 
     private fun setYearClickListener(){
         btn_year?.setOnClickListener {
-            checkNextButton()
-
             showYearPicker()
         }
     }
@@ -106,11 +101,13 @@ class ResearchGenderActivity : AppCompatActivity() {
         npYear.wrapSelectorWheel = false
         npYear.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
 
-        setDividerColor(npYear, this.resources.getColor(R.color.colorWhite))
+        npYear.textColor = this.resources.getColor(R.color.colorWhite)
 
         btnCancel.setOnClickListener {
             yearDialog.dismiss()
             yearDialog.cancel()
+
+            checkNextButton()
         }
 
         btnConfirm.setOnClickListener {
@@ -119,38 +116,14 @@ class ResearchGenderActivity : AppCompatActivity() {
 
             yearDialog.dismiss()
             yearDialog.cancel()
+
+            checkNextButton()
         }
 
         yearDialog.setContentView(yearView)
         yearDialog.setCanceledOnTouchOutside(false)
         yearDialog.create()
         yearDialog.show()
-    }
-
-    private fun setDividerColor(picker: NumberPicker, color: Int)
-    {
-        val pickerFields = NumberPicker::class.java.declaredFields
-        for (pf in pickerFields) {
-            if (pf.name == "mSelectionDivider")
-            {
-                pf.isAccessible = true
-                try
-                {
-                    val colorDrawable = ColorDrawable(color)
-                    pf.set(picker, colorDrawable)
-                } catch (e: IllegalArgumentException)
-                {
-                    e.printStackTrace()
-                } catch (e: Resources.NotFoundException)
-                {
-                    e.printStackTrace()
-                } catch (e: IllegalAccessException)
-                {
-                    e.printStackTrace()
-                }
-                break
-            }
-        }
     }
 
     private fun setBackClickListener(){
@@ -170,6 +143,7 @@ class ResearchGenderActivity : AppCompatActivity() {
     // 다음 버튼 처리를 위한 확인
     private fun checkNextButton(){
         btn_genderNext.isEnabled = (btn_women.isChecked || btn_man.isChecked) && btn_year.isChecked
+
         if(btn_genderNext.isEnabled) btn_genderNext.setTextColor(resources.getColor(R.color.colorWhite))
         else btn_genderNext.setTextColor(resources.getColor(R.color.colorDarkGray))
     }

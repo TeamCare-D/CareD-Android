@@ -7,4 +7,12 @@
         <item name="colorAccent">@color/colorPointBlue</item>
     </style>
 
+    <style name="ResearchNumberPickerTheme" parent="AppTheme">
+        <item name="colorControlNormal">@color/colorDivider</item>
+    </style>
+
+    <style name="ResearchProgressbarTheme" parent="AppTheme">
+        <item name="colorAccent">@color/colorBlack</item>
+    </style>
+
 </resources>

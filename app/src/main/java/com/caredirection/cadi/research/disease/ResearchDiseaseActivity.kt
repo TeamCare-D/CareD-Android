@@ -1,19 +1,24 @@
-package com.caredirection.cadi.research
+package com.caredirection.cadi.research.disease
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import android.widget.CheckedTextView
-import android.widget.Toast
+import android.widget.GridLayout
+import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.research.DummyDisease
+import com.caredirection.cadi.research.ResearchMedicineActivity
 import kotlinx.android.synthetic.main.activity_research_disease.*
-import kotlinx.android.synthetic.main.activity_research_gender.*
 
 class ResearchDiseaseActivity : AppCompatActivity() {
 
     private lateinit var disButtons: List<CheckedTextView>
+    private lateinit var diseaseAdapter: DiseaseAdapter
+    private var dummyDisease = DummyDisease()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,20 +26,33 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-        initButtons()
+        //initButtons()
+        initBtn()
 
         makeListener()
     }
 
-    private fun initButtons(){
-        disButtons = listOf(
-            btn_disease_none, btn_disease_1, btn_disease_2, btn_disease_3, btn_disease_4, btn_disease_5, btn_disease_6, btn_disease_7
-        )
+    private fun initBtn(){
+        diseaseAdapter = DiseaseAdapter(this)
+
+        rv_disease.adapter = diseaseAdapter
+
+        rv_disease.layoutManager = GridLayoutManager(this,2)
+
+        diseaseAdapter.data = dummyDisease.getDiseaseList()
+
+        diseaseAdapter.notifyDataSetChanged()
     }
+
+//    private fun initButtons(){
+//        disButtons = listOf(
+//            btn_disease_none, btn_disease_1, btn_disease_2, btn_disease_3, btn_disease_4, btn_disease_5, btn_disease_6, btn_disease_7
+//        )
+//    }
 
     // 버튼 클릭리스너 지정
     private fun makeListener(){
-        setButtonsClickListener()
+        //setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
     }
@@ -56,9 +74,9 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
     private fun setNextClickListener(){
         btn_disease_next.setOnClickListener {
-            val medicine_intent = Intent(this, ResearchMedicineActivity::class.java)
+            val medicineIntent = Intent(this, ResearchMedicineActivity::class.java)
 
-            startActivity(medicine_intent)
+            startActivity(medicineIntent)
         }
     }
 

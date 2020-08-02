@@ -21,4 +21,6 @@
 
     <color name="colorScrollYellow">#febd2d</color>
     <color name="colorScrollGray">#f3f3f3</color>
+
+    <color name="colorDivider">#80ffffff</color>
 </resources>
