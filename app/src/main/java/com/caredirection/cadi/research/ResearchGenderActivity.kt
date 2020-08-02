@@ -3,6 +3,7 @@ package com.caredirection.cadi.research
 import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
+import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,13 +12,13 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.NumberPicker
-import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_research_gender.*
-import kotlinx.android.synthetic.main.dialog_research_year.*
 
 class ResearchGenderActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_gender)
@@ -25,6 +26,7 @@ class ResearchGenderActivity : AppCompatActivity() {
         setStatusBarTransparent()
 
         initTitle()
+        initProgressBar()
 
         makeListener()
     }
@@ -33,6 +35,29 @@ class ResearchGenderActivity : AppCompatActivity() {
         val nick = intent.getStringExtra("nick")
 
         txt_genderTitle.text = nick + "님의\n건강기능식품 선택을 도와드릴게요"
+    }
+
+    private fun initProgressBar(){
+        var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT,ConstraintLayout.LayoutParams.WRAP_CONTENT)
+        param.width = getDeviceWidth()/5
+        param.height = getDeviceHeight()/5
+
+        pb_gender.layoutParams = param
+        pb_gender.progress = 100
+    }
+
+    private fun getDeviceWidth():Int{
+        val display = windowManager.defaultDisplay
+        val size = Point()
+        display.getRealSize(size)
+        return size.x
+    }
+
+    private fun getDeviceHeight():Int{
+        val display = windowManager.defaultDisplay
+        val size = Point()
+        display.getRealSize(size)
+        return size.y
     }
 
     // 버튼 클릭리스너 지정
