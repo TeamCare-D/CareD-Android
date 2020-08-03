@@ -2,12 +2,10 @@ package com.caredirection.cadi.research.disease
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowManager
 import android.widget.CheckedTextView
-import android.widget.GridLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.research.DummyDisease
@@ -27,12 +25,12 @@ class ResearchDiseaseActivity : AppCompatActivity() {
         setStatusBarTransparent()
 
         //initButtons()
-        initBtn()
+        initDiseaseList()
 
         makeListener()
     }
 
-    private fun initBtn(){
+    private fun initDiseaseList(){
         diseaseAdapter = DiseaseAdapter(this)
 
         rv_disease.adapter = diseaseAdapter
