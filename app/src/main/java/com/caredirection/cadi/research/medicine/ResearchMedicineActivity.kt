@@ -1,18 +1,21 @@
-package com.caredirection.cadi.research
+package com.caredirection.cadi.research.medicine
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.CheckedTextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
-import kotlinx.android.synthetic.main.activity_research_disease.*
+import com.caredirection.cadi.data.research.DummyMedicine
 import kotlinx.android.synthetic.main.activity_research_medicine.*
 
 class ResearchMedicineActivity : AppCompatActivity() {
 
     private lateinit var medButtons: List<CheckedTextView>
+    private lateinit var medicineAdapter: MedicineAdapter
+    private var dummyMedicine = DummyMedicine()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,20 +23,33 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-        initButtons()
+        //initButtons()
+        initMedicineList()
 
         makeListener()
     }
 
-    private fun initButtons(){
-        medButtons = listOf(
-            btn_medicine_A, btn_medicine_B, btn_medicine_C, btn_medicine_D, btn_medicine_E, btn_medicine_F, btn_medicine_G, btn_medicine_H
-        )
+    private fun initMedicineList(){
+        medicineAdapter = MedicineAdapter(this)
+
+        rv_medicine.adapter = medicineAdapter
+
+        rv_medicine.layoutManager = GridLayoutManager(this, 2)
+
+        medicineAdapter.data = dummyMedicine.getMedicineList()
+
+        medicineAdapter.notifyDataSetChanged()
     }
+
+//    private fun initButtons(){
+//        medButtons = listOf(
+//            btn_medicine_A, btn_medicine_B, btn_medicine_C, btn_medicine_D, btn_medicine_E, btn_medicine_F, btn_medicine_G, btn_medicine_H
+//        )
+//    }
 
     // 버튼 클릭리스너 지정
     private fun makeListener(){
-        setButtonsClickListener()
+        //setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
     }
