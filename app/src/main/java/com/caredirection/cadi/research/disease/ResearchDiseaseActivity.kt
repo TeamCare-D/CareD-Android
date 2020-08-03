@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.research.DummyDisease
-import com.caredirection.cadi.research.ResearchMedicineActivity
+import com.caredirection.cadi.research.medicine.ResearchMedicineActivity
 import kotlinx.android.synthetic.main.activity_research_disease.*
 
 class ResearchDiseaseActivity : AppCompatActivity() {

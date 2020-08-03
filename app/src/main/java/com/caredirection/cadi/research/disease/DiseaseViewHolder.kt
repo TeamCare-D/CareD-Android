@@ -8,7 +8,7 @@ import com.caredirection.cadi.data.research.DiseaseItem
 
 class DiseaseViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
-    private val btnDisease : CheckedTextView = view.findViewById(R.id.btn_disease)
+    private val btnDisease : CheckedTextView = view.findViewById(R.id.btn_item)
 
     fun onBind(item: DiseaseItem){
         btnDisease.text = item.disease

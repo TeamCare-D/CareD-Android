@@ -12,7 +12,7 @@ class DiseaseAdapter(private val context: Context) : RecyclerView.Adapter<Diseas
     var data : List<DiseaseItem> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiseaseViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.rv_item_disease, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.rv_item_research, parent, false)
 
         return DiseaseViewHolder(view)
     }
