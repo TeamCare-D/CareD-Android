@@ -1,14 +1,15 @@
 package com.caredirection.cadi.research.medicine
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.CheckedTextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.research.DummyMedicine
+import com.caredirection.cadi.research.interest.ResearchInterestActivity
 import kotlinx.android.synthetic.main.activity_research_medicine.*
 
 class ResearchMedicineActivity : AppCompatActivity() {
@@ -71,7 +72,9 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
     private fun setNextClickListener(){
         btn_medicine_next.setOnClickListener {
-            Toast.makeText(this,"끝이지롱",Toast.LENGTH_SHORT).show()
+            val interestIntent = Intent(this, ResearchInterestActivity::class.java)
+
+            startActivity(interestIntent)
         }
     }
 
