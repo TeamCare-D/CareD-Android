@@ -43,7 +43,7 @@ class ResearchGenderActivity : AppCompatActivity() {
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT,ConstraintLayout.LayoutParams.WRAP_CONTENT)
         param.width = displayMetrics.widthPixels/5
-        param.height = getDisplayHeight()/5
+        param.height = getDisplayHeight()/6
 
         pb_gender.layoutParams = param
         pb_gender.progress = 100

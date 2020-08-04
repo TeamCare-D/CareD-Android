@@ -3,9 +3,11 @@ package com.caredirection.cadi.research.medicine
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.WindowManager
 import android.widget.CheckedTextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.research.DummyMedicine
@@ -14,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_research_medicine.*
 
 class ResearchMedicineActivity : AppCompatActivity() {
 
+    private var displayMetrics = DisplayMetrics()
     private lateinit var medButtons: List<CheckedTextView>
     private lateinit var medicineAdapter: MedicineAdapter
     private var dummyMedicine = DummyMedicine()
@@ -22,9 +25,12 @@ class ResearchMedicineActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_medicine)
 
+        windowManager.defaultDisplay.getRealMetrics(displayMetrics)
+
         setStatusBarTransparent()
 
         //initButtons()
+        initProgressBar()
         initMedicineList()
 
         makeListener()
@@ -47,6 +53,28 @@ class ResearchMedicineActivity : AppCompatActivity() {
 //            btn_medicine_A, btn_medicine_B, btn_medicine_C, btn_medicine_D, btn_medicine_E, btn_medicine_F, btn_medicine_G, btn_medicine_H
 //        )
 //    }
+
+    private fun initProgressBar(){
+        var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
+            ConstraintLayout.LayoutParams.WRAP_CONTENT,
+            ConstraintLayout.LayoutParams.WRAP_CONTENT)
+        param.width = (displayMetrics.widthPixels/5)*3
+        param.height = getDisplayHeight()/6
+
+        pb_medicine.layoutParams = param
+        pb_medicine.progress = 100
+    }
+
+    private fun getDisplayHeight():Int{
+        val displayHeight = displayMetrics.heightPixels
+        val statusBarHeight = getStatusBarHeight(this)
+
+        if(getNavigationBarInfo(this)){
+            val navigationBarHeight = getNavigationBarHeight(this)
+            return displayHeight-statusBarHeight-navigationBarHeight
+        }
+        return displayHeight-statusBarHeight
+    }
 
     // 버튼 클릭리스너 지정
     private fun makeListener(){
@@ -102,5 +130,20 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
         return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
         else 0
+    }
+
+    // 네비게이션바 높이 정보
+    private fun getNavigationBarHeight(context: Context): Int{
+        val resourceBottom = context.resources.getIdentifier("navigation_bar_height", "dimen", "android")
+
+        return if (resourceBottom > 0) context.resources.getDimensionPixelSize(resourceBottom)
+        else 0
+    }
+
+    // 네비게이션바 구분(소프트/하드)
+    private fun getNavigationBarInfo(context: Context):Boolean{
+        val resourceBottom = context.resources.getIdentifier("config_showNavigationBar", "bool", "android")
+
+        return context.resources.getBoolean(resourceBottom)
     }
 }
