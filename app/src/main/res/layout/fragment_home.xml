@@ -170,38 +170,49 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:layout_marginBottom="13dp"
                     android:fontFamily="@font/notosanskr_light"
                     android:includeFontPadding="false"
                     android:text="내가 가장 많이 케어받는 분야에요."
-                    app:layout_constraintBottom_toTopOf="@+id/txt_home_most_item1"
                     app:layout_constraintStart_toStartOf="@+id/txt_home_care_title"
                     app:layout_constraintTop_toBottomOf="@+id/txt_home_care_title" />
 
+                <FrameLayout
+                    android:id="@+id/fl_home_care"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/blue_border_fill_20"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_home_care_similar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_home_my_care_desc">
+
+                </FrameLayout>
+
                 <TextView
                     android:id="@+id/txt_home_most_item1"
-                    android:layout_width="95dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="13dp"
-                    android:layout_marginEnd="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="간건강"
-                    app:layout_constraintBottom_toTopOf="@+id/txt_home_care_similar"
+                    app:layout_constraintBottom_toTopOf="@+id/fl_home_care"
                     app:layout_constraintEnd_toStartOf="@+id/imageView2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_home_my_care_desc" />
+                    app:layout_constraintStart_toStartOf="@+id/fl_home_care"
+                    app:layout_constraintTop_toBottomOf="@+id/fl_home_care" />
 
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="1dp"
                     android:layout_height="12dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="3dp"
-                    android:background="@color/colorPointBlue"
+                    android:background="@color/colorPointGray"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_home_most_item1"
                     app:layout_constraintEnd_toStartOf="@+id/txt_home_most_item2"
                     app:layout_constraintStart_toEndOf="@+id/txt_home_most_item1"
@@ -209,11 +220,10 @@
 
                 <TextView
                     android:id="@+id/txt_home_most_item2"
-                    android:layout_width="95dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="피로회복"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_home_most_item1"
                     app:layout_constraintEnd_toStartOf="@+id/imageView3"
@@ -224,9 +234,6 @@
                     android:id="@+id/imageView3"
                     android:layout_width="1dp"
                     android:layout_height="12dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="3dp"
                     android:background="@color/colorPointGray"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_home_most_item2"
                     app:layout_constraintEnd_toStartOf="@+id/txt_home_most_item3"
@@ -235,14 +242,13 @@
 
                 <TextView
                     android:id="@+id/txt_home_most_item3"
-                    android:layout_width="95dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="28dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="면역력"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_home_most_item2"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/fl_home_care"
                     app:layout_constraintStart_toEndOf="@+id/imageView3"
                     app:layout_constraintTop_toTopOf="@+id/txt_home_most_item2" />
 
@@ -251,39 +257,49 @@
                     style="@style/light12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginBottom="13dp"
+                    android:layout_marginTop="84dp"
                     android:fontFamily="@font/notosanskr_light"
                     android:includeFontPadding="false"
                     android:text="비슷한 사람들이 가장 신경써서 케어 하는 분야에요."
-                    app:layout_constraintBottom_toTopOf="@+id/txt_home_similar_item1"
                     app:layout_constraintStart_toStartOf="@+id/txt_home_my_care_desc"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_home_most_item1" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_home_my_care_desc" />
 
+
+                <FrameLayout
+                    android:id="@+id/frameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/red_border_fill_20"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_home_care_similar">
+
+                </FrameLayout>
 
                 <TextView
                     android:id="@+id/txt_home_similar_item1"
-                    android:layout_width="95dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="간건강"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
                     app:layout_constraintEnd_toStartOf="@+id/imageView6"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_home_care_similar" />
+                    app:layout_constraintStart_toStartOf="@+id/frameLayout"
+                    app:layout_constraintTop_toTopOf="@+id/frameLayout" />
 
                 <ImageView
                     android:id="@+id/imageView6"
                     android:layout_width="1dp"
                     android:layout_height="12dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="3dp"
-                    android:background="@color/colorPointBlue"
+                    android:background="@color/colorPointGray"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_home_similar_item1"
                     app:layout_constraintEnd_toStartOf="@+id/txt_home_similar_item2"
                     app:layout_constraintStart_toEndOf="@+id/txt_home_similar_item1"
@@ -291,11 +307,10 @@
 
                 <TextView
                     android:id="@+id/txt_home_similar_item2"
-                    android:layout_width="95dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="피로회복"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_home_similar_item1"
                     app:layout_constraintEnd_toStartOf="@+id/imageView7"
@@ -306,10 +321,6 @@
                     android:id="@+id/imageView7"
                     android:layout_width="1dp"
                     android:layout_height="12dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="3dp"
                     android:background="@color/colorPointGray"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_home_similar_item2"
                     app:layout_constraintEnd_toStartOf="@+id/txt_home_similar_item3"
@@ -318,14 +329,13 @@
 
                 <TextView
                     android:id="@+id/txt_home_similar_item3"
-                    android:layout_width="95dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="28dp"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="면역력"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_home_similar_item2"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/frameLayout"
                     app:layout_constraintStart_toEndOf="@+id/imageView7"
                     app:layout_constraintTop_toTopOf="@+id/txt_home_similar_item2" />
 

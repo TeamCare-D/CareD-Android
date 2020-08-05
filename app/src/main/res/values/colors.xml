@@ -12,4 +12,7 @@
     <color name="colorPointRed">#ff6258</color>
     <color name="colorPointBlue">#358fff</color>
     <color name="colorPointGray">#c3c3c3</color>
+
+    <color name="colorLightBlue">#f0f6fd</color>
+    <color name="colorLightRed">#ffefee</color>
 </resources>
