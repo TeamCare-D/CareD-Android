@@ -8,9 +8,7 @@ import android.view.WindowManager
 import android.widget.CheckedTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.research.DummyMedicine
 import com.caredirection.cadi.research.interest.ResearchInterestActivity
 import kotlinx.android.synthetic.main.activity_research_medicine.*
 
@@ -18,8 +16,6 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
     private lateinit var medButtons: List<CheckedTextView>
-    private lateinit var medicineAdapter: MedicineAdapter
-    private var dummyMedicine = DummyMedicine()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,30 +25,18 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-        //initButtons()
+        initButtons()
         initProgressBar()
-        initMedicineList()
 
         makeListener()
     }
 
-    private fun initMedicineList(){
-        medicineAdapter = MedicineAdapter(this)
-
-        rv_medicine.adapter = medicineAdapter
-
-        rv_medicine.layoutManager = GridLayoutManager(this, 2)
-
-        medicineAdapter.data = dummyMedicine.getMedicineList()
-
-        medicineAdapter.notifyDataSetChanged()
+    private fun initButtons(){
+        medButtons = listOf(
+            btn_medicine_1,btn_medicine_2,btn_medicine_3,btn_medicine_4,btn_medicine_5,btn_medicine_6,btn_medicine_7,btn_medicine_8,btn_medicine_9,btn_medicine_10,
+            btn_medicine_11,btn_medicine_12,btn_medicine_13,btn_medicine_14,btn_medicine_15,btn_medicine_16,btn_medicine_17,btn_medicine_18,btn_medicine_19
+        )
     }
-
-//    private fun initButtons(){
-//        medButtons = listOf(
-//            btn_medicine_A, btn_medicine_B, btn_medicine_C, btn_medicine_D, btn_medicine_E, btn_medicine_F, btn_medicine_G, btn_medicine_H
-//        )
-//    }
 
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
@@ -78,15 +62,27 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
     // 버튼 클릭리스너 지정
     private fun makeListener(){
-        //setButtonsClickListener()
+        setNoneClickListener()
+        setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
+    }
+
+    private fun setNoneClickListener(){
+        btn_medicine_none.setOnClickListener {
+            btn_medicine_none.isChecked = !btn_medicine_none.isChecked
+            medButtons.forEach {
+                it.isChecked = false
+            }
+            checkNextButton()
+        }
     }
 
     private fun setButtonsClickListener(){
         medButtons.forEachIndexed { index, checkedTextView ->
             medButtons[index].setOnClickListener {
                 medButtons[index].isChecked = !medButtons[index].isChecked
+                btn_medicine_none.isChecked = false
                 checkNextButton()
             }
         }
@@ -108,7 +104,7 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
     // 다음 버튼 활성화 처리
     private fun checkNextButton(){
-        if(medButtons.any{it.isChecked}){
+        if(btn_medicine_none.isChecked || medButtons.any{it.isChecked}){
             btn_medicine_next.isEnabled = true
             btn_medicine_next.setTextColor(resources.getColor(R.color.colorWhite))
         }
