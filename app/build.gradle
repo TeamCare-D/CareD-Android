@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.caredirection.cadi"
-        minSdkVersion 28
+        minSdkVersion 29
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -34,5 +34,6 @@ dependencies {
 
     implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0"
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0"
+    implementation 'com.google.android.material:material:1.1.0'
     implementation "com.github.PhilJay:MPAndroidChart:v3.1.0"
 }

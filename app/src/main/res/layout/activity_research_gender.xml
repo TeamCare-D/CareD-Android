@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".research.ResearchGenderActivity"
+    android:id="@+id/cl_researchGender">
+
+    <ImageView
+        android:id="@+id/btn_genderBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_back" />
+
+    <ImageView
+        android:id="@+id/btn_genderClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_close" />
+
+    <ProgressBar
+        android:id="@+id/pb_gender"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/ResearchProgressbarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_genderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="111dp"
+        android:fontFamily="@font/notosanskr_light"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="9sp"
+        android:text="님의\n건강기능식품 선택을 도와드릴게요"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_genderSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="성별, 나이에 따라 영양소의 권장량, 상한량 차이가 있어요"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="6sp"
+        android:textSize="13sp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_genderTitle" />
+
+    <CheckedTextView
+        android:id="@+id/btn_women"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/selector_research_userinfo"
+        android:checked="false"
+        android:fontFamily="@font/notosanskr_bold"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="6sp"
+        android:text="여"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_man"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_genderSubtitle" />
+
+    <CheckedTextView
+        android:id="@+id/btn_man"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/selector_research_userinfo"
+        android:checked="false"
+        android:fontFamily="@font/notosanskr_bold"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="6sp"
+        android:text="남"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_women"
+        app:layout_constraintTop_toBottomOf="@+id/txt_genderSubtitle" />
+
+    <CheckedTextView
+        android:id="@+id/btn_year"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="154dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/selector_research_userinfo"
+        android:checked="false"
+        android:fontFamily="@font/notosanskr_bold"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="6sp"
+        android:text="연령을 선택해주세요"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_genderSubtitle" />
+
+    <Button
+        android:id="@+id/btn_genderNext"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="163dp"
+        android:background="@drawable/selector_research_next"
+        android:enabled="false"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="6sp"
+        android:text="다음으로 넘어가기"
+        android:textColor="@color/colorDarkGray"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

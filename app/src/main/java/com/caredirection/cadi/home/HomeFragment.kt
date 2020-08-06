@@ -17,6 +17,7 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.ValueFormatter
 import kotlinx.android.synthetic.main.fragment_home.*
 
+
 class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelectedListener {
     private lateinit var rvHomeMyCareRvAdapter: HomeCareRvAdapter
     private lateinit var rvHomeCareSimilarRvAdapter: HomeCareRvAdapter
@@ -156,4 +157,5 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
     }
 
 
+class HomeFragment : Fragment(R.layout.fragment_home) {
 }
