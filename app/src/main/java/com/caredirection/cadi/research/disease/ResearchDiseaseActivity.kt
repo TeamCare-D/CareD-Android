@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_research_disease.*
 class ResearchDiseaseActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var disButtons: List<CheckedTextView>
+    private lateinit var diseaseButtons: List<CheckedTextView>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,7 @@ class ResearchDiseaseActivity : AppCompatActivity() {
     }
 
     private fun initButtons(){
-        disButtons = listOf(
+        diseaseButtons = listOf(
             btn_disease_1, btn_disease_2, btn_disease_3, btn_disease_4, btn_disease_5, btn_disease_6, btn_disease_7, btn_disease_8, btn_disease_9, btn_disease_10,
             btn_disease_11, btn_disease_12, btn_disease_13, btn_disease_14, btn_disease_15, btn_disease_16, btn_disease_17, btn_disease_18, btn_disease_19
         )
@@ -71,7 +71,7 @@ class ResearchDiseaseActivity : AppCompatActivity() {
     private fun setNoneClickListener(){
         btn_disease_none.setOnClickListener {
             btn_disease_none.isChecked = !btn_disease_none.isChecked
-            disButtons.forEach {
+            diseaseButtons.forEach {
                 it.isChecked = false
             }
             checkNextButton()
@@ -79,9 +79,9 @@ class ResearchDiseaseActivity : AppCompatActivity() {
     }
 
     private fun setButtonsClickListener() {
-        disButtons.forEachIndexed { index, _ ->
-            disButtons[index].setOnClickListener {
-                disButtons[index].isChecked = !disButtons[index].isChecked
+        diseaseButtons.forEachIndexed { index, _ ->
+            diseaseButtons[index].setOnClickListener {
+                diseaseButtons[index].isChecked = !diseaseButtons[index].isChecked
                 btn_disease_none.isChecked = false
                 checkNextButton()
             }
@@ -104,7 +104,7 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
     // 다음 버튼 활성화 처리
     private fun checkNextButton(){
-        if(btn_disease_none.isChecked || disButtons.any{it.isChecked}){
+        if(btn_disease_none.isChecked || diseaseButtons.any{it.isChecked}){
             btn_disease_next.isEnabled = true
             btn_disease_next.setTextColor(resources.getColor(R.color.colorWhite))
         }
