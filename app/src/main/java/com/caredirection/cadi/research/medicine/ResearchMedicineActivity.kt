@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_research_medicine.*
 class ResearchMedicineActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var medButtons: List<CheckedTextView>
+    private lateinit var medicineButtons: List<CheckedTextView>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,7 @@ class ResearchMedicineActivity : AppCompatActivity() {
     }
 
     private fun initButtons(){
-        medButtons = listOf(
+        medicineButtons = listOf(
             btn_medicine_1,btn_medicine_2,btn_medicine_3,btn_medicine_4,btn_medicine_5,btn_medicine_6,btn_medicine_7,btn_medicine_8,btn_medicine_9,btn_medicine_10,
             btn_medicine_11,btn_medicine_12,btn_medicine_13,btn_medicine_14,btn_medicine_15,btn_medicine_16,btn_medicine_17,btn_medicine_18,btn_medicine_19
         )
@@ -71,7 +71,7 @@ class ResearchMedicineActivity : AppCompatActivity() {
     private fun setNoneClickListener(){
         btn_medicine_none.setOnClickListener {
             btn_medicine_none.isChecked = !btn_medicine_none.isChecked
-            medButtons.forEach {
+            medicineButtons.forEach {
                 it.isChecked = false
             }
             checkNextButton()
@@ -79,9 +79,9 @@ class ResearchMedicineActivity : AppCompatActivity() {
     }
 
     private fun setButtonsClickListener(){
-        medButtons.forEachIndexed { index, checkedTextView ->
-            medButtons[index].setOnClickListener {
-                medButtons[index].isChecked = !medButtons[index].isChecked
+        medicineButtons.forEachIndexed { index, checkedTextView ->
+            medicineButtons[index].setOnClickListener {
+                medicineButtons[index].isChecked = !medicineButtons[index].isChecked
                 btn_medicine_none.isChecked = false
                 checkNextButton()
             }
@@ -104,7 +104,7 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
     // 다음 버튼 활성화 처리
     private fun checkNextButton(){
-        if(btn_medicine_none.isChecked || medButtons.any{it.isChecked}){
+        if(btn_medicine_none.isChecked || medicineButtons.any{it.isChecked}){
             btn_medicine_next.isEnabled = true
             btn_medicine_next.setTextColor(resources.getColor(R.color.colorWhite))
         }
