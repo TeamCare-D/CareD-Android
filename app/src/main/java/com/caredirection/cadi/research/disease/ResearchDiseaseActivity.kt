@@ -8,9 +8,7 @@ import android.view.WindowManager
 import android.widget.CheckedTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.research.DummyDisease
 import com.caredirection.cadi.research.medicine.ResearchMedicineActivity
 import kotlinx.android.synthetic.main.activity_research_disease.*
 
@@ -18,8 +16,6 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
     private lateinit var disButtons: List<CheckedTextView>
-    private lateinit var diseaseAdapter: DiseaseAdapter
-    private var dummyDisease = DummyDisease()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,30 +25,18 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-        //initButtons()
+        initButtons()
         initProgressBar()
-        initDiseaseList()
 
         makeListener()
     }
 
-    private fun initDiseaseList(){
-        diseaseAdapter = DiseaseAdapter(this)
-
-        rv_disease.adapter = diseaseAdapter
-
-        rv_disease.layoutManager = GridLayoutManager(this,2)
-
-        diseaseAdapter.data = dummyDisease.getDiseaseList()
-
-        diseaseAdapter.notifyDataSetChanged()
+    private fun initButtons(){
+        disButtons = listOf(
+            btn_disease_1, btn_disease_2, btn_disease_3, btn_disease_4, btn_disease_5, btn_disease_6, btn_disease_7, btn_disease_8, btn_disease_9, btn_disease_10,
+            btn_disease_11, btn_disease_12, btn_disease_13, btn_disease_14, btn_disease_15, btn_disease_16, btn_disease_17, btn_disease_18, btn_disease_19
+        )
     }
-
-//    private fun initButtons(){
-//        disButtons = listOf(
-//            btn_disease_none, btn_disease_1, btn_disease_2, btn_disease_3, btn_disease_4, btn_disease_5, btn_disease_6, btn_disease_7
-//        )
-//    }
 
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
@@ -78,15 +62,27 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
     // 버튼 클릭리스너 지정
     private fun makeListener(){
-        //setButtonsClickListener()
+        setNoneClickListener()
+        setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
     }
 
+    private fun setNoneClickListener(){
+        btn_disease_none.setOnClickListener {
+            btn_disease_none.isChecked = !btn_disease_none.isChecked
+            disButtons.forEach {
+                it.isChecked = false
+            }
+            checkNextButton()
+        }
+    }
+
     private fun setButtonsClickListener() {
-        disButtons.forEachIndexed { index, checkedTextView ->
+        disButtons.forEachIndexed { index, _ ->
             disButtons[index].setOnClickListener {
                 disButtons[index].isChecked = !disButtons[index].isChecked
+                btn_disease_none.isChecked = false
                 checkNextButton()
             }
         }
@@ -108,7 +104,7 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
     // 다음 버튼 활성화 처리
     private fun checkNextButton(){
-        if(disButtons.any{it.isChecked}){
+        if(btn_disease_none.isChecked || disButtons.any{it.isChecked}){
             btn_disease_next.isEnabled = true
             btn_disease_next.setTextColor(resources.getColor(R.color.colorWhite))
         }
