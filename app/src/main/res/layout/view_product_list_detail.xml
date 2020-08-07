@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/txt_product_list_detail_component"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txt_product_list_detail_component_dump"
+        android:layout_marginTop="56dp"
+        android:textColor="@color/colorPointBlue"
+        android:textSize="20dp"
+        android:lineSpacingExtra="-2dp"
+        android:text="비타민B 컴플렉스"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        />
+    <TextView
+        android:id="@+id/txt_product_list_detail_component_dump"
+        app:layout_constraintStart_toEndOf="@+id/txt_product_list_detail_component"
+        app:layout_constraintTop_toTopOf="@+id/txt_product_list_detail_component"
+        android:textSize="20dp"
+        android:textColor="@color/colorBlack"
+        android:lineSpacingExtra="-2dp"
+        android:text="를 고르셨네요?"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/txt_product_list_explain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_product_list_detail_component"
+        android:textSize="13dp"
+        android:textColor="@color/colorBlack"
+        android:lineSpacingExtra="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="마그네슘은 대표적으로 근육의 이완작용을 도우며,\n
+한국의 60%가 모자란 영양소입니다. \n
+칼슘과 상승작용하며 흡수되는 영양소입니다.\n
+스트레스, 우울증, 근육 활동이 많은 사람에게 좋습니다."
+        />
+    
+    <TextView
+        android:id="@+id/txt_product_list_detail_standard_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_product_list_explain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:textColor="@color/colorBlack"
+        android:textSize="16dp"
+        android:lineSpacingExtra="2dp"
+        android:text="케디의 기준"
+        />
+    <include
+        layout="@layout/view_product_list_detail_item3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_product_list_detail_standard_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+    
+</androidx.constraintlayout.widget.ConstraintLayout>
