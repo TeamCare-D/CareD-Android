@@ -23,11 +23,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
     private val listData = ArrayList<BarEntry>()
     private lateinit var xLabelIngredients: Array<String>
 
-    val formatter = object : ValueFormatter() {
+    private val formatter = object : ValueFormatter() {
         override fun getAxisLabel(value: Float, axis: AxisBase?): String {
 
             return xLabelIngredients[value.toInt()]
-
         }
     }
 
@@ -42,18 +41,15 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
             ).also { adapter ->
                 adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
                 spinner_home_graph.adapter = adapter
-
             }
         }
 
         spinner_home_graph.setSelection(0)
         spinner_home_graph.onItemSelectedListener = this
 
-
-        xLabelIngredients =
-            arrayOf("비타민", "A", "B", "C", "D", "E", "A3", "B1", "C2", "D3", "E4")
+        dummyChartLabel()
         dummyChartListData()
-        initLineChart()
+        initBarChart()
         drawChart(listData,xLabelIngredients)
 
     }
@@ -67,55 +63,64 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
     }
 
 
-    private fun initLineChart() {
+    private fun initBarChart() {
         // 그래프 기본 설정
         val xAxis = chart_home_vitamin.xAxis
-        xAxis.position = XAxis.XAxisPosition.BOTTOM // x축 위치
-        xAxis.granularity = 1f //label 사이 간격
-        xAxis.labelCount=11
 
-        xAxis.setDrawAxisLine(false)
-        xAxis.setDrawGridLines(false)
+        xAxis.apply {
+            position = XAxis.XAxisPosition.BOTTOM // x축 위치 : 데이터의 위치를 아래로
+            granularity = 1f // x축 간격
+            labelCount = 11 // label 개수
+            setDrawAxisLine(false) // x축
+            setDrawGridLines(false) // x축 기준선
+        }
 
+        val yAxisRight = chart_home_vitamin.axisRight
+        yAxisRight.apply {
+            isEnabled = false
+        }
 
-        val rightYAxis = chart_home_vitamin.axisRight
-        rightYAxis.isEnabled = false
+        val yAxisLeft = chart_home_vitamin.axisLeft
+        yAxisLeft.apply {
+            axisMaximum = 120f // y축 최고값
+            axisMinimum = 0f // y축 최저값
+            granularity = 20f // y축 간격
+            setDrawAxisLine(false) // y축
+            setDrawGridLines(false) // y축 기준선
+            setDrawLabels(false) // label 사용 x
+        }
 
-        val leftYAxis = chart_home_vitamin.axisLeft
-        leftYAxis.axisMaximum = 120f
-        leftYAxis.axisMinimum = 0f
-        leftYAxis.granularity = 20f // label 써주는 간격 조정
-        leftYAxis.setDrawGridLines(false) // false 해줘야 뒤에 모눈종이 같은게 없어져요
-        leftYAxis.setDrawAxisLine(false)
-        leftYAxis.setDrawLabels(false) //label 사용 여부
+        chart_home_vitamin.apply {
+            legend.isEnabled = false
+            description.isEnabled = false
+            setVisibleXRange(6f, 11f) // X에 그려줄 최소, 최대 단위 정하기
+            animateY(1000) //세로축 에니메이션
+        }
 
-        val upperLimitLine = LimitLine(100f, "")
-        initializeLimitLine(upperLimitLine, ContextCompat.getColor(context!!, R.color.colorPointRed))
+        val upperLimitLine = LimitLine(90f, "")
+        initLimitLine(upperLimitLine, ContextCompat.getColor(context!!, R.color.colorPointRed))
 
         val lowerLimitLine = LimitLine(30f, "")
-        initializeLimitLine(lowerLimitLine, ContextCompat.getColor(context!!, R.color.colorPointBlue))
+        initLimitLine(lowerLimitLine, ContextCompat.getColor(context!!, R.color.colorPointGray))
 
-        leftYAxis.addLimitLine(upperLimitLine)
-        leftYAxis.addLimitLine(lowerLimitLine)
-
-
-        chart_home_vitamin.legend.isEnabled = false
-        chart_home_vitamin.description.isEnabled=false
-        chart_home_vitamin.setVisibleXRange(6f, 11f) // X에 그려줄 최소, 최대 단위 정하기
-        chart_home_vitamin.animateY(1000) //세로축 에니메이션
-
-
+        yAxisLeft.addLimitLine(upperLimitLine)
+        yAxisLeft.addLimitLine(lowerLimitLine)
     }
 
-    private fun initializeLimitLine(line: LimitLine, color: Int) {
-        line.lineWidth = 3f
-        line.enableDashedLine(50f, 20f, 0f)
+    private fun initLimitLine(line: LimitLine, color: Int) {
+        line.lineWidth = 2f // 두께
+        line.enableDashedLine(10f, 10f, 0f) // 길이, 간격
         line.lineColor = color
         line.textSize = 10f
     }
 
+    private fun dummyChartLabel(){
+        xLabelIngredients =
+            arrayOf("비타민A", "비타민D", "비타민C", "비타민B6", "비타민B12", "E", "A3", "B1", "C2", "D3", "E4")
+    }
+
     private fun dummyChartListData() {
-        listData.add(BarEntry(0f, 130f))
+        listData.add(BarEntry(0f, 120f))
         listData.add(BarEntry(1f, 20f))
         listData.add(BarEntry(2f, 60f))
         listData.add(BarEntry(3f, 80f))
@@ -134,18 +139,21 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
         val listColor = ArrayList<Int>()
 
         listData.forEach {
-            if (it.y > 100.0f || it.y < 30.0f)
-                listColor.add(ContextCompat.getColor(context!!, R.color.colorPointRed))
-            else
-                listColor.add(ContextCompat.getColor(context!!, R.color.colorPointBlue))
+            when {
+                it.y > 100.0f -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointRed))
+                it.y < 30.0f -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointGray))
+                else -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointBlue))
+            }
         }
-        dataSet.colors=listColor
 
-
-        dataSet.valueTextColor=ContextCompat.getColor(context!!, R.color.colorPointBlue)
-        dataSet.setDrawValues(false)
+        dataSet.apply {
+            colors=listColor
+            valueTextColor=ContextCompat.getColor(context!!, R.color.colorPointBlue)
+            setDrawValues(false)
+        }
 
         val lineData = BarData(dataSet)
+        lineData.barWidth = 0.2f
         chart_home_vitamin.data = lineData
 
         val xAxis=chart_home_vitamin.xAxis
@@ -154,6 +162,5 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
         chart_home_vitamin.invalidate()
 
     }
-
 
 }
