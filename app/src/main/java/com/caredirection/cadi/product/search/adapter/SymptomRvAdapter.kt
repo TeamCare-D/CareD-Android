@@ -21,9 +21,9 @@ class SymptomRvAdapter(private val context: Context) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SymptomViewHolder {
 
-            val view = LayoutInflater.from(context)
-                .inflate(R.layout.rv_item_product_search_symptom, parent, false)
-            return SymptomViewHolder(view, parent)
+        val view = LayoutInflater.from(context)
+            .inflate(R.layout.rv_item_product_search_symptom, parent, false)
+        return SymptomViewHolder(view, parent)
     }
 
     override fun getItemCount(): Int {
