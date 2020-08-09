@@ -61,69 +61,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
                 <TextView
-                    android:id="@+id/txt_home_vitamin_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/notosanskr_bold"
-                    android:includeFontPadding="false"
-                    android:text="비타민&amp;미네랄 "
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="@+id/txt_home_user_name"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_home_user_name" />
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="36dp"
-                    android:fontFamily="@font/notosanskr_medium"
-                    android:includeFontPadding="false"
-                    android:text="상한 섭취량"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp"
-                    app:layout_constraintStart_toStartOf="@+id/txt_home_vitamin_desc"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_home_vitamin_desc" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:fontFamily="@font/notosanskr_medium"
-                    android:includeFontPadding="false"
-                    android:text="권장 섭취량"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp"
-                    app:layout_constraintStart_toStartOf="@+id/textView"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="107dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_home_vitamin_desc">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <com.github.mikephil.charting.charts.BarChart
-                            android:id="@+id/chart_home_vitamin"
-                            android:layout_width="700dp"
-                            android:layout_height="145dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </HorizontalScrollView>
-
-                <TextView
                     android:id="@+id/txt_home_user_name"
                     style="@style/bold20"
                     android:layout_width="wrap_content"
@@ -133,10 +70,20 @@
                     android:fontFamily="@font/notosanskr_bold"
                     android:includeFontPadding="false"
                     android:text="진오님의"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_home_vitamin_title"
+                    style="@style/bold20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:text="비타민&amp;미네랄 "
+                    app:layout_constraintStart_toStartOf="@+id/txt_home_user_name"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_home_user_name" />
 
                 <TextView
                     android:id="@+id/txt_home_vitamin_desc"
@@ -170,6 +117,59 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/txt_home_vitamin_desc"
                     app:layout_constraintTop_toTopOf="@+id/txt_home_vitamin_desc" />
+
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:includeFontPadding="false"
+                    android:text="상한 섭취량"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12dp"
+                    app:layout_constraintStart_toStartOf="@+id/txt_home_vitamin_desc"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_home_vitamin_desc" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:includeFontPadding="false"
+                    android:text="권장 섭취량"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12dp"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="107dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_home_vitamin_desc">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.github.mikephil.charting.charts.BarChart
+                            android:id="@+id/chart_home_vitamin"
+                            android:layout_width="700dp"
+                            android:layout_height="145dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </HorizontalScrollView>
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -189,8 +189,6 @@
                     android:fontFamily="@font/notosanskr_bold"
                     android:includeFontPadding="false"
                     android:text="케어 받는 분야"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp"
                     app:layout_constraintEnd_toStartOf="@+id/btn_home_to_care_more"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -242,6 +240,8 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:text="간건강"
+                    android:textSize="14dp"
+                    android:lineSpacingExtra="4sp"
                     android:textColor="@color/colorPointBlue"
                     app:layout_constraintBottom_toTopOf="@+id/fl_home_care"
                     app:layout_constraintEnd_toStartOf="@+id/imageView2"
@@ -266,6 +266,8 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:text="피로회복"
+                    android:textSize="14dp"
+                    android:lineSpacingExtra="4sp"
                     android:textColor="@color/colorPointBlue"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_home_most_item1"
                     app:layout_constraintEnd_toStartOf="@+id/imageView3"
@@ -289,6 +291,8 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:text="면역력"
+                    android:textSize="14dp"
+                    android:lineSpacingExtra="4sp"
                     android:textColor="@color/colorPointBlue"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_home_most_item2"
                     app:layout_constraintEnd_toEndOf="@+id/fl_home_care"
@@ -333,6 +337,8 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:text="간건강"
+                    android:textSize="14dp"
+                    android:lineSpacingExtra="4sp"
                     android:textColor="@color/colorPointRed"
                     app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
                     app:layout_constraintEnd_toStartOf="@+id/imageView6"
@@ -356,6 +362,8 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:text="피로회복"
+                    android:textSize="14dp"
+                    android:lineSpacingExtra="4sp"
                     android:textColor="@color/colorPointRed"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_home_similar_item1"
                     app:layout_constraintEnd_toStartOf="@+id/imageView7"
@@ -379,6 +387,8 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:text="면역력"
+                    android:textSize="14dp"
+                    android:lineSpacingExtra="4sp"
                     android:textColor="@color/colorPointRed"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_home_similar_item2"
                     app:layout_constraintEnd_toEndOf="@+id/frameLayout"
