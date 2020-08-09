@@ -60,6 +60,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
+                <ImageView
+                    android:id="@+id/btn_home_to_vitamin_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_home_vitamin_title"
+                    app:layout_constraintStart_toEndOf="@+id/txt_home_vitamin_title"
+                    app:layout_constraintTop_toTopOf="@+id/txt_home_vitamin_title"
+                    app:srcCompat="@drawable/btn_more" />
+
+                <Spinner
+                    android:id="@+id/spinner_home_graph"
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:dropDownWidth="wrap_content"
+                    android:prompt="@string/home"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_home_vitamin_desc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_home_vitamin_desc"
+                    app:layout_constraintTop_toTopOf="@+id/txt_home_vitamin_desc" />
+
                 <TextView
                     android:id="@+id/txt_home_user_name"
                     style="@style/bold20"
@@ -96,28 +117,6 @@
                     android:text="사용자 정보를 바탕으로 한 나만의 기준이에요."
                     app:layout_constraintStart_toStartOf="@+id/txt_home_vitamin_title"
                     app:layout_constraintTop_toBottomOf="@+id/txt_home_vitamin_title" />
-
-                <ImageView
-                    android:id="@+id/btn_home_to_vitamin_more"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/txt_home_vitamin_title"
-                    app:layout_constraintStart_toEndOf="@+id/txt_home_vitamin_title"
-                    app:layout_constraintTop_toTopOf="@+id/txt_home_vitamin_title"
-                    app:srcCompat="@drawable/btn_more" />
-
-                <Spinner
-                    android:id="@+id/spinner_home_graph"
-                    android:layout_width="64dp"
-                    android:layout_height="wrap_content"
-                    android:dropDownWidth="wrap_content"
-                    android:prompt="@string/home"
-                    android:spinnerMode="dropdown"
-                    app:layout_constraintBottom_toBottomOf="@+id/txt_home_vitamin_desc"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/txt_home_vitamin_desc"
-                    app:layout_constraintTop_toTopOf="@+id/txt_home_vitamin_desc" />
-
 
                 <TextView
                     android:id="@+id/textView"
@@ -168,8 +167,6 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </HorizontalScrollView>
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
