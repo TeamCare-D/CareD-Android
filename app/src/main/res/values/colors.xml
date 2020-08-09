@@ -14,11 +14,21 @@
     <color name="colorPointRed">#ff6258</color>
     <color name="colorPointBlue">#358fff</color>
     <color name="colorPointGray">#c3c3c3</color>
-    <color name="colorDarkGray">#929293</color>
 
     <color name="colorYellow">#FEBD2D</color>
     <color name="colorSkyBlue">#f0f6fd</color>
 
     <color name="colorLightBlue">#f0f6fd</color>
     <color name="colorLightRed">#ffefee</color>
+
+    <!-- sub color -->
+    <color name="colorFontGray">#bbbcc1</color>
+    <color name="colorLightGray">#f2f3f5</color>
+    <color name="colorBorderGray">#c8c8c8</color>
+    <color name="colorDarkGray">#8e8f93</color>
+
+    <color name="colorScrollYellow">#febd2d</color>
+    <color name="colorScrollGray">#f3f3f3</color>
+
+    <color name="colorDivider">#80ffffff</color>
 </resources>
