@@ -47,7 +47,7 @@
         android:text="님의\n건강기능식품 선택을 도와드릴게요"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
-        android:textSize="20sp"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -61,7 +61,7 @@
         android:fontFamily="@font/notosanskr_regular"
         android:includeFontPadding="false"
         android:lineSpacingExtra="6sp"
-        android:textSize="13sp"
+        android:textSize="13dp"
         android:textColor="@color/colorBlack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +83,7 @@
         android:text="여"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
-        android:textSize="14sp"
+        android:textSize="14dp"
         app:layout_constraintEnd_toStartOf="@+id/btn_man"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_genderSubtitle" />
@@ -103,7 +103,7 @@
         android:text="남"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
-        android:textSize="14sp"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_women"
         app:layout_constraintTop_toBottomOf="@+id/txt_genderSubtitle" />
@@ -124,7 +124,7 @@
         android:text="연령을 선택해주세요"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
-        android:textSize="14sp"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_genderSubtitle" />
@@ -143,7 +143,7 @@
         android:lineSpacingExtra="6sp"
         android:text="다음으로 넘어가기"
         android:textColor="@color/colorDarkGray"
-        android:textSize="14sp"
+        android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

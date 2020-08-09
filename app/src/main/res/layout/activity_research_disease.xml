@@ -5,7 +5,7 @@
     android:id="@+id/cl_research_disease"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".research.disease.ResearchDiseaseActivity">
+    tools:context=".research.ResearchDiseaseActivity">
 
     <ImageView
         android:id="@+id/btn_disease_back"
@@ -47,7 +47,7 @@
         android:text="체질과 보유 질환을 선택해주세요"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
-        android:textSize="20sp"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -62,7 +62,7 @@
         android:lineSpacingExtra="6sp"
         android:text="체질, 보유 질환에 따라 주의해야할 영양소들이 있어요"
         android:textColor="@color/colorBlack"
-        android:textSize="13sp"
+        android:textSize="13dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_disease_title" />
@@ -102,7 +102,7 @@
                 android:text="없습니다."
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toStartOf="@+id/btn_disease_1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -122,7 +122,7 @@
                 android:text="질병질병질병1"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/btn_disease_none"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -142,7 +142,7 @@
                 android:text="질병질병질병2"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toStartOf="@+id/btn_disease_3"
                 app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_none" />
@@ -162,7 +162,7 @@
                 android:text="질병질병질병3"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
                 app:layout_constraintStart_toEndOf="@+id/btn_disease_2"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_1" />
@@ -182,7 +182,7 @@
                 android:text="질병질병질병4"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toStartOf="@+id/btn_disease_5"
                 app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_2" />
@@ -202,7 +202,7 @@
                 android:text="질병질병질병5"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
                 app:layout_constraintStart_toEndOf="@+id/btn_disease_4"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_3" />
@@ -222,7 +222,7 @@
                 android:text="질병질병질병6"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toStartOf="@+id/btn_disease_7"
                 app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_4" />
@@ -242,7 +242,7 @@
                 android:text="질병질병질병7"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
                 app:layout_constraintStart_toEndOf="@+id/btn_disease_6"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_5" />
@@ -262,7 +262,7 @@
                 android:text="질병질병질병8"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toStartOf="@+id/btn_disease_9"
                 app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_6" />
@@ -282,7 +282,7 @@
                 android:text="질병질병질병9"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
                 app:layout_constraintStart_toEndOf="@+id/btn_disease_8"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_7" />
@@ -302,7 +302,7 @@
                 android:text="질병질병질병10"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toStartOf="@+id/btn_disease_11"
                 app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_8" />
@@ -322,7 +322,7 @@
                 android:text="질병질병질병11"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
                 app:layout_constraintStart_toEndOf="@+id/btn_disease_10"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_9" />
@@ -342,7 +342,7 @@
                 android:text="질병질병질병12"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toStartOf="@+id/btn_disease_13"
                 app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_10" />
@@ -362,7 +362,7 @@
                 android:text="질병질병질병13"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
                 app:layout_constraintStart_toEndOf="@+id/btn_disease_12"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_11" />
@@ -382,7 +382,7 @@
                 android:text="질병질병질병14"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toStartOf="@+id/btn_disease_15"
                 app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_12" />
@@ -402,7 +402,7 @@
                 android:text="질병질병질병15"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
                 app:layout_constraintStart_toEndOf="@+id/btn_disease_14"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_13" />
@@ -422,7 +422,7 @@
                 android:text="질병질병질병16"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toStartOf="@+id/btn_disease_17"
                 app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_14" />
@@ -442,7 +442,7 @@
                 android:text="질병질병질병17"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
                 app:layout_constraintStart_toEndOf="@+id/btn_disease_16"
                 app:layout_constraintTop_toBottomOf="@+id/btn_disease_15" />
@@ -462,7 +462,7 @@
                 android:text="질병질병질병18"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_disease_19"
                 app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
@@ -483,7 +483,7 @@
                 android:text="질병질병질병19"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp"
+                android:textSize="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
                 app:layout_constraintStart_toEndOf="@+id/btn_disease_18"
@@ -505,7 +505,7 @@
         android:lineSpacingExtra="6sp"
         android:text="다음으로 넘어가기"
         android:textColor="@color/colorDarkGray"
-        android:textSize="14sp"
+        android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
