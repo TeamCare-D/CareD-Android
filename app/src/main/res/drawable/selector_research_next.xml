@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_enabled="true"
-        android:drawable="@drawable/black_border_fill_25"/>
+        android:drawable="@drawable/black_fill_25"/>
     <item android:state_enabled="false"
-        android:drawable="@drawable/gray_border_fill_25"/>
+        android:drawable="@drawable/gray_fill_25"/>
 </selector>
