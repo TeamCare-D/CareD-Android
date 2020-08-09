@@ -9,7 +9,7 @@
         android:id="@+id/img_rv_item_magazine_interested"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/btn_component_line"
+        android:src="@drawable/blue_line_4"
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout

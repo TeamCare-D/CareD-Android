@@ -43,15 +43,16 @@ class SymptomRvAdapter(private val context: Context) :
 
             val itemViewTxt: TextView = itemView.findViewById(R.id.txt_rv_item_product_search_symptom)
             val itemViewImg: ImageView = itemView.findViewById(R.id.img_rv_item_product_search_symptom)
+            
 
             itemView.setOnClickListener {
                 if(!item.check){
                     var viewStaminaAdapter = testRvAdapter(context, items[position].nameItem)
                     viewRv?.adapter = viewStaminaAdapter
                     viewRv?.layoutManager = GridLayoutManager(context, 3)
-
                     itemViewTxt.setTextColor(Color.parseColor("#358fff"))
-                    //itemViewImg.animate().rotation(0.0F).start()
+
+
                     item.check = true
                     notifyDataSetChanged()
                 }
@@ -60,12 +61,12 @@ class SymptomRvAdapter(private val context: Context) :
                     viewRv?.adapter = viewStaminaAdapter
                     viewRv?.layoutManager = GridLayoutManager(context, 3)
 
+
                     itemViewTxt.setTextColor(Color.parseColor("#000000"))
-                    //itemViewImg.animate().rotation(0.0F).start()
+
                     item.check = false
                 }
             }
-
         }
 
     }

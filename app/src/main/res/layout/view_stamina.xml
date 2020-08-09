@@ -18,7 +18,7 @@
         android:gravity="center"
         app:layout_constraintHorizontal_chainStyle="packed"
         android:layout_marginRight="5dp"
-        android:background="@drawable/btn_component_line"
+        android:background="@drawable/blue_line_4"
         />
     <TextView
         android:id="@+id/txt_view_stamina_bitamin_c"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toStartOf="@+id/txt_view_stamina_magnesium"
         android:gravity="center"
         android:layout_marginRight="5dp"
-        android:background="@drawable/btn_component_line"
+        android:background="@drawable/blue_line_4"
         />
     <TextView
         android:id="@+id/txt_view_stamina_magnesium"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="@id/txt_view_stamina_bitamin_c"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        android:background="@drawable/btn_component_line"
+        android:background="@drawable/blue_line_4"
         />
 
     <TextView
@@ -62,7 +62,7 @@
         android:layout_marginRight="5dp"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintEnd_toStartOf="@+id/txt_view_stamina_coq10"
-        android:background="@drawable/btn_component_line"
+        android:background="@drawable/blue_line_4"
         />
     <TextView
         android:id="@+id/txt_view_stamina_coq10"
@@ -76,7 +76,7 @@
         android:gravity="center"
         android:layout_marginRight="5dp"
         app:layout_constraintEnd_toStartOf="@+id/txt_view_stamina_bitamin_Synthesis"
-        android:background="@drawable/btn_component_line"
+        android:background="@drawable/blue_line_4"
         />
     <TextView
         android:id="@+id/txt_view_stamina_bitamin_Synthesis"
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toTopOf="@+id/txt_view_stamina_coq10"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        android:background="@drawable/btn_component_line"
+        android:background="@drawable/blue_line_4"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

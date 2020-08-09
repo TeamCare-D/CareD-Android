@@ -12,6 +12,10 @@
         <activity android:name="com.caredirection.cadi.MainActivity">
 
         </activity>
+        <activity android:name=".product.list.ListActivity">
+
+
+        </activity>
         <activity android:name=".product.search.ProductSearch">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

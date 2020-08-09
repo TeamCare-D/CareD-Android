@@ -60,12 +60,16 @@
         android:lineSpacingExtra="2dp"
         android:text="케디의 기준"
         />
-    <include
-        layout="@layout/view_product_list_detail_item3"
+
+    <fragment
+        android:id="@+id/fargment_view_product_list_detail_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_product_list_detail_standard_title"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_product_list_detail_standard_title"
         />
+
 
 
     
