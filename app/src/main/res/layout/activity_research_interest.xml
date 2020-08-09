@@ -76,7 +76,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="50dp"
         android:background="@color/colorScrollGray"
-        android:scrollbarThumbVertical="@color/colorScrollYellow"
+        android:scrollbarThumbVertical="@color/colorPointYellow"
         app:layout_constraintBottom_toTopOf="@+id/btn_interest_next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
