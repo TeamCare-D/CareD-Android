@@ -41,7 +41,7 @@ class ResearchDiseaseActivity : AppCompatActivity() {
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
             ConstraintLayout.LayoutParams.WRAP_CONTENT,
             ConstraintLayout.LayoutParams.WRAP_CONTENT)
-        param.width = (displayMetrics.widthPixels/5)*2
+        param.width = (displayMetrics.widthPixels/4)*2
         param.height = getDisplayHeight()/6
 
         pb_disease.layoutParams = param
