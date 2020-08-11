@@ -41,7 +41,7 @@ class ResearchGenderActivity : AppCompatActivity() {
 
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT,ConstraintLayout.LayoutParams.WRAP_CONTENT)
-        param.width = displayMetrics.widthPixels/5
+        param.width = displayMetrics.widthPixels/4
         param.height = getDisplayHeight()/6
 
         pb_gender.layoutParams = param
@@ -98,7 +98,7 @@ class ResearchGenderActivity : AppCompatActivity() {
 
         npYear.minValue = 1900
         npYear.maxValue = 2020
-        npYear.value = 1997
+        npYear.value = 1990
 
         npYear.wrapSelectorWheel = false
         npYear.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
