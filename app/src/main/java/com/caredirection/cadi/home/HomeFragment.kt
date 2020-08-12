@@ -108,8 +108,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
     }
 
     private fun initLimitLine(line: LimitLine, color: Int) {
-        line.lineWidth = 2f // 두께
-        line.enableDashedLine(10f, 10f, 0f) // 길이, 간격
+        line.lineWidth = 1f // 두께
+        line.enableDashedLine(5f, 10f, 0f) // 길이, 간격
         line.lineColor = color
         line.textSize = 10f
     }
@@ -153,7 +153,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
         }
 
         val lineData = BarData(dataSet)
-        lineData.barWidth = 0.2f
+        lineData.barWidth = 0.15f
         chart_home_vitamin.data = lineData
 
         val xAxis=chart_home_vitamin.xAxis
