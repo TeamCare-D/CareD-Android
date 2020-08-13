@@ -120,9 +120,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
     }
 
     private fun dummyChartListData() {
-        listData.add(BarEntry(0f, 120f))
-        listData.add(BarEntry(1f, 20f))
-        listData.add(BarEntry(2f, 60f))
+        listData.add(BarEntry(0f, floatArrayOf(90f,20f)))
+        listData.add(BarEntry(1f, floatArrayOf(90f,10f)))
+        listData.add(BarEntry(2f, 20f))
         listData.add(BarEntry(3f, 80f))
         listData.add(BarEntry(4f, 120f))
         listData.add(BarEntry(5f, 40f))
@@ -139,10 +139,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
         val listColor = ArrayList<Int>()
 
         listData.forEach {
-            when {
-                it.y > 100.0f -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointRed))
+            when{
+                it.y > 100.0f -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointBlue))
                 it.y < 30.0f -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointGray))
-                else -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointBlue))
             }
         }
 
