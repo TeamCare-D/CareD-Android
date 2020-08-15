@@ -15,6 +15,7 @@
     <color name="colorPointBlue">#358fff</color>
     <color name="colorPointGray">#c3c3c3</color>
     <color name="colorPointYellow">#febd2d</color>
+    <color name="colorPointBrown">#4b4b4b</color>
 
     <!-- sub color -->
     <color name="colorFontGray">#bbbcc1</color>

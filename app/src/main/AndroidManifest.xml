@@ -9,22 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.caredirection.cadi.MainActivity">
+        <activity android:name=".home.HomeDetailActivity"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".product.list.ListActivity"/>
-        <activity android:name=".product.search.ProductSearch"/>
-        <activity android:name=".research.ResearchInterestActivity"></activity>
+        <activity android:name=".product.list.ListActivity" />
+        <activity android:name=".product.search.ProductSearch" />
+        <activity android:name=".research.ResearchInterestActivity" />
         <activity android:name=".research.ResearchMedicineActivity" />
         <activity android:name=".research.ResearchDiseaseActivity" />
         <activity android:name=".research.ResearchGenderActivity" />
-        <activity android:name=".research.ResearchNicknameActivity">
-
-        </activity>
+        <activity android:name=".research.ResearchNicknameActivity"></activity>
     </application>
 
 </manifest>
