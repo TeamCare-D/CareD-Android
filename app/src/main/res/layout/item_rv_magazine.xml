@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_rv_container"
+    android:layout_width="340dp"
+    android:layout_height="304dp">
+
+    <ImageView
+        android:id="@+id/iv_rv_magazine_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/tv_rv_magazine_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="천연의 함정 화학 부형제는 정말안 좋은 것일까?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_rv_magazine_list"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
