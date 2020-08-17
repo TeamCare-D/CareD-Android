@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.caredirection.cadi.R
@@ -33,20 +32,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        context?.let {
-            ArrayAdapter.createFromResource(
-                it,
-                R.array.spinner_graph,
-                android.R.layout.simple_dropdown_item_1line
-            ).also { adapter ->
-                adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
-                spinner_home_graph.adapter = adapter
-            }
-        }
-
-        spinner_home_graph.setSelection(0)
-        spinner_home_graph.onItemSelectedListener = this
 
         dummyChartLabel()
         dummyChartListData()
@@ -146,8 +131,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
         val dataSet = BarDataSet(listData,"")
 
         val listColor = ArrayList<Int>()
-
-
 
         listData.forEach {
             if(it.y > 90.0f){

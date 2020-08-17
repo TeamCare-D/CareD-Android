@@ -19,12 +19,15 @@
 
     <!-- sub color -->
     <color name="colorFontGray">#bbbcc1</color>
+    <color name="colorFontDarkGrey">#2b2d2e</color>
+
     <color name="colorLightGray">#f2f3f5</color>
     <color name="colorBorderGray">#c8c8c8</color>
     <color name="colorDarkGray">#8e8f93</color>
+    <color name="colorDividerGrey">#b8b8b8</color>
 
     <color name="colorScrollGray">#f3f3f3</color>
-    <color name="colorDivider">#80ffffff</color>
+    <color name="colorPickerDivider">#80ffffff</color>
 
     <color name="colorLightBlue">#f0f6fd</color>
     <color name="colorLightRed">#ffefee</color>
