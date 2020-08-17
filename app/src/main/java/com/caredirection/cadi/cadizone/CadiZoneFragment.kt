@@ -24,7 +24,6 @@ class CadiZoneFragment : Fragment(R.layout.fragment_cadi_zone) {
         val menu = arrayListOf("피부회복", "활력", "성기능", "피부", "모발", "뼈", "관절")
         val viewPagerAdapter = CadiZoneViewPagerAdapter(fragmentManager!!, menu.count())
         viewPager.adapter = viewPagerAdapter
-
         tabLayout.setupWithViewPager(viewPager)
 
         (0 until menu.size).forEach {
@@ -39,7 +38,8 @@ class CadiZoneFragment : Fragment(R.layout.fragment_cadi_zone) {
         rv_direction_list.adapter = directionAdapter
         directionAdapter.submitList(
             listOf(
-                Direction("아ㅏㅏ", "방향성", 0),
+                Direction("천연의 함정 화학 부형제는\n" +
+                        "정말 안 좋은 것일까?\"", "방향성", 0),
                 Direction("아ㅏㅏ", "방향성", 0),
                 Direction("아ㅏㅏ", "방향성", 0),
                 Direction("아ㅏㅏ", "방향성", 0),

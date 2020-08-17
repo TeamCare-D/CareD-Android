@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="274dp"
+    android:layout_height="160dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_rv_item_product_magazine_dicrection">
+
+    <ImageView
+        android:id="@+id/img_rv_item_product_magazine_direction"
+        android:layout_width="58dp"
+        android:layout_height="27dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/img_tag"
+        />
+
+    <TextView
+        android:id="@+id/txt_rv_item_product_magazine_direction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/img_rv_item_product_magazine_direction"
+        app:layout_constraintTop_toBottomOf="@+id/img_rv_item_product_magazine_direction"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:textColor="@color/colorBlack"
+        android:lineSpacingExtra="10sp"
+        android:text="천연의 함정 화학 부형제는
+정말 안 좋은 것일까?"
+        />
+
+    
+</androidx.constraintlayout.widget.ConstraintLayout>
