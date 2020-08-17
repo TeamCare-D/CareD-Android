@@ -21,45 +21,68 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_home_detail_back">
 
-    <TextView
-        android:id="@+id/txt_home_detail_tiltle"
-        style="@style/bold20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="6dp"
-        android:text="비타민&amp;미네랄"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout4" />
+        <TextView
+            android:id="@+id/txt_home_detail_title"
+            style="@style/bold20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="6dp"
+            android:text="비타민&amp;미네랄"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout4" />
 
-    <TextView
-        android:id="@+id/textView3"
-        style="@style/light12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="나만을 위한 성분 가이드예요."
-        app:layout_constraintStart_toStartOf="@+id/txt_home_detail_tiltle"
-        app:layout_constraintTop_toBottomOf="@+id/txt_home_detail_tiltle" />
+        <TextView
+            android:id="@+id/txt_home_detail_sub"
+            style="@style/light12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="나만을 위한 성분 가이드예요."
+            app:layout_constraintStart_toStartOf="@+id/txt_home_detail_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_home_detail_title" />
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:text="상한 섭취량"
+            android:textColor="@color/colorBlack"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="@+id/txt_home_detail_sub"
+            app:layout_constraintTop_toBottomOf="@+id/txt_home_detail_sub" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:text="권장 섭취량"
+            android:textColor="@color/colorBlack"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="107dp"
-            android:layout_marginBottom="38dp"
+            android:layout_marginBottom="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3">
+            app:layout_constraintTop_toBottomOf="@+id/txt_home_detail_sub">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
                 <com.github.mikephil.charting.charts.BarChart
                     android:id="@+id/chart_detail_vitamin"
@@ -84,7 +107,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/txt_home_detail_desc_title"
             style="@style/bold20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,17 +117,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/btn_search" />
-
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/txt_home_detail_desc_more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
@@ -113,11 +127,21 @@
             android:lineSpacingExtra="6sp"
             android:text="더보기"
             android:textSize="12dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView4"
+            android:textColor="@color/colorFontDarkGrey"
+            app:layout_constraintEnd_toStartOf="@+id/btn_home_detail_desc_more"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/btn_home_detail_desc_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/btn_search" />
+
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/txt_home_detail_desc_bottom_limit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="21dp"
@@ -127,11 +151,21 @@
             android:text="권장량"
             android:textColor="@color/colorPointBrown"
             android:textSize="14dp"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintStart_toStartOf="@+id/txt_home_detail_desc_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_home_detail_desc_title" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="8dp"
+            android:layout_height="1dp"
+            android:background="@color/colorDividerGrey"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_home_detail_desc_bottom_limit"
+            app:layout_constraintEnd_toStartOf="@+id/txt_home_detail_desc__top_limit"
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_desc_bottom_limit"
+            app:layout_constraintTop_toTopOf="@id/txt_home_detail_desc_bottom_limit" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/txt_home_detail_desc__top_limit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -141,11 +175,11 @@
             android:text="상한량"
             android:textColor="@color/colorPointBrown"
             android:textSize="14dp"
-            app:layout_constraintStart_toEndOf="@+id/textView7"
-            app:layout_constraintTop_toTopOf="@+id/textView7" />
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_desc_bottom_limit"
+            app:layout_constraintTop_toTopOf="@+id/txt_home_detail_desc_bottom_limit" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/txt_home_detail_user_bottom_limit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -155,11 +189,21 @@
             android:text="3000mg"
             android:textColor="@color/colorBlack"
             android:textSize="14dp"
-            app:layout_constraintStart_toEndOf="@+id/textView8"
-            app:layout_constraintTop_toTopOf="@+id/textView8" />
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_desc__top_limit"
+            app:layout_constraintTop_toTopOf="@+id/txt_home_detail_desc__top_limit" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="8dp"
+            android:layout_height="1dp"
+            android:background="@color/colorDividerGrey"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_home_detail_user_bottom_limit"
+            app:layout_constraintEnd_toStartOf="@+id/txt_home_detail_user_top_limit"
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_user_bottom_limit"
+            app:layout_constraintTop_toTopOf="@+id/txt_home_detail_user_bottom_limit" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/txt_home_detail_user_top_limit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -169,11 +213,11 @@
             android:text="3000mg"
             android:textColor="@color/colorBlack"
             android:textSize="14dp"
-            app:layout_constraintStart_toEndOf="@+id/textView9"
-            app:layout_constraintTop_toTopOf="@+id/textView9" />
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_user_bottom_limit"
+            app:layout_constraintTop_toTopOf="@+id/txt_home_detail_user_bottom_limit" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/txt_home_detail_desc_Intake"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -183,11 +227,11 @@
             android:text="나의 섭취량"
             android:textColor="@color/colorPointBrown"
             android:textSize="14dp"
-            app:layout_constraintStart_toStartOf="@+id/textView7"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintStart_toStartOf="@+id/txt_home_detail_desc_bottom_limit"
+            app:layout_constraintTop_toBottomOf="@+id/txt_home_detail_desc_bottom_limit" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/txt_home_detail_user_Intake"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -197,22 +241,27 @@
             android:text="500mg"
             android:textColor="@color/colorPointBlue"
             android:textSize="14dp"
-            app:layout_constraintStart_toEndOf="@+id/textView11"
-            app:layout_constraintTop_toTopOf="@+id/textView11" />
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_desc_Intake"
+            app:layout_constraintTop_toTopOf="@+id/txt_home_detail_desc_Intake" />
 
         <TextView
             android:id="@+id/textView13"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="40dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="30dp"
             android:fontFamily="@font/notosanskr_medium"
             android:includeFontPadding="false"
             android:lineSpacingExtra="8sp"
-            android:text="근육과 스트레스관리에 효과적으로 작용해요. 이완작용을 하는 대표적인 성분입니다. 아아, 오이, 아오, 아이오에 많이 들어있어요."
+            android:text="근육과 스트레스관리에 효과적으로 작용해요.\n 이완작용을 하는 대표적인 성분입니다.\n 아아, 오이, 아오, 아이오에 많이 들어있어요."
             android:textColor="@color/colorBlack"
             android:textSize="14dp"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_home_detail_desc_Intake" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
