@@ -12,6 +12,7 @@
         <activity android:name="com.caredirection.cadi.MainActivity">
 
         </activity>
+<<<<<<< HEAD
         <activity android:name=".product.list.ListActivity"/>
         <activity android:name=".product.search.ProductSearch"/>
         <activity android:name=".research.ResearchInterestActivity"></activity>
@@ -19,11 +20,18 @@
         <activity android:name=".research.ResearchDiseaseActivity" />
         <activity android:name=".research.ResearchGenderActivity" />
         <activity android:name=".research.ResearchNicknameActivity">
+=======
+        <activity android:name=".product.list.ListActivity">
+>>>>>>> choong/product
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".product.search.ProductSearch">
+
         </activity>
     </application>
 
