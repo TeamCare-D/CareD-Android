@@ -6,14 +6,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
-        android:id="@+id/img_rv_item_magazine_interested"
+        android:id="@+id/img_rv_item_magazine_ingredient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/blue_line_4"
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_rv_item_magazine_interested"
+        android:id="@+id/layout_rv_item_magazine_ingredient"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         android:background="@color/colorTransparentWhite"
         >
         <TextView
-            android:id="@+id/txt_rv_item_magazine_interested"
+            android:id="@+id/txt_rv_item_magazine_ingredient"
             android:layout_width="264dp"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
@@ -35,14 +35,14 @@
             />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_rv_item_magazine_interested"
+            android:id="@+id/rv_rv_item_magazine_ingredient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintStart_toStartOf="@+id/txt_rv_item_magazine_interested"
-            app:layout_constraintTop_toBottomOf="@+id/txt_rv_item_magazine_interested"
-            tools:listitem="@layout/rv_item_magazine_label" />
+            app:layout_constraintStart_toStartOf="@+id/txt_rv_item_magazine_ingredient"
+            app:layout_constraintTop_toBottomOf="@+id/txt_rv_item_magazine_ingredient"
+            tools:listitem="@layout/rv_item_magazine_tag" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
