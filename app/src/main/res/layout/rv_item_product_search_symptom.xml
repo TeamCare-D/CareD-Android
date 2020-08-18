@@ -37,14 +37,22 @@
         />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@+id/layout_rv_item_product_search_symptom"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:background="@color/colorSkyBlue"
+    >
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_view_stamina"
-        android:layout_width="320dp"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/layout_rv_item_product_search_symptom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorSkyBlue"
         />
-
+</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

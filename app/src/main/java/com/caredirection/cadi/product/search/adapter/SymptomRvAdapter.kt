@@ -51,6 +51,8 @@ class SymptomRvAdapter(private val context: Context) :
                     viewRv?.adapter = viewStaminaAdapter
                     viewRv?.layoutManager = GridLayoutManager(context, 3)
                     itemViewTxt.setTextColor(Color.parseColor("#358fff"))
+                    itemView.setBackgroundColor(Color.parseColor("#f0f6fd"))
+
 
 
                     item.check = true
@@ -61,7 +63,7 @@ class SymptomRvAdapter(private val context: Context) :
                     viewRv?.adapter = viewStaminaAdapter
                     viewRv?.layoutManager = GridLayoutManager(context, 3)
 
-
+                    itemView.setBackgroundColor(Color.parseColor("#FFFFFF"))
                     itemViewTxt.setTextColor(Color.parseColor("#000000"))
 
                     item.check = false

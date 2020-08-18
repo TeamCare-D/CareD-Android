@@ -19,10 +19,7 @@ class FragmentSymptom: Fragment(R.layout.fragment_product_search1) {
 
     }
     fun RvAdapterSetting(){
-        val RvAdapter =
-            SymptomRvAdapter(
-                requireContext()
-            )
+        val RvAdapter = SymptomRvAdapter(requireContext())
 
         RvAdapter.items.add(item("피로회복", mutableListOf("test","test","test","test","test")))
         RvAdapter.items.add(item("피로회복2",mutableListOf()))

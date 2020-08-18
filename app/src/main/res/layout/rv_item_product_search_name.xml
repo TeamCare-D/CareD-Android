@@ -16,6 +16,6 @@
         android:textSize="12dp"
         android:lineSpacingExtra="6dp"
         android:gravity="center"
-        android:background="@drawable/blue_line_4"
+        android:background="@drawable/sky_fill_4"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
