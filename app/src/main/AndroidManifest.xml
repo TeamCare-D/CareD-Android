@@ -15,14 +15,21 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
+        <activity android:name=".product.search.ProductSearch"/>
+        <activity android:name=".research.ResearchInterestActivity"></activity>
+        <activity android:name=".research.ResearchMedicineActivity" />
+        <activity android:name=".research.ResearchDiseaseActivity" />
+        <activity android:name=".research.ResearchGenderActivity" />
+        <activity android:name=".research.ResearchNicknameActivity"/>
+
         <activity android:name=".product.list.ListActivity">
 
-        </activity>
-        <activity android:name=".product.search.ProductSearch">
+
 
         </activity>
+
 
     </application>
 
