@@ -8,7 +8,7 @@
     </style>
 
     <style name="ResearchNumberPickerTheme" parent="AppTheme">
-        <item name="colorControlNormal">@color/colorDivider</item>
+        <item name="colorControlNormal">@color/colorPickerDivider</item>
     </style>
 
     <style name="ResearchProgressbarTheme" parent="AppTheme">

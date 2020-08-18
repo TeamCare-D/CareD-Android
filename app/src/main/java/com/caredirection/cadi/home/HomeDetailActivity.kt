@@ -1,11 +1,8 @@
 package com.caredirection.cadi.home
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import com.caredirection.cadi.R
 import com.caredirection.cadi.home.homecare.HomeCareRvAdapter
 import com.github.mikephil.charting.components.AxisBase
@@ -15,13 +12,37 @@ import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.ValueFormatter
-import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.activity_home_detail.*
 
-class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelectedListener {
+class HomeDetailActivity : AppCompatActivity() {
     private lateinit var rvHomeMyCareRvAdapter: HomeCareRvAdapter
     private lateinit var rvHomeCareSimilarRvAdapter: HomeCareRvAdapter
     private val listData = ArrayList<BarEntry>()
     private lateinit var xLabelIngredients: Array<String>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_home_detail)
+
+//        this?.let {
+//            ArrayAdapter.createFromResource(
+//                it,
+//                R.array.spinner_graph,
+//                android.R.layout.simple_dropdown_item_1line
+//            ).also { adapter ->
+//                adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+//                spinner_home_graph.adapter = adapter
+//            }
+//        }
+//
+//        spinner_home_graph.setSelection(0)
+//        spinner_home_graph.onItemSelectedListener = this
+
+        dummyChartLabel()
+        dummyChartListData()
+        initBarChart()
+        drawChart(listData,xLabelIngredients)
+    }
 
     private val formatter = object : ValueFormatter() {
         override fun getAxisLabel(value: Float, axis: AxisBase?): String {
@@ -30,36 +51,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
         }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        dummyChartLabel()
-        dummyChartListData()
-        initBarChart()
-        drawChart(listData,xLabelIngredients)
-        setVitaminMoreClickListener()
-    }
-
-    private fun setVitaminMoreClickListener(){
-        btn_home_to_vitamin_more.setOnClickListener {
-            val vitaminIntent = Intent(context, HomeDetailActivity::class.java)
-
-            startActivity(vitaminIntent)
-        }
-    }
-
-    override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        parent?.getItemAtPosition(position)
-    }
-
-
     private fun initBarChart() {
         // 그래프 기본 설정
-        val xAxis = chart_home_vitamin.xAxis
+        val xAxis = chart_detail_vitamin.xAxis
 
         xAxis.apply {
             position = XAxis.XAxisPosition.BOTTOM // x축 위치 : 데이터의 위치를 아래로
@@ -69,12 +63,12 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
             setDrawGridLines(false) // x축 기준선
         }
 
-        val yAxisRight = chart_home_vitamin.axisRight
+        val yAxisRight = chart_detail_vitamin.axisRight
         yAxisRight.apply {
             isEnabled = false
         }
 
-        val yAxisLeft = chart_home_vitamin.axisLeft
+        val yAxisLeft = chart_detail_vitamin.axisLeft
         yAxisLeft.apply {
             axisMaximum = 120f // y축 최고값
             axisMinimum = 0f // y축 최저값
@@ -84,7 +78,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
             setDrawLabels(false) // label 사용 x
         }
 
-        chart_home_vitamin.apply {
+        chart_detail_vitamin.apply {
             legend.isEnabled = false
             description.isEnabled = false
             setVisibleXRange(6f, 11f) // X에 그려줄 최소, 최대 단위 정하기
@@ -92,10 +86,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
         }
 
         val upperLimitLine = LimitLine(90f, "")
-        initLimitLine(upperLimitLine, ContextCompat.getColor(context!!, R.color.colorPointRed))
+        initLimitLine(upperLimitLine, ContextCompat.getColor(this, R.color.colorPointRed))
 
         val lowerLimitLine = LimitLine(30f, "")
-        initLimitLine(lowerLimitLine, ContextCompat.getColor(context!!, R.color.colorPointGray))
+        initLimitLine(lowerLimitLine, ContextCompat.getColor(this, R.color.colorPointGray))
 
         yAxisLeft.addLimitLine(upperLimitLine)
         yAxisLeft.addLimitLine(lowerLimitLine)
@@ -132,34 +126,35 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
 
         val listColor = ArrayList<Int>()
 
+
+
         listData.forEach {
             if(it.y > 90.0f){
-                listColor.add(ContextCompat.getColor(context!!, R.color.colorPointBlue))
-                listColor.add(ContextCompat.getColor(context!!, R.color.colorPointRed))
+                listColor.add(ContextCompat.getColor(this, R.color.colorPointBlue))
+                listColor.add(ContextCompat.getColor(this, R.color.colorPointRed))
             }
             else{
                 when{
-                    it.y < 90.0f && it.y > 30.0f -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointBlue))
-                    it.y < 30.0f -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointGray))
+                    it.y < 90.0f && it.y > 30.0f -> listColor.add(ContextCompat.getColor(this, R.color.colorPointBlue))
+                    it.y < 30.0f -> listColor.add(ContextCompat.getColor(this, R.color.colorPointGray))
                 }
             }
         }
 
         dataSet.apply {
             colors=listColor
-            valueTextColor=ContextCompat.getColor(context!!, R.color.colorPointBlue)
+            //valueTextColor= ContextCompat.getColor(this, R.color.colorPointBlue)
             setDrawValues(false)
         }
 
         val lineData = BarData(dataSet)
         lineData.barWidth = 0.15f
-        chart_home_vitamin.data = lineData
+        chart_detail_vitamin.data = lineData
 
-        val xAxis=chart_home_vitamin.xAxis
+        val xAxis=chart_detail_vitamin.xAxis
         xAxis.valueFormatter=formatter
 
-        chart_home_vitamin.invalidate()
+        chart_detail_vitamin.invalidate()
 
     }
-
 }
