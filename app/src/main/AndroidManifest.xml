@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".register.search.RegisterSearchActivity"></activity>
+        <activity android:name=".register.search.RegisterSearchResultActivity" />
         <activity android:name=".register.list.RegisterListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,16 +19,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".home.HomeDetailActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".product.search.ProductSearch" />
         <activity android:name=".research.ResearchInterestActivity" />
         <activity android:name=".product.list.ListActivity" />
         <activity android:name=".research.ResearchMedicineActivity" />
         <activity android:name=".research.ResearchDiseaseActivity" />
         <activity android:name=".research.ResearchGenderActivity" />
-        <activity android:name=".research.ResearchNicknameActivity">
-
-        </activity>
+        <activity android:name=".research.ResearchNicknameActivity" />
     </application>
 
 </manifest>
