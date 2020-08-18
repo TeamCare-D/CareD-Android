@@ -94,8 +94,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
     }
 
     private fun initLimitLine(line: LimitLine, color: Int) {
-        line.lineWidth = 2f // 두께
-        line.enableDashedLine(10f, 10f, 0f) // 길이, 간격
+        line.lineWidth = 1f // 두께
+        line.enableDashedLine(5f, 10f, 0f) // 길이, 간격
         line.lineColor = color
         line.textSize = 10f
     }
@@ -106,17 +106,17 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
     }
 
     private fun dummyChartListData() {
-        listData.add(BarEntry(0f, 120f))
-        listData.add(BarEntry(1f, 20f))
-        listData.add(BarEntry(2f, 60f))
+        listData.add(BarEntry(0f, floatArrayOf(90f,20f)))
+        listData.add(BarEntry(1f, floatArrayOf(90f,10f)))
+        listData.add(BarEntry(2f, 20f))
         listData.add(BarEntry(3f, 80f))
-        listData.add(BarEntry(4f, 120f))
+        listData.add(BarEntry(4f, floatArrayOf(90f,30f)))
         listData.add(BarEntry(5f, 40f))
         listData.add(BarEntry(6f, 55f))
         listData.add(BarEntry(7f, 20f))
         listData.add(BarEntry(8f, 60f))
         listData.add(BarEntry(9f, 80f))
-        listData.add(BarEntry(10f, 120f))
+        listData.add(BarEntry(10f, floatArrayOf(90f,10f)))
     }
 
     private fun drawChart(listData: ArrayList<BarEntry>,xLabelIngredients:Array<String>){
@@ -125,10 +125,15 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
         val listColor = ArrayList<Int>()
 
         listData.forEach {
-            when {
-                it.y > 100.0f -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointRed))
-                it.y < 30.0f -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointGray))
-                else -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointBlue))
+            if(it.y > 90.0f){
+                listColor.add(ContextCompat.getColor(context!!, R.color.colorPointBlue))
+                listColor.add(ContextCompat.getColor(context!!, R.color.colorPointRed))
+            }
+            else{
+                when{
+                    it.y < 90.0f && it.y > 30.0f -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointBlue))
+                    it.y < 30.0f -> listColor.add(ContextCompat.getColor(context!!, R.color.colorPointGray))
+                }
             }
         }
 
@@ -139,7 +144,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
         }
 
         val lineData = BarData(dataSet)
-        lineData.barWidth = 0.2f
+        lineData.barWidth = 0.15f
         chart_home_vitamin.data = lineData
 
         val xAxis=chart_home_vitamin.xAxis
