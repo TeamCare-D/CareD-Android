@@ -9,7 +9,7 @@ import android.widget.CheckedTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
-import com.caredirection.cadi.register.RegisterListActivity
+import com.caredirection.cadi.register.list.RegisterListActivity
 import kotlinx.android.synthetic.main.activity_research_interest.*
 
 class ResearchInterestActivity : AppCompatActivity() {
