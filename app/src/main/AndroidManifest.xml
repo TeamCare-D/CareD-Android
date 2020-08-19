@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".register.search.RegisterSearchActivity"></activity>
-        <activity android:name=".register.search.RegisterSearchResultActivity" />
+        <activity android:name=".register.search.RegisterSearchResultActivity">
+
+        </activity>
         <activity android:name=".register.list.RegisterListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

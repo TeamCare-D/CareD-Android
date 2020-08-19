@@ -7,74 +7,74 @@
     android:layout_height="match_parent"
     tools:context=".register.list.RegisterListActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:fontFamily="@font/notosanskr_light"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="9sp"
+        android:text="제품을 등록하시면"
+        android:textColor="@color/colorBlack"
+        android:textSize="19dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="6sp"
+        android:text="성별, 나이에 따라 영양소의 권장량, 상한량 차이가 있어요"
+        android:textColor="@color/colorBlack"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/notosanskr_light"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="9sp"
+        android:text="나의 영양 섭취상태를 파악할 수 있어요"
+        android:textColor="@color/colorBlack"
+        android:textSize="19dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="63dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="56dp"
-                android:fontFamily="@font/notosanskr_light"
-                android:includeFontPadding="false"
-                android:lineSpacingExtra="9sp"
-                android:text="제품을 등록하시면"
-                android:textColor="@color/colorBlack"
-                android:textSize="19dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/notosanskr_light"
-                android:includeFontPadding="false"
-                android:lineSpacingExtra="9sp"
-                android:text="나의 영양 섭취상태를 파악할 수 있어요"
-                android:textColor="@color/colorBlack"
-                android:textSize="19dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/notosanskr_regular"
-                android:includeFontPadding="false"
-                android:lineSpacingExtra="6sp"
-                android:text="성별, 나이에 따라 영양소의 권장량, 상한량 차이가 있어요"
-                android:textColor="@color/colorBlack"
-                android:textSize="13dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_register_list"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="63dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4">
+                app:layout_constraintTop_toTopOf="parent">
 
             </androidx.recyclerview.widget.RecyclerView>
 
@@ -118,7 +118,7 @@
                 app:srcCompat="@drawable/plus_ic" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btn_register_list_next"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="28dp"
@@ -130,18 +130,33 @@
                 android:fontFamily="@font/notosanskr_bold"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="6sp"
-                android:text="다음으로 넘어가기"
+                android:text="완료하기"
                 android:textColor="@color/colorDarkGray"
                 android:textSize="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+            <TextView
+                android:id="@+id/btn_register_list_skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="6sp"
+                android:text="건너뛰기"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_register_list_next" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/btn_register_list_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
@@ -151,7 +166,7 @@
         app:srcCompat="@drawable/btn_back" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/btn_register_list_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
