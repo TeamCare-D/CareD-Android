@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_register_product_complete"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".register.user.RegisterProductCompleteActivity">
@@ -32,12 +32,12 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="112dp"
-      android:text="제품 등록 완료"
       android:fontFamily="@font/notosanskr_light"
-      android:textSize="19dp"
-      android:lineSpacingExtra="9sp"
       android:includeFontPadding="false"
+      android:lineSpacingExtra="9sp"
+      android:text="제품 등록 완료"
       android:textColor="@color/colorBlack"
+      android:textSize="19dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
@@ -47,12 +47,12 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="30dp"
-      android:text="케어디에 나만의 제품을 등록하였습니다"
       android:fontFamily="@font/notosanskr_regular"
-      android:textSize="13dp"
-      android:lineSpacingExtra="6sp"
       android:includeFontPadding="false"
+      android:lineSpacingExtra="6sp"
+      android:text="케어디에 나만의 제품을 등록하였습니다"
       android:textColor="@color/colorBlack"
+      android:textSize="13dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -75,5 +75,5 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+      app:layout_constraintTop_toBottomOf="@+id/btn_register_list_add" />
 </androidx.constraintlayout.widget.ConstraintLayout>

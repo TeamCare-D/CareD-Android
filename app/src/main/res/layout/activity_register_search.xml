@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/btn_back" />
 
-    <TextView
+    <EditText
         android:id="@+id/txt_register_search_keyword"
         android:layout_width="0dp"
         android:layout_height="35dp"
