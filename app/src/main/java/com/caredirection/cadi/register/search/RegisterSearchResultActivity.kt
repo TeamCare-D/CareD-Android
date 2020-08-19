@@ -1,12 +1,15 @@
 package com.caredirection.cadi.register.search
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.register.DummyRegisterSearchResultList
+import com.caredirection.cadi.register.user.RegisterProductActivity
+import com.caredirection.cadi.register.user.RegisterProductCompleteActivity
 import kotlinx.android.synthetic.main.activity_register_search_result.*
 
 class RegisterSearchResultActivity : AppCompatActivity() {
@@ -21,6 +24,7 @@ class RegisterSearchResultActivity : AppCompatActivity() {
         setStatusBarTransparent()
 
         initRegisterSearchResultList()
+        makeListener()
     }
 
     private fun initRegisterSearchResultList(){
@@ -33,6 +37,27 @@ class RegisterSearchResultActivity : AppCompatActivity() {
         registerSearchResultListAdapter.data = dummyRegisterSearchResultList.getRegisterSearchResultList()
 
         registerSearchResultListAdapter.notifyDataSetChanged()
+    }
+
+    private fun makeListener(){
+        setRegisterClickListener()
+        setNextClickListener()
+    }
+
+    private fun setNextClickListener(){
+        btn_register_search_result_next.setOnClickListener {
+            val userCompleteIntent = Intent(this,RegisterProductCompleteActivity::class.java)
+
+            startActivity(userCompleteIntent)
+        }
+    }
+
+    private fun setRegisterClickListener(){
+        txt_register_search_result_bottom2.setOnClickListener{
+            val userProductIntent = Intent(this, RegisterProductActivity::class.java)
+
+            startActivity(userProductIntent)
+        }
     }
 
     // 상태바 투명 설정

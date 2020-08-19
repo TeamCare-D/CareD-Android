@@ -1,6 +1,7 @@
 package com.caredirection.cadi.register.search
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,34 @@ class RegisterSearchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register_search)
 
         setStatusBarTransparent()
+
+        makeListener()
+    }
+
+    private fun makeListener(){
+        setBackClickListener()
+        setResetClickListener()
+        setSearchClickListener()
+    }
+
+    private fun setBackClickListener(){
+        btn_register_search_back.setOnClickListener {
+            finish()
+        }
+    }
+
+    private fun setResetClickListener(){
+        btn_register_search_reset.setOnClickListener {
+            edt_register_search_keyword.text = null
+        }
+    }
+
+    private fun setSearchClickListener(){
+        btn_register_search.setOnClickListener {
+            val searchIntent = Intent(this, RegisterSearchResultActivity::class.java)
+
+            startActivity(searchIntent)
+        }
     }
 
     // 상태바 투명 설정

@@ -1,12 +1,15 @@
 package com.caredirection.cadi.register.list
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.caredirection.cadi.MainActivity
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.register.DummyRegisterList
+import com.caredirection.cadi.register.search.RegisterSearchActivity
 import kotlinx.android.synthetic.main.activity_register_list.*
 
 class RegisterListActivity : AppCompatActivity() {
@@ -21,6 +24,7 @@ class RegisterListActivity : AppCompatActivity() {
         setStatusBarTransparent()
 
         initRegisterList()
+        makeListener()
     }
 
     private fun initRegisterList(){
@@ -33,6 +37,53 @@ class RegisterListActivity : AppCompatActivity() {
         registerListAdapter.data = dummyRegisterList.getRegisterList()
 
         registerListAdapter.notifyDataSetChanged()
+
+        checkNextButton()
+    }
+
+    private fun makeListener(){
+        setNextClickListener()
+        setBackClickListener()
+        setCloseClickListener()
+        setAddClickListener()
+    }
+
+    private fun setBackClickListener(){
+        btn_register_list_back.setOnClickListener {
+            finish()
+        }
+    }
+
+    private fun setCloseClickListener(){
+        btn_register_list_close.setOnClickListener {
+            val homeIntent = Intent(this, MainActivity::class.java)
+
+            startActivity(homeIntent)
+        }
+    }
+
+    private fun setAddClickListener(){
+        btn_register_list_add.setOnClickListener {
+            val searchIntent = Intent(this,RegisterSearchActivity::class.java)
+
+            startActivity(searchIntent)
+        }
+    }
+
+    private fun setNextClickListener(){
+        btn_register_list_next.setOnClickListener {
+            val completeIntent = Intent(this,RegisterListCompleteActivity::class.java)
+
+            startActivity(completeIntent)
+        }
+    }
+
+    private fun checkNextButton(){
+        btn_register_list_next.isEnabled = false
+
+        if(registerListAdapter.itemCount > 0){
+            btn_register_list_next.isEnabled = true
+        }
     }
 
     // 상태바 투명 설정

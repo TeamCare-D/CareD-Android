@@ -8,7 +8,7 @@
     tools:context=".register.user.RegisterProductCompleteActivity">
 
   <ImageView
-      android:id="@+id/imageView5"
+      android:id="@+id/btn_register_product_complete_back"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="3dp"
@@ -18,7 +18,7 @@
       app:srcCompat="@drawable/btn_back" />
 
   <ImageView
-      android:id="@+id/imageView4"
+      android:id="@+id/btn_register_product_complete_close"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="6dp"
@@ -58,6 +58,7 @@
       app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
   <Button
+      android:id="@+id/btn_register_product_complete_next"
       android:layout_width="match_parent"
       android:layout_height="50dp"
       android:layout_marginStart="28dp"

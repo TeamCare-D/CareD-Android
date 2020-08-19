@@ -13,6 +13,18 @@ class RegisterProductActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register_product)
 
         setStatusBarTransparent()
+
+        makeListener()
+    }
+
+    private fun makeListener(){
+        setBackClickListener()
+    }
+
+    private fun setBackClickListener(){
+        btn_register_product_back.setOnClickListener {
+            finish()
+        }
     }
 
     // 상태바 투명 설정

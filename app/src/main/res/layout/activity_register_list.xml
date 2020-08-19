@@ -79,7 +79,7 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/btn_register_list_add"
                 android:layout_width="match_parent"
                 android:layout_height="112dp"
                 android:layout_marginStart="40dp"
@@ -102,9 +102,9 @@
                 android:text="새로운 제품 등록"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-                app:layout_constraintEnd_toEndOf="@+id/imageView10"
-                app:layout_constraintStart_toStartOf="@+id/imageView10"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_register_list_add"
+                app:layout_constraintEnd_toEndOf="@+id/btn_register_list_add"
+                app:layout_constraintStart_toStartOf="@+id/btn_register_list_add"
                 app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
             <ImageView
@@ -112,9 +112,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView10"
-                app:layout_constraintStart_toStartOf="@+id/imageView10"
-                app:layout_constraintTop_toTopOf="@+id/imageView10"
+                app:layout_constraintEnd_toEndOf="@+id/btn_register_list_add"
+                app:layout_constraintStart_toStartOf="@+id/btn_register_list_add"
+                app:layout_constraintTop_toTopOf="@+id/btn_register_list_add"
                 app:srcCompat="@drawable/plus_ic" />
 
             <Button
@@ -136,7 +136,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_register_list_add" />
 
             <TextView
                 android:id="@+id/btn_register_list_skip"
