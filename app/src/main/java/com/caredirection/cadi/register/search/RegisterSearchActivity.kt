@@ -39,6 +39,8 @@ class RegisterSearchActivity : AppCompatActivity() {
         registerSearchListAdapter.data = dummyRegisterSearchList.getRegisterSearchResultList()
 
         registerSearchListAdapter.notifyDataSetChanged()
+
+        txt_register_search_count.text = "결과 "+registerSearchListAdapter.itemCount+"건"
     }
 
     private fun makeListener(){
