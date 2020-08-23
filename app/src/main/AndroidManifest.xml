@@ -15,7 +15,7 @@
         <activity android:name=".register.list.RegisterListCompleteActivity" />
         <activity android:name=".register.user.RegisterProductCompleteActivity" />
         <activity android:name=".register.search.RegisterSearchActivity" />
-        <activity android:name=".register.search.RegisterSearchResultActivity" />
+        <activity android:name=".register.search.RegisterSearchActivity" />
         <activity android:name=".register.list.RegisterListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

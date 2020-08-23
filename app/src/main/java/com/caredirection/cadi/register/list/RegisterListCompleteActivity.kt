@@ -31,9 +31,11 @@ class RegisterListCompleteActivity : AppCompatActivity() {
     }
 
     private fun setCloseClickListener(){
-        val registerCompleteIntent = Intent(this,MainActivity::class.java)
+        btn_register_list_complete_close.setOnClickListener {
+            val registerCompleteIntent = Intent(this, MainActivity::class.java)
 
-        startActivity(registerCompleteIntent)
+            startActivity(registerCompleteIntent)
+        }
     }
 
     // 상태바 투명 설정

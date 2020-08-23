@@ -1,6 +1,6 @@
 package com.caredirection.cadi.data.register
 
-data class RegisterSearchResultListItem(
+data class RegisterSearchListItem(
     val brand : String,
     val name : String,
     val overseas : String,

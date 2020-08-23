@@ -3,6 +3,9 @@ package com.caredirection.cadi.register.list
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.UnderlineSpan
+import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +25,7 @@ class RegisterListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register_list)
 
         setStatusBarTransparent()
+        setSkipUnderLine()
 
         initRegisterList()
         makeListener()
@@ -38,28 +42,13 @@ class RegisterListActivity : AppCompatActivity() {
 
         registerListAdapter.notifyDataSetChanged()
 
-        checkNextButton()
+        checkCompleteButton()
     }
 
     private fun makeListener(){
-        setNextClickListener()
-        setBackClickListener()
-        setCloseClickListener()
         setAddClickListener()
-    }
-
-    private fun setBackClickListener(){
-        btn_register_list_back.setOnClickListener {
-            finish()
-        }
-    }
-
-    private fun setCloseClickListener(){
-        btn_register_list_close.setOnClickListener {
-            val homeIntent = Intent(this, MainActivity::class.java)
-
-            startActivity(homeIntent)
-        }
+        setCompleteClickListener()
+        setSkipClickListener()
     }
 
     private fun setAddClickListener(){
@@ -70,20 +59,37 @@ class RegisterListActivity : AppCompatActivity() {
         }
     }
 
-    private fun setNextClickListener(){
-        btn_register_list_next.setOnClickListener {
+    private fun setCompleteClickListener(){
+        btn_register_list_complete.setOnClickListener {
             val completeIntent = Intent(this,RegisterListCompleteActivity::class.java)
 
             startActivity(completeIntent)
         }
     }
 
-    private fun checkNextButton(){
-        btn_register_list_next.isEnabled = false
+    private fun setSkipClickListener(){
+        btn_register_list_skip.setOnClickListener {
+            val homeIntent = Intent(this, MainActivity::class.java)
+
+            startActivity(homeIntent)
+        }
+    }
+
+    private fun checkCompleteButton(){
+        btn_register_list_complete.isEnabled = false
 
         if(registerListAdapter.itemCount > 0){
-            btn_register_list_next.isEnabled = true
+            btn_register_list_complete.isEnabled = true
+            btn_register_list_complete.setTextColor(resources.getColor(R.color.colorWhite))
+            btn_register_list_skip.visibility = View.GONE
+            btn_register_list_close.visibility = View.VISIBLE
         }
+    }
+
+    private fun setSkipUnderLine(){
+        var spannableString = SpannableString("건너뛰기")
+        spannableString.setSpan(UnderlineSpan(), 0, spannableString.length, 0)
+        btn_register_list_skip.text = spannableString
     }
 
     // 상태바 투명 설정

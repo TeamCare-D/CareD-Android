@@ -5,7 +5,7 @@
     android:id="@+id/cl_register_search"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register.search.RegisterSearchResultActivity">
+    tools:context=".register.search.RegisterSearchActivity">
 
     <ImageView
         android:id="@+id/btn_register_search_back"
@@ -30,7 +30,7 @@
         android:paddingStart="12dp"
         android:paddingTop="7dp"
         android:paddingBottom="8dp"
-        android:text="비타민"
+        android:hint="검색어를 입력해주세요"
         android:textColor="@color/colorBlack"
         android:textSize="14dp"
         app:layout_constraintEnd_toStartOf="@+id/btn_register_search"
@@ -38,24 +38,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/btn_register_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/edt_register_search_keyword"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/btn_search" />
-
-    <ImageView
-        android:id="@+id/btn_register_search_reset"
+        android:id="@+id/btn_register_search_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/edt_register_search_keyword"
         app:layout_constraintEnd_toEndOf="@+id/edt_register_search_keyword"
         app:layout_constraintTop_toTopOf="@+id/edt_register_search_keyword"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/btn_delete" />
+
+    <ImageView
+        android:id="@+id/btn_register_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edt_register_search_keyword"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_search" />
 
     <ImageView
         android:id="@+id/imageView14"
@@ -66,4 +66,145 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_register_search_keyword" />
+
+    <TextView
+        android:id="@+id/txt_register_search_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="26dp"
+        android:text="결과 3건"
+        android:fontFamily="@font/notosanskr_bold"
+        android:textSize="14dp"
+        android:lineSpacingExtra="6sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_register_search_next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_register_search_count">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_register_search_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_register_search_bottom1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="65dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="6sp"
+                android:text="찾으시는 제품이 없으신가요?"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_register_search_list" />
+
+            <TextView
+                android:id="@+id/txt_register_search_bottom2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="6sp"
+                android:text="제품의 성분과 함량을 직접 "
+                android:textColor="@color/colorDarkGray"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toStartOf="@+id/txt_register_search_bottom3"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_register_search_bottom1" />
+
+            <TextView
+                android:id="@+id/txt_register_search_bottom3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="6sp"
+                android:text="등록"
+                android:textColor="@color/colorPointBlue"
+                android:textSize="12dp"
+                app:layout_constraintStart_toEndOf="@+id/txt_register_search_bottom2"
+                app:layout_constraintTop_toTopOf="@+id/txt_register_search_bottom2"
+                app:layout_constraintEnd_toStartOf="@+id/txt_register_search_bottom4"/>
+
+            <TextView
+                android:id="@+id/txt_register_search_bottom4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="6sp"
+                android:text="해 관리받을 수 있어요"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_register_search_bottom3"
+                app:layout_constraintTop_toTopOf="@+id/txt_register_search_bottom3" />
+
+            <TextView
+                android:id="@+id/txt_register_search_user_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="6sp"
+                android:text="나만의 제품 등록"
+                android:textColor="@color/colorPointBlue"
+                android:textSize="13dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_register_search_bottom2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_register_search_next"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/selector_research_next"
+        android:enabled="true"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="6sp"
+        android:text="다음으로 넘어가기"
+        android:textColor="@color/colorDarkGray"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
