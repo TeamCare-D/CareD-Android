@@ -6,6 +6,12 @@
     android:background="@color/colorSkyBlue"
     >
 
+    <ScrollView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_product_search_name"
         android:layout_width="320dp"
@@ -16,4 +22,5 @@
         android:layout_marginTop="26dp"
 
         />
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

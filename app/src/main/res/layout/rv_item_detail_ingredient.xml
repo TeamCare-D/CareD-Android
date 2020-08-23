@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_rv_item_detail_ingredient"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+    <TextView
+        android:id="@+id/txt_rv_item_detail_ingredient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="10dp"
+        android:textColor="@color/colorBlack"
+        android:lineSpacingExtra="5dp"
+        android:text="프로바이오틱스"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/txt_rv_item_detail_ingredient_day_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/txt_rv_item_detail_ingredient"
+        app:layout_constraintTop_toTopOf="@+id/txt_rv_item_detail_ingredient"
+        android:layout_marginLeft="11dp"
+        android:textSize="10dp"
+        android:textColor="@color/colorBlack"
+        android:lineSpacingExtra="5dp"
+        android:text="30,000mg - 30,000mg"
+        />
+    <TextView
+        android:id="@+id/txt_rv_item_detail_ingredient_prediction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/txt_rv_item_detail_ingredient_day_content"
+        app:layout_constraintStart_toEndOf="@+id/txt_rv_item_detail_ingredient_day_content"
+        android:textSize="10sp"
+        android:textColor="@color/colorBlack"
+        android:lineSpacingExtra="5dp"
+        android:text="50,000mg"
+        android:layout_marginLeft="10dp"
+        />
+    <TextView
+        android:id="@+id/txt_rv_item_detail_ingredient_under"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/txt_rv_item_detail_ingredient_prediction"
+        app:layout_constraintTop_toTopOf="@+id/txt_rv_item_detail_ingredient_prediction"
+        android:textSize="10dp"
+        android:textColor="@color/carolinaBlue"
+        android:layout_marginLeft="4dp"
+        android:lineSpacingExtra="5dp"
+        android:text="미달"
+        />
+    <TextView
+        android:id="@+id/txt_rv_item_detail_ingredient_increase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        app:layout_constraintStart_toEndOf="@+id/txt_rv_item_detail_ingredient_under"
+        app:layout_constraintTop_toTopOf="@+id/txt_rv_item_detail_ingredient_under"
+        android:layout_marginLeft="6dp"
+        android:textColor="@color/colorYellow"
+        android:lineSpacingExtra="5dp"
+        android:text="20,000 UP"
+        />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_rv_item_detail_ingredient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_rv_item_detail_ingredient"
+
+        />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

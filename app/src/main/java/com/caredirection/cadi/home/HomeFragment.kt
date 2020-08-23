@@ -67,6 +67,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemSelecte
         // 그래프 기본 설정
         val xAxis = chart_home_vitamin.xAxis
 
+
+
         xAxis.apply {
             position = XAxis.XAxisPosition.BOTTOM // x축 위치 : 데이터의 위치를 아래로
             granularity = 1f // x축 간격
