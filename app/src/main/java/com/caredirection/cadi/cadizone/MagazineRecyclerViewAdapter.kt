@@ -26,7 +26,7 @@ class MagazineRecyclerViewAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_rv_magazine, parent, false)
+            .inflate(R.layout.rv_item_magazine_ingredient, parent, false)
         return ViewHolder(itemView)
     }
 
@@ -36,10 +36,7 @@ class MagazineRecyclerViewAdapter :
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val container: ConstraintLayout = itemView.findViewById(R.id.cl_rv_container)
-        val text: TextView = itemView.findViewById(R.id.tv_rv_magazine_title)
-        val img: ImageView = itemView.findViewById(R.id.iv_rv_magazine_img)
-        val list: RecyclerView = itemView.findViewById(R.id.rv_rv_magazine_list)
+        val text: TextView = itemView.findViewById(R.id.txt_rv_item_magazine_ingredient)
     }
 }
 

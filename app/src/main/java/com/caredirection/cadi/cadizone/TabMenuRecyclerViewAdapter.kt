@@ -25,7 +25,7 @@ class TabMenuRecyclerViewAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_rv_top_dic, parent, false)
+            .inflate(R.layout.rv_item_product_search_name, parent, false)
         return ViewHolder(itemView)
     }
 
@@ -35,8 +35,8 @@ class TabMenuRecyclerViewAdapter :
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val container: ConstraintLayout = itemView.findViewById(R.id.cl_container)
-        val text: TextView = itemView.findViewById(R.id.tv_ingredient)
+
+        val text: TextView = itemView.findViewById(R.id.txt_rv_item_product_search_name)
     }
 }
 

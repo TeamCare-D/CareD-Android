@@ -149,7 +149,6 @@
                 android:id="@+id/rv_product_magazine_interested"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"

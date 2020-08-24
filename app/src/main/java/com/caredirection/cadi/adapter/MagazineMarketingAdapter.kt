@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
+import com.caredirection.cadi.product.list.adapter.MarketingData
 
 class MagazineMarketingAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val marketingItems = mutableListOf<MarketingData>()

@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
 
-class MagazineTagRvAdapter(val context: Context): RecyclerView.Adapter<MagazineTagRvAdapter.MagazineTagRvHolder>() {
+class MagazineTagRvAdapter(): RecyclerView.Adapter<MagazineTagRvAdapter.MagazineTagRvHolder>() {
 
     val items = mutableListOf<String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MagazineTagRvHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.rv_item_magazine_tag, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_item_magazine_tag, parent, false)
         return MagazineTagRvHolder(view)
     }
 

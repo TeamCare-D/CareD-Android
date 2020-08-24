@@ -25,7 +25,7 @@ class DirectionRecyclerViewAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_rv_direction, parent, false)
+            .inflate(R.layout.rv_item_product_magazine_marketing, parent, false)
         return ViewHolder(itemView)
     }
 
@@ -36,9 +36,9 @@ class DirectionRecyclerViewAdapter :
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val container: ConstraintLayout = itemView.findViewById(R.id.cl_rv_container)
-        val text: TextView = itemView.findViewById(R.id.tv_rv_direction_title)
-        val tag: TextView = itemView.findViewById(R.id.tv_rv_direction_tag)
+
+        val text: TextView = itemView.findViewById(R.id.txt_rv_item_product_magazine_marketing_title)
+        val tag: TextView = itemView.findViewById(R.id.txt_rv_item_product_magazine_marketing)
     }
 }
 

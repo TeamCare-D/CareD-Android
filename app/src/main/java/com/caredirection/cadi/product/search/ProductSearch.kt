@@ -1,9 +1,11 @@
 package com.caredirection.cadi.product.search
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.caredirection.cadi.R
+import com.caredirection.cadi.product.list.ListActivity
 import com.caredirection.cadi.product.search.adapter.ViewPagerAdapter
 import kotlinx.android.synthetic.main.activity_product_search.*
 
@@ -16,6 +18,12 @@ class ProductSearch : AppCompatActivity() {
 
 
         ViewPagerSetting()
+
+        img_product_search_search.setOnClickListener{
+            val intent = Intent(baseContext, ListActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     fun ViewPagerSetting(){
