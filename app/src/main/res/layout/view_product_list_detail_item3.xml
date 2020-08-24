@@ -94,6 +94,7 @@
                 android:layout_height="118dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="8dp"
+                android:elevation="3dp"
                 android:background="@color/colorWhite"
                 app:layout_constraintEnd_toStartOf="@+id/layout_product_list_detail_item3_2"
                 app:layout_constraintHorizontal_chainStyle="packed"
@@ -133,6 +134,7 @@
                 android:layout_width="98dp"
                 android:layout_height="118dp"
                 android:layout_marginEnd="8dp"
+                android:elevation="3dp"
                 android:background="@color/colorWhite"
                 app:layout_constraintEnd_toStartOf="@+id/layout_product_list_detail_item3_3"
                 app:layout_constraintStart_toEndOf="@+id/layout_product_list_detail_item3_1"
@@ -172,6 +174,7 @@
                 android:layout_height="118dp"
                 android:background="@color/colorWhite"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:elevation="3dp"
                 app:layout_constraintStart_toEndOf="@+id/layout_product_list_detail_item3_2"
                 app:layout_constraintTop_toTopOf="@+id/layout_product_list_detail_item3_1">
 

@@ -15,16 +15,15 @@ class FragmentSymptom: Fragment(R.layout.fragment_product_search1) {
 
         RvAdapterSetting()
 
-        //test()
 
     }
     fun RvAdapterSetting(){
         val RvAdapter = SymptomRvAdapter(requireContext())
 
         RvAdapter.items.add(item("피로회복", mutableListOf("test","test","test","test","test")))
-        RvAdapter.items.add(item("피로회복2",mutableListOf()))
-        RvAdapter.items.add(item("피로회복2",mutableListOf()))
-        RvAdapter.items.add(item("피로회복2",mutableListOf()))
+        RvAdapter.items.add(item("피로회복2",mutableListOf("test","test","test","test","test")))
+        RvAdapter.items.add(item("피로회복2",mutableListOf("test","test","test","test","test")))
+        RvAdapter.items.add(item("피로회복2",mutableListOf("test","test","test","test","test")))
 
 
         rv_product_search_symptom.adapter = RvAdapter

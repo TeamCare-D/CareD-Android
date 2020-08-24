@@ -16,37 +16,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/btn_product_present"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginRight="24dp"
-            android:src="@drawable/btn_present"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txt_product_title"
-            android:layout_width="147dp"
-            android:layout_height="66dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="28dp"
-            android:layout_marginTop="16dp"
-            android:text="케어.디가
-선정한 기준으로"
+            android:fontFamily="@font/notosanskr_bold"
+            android:includeFontPadding="false"
+            android:text="케어.디가\n선정한 기준으로"
             android:textColor="@color/colorBlack"
             android:textSize="22dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_product_present" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="43dp"
+            />
 
         <ImageView
             android:id="@+id/btn_product_search"
-            android:layout_width="124dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="19dp"
+            android:layout_width="176dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="40dp"
             android:src="@drawable/btn_product_search"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/txt_product_title"
-            app:layout_constraintTop_toBottomOf="@id/txt_product_title" />
+            app:layout_constraintTop_toBottomOf="@id/txt_product_title"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -68,9 +63,11 @@
                 android:id="@+id/txt_product_suggestion"
                 style="@style/bold20"
                 android:layout_width="wrap_content"
-                android:layout_height="29dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="50dp"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/notosanskr_bold"
                 android:text="Suggestion"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -81,8 +78,10 @@
                 style="@style/light12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="비슷한 사람들이 가장 많이 섭취하고 있는 성분이에요."
+                android:includeFontPadding="false"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/notosanskr_light"
                 app:layout_constraintStart_toStartOf="@id/txt_product_suggestion"
                 app:layout_constraintTop_toBottomOf="@id/txt_product_suggestion" />
 
@@ -94,13 +93,13 @@
                 android:background="@drawable/blue_line_4"
                 android:gravity="center"
                 android:text="홍삼"
+                android:fontFamily="@font/notosanskr_bold"
                 android:textColor="@color/colorBlack"
                 android:textSize="12dp"
                 app:layout_constraintEnd_toStartOf="@+id/txt_product_suggestion_item2"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_product_suggestion_explain"
-
                 />
 
 
@@ -113,6 +112,7 @@
                 android:background="@drawable/blue_line_4"
                 android:gravity="center"
                 android:text="오메가3"
+                android:fontFamily="@font/notosanskr_bold"
                 android:textColor="@color/colorBlack"
                 android:textSize="12dp"
                 app:layout_constraintEnd_toStartOf="@+id/txt_product_suggestion_item3"
@@ -127,6 +127,7 @@
                 android:background="@drawable/blue_line_4"
                 android:gravity="center"
                 android:text="비타민D"
+                android:fontFamily="@font/notosanskr_bold"
                 android:textColor="@color/colorBlack"
                 android:textSize="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -137,11 +138,13 @@
             <TextView
                 android:id="@+id/txt_product_magazine"
                 style="@style/bold20"
+                android:fontFamily="@font/notosanskr_bold"
                 android:layout_width="wrap_content"
-                android:layout_height="29dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="62dp"
                 android:text="CARE Magazine"
+                android:includeFontPadding="false"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_product_suggestion_item1" />
 
@@ -149,6 +152,7 @@
                 android:id="@+id/rv_product_magazine_interested"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
                 android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"

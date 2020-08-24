@@ -34,6 +34,7 @@
             android:layout_marginTop="23dp"
             app:tabMode="scrollable" />
 
+
         <com.caredirection.cadi.custom.WrapContentViewPager
             android:id="@+id/vp_viewPager"
             android:layout_width="match_parent"

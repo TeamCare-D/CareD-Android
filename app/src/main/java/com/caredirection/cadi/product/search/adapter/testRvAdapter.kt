@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
 
@@ -13,7 +12,7 @@ class testRvAdapter(val context : Context, var items: MutableList<String>): Recy
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): testRvVeiwHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.rv_item_product_search_name, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.rv_item_product_search_symptom_name, parent, false)
         return testRvVeiwHolder(view)
     }
 

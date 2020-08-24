@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="319dp"
     android:layout_marginTop="20dp"
+
     >
 
     <ImageView
@@ -14,6 +15,7 @@
         android:src="@drawable/blue_line_4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:elevation="3dp"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,6 +24,7 @@
         android:layout_height="120dp"
         android:background="@color/colorTransparentWhite"
         app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -30,9 +33,10 @@
             android:layout_width="264dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:lineSpacingExtra="10dp"
             android:text="천연의 함정 화학 부형제는 정말\n안 좋은 것일까?"
+            android:includeFontPadding="false"
             android:textColor="@color/colorBlack"
+            android:fontFamily="@font/notosanskr_medium"
             android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,8 +45,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_rv_item_magazine_ingredient"
             android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="@+id/txt_rv_item_magazine_ingredient"

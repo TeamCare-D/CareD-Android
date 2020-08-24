@@ -19,11 +19,7 @@ class ProductFragment : Fragment(R.layout.fragment_product) {
 
         val tag = listOf<String>("방향성", "방향성")
 
-        productMagazineRvAdapter.items.add(
-            ProductMagazineData(
-                "테스트테스트테스트",
-                tag
-            )
+        productMagazineRvAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag)
         )
         productMagazineRvAdapter.items.add(
             ProductMagazineData(
@@ -65,7 +61,7 @@ class ProductFragment : Fragment(R.layout.fragment_product) {
 
         rv_product_magazine_interested.adapter = productMagazineRvAdapter
 
-        btn_product_search.setOnClickListener{
+        btn_product_search.setOnClickListener {
             val intent = Intent(requireContext(), ProductSearch::class.java)
             startActivity(intent)
         }
