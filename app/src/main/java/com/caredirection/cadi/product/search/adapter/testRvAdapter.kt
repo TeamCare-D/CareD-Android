@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import kotlinx.android.synthetic.main.test_empty_rv.view.*
+
 
 class testRvAdapter(val context : Context, var items: MutableList<String>): RecyclerView.Adapter<testRvAdapter.testRvVeiwHolder>(){
 

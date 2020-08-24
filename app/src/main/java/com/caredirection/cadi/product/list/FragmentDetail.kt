@@ -25,12 +25,12 @@ class FragmentDetail : Fragment(R.layout.view_product_list_detail) {
 
             if(active.equals(fragmentDetailItem)){
                 active = fragmentDetailSimplicity
-                childFragmentManager.beginTransaction().replace(R.id.fragment_view_product_list_detail_item, active).commit()
+                childFragmentManager.beginTransaction().setCustomAnimations(R.anim.nav_default_pop_enter_anim, R.anim.nav_default_pop_exit_anim).replace(R.id.fragment_view_product_list_detail_item, active).commit()
             }
 
             else if(active.equals(fragmentDetailSimplicity)){
                 active = fragmentDetailItem
-                childFragmentManager.beginTransaction().replace(R.id.fragment_view_product_list_detail_item, active).commit()
+                childFragmentManager.beginTransaction().setCustomAnimations(R.anim.nav_default_pop_enter_anim, R.anim.nav_default_pop_exit_anim).replace(R.id.fragment_view_product_list_detail_item, active).commit()
             }
         }
     }

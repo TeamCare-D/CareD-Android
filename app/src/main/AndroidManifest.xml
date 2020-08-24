@@ -10,7 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.caredirection.cadi.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".product.search.ProductSearch">
@@ -18,11 +22,7 @@
         </activity>
         <activity android:name=".research.ResearchInterestActivity"></activity>
         <activity android:name=".product.detail.DetailActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".research.ResearchMedicineActivity" />
         <activity android:name=".research.ResearchDiseaseActivity" />

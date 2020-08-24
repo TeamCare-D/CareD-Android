@@ -1,49 +1,43 @@
 package com.caredirection.cadi.product
 
-import android.app.ActionBar
+import android.app.ListActivity
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
+import com.caredirection.cadi.adapter.MarketingData
 import com.caredirection.cadi.adapter.ProductMagazineData
 import com.caredirection.cadi.adapter.ProductMagazineRvAdapter
+import com.caredirection.cadi.product.detail.DetailActivity
 import kotlinx.android.synthetic.main.fragment_product.*
 
 class ProductFragment : Fragment(R.layout.fragment_product) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val ProductMagazineRvAdapter = ProductMagazineRvAdapter(requireContext())
+        val productMagazineRvAdapter = ProductMagazineRvAdapter()
 
+        val tag = listOf<String>("방향성", "방향성")
 
-        val tag = listOf<String>("방향성","방향성")
+        productMagazineRvAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
+        productMagazineRvAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
+        productMagazineRvAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
+        productMagazineRvAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
 
-        ProductMagazineRvAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
-        ProductMagazineRvAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
-        ProductMagazineRvAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
-        ProductMagazineRvAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
+        productMagazineRvAdapter.marketingItems.add(MarketingData("test","test"))
+        productMagazineRvAdapter.marketingItems.add(MarketingData("test","test"))
+        productMagazineRvAdapter.marketingItems.add(MarketingData("test","test"))
 
-        rv_product_magazine_interested.layoutManager = LinearLayoutManager(requireContext())
-        rv_product_magazine_interested.adapter = ProductMagazineRvAdapter
+        rv_product_magazine_interested.adapter = productMagazineRvAdapter
 
-        custumRv(ProductMagazineRvAdapter.items.size)
-    }
-
-    fun custumRv(size: Int){
-
-        var magazineWidth = View.MeasureSpec.makeMeasureSpec(rv_product_magazine_interested.width, rv_product_magazine_interested.height)
-        var magazineHeight = 0
-
-        for(i in 1.. size){
-            rv_product_magazine_interested.measure(magazineWidth, View.MeasureSpec.UNSPECIFIED)
-            magazineHeight += rv_product_magazine_interested.measuredHeight
+        btn_product_search.setOnClickListener{
+            val intent = Intent(requireContext(), com.caredirection.cadi.product.list.ListActivity::class.java)
+            startActivity(intent)
         }
 
-        var params = rv_product_magazine_interested.layoutParams
-        params.height = magazineHeight
-        rv_product_magazine_interested.setLayoutParams(params)
-        rv_product_magazine_interested.requestLayout()
     }
+
+
 }
