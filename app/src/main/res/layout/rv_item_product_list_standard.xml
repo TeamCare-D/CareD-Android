@@ -3,7 +3,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/blue_fill_4">
+    android:background="@drawable/blue_fill_4"
+    android:layout_marginRight="6dp"
+    >
 
     <TextView
         android:id="@+id/txt_rv_item_product_list_standard"
@@ -16,6 +18,12 @@
         android:textColor="@color/colorWhite"
         android:lineSpacingExtra="6dp"
         android:text="산화 마그네슘"
+        android:paddingRight="11dp"
+        android:paddingLeft="11dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

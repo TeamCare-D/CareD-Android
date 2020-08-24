@@ -7,11 +7,22 @@
     <FrameLayout
         android:id="@+id/fragment_product_list_detail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    
+    <ImageView
+        android:id="@+id/img_product_list_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_product_list_detail"
+        android:background="@color/colorSkyBlue"
+        android:paddingTop="10dp"
+        android:src="@drawable/btn_up"
+        />
 
 
         <androidx.recyclerview.widget.RecyclerView
