@@ -22,23 +22,14 @@ class RegisterListViewHolder(view: View) : RecyclerView.ViewHolder(view){
         txtProductDay.text = product.day.toString()
 
         btnDeleted.setOnClickListener {
-            //showDeleteDialog()
+//            showDeleteDialog()
         }
     }
 
 //    private fun showDeleteDialog(){
-//        val deleteDialog = Dialog.(this)
-//        val deleteLayout : LayoutInflater = LayoutInflater.from(this)
-//        val deleteView : View = deleteLayout.inflate(R.layout.dialog_register_product_delete,null)
+//        val fragmentManager = FragmentManager
+//        val registerListDeleteFragment = RegisterListDeleteFragment()
 //
-//        val btnCancel : Button = deleteView.findViewById(R.id.btn_register_product_cancel)
-//        val btnConfirm : Button = deleteView.findViewById(R.id.btn_register_product_confirm)
-//
-//        btnCancel.setOnClickListener {
-//            deleteDialog.dismiss()
-//            deleteDialog.cancel()
-//
-//
-//        }
+//        registerListDeleteFragment.show(fragmentManager,"DeleteDialog")
 //    }
 }
