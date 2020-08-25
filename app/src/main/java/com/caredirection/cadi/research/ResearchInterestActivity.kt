@@ -8,8 +8,8 @@ import android.view.WindowManager
 import android.widget.CheckedTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.caredirection.cadi.MainActivity
 import com.caredirection.cadi.R
+import com.caredirection.cadi.register.list.RegisterListActivity
 import kotlinx.android.synthetic.main.activity_research_interest.*
 
 class ResearchInterestActivity : AppCompatActivity() {
@@ -82,9 +82,9 @@ class ResearchInterestActivity : AppCompatActivity() {
 
     private fun setNextClickListener(){
         btn_interest_next.setOnClickListener {
-            val interestIntent = Intent(this, MainActivity::class.java)
+            val registerIntent = Intent(this, RegisterListActivity::class.java)
 
-            startActivity(interestIntent)
+            startActivity(registerIntent)
         }
     }
 

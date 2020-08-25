@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_register_product_complete"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register.user.RegisterProductCompleteActivity">
+
+  <ImageView
+      android:id="@+id/btn_register_product_complete_back"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="3dp"
+      android:layout_marginTop="6dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/btn_back" />
+
+  <ImageView
+      android:id="@+id/btn_register_product_complete_close"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="6dp"
+      android:layout_marginEnd="4dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/btn_close" />
+
+  <TextView
+      android:id="@+id/textView6"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="112dp"
+      android:fontFamily="@font/notosanskr_light"
+      android:includeFontPadding="false"
+      android:lineSpacingExtra="9sp"
+      android:text="제품 등록 완료"
+      android:textColor="@color/colorBlack"
+      android:textSize="19dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/textView9"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dp"
+      android:fontFamily="@font/notosanskr_regular"
+      android:includeFontPadding="false"
+      android:lineSpacingExtra="6sp"
+      android:text="케어디에 나만의 제품을 등록하였습니다"
+      android:textColor="@color/colorBlack"
+      android:textSize="13dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+  <Button
+      android:id="@+id/btn_register_product_complete_next"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_marginStart="28dp"
+      android:layout_marginTop="96dp"
+      android:layout_marginEnd="28dp"
+      android:layout_marginBottom="169dp"
+      android:background="@drawable/selector_research_next"
+      android:enabled="true"
+      android:fontFamily="@font/notosanskr_bold"
+      android:includeFontPadding="false"
+      android:lineSpacingExtra="6sp"
+      android:text="완료하기"
+      android:textColor="@color/colorWhite"
+      android:textSize="14dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/btn_register_list_add" />
+</androidx.constraintlayout.widget.ConstraintLayout>
