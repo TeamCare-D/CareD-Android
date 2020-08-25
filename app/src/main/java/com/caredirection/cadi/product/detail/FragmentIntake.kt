@@ -1,5 +1,6 @@
 package com.caredirection.cadi.product.detail
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -7,6 +8,7 @@ import com.caredirection.cadi.R
 import com.caredirection.cadi.adapter.ChartAdapter
 import com.caredirection.cadi.adapter.ChartData
 import com.caredirection.cadi.product.detail.adapter.*
+import kotlinx.android.synthetic.main.dialog_proudct_ingredient_explaination.view.*
 import kotlinx.android.synthetic.main.fragment_product_detail.*
 
 class FragmentIntake : Fragment(R.layout.fragment_product_detail) {
@@ -23,6 +25,8 @@ class FragmentIntake : Fragment(R.layout.fragment_product_detail) {
         certificationSetting()
 
         productBuySetting()
+
+        //dialogSetting()
     }
     fun intakeRvSetting(){
         val chartAdapter = ChartAdapter(requireContext())
@@ -96,5 +100,7 @@ class FragmentIntake : Fragment(R.layout.fragment_product_detail) {
         rv_product_detail_buy.adapter = productBuyRvAdapter
 
     }
+
+
 
 }
