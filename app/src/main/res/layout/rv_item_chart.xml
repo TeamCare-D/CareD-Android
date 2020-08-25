@@ -26,7 +26,7 @@
         android:id="@+id/bar_rv_item_chart_3"
         android:layout_width="8dp"
         android:layout_height="0.001dp"
-        android:background="@color/colorYellow"
+        android:background="@color/colorMango"
         app:layout_constraintStart_toStartOf="@+id/bar_rv_item_chart_1"
         app:layout_constraintBottom_toTopOf="@+id/bar_rv_item_chart_2"
         />

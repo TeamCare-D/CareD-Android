@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_register_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register.list.RegisterListActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/btn_register_list_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"
+                app:srcCompat="@drawable/btn_close" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_register_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="63dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="112dp"
+                android:fontFamily="@font/notosanskr_light"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="9sp"
+                android:text="제품을 등록하시면"
+                android:textColor="@color/colorBlack"
+                android:textSize="19dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="6sp"
+                android:text="성별, 나이에 따라 영양소의 권장량, 상한량 차이가 있어요"
+                android:textColor="@color/colorBlack"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/notosanskr_light"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="9sp"
+                android:text="나의 영양 섭취상태를 파악할 수 있어요"
+                android:textColor="@color/colorBlack"
+                android:textSize="19dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <ImageView
+                android:id="@+id/btn_register_list_add"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_register_list"
+                app:srcCompat="@drawable/gray_line_4" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="4sp"
+                android:text="새로운 제품 등록"
+                android:textColor="@color/colorBlack"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_register_list_add"
+                app:layout_constraintEnd_toEndOf="@+id/btn_register_list_add"
+                app:layout_constraintStart_toStartOf="@+id/btn_register_list_add"
+                app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                app:layout_constraintEnd_toEndOf="@+id/btn_register_list_add"
+                app:layout_constraintStart_toStartOf="@+id/btn_register_list_add"
+                app:layout_constraintTop_toTopOf="@+id/btn_register_list_add"
+                app:srcCompat="@drawable/plus_ic" />
+
+            <Button
+                android:id="@+id/btn_register_list_complete"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="96dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="169dp"
+                android:background="@drawable/selector_research_next"
+                android:enabled="false"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="6sp"
+                android:text="완료하기"
+                android:textColor="@color/colorCoolGray2"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_register_list_add" />
+
+            <TextView
+                android:id="@+id/btn_register_list_skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="6sp"
+                android:text="건너뛰기"
+                android:textColor="@color/colorCoolGray2"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_register_list_complete" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

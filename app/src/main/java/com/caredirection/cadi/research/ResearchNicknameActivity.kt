@@ -51,7 +51,7 @@ class ResearchNicknameActivity : AppCompatActivity() {
                 // 입력값 없는 경우
                 else{
                     btn_nickNext?.isEnabled = false
-                    btn_nickNext?.setTextColor(resources.getColor(R.color.colorDarkGray))
+                    btn_nickNext?.setTextColor(resources.getColor(R.color.colorCoolGray2))
                 }
             }
 

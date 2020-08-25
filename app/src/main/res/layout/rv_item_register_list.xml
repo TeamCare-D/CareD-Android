@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_register_list"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_product_1" />
+
+    <TextView
+        android:id="@+id/txt_register_list_brand"
+        style="@style/light12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:text="더리얼"
+        app:layout_constraintStart_toEndOf="@+id/img_register_list"
+        app:layout_constraintTop_toTopOf="@+id/img_register_list" />
+
+    <TextView
+        android:id="@+id/txt_register_list_overseas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:text="해외직구"
+        android:fontFamily="@font/notosanskr_bold"
+        android:textSize="10dp"
+        android:lineSpacingExtra="5sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorGrayishBrown1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_register_list_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="알티지 오메가 3 맥스 1400"
+        android:fontFamily="@font/notosanskr_bold"
+        android:textSize="12dp"
+        android:lineSpacingExtra="8sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintStart_toStartOf="@+id/txt_register_list_brand"
+        app:layout_constraintTop_toBottomOf="@+id/txt_register_list_brand" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="유지일 : "
+        android:fontFamily="@font/notosanskr_regular"
+        android:textSize="12dp"
+        android:lineSpacingExtra="6sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintStart_toStartOf="@+id/txt_register_list_name"
+        app:layout_constraintTop_toBottomOf="@+id/txt_register_list_name" />
+
+    <TextView
+        android:id="@+id/txt_register_list_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="40"
+        android:fontFamily="@font/notosanskr_bold"
+        android:textSize="12dp"
+        android:lineSpacingExtra="6sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorMango"
+        app:layout_constraintStart_toEndOf="@+id/textView1"
+        app:layout_constraintTop_toTopOf="@+id/textView1" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일"
+        android:fontFamily="@font/notosanskr_regular"
+        android:textSize="12dp"
+        android:lineSpacingExtra="6sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintStart_toEndOf="@+id/txt_register_list_day"
+        app:layout_constraintTop_toTopOf="@+id/txt_register_list_day" />
+
+    <ImageView
+        android:id="@+id/btn_register_list_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="57dp"
+        app:layout_constraintEnd_toEndOf="@+id/txt_register_list_overseas"
+        app:layout_constraintTop_toBottomOf="@+id/txt_register_list_overseas"
+        app:srcCompat="@drawable/img_selected" />
+</androidx.constraintlayout.widget.ConstraintLayout>

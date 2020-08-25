@@ -57,7 +57,7 @@
                     android:layout_width="58dp"
                     android:layout_height="36dp"
                     android:layout_marginTop="76dp"
-                    android:background="@color/colorSkyBlue"
+                    android:background="@color/colorDuckEggBlue"
                     android:gravity="center_horizontal"
                     android:lineSpacingExtra="6sp"
                     android:text="식약처 기준
@@ -344,7 +344,7 @@
                     android:layout_width="312dp"
                     android:layout_height="1dp"
                     android:layout_marginTop="22dp"
-                    android:background="@color/whiteTwo"
+                    android:background="@color/colorWhite2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_informatioin_way_content" />
@@ -383,7 +383,7 @@
                     android:layout_width="312dp"
                     android:layout_height="1dp"
                     android:layout_marginTop="22dp"
-                    android:background="@color/whiteTwo"
+                    android:background="@color/colorWhite2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_informatioin_way_shape_content" />
@@ -421,7 +421,7 @@
                     android:layout_width="312dp"
                     android:layout_height="1dp"
                     android:layout_marginTop="22dp"
-                    android:background="@color/whiteTwo"
+                    android:background="@color/colorWhite2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_informatioin_way_packing" />
@@ -460,7 +460,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/rv_product_detail_intake_information_certification"
                     android:layout_marginTop="22dp"
-                    android:background="@color/colorSkyBlue"
+                    android:background="@color/colorDuckEggBlue"
                     >
 
                     <TextView
