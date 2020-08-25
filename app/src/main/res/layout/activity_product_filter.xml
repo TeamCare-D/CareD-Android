@@ -35,10 +35,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_product_filter_refresh" />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_product_filter"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
         android:layout_marginTop="28dp"
         app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_title">
 
@@ -140,90 +141,242 @@
                 android:id="@+id/img_product_filter_line"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/divider_line"
                 android:layout_marginTop="38dp"
-                app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_priority_high_price_30"
-                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/divider_line"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_priority_high_price_30" />
 
             <TextView
                 android:id="@+id/txt_product_filter_maintain_price_30"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
+                android:layout_marginTop="38dp"
                 android:fontFamily="@font/notosanskr_bold"
                 android:includeFontPadding="false"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_product_filter_line"
-                android:textColor="@color/colorBlack"
                 android:lineSpacingExtra="8dp"
-                android:layout_marginTop="38dp"
                 android:text="30일 유지 가격"
-                />
+                android:textColor="@color/colorBlack"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_product_filter_line" />
 
             <TextView
                 android:id="@+id/txt_product_filter_minimum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14dp"
-                android:textColor="@color/colorPointBlue"
-                android:lineSpacingExtra="6dp"
-                android:text="10,000"
                 android:layout_marginTop="12dp"
+                android:layout_marginRight="8dp"
                 android:fontFamily="@font/notosanskr_bold"
                 android:includeFontPadding="false"
-                app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_maintain_price_30"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/txt_product_filter_price_bar"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                android:layout_marginRight="8dp"
-                />
-
-            <TextView
-                android:id="@+id/txt_product_filter_price_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:lineSpacingExtra="6dp"
-                android:text="-"
-
-
-                app:layout_constraintEnd_toStartOf="@+id/txt_product_filter_maximum"
+                android:text="10,000"
                 android:textColor="@color/colorPointBlue"
                 android:textSize="14dp"
-                app:layout_constraintStart_toEndOf="@+id/txt_product_filter_minimum"
+                app:layout_constraintEnd_toStartOf="@+id/txt_product_filter_price_bar1"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_maintain_price_30" />
+
+            <TextView
+                android:id="@+id/txt_product_filter_price_bar1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
+                android:lineSpacingExtra="6dp"
+                android:text="-"
+                android:textColor="@color/colorPointBlue"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toStartOf="@+id/txt_product_filter_maximum"
+                app:layout_constraintStart_toEndOf="@+id/txt_product_filter_minimum"
                 app:layout_constraintTop_toTopOf="@+id/txt_product_filter_minimum" />
 
             <TextView
                 android:id="@+id/txt_product_filter_maximum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14dp"
-                android:textColor="@color/colorPointBlue"
-                android:lineSpacingExtra="6dp"
-                android:text="10,000"
                 android:fontFamily="@font/notosanskr_bold"
                 android:includeFontPadding="false"
-                app:layout_constraintTop_toTopOf="@+id/txt_product_filter_minimum"
+                android:lineSpacingExtra="6dp"
+                android:text="10,000"
+                android:textColor="@color/colorPointBlue"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/txt_product_filter_price_bar"
-
-                />
+                app:layout_constraintStart_toEndOf="@+id/txt_product_filter_price_bar1"
+                app:layout_constraintTop_toTopOf="@+id/txt_product_filter_minimum" />
 
             <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
                 android:id="@+id/seekbar_product_filter"
-                android:layout_width="match_parent"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
+                app:bar_color="@color/colorWhite3"
+                app:bar_highlight_color="@color/colorPointBlue"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_maximum"
+                app:left_thumb_color="@color/colorPointBlue"
+                app:left_thumb_color_pressed="@color/colorPointBlue"
+                app:right_thumb_color="@color/colorPointBlue"
+                app:right_thumb_color_pressed="@color/colorPointBlue" />
+
+            <ImageView
+                android:id="@+id/txt_product_filter_price_bar2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:src="@drawable/divider_line"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
-            
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/seekbar_product_filter" />
+
+            <TextView
+                android:id="@+id/txt_product_filter_maintain_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="8dp"
+                android:text="유지 개월 수"
+                android:textColor="@color/colorBlack"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_price_bar2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_product_filter_maintain_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_maintain_month" />
+
+            <ImageView
+                android:id="@+id/txt_product_filter_price_bar3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:src="@drawable/divider_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_product_filter_maintain_month" />
+
+            <TextView
+                android:id="@+id/txt_product_filter_form_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="8dp"
+                android:text="형태 종류"
+                android:textColor="@color/colorBlack"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_price_bar3" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_product_filter_form_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginTop="30dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_form_category"
+                app:spanCount="2" />
+
+            <ImageView
+                android:id="@+id/txt_product_filter_price_bar4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:src="@drawable/divider_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_product_filter_form_category" />
+
+            <TextView
+                android:id="@+id/txt_product_filter_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="8dp"
+                android:text="브랜드"
+                android:textColor="@color/colorBlack"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_price_bar4" />
+
+            <ImageView
+                android:id="@+id/img_product_filter_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="28dp"
+                android:src="@drawable/btn_dropdown"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txt_product_filter_brand" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_product_filter_brand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_brand" />
+
+            <ImageView
+                android:id="@+id/txt_product_filter_price_bar5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:src="@drawable/divider_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_product_filter_brand" />
+
+            <TextView
+                android:id="@+id/txt_product_filter_range"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="8dp"
+                android:text="범위"
+                android:textColor="@color/colorBlack"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_price_bar5" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_product_filter_range"
+                android:layout_marginTop="38dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_product_filter_range" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
