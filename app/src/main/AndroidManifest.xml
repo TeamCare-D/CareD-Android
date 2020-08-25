@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".home.HomeDetailActivity"></activity>
 
-        <activity android:name="com.caredirection.cadi.MainActivity">
+        <activity android:name="com.caredirection.cadi.MainActivity"></activity>
         <activity android:name=".register.user.RegisterProductActivity">
 
         </activity>

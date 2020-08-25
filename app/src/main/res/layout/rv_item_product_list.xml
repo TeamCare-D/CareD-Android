@@ -10,7 +10,7 @@
         android:layout_width="95dp"
         android:layout_height="95dp"
         android:layout_marginLeft="18dp"
-        android:background="@color/colorSkyBlue"
+        android:background="@color/colorDuckEggBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -73,7 +73,7 @@
         android:textSize="12dp"
         android:fontFamily="@font/notosanskr_bold"
         android:includeFontPadding="false"
-        android:textColor="@color/colorYellow"
+        android:textColor="@color/colorMango"
         app:layout_constraintTop_toTopOf="@+id/txt_rv_item_product_list_day_title"
         android:text="40"
         />
@@ -126,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:textColor="@color/colorYellow"
+        android:textColor="@color/colorMango"
         android:lineSpacingExtra="6sp"
         android:fontFamily="@font/notosanskr_bold"
         android:includeFontPadding="false"

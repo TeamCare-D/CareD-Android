@@ -19,7 +19,7 @@
                 android:id="@+id/img_product_detail"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:background="@color/colorSkyBlue"
+                android:background="@color/colorDuckEggBlue"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,7 +52,7 @@
                     android:text="해외직구"
                     android:fontFamily="@font/notosanskr_bold"
                     android:includeFontPadding="false"
-                    android:textColor="@color/colorGrayBrown"
+                    android:textColor="@color/colorGrayishBrown2"
                     android:textSize="12dp"
                     app:layout_constraintStart_toEndOf="@+id/txt_product_detail_brand"
                     app:layout_constraintTop_toTopOf="@+id/txt_product_detail_brand" />
@@ -108,7 +108,7 @@
                     android:text="40"
                     android:fontFamily="@font/notosanskr_bold"
                     android:includeFontPadding="false"
-                    android:textColor="@color/colorYellow"
+                    android:textColor="@color/colorMango"
                     android:textSize="14dp"
                     app:layout_constraintStart_toEndOf="@+id/txt_product_detail_maintenance"
                     app:layout_constraintTop_toTopOf="@+id/txt_product_detail_maintenance" />
@@ -148,7 +148,7 @@
                     android:text="21,000"
                     android:fontFamily="@font/notosanskr_bold"
                     android:includeFontPadding="false"
-                    android:textColor="@color/colorYellow"
+                    android:textColor="@color/colorMango"
                     android:textSize="16dp"
                     app:layout_constraintEnd_toStartOf="@+id/txt_product_detail_30_per_won"
                     app:layout_constraintTop_toTopOf="@+id/txt_product_detail_30_per_won" />

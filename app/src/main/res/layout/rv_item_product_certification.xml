@@ -11,7 +11,7 @@
         android:layout_height="46dp"
         app:layout_constraintStart_toStartOf="parent"
 
-        android:src="@color/colorDarkGray"
+        android:src="@color/colorCoolGray2"
         app:layout_constraintTop_toTopOf="parent"
 
         />

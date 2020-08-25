@@ -32,7 +32,7 @@
         android:textSize="13dp"
         android:lineSpacingExtra="6sp"
         android:includeFontPadding="false"
-        android:textColor="@color/colorFontGray"
+        android:textColor="@color/colorCoolGray1"
         app:layout_constraintEnd_toStartOf="@+id/btn_register_product_confirm"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/btn_register_product_cancel"
         app:layout_constraintEnd_toStartOf="@+id/btn_register_product_confirm"
         app:layout_constraintTop_toTopOf="@+id/btn_register_product_cancel"
-        app:srcCompat="@color/colorDarkGray" />
+        app:srcCompat="@color/colorCoolGray2" />
 
     <Button
         android:id="@+id/btn_register_product_confirm"

@@ -96,7 +96,7 @@ class ResearchInterestActivity : AppCompatActivity() {
         }
         else{
             btn_interest_next.isEnabled = false
-            btn_interest_next.setTextColor(resources.getColor(R.color.colorDarkGray))
+            btn_interest_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
         }
     }
 

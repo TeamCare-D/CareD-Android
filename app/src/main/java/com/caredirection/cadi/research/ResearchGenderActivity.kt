@@ -147,7 +147,7 @@ class ResearchGenderActivity : AppCompatActivity() {
         btn_genderNext.isEnabled = (btn_women.isChecked || btn_man.isChecked) && btn_year.isChecked
 
         if(btn_genderNext.isEnabled) btn_genderNext.setTextColor(resources.getColor(R.color.colorWhite))
-        else btn_genderNext.setTextColor(resources.getColor(R.color.colorDarkGray))
+        else btn_genderNext.setTextColor(resources.getColor(R.color.colorCoolGray2))
     }
 
     // 상태바 투명 설정

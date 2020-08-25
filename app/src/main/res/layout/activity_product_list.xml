@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/fragment_product_list_detail"
-        android:background="@color/colorSkyBlue"
+        android:background="@color/colorDuckEggBlue"
         android:paddingTop="10dp"
         android:src="@drawable/btn_up"
         />

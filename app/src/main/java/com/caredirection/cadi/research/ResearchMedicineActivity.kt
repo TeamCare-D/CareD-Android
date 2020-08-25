@@ -109,7 +109,7 @@ class ResearchMedicineActivity : AppCompatActivity() {
         }
         else{
             btn_medicine_next.isEnabled = false
-            btn_medicine_next.setTextColor(resources.getColor(R.color.colorDarkGray))
+            btn_medicine_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
         }
     }
 
