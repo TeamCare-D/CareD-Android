@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.caredirection.cadi.R
 import com.caredirection.cadi.adapter.ProductFilterFromRvAdapter
 import com.caredirection.cadi.adapter.ProductFilterRvAdapter
-import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener
-import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
 import kotlinx.android.synthetic.main.activity_product_filter.*
 
 class ProductFilterActivity : AppCompatActivity(){

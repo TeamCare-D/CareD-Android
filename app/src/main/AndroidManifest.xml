@@ -37,6 +37,10 @@
 
         </activity>
         <activity android:name=".product.list.ProductFilterActivity">
+
+        </activity>
+        <activity android:name=".product.list.ProductStandardFilterActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
