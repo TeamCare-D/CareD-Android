@@ -19,6 +19,7 @@ class RegisterProductActivity : AppCompatActivity() {
 
     private fun makeListener(){
         setBackClickListener()
+        setIngredientMoreClickListener()
     }
 
     private fun setBackClickListener(){
@@ -26,6 +27,19 @@ class RegisterProductActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    private fun setIngredientMoreClickListener(){
+        txt_register_product_more.setOnClickListener {
+//            showIngredientDialog()
+        }
+    }
+
+//    private fun showIngredientDialog(){
+//        val fragmentManager = supportFragmentManager
+//        val registerIngredientFragment = RegisterIngredientFragment()
+//
+//        registerIngredientFragment.show(fragmentManager,"IngredientDialog")
+//    }
 
     // 상태바 투명 설정
     private fun setStatusBarTransparent(){
