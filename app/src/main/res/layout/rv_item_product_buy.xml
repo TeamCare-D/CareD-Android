@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="77dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/img_rv_item_product_buy"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@color/colorDarkGray"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/txt_rv_item_product_buy_shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13dp"
+        android:textColor="@color/colorBlack"
+        android:lineSpacingExtra="6dp"
+        app:layout_constraintStart_toEndOf="@+id/img_rv_item_product_buy"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
+        android:layout_marginLeft="12dp"
+        android:text="쿠팡"
+        />
+
+    <TextView
+        android:id="@+id/txt_rv_item_product_buy_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:textColor="@color/colorBlack"
+        android:lineSpacingExtra="7dp"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toStartOf="@+id/txt_rv_item_product_buy_shop"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rv_item_product_buy_shop"
+        android:layout_marginTop="2dp"
+        android:text="2,5000원"
+        />
+
+    <TextView
+        android:id="@+id/txt_rv_item_product_buy_web"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
+        app:layout_constraintEnd_toStartOf="@+id/img_rv_item_product_buy_web"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="12dp"
+        android:textColor="@color/colorBlack"
+        android:lineSpacingExtra="6dp"
+        android:text="사러가기"
+        />
+
+    <ImageView
+        android:id="@+id/img_rv_item_product_buy_web"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/btn_more"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

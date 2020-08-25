@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.adapter.ChartAdapter
 import com.caredirection.cadi.adapter.ChartData
-import com.caredirection.cadi.product.detail.adapter.RvIngredientAdapter
-import com.caredirection.cadi.product.detail.adapter.RvIngredientData
+import com.caredirection.cadi.product.detail.adapter.*
 import kotlinx.android.synthetic.main.fragment_product_detail.*
 
 class FragmentIntake : Fragment(R.layout.fragment_product_detail) {
@@ -20,19 +19,23 @@ class FragmentIntake : Fragment(R.layout.fragment_product_detail) {
         ingredientSetting()
 
         bitaminSetting()
+
+        certificationSetting()
+
+        productBuySetting()
     }
     fun intakeRvSetting(){
         val chartAdapter = ChartAdapter(requireContext())
 
 
-        chartAdapter.items.add( ChartData( "비타민",  200))
+        chartAdapter.items.add( ChartData( "비타민",  30))
         chartAdapter.items.add( ChartData( "비타민",  50))
-        chartAdapter.items.add( ChartData( "비타민",  600))
-        chartAdapter.items.add( ChartData( "비타민",  60))
-        chartAdapter.items.add( ChartData( "비타민",  20))
-        chartAdapter.items.add( ChartData("비타민", 600))
-        chartAdapter.items.add( ChartData("비타민", 600))
-        chartAdapter.items.add( ChartData("비타민", 600))
+        chartAdapter.items.add( ChartData( "비타민",  70))
+        chartAdapter.items.add( ChartData( "비타민",  70))
+        chartAdapter.items.add( ChartData( "비타민",  70))
+        chartAdapter.items.add( ChartData("비타민", 100))
+        chartAdapter.items.add( ChartData("비타민", 110))
+        chartAdapter.items.add( ChartData("비타민", 100))
 
         chart_product_detail_intake.adapter = chartAdapter
         chart_product_detail_intake.layoutManager =  LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -71,6 +74,27 @@ class FragmentIntake : Fragment(R.layout.fragment_product_detail) {
 
         chart_product_detail_bitamin.adapter = charBitaminAdapter
         chart_product_detail_bitamin.layoutManager =  LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    fun certificationSetting(){
+        val certicationRvAdapter = CertificationRvAdapter()
+
+        certicationRvAdapter.items.add("")
+        certicationRvAdapter.items.add("")
+        certicationRvAdapter.items.add("")
+
+        rv_product_detail_intake_information_certification.adapter = certicationRvAdapter
+    }
+
+    fun productBuySetting(){
+
+        val productBuyRvAdapter = ProductBuyRvAdapter()
+        productBuyRvAdapter.items.add(ProductBuyData("쿠팡", "25000",""))
+        productBuyRvAdapter.items.add(ProductBuyData("쿠팡", "25000",""))
+        productBuyRvAdapter.items.add(ProductBuyData("쿠팡", "25000",""))
+
+        rv_product_detail_buy.adapter = productBuyRvAdapter
+
     }
 
 }

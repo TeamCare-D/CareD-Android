@@ -31,18 +31,26 @@ class ChartAdapter(private val context: Context): RecyclerView.Adapter<ChartAdap
     inner class ChartRvHolder(view: View): RecyclerView.ViewHolder(view){
         val bar_rv_item_chart1: TextView = view.findViewById(R.id.bar_rv_item_chart_1)
         val bar_rv_item_chart2: TextView = view.findViewById(R.id.bar_rv_item_chart_2)
+        val bar_rv_item_chart_3: TextView = view.findViewById(R.id.bar_rv_item_chart_3)
         val txt_rv_item_name: TextView = view.findViewById(R.id.txt_rv_item_chart_name)
 
         fun bind(item: ChartData){
-            if(item.height < 200){
-                bar_rv_item_chart1.layoutParams.height = item.height
+            val h = item.height * 1.7 * 3
+
+            if(item.height < 30){
+                bar_rv_item_chart1.layoutParams.height = h.toInt()
                 bar_rv_item_chart1.background = ContextCompat.getDrawable(context, R.drawable.chart_carolina_blue_4)
             }
-            else if(item.height > 400){
-                bar_rv_item_chart1.layoutParams.height = 400
-                bar_rv_item_chart2.layoutParams.height = item.height - 400
-                bar_rv_item_chart2.background = ContextCompat.getDrawable(context, R.drawable.chart_yellow_4)
-
+            else if(item.height in 30..100){
+                bar_rv_item_chart1.layoutParams.height = 153
+                bar_rv_item_chart2.layoutParams.height = (h - 153).toInt()
+                bar_rv_item_chart2.background = ContextCompat.getDrawable(context, R.drawable.chart_blue_4)
+            }
+            else if(item.height > 100){
+                bar_rv_item_chart1.layoutParams.height = 153
+                bar_rv_item_chart2.layoutParams.height = 510 - 153
+                bar_rv_item_chart_3.layoutParams.height = (h-510).toInt()
+                bar_rv_item_chart_3.background = ContextCompat.getDrawable(context, R.drawable.chart_yellow_4)
             }
 
             txt_rv_item_name.text = item.name

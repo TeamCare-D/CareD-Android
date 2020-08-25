@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.caredirection.cadi.R
+import com.caredirection.cadi.adapter.CareCategoryRvAdapter
 import com.caredirection.cadi.adapter.ChartAdapter
 import com.caredirection.cadi.adapter.ChartData
 import com.caredirection.cadi.product.search.adapter.ViewPagerAdapter
@@ -21,6 +22,8 @@ class DetailActivity : AppCompatActivity() {
 
 
         ViewPagerSetting()
+
+        careCategorySetting()
     }
 
     fun ViewPagerSetting() {
@@ -39,5 +42,13 @@ class DetailActivity : AppCompatActivity() {
         for (i in 0..menu.size) {
             tab_layout_product_detail.getTabAt(i)?.text = menu[i]
         }
+    }
+
+    fun careCategorySetting(){
+        val careCategoryAdapter = CareCategoryRvAdapter()
+        careCategoryAdapter.items.add("피로회복")
+        careCategoryAdapter.items.add("피로")
+        careCategoryAdapter.items.add("간")
+        rv_product_detail_care_category.adapter = careCategoryAdapter
     }
 }
