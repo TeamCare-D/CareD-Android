@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="279dp"
+    android:layout_height="378dp"
+    android:background="@color/colorSkyBlue"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/txt_dialog_product_ingredient_explainaion_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="54dp"
+        android:textSize="22dp"
+        android:textColor="@color/colorPointBlue"
+        android:lineSpacingExtra="15dp"
+        android:text="비타민B 컴플랙스"
+        />
+
+    <TextView
+        android:id="@+id/txt_dialog_product_ingredient_explainaion_content"
+        android:layout_width="229dp"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false"
+        app:layout_constraintTop_toBottomOf="@+id/txt_dialog_product_ingredient_explainaion_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorBlack"
+        android:lineSpacingExtra="6dp"
+        android:gravity="center_horizontal"
+        android:text="구연산, 글리콘산 등의 유기염과
+결합된 마그네슘을 통칭해요.
+마그네슘의 여러 제형들 중 중간정도의 흡수율, 중간정도의 가격대의 무난한 종류입니다.
+위산이 있어야 흡수가 잘 되는 산화 마그네슘의 단점을 보완해 대부분의 환경에서도
+무난히 흡수되는 종류입니다."
+        />
+
+    <TextView
+        android:id="@+id/btn_dialog_product_ingredient_explaination_close"
+        android:layout_width="229dp"
+        android:layout_height="40dp"
+        android:textSize="14sp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/black_fill_4"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
+        android:textAlignment="center"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_dialog_product_ingredient_explainaion_content"
+        android:layout_marginTop="30dp"
+        android:lineSpacingExtra="6sp"
+        android:text="닫기"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

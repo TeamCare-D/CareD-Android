@@ -4,16 +4,15 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import kotlinx.android.synthetic.main.test_empty_rv.view.*
 
-class testRvAdapter(val context : Context, var items: MutableList<String>): RecyclerView.Adapter<testRvAdapter.testRvVeiwHolder>(){
+
+class SymptomIngredientRvAdapter(val context : Context, var items: MutableList<String>): RecyclerView.Adapter<SymptomIngredientRvAdapter.testRvVeiwHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): testRvVeiwHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.rv_item_product_search_name, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.rv_item_product_search_symptom_name, parent, false)
         return testRvVeiwHolder(view)
     }
 
@@ -21,7 +20,7 @@ class testRvAdapter(val context : Context, var items: MutableList<String>): Recy
         return items.size
     }
 
-    override fun onBindViewHolder(holder: testRvAdapter.testRvVeiwHolder, position: Int) {
+    override fun onBindViewHolder(holder: SymptomIngredientRvAdapter.testRvVeiwHolder, position: Int) {
         holder.bind(items[position])
     }
 

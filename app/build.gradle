@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.caredirection.cadi"
-        minSdkVersion 29
+        minSdkVersion 28
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -39,5 +39,8 @@ dependencies {
 
     //noinspection GradleCompatible
     implementation 'com.android.support:design:26.1.0'
+
+    //range seekbar
+    implementation 'com.crystal:crystalrangeseekbar:1.1.3'
 }
 

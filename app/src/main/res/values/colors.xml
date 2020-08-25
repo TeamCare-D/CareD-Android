@@ -17,7 +17,7 @@
     <color name="colorPointYellow">#febd2d</color>
     <color name="colorPointBrown">#4b4b4b</color>
 
-    <color name="colorYellow">#FEBD2D</color>
+    <color name="colorYellow">#febd2d</color>
     <color name="colorSkyBlue">#f0f6fd</color>
 
     <!-- sub color -->
@@ -27,11 +27,18 @@
     <color name="colorLightGray">#f2f3f5</color>
     <color name="colorBorderGray">#c8c8c8</color>
     <color name="colorDarkGray">#8e8f93</color>
+
     <color name="colorDividerGrey">#b8b8b8</color>
+
+    <color name="colorGrayBrown">#4d4d4d</color>
 
     <color name="colorScrollGray">#f3f3f3</color>
     <color name="colorPickerDivider">#80ffffff</color>
 
     <color name="colorLightBlue">#f0f6fd</color>
     <color name="colorLightRed">#ffefee</color>
+
+    <color name="carolinaBlue">#8dc8ff</color>
+    <color name="whiteTwo">#f0f0f0</color>
+
 </resources>

@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_product_detail_intake_funcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txt_product_detail_intake_function"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="28dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="기능성 원료"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_intake_function_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@+id/txt_product_detail_intake_function"
+                    app:layout_constraintTop_toTopOf="@+id/txt_product_detail_intake_function"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textSize="12dp"
+                    android:textColor="@color/colorPointBlue"
+                    android:lineSpacingExtra="6dp"
+                    android:text="3"
+                    />
+
+
+                <TextView
+                    android:id="@+id/test"
+                    android:layout_width="58dp"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="76dp"
+                    android:background="@color/colorSkyBlue"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="6sp"
+                    android:text="식약처 기준
+1일 섭취량"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/txt_product_detail_intake_function"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_function" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/chart_product_detail_intake"
+                    android:layout_width="300dp"
+                    android:layout_height="205dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="18dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/test"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_function" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_product_detail_intake_function_content_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/chart_product_detail_intake">
+
+                    <TextView
+                        android:id="@+id/txt_product_detail_intake_function_content_title_ingredient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="5dp"
+                        android:text="성분"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_product_detail_intake_function_content_title_ingredient_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="57dp"
+                        android:lineSpacingExtra="5dp"
+                        android:text="식약처 기준 1일 섭취량"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@+id/txt_product_detail_intake_function_content_title_ingredient"
+                        app:layout_constraintTop_toTopOf="@+id/txt_product_detail_intake_function_content_title_ingredient" />
+
+                    <TextView
+                        android:id="@+id/txt_product_detail_intake_function_content_title_ingredient_prediction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:lineSpacingExtra="5dp"
+                        android:text="예상 섭취량"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@+id/txt_product_detail_intake_function_content_title_ingredient_day"
+                        app:layout_constraintTop_toTopOf="@+id/txt_product_detail_intake_function_content_title_ingredient_day" />
+
+                    <TextView
+                        android:id="@+id/txt_product_detail_intake_content_function_title_ingredient_increase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:lineSpacingExtra="5dp"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
+                        android:text="상승량"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@+id/txt_product_detail_intake_function_content_title_ingredient_prediction"
+                        app:layout_constraintTop_toTopOf="@+id/txt_product_detail_intake_function_content_title_ingredient_prediction" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_product_detail_intake_functional"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_product_detail_intake_function_content_title" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_product_detail_intake_bitamin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_product_detail_intake_funcion">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_product_detail_bitamin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="61dp"
+                    >
+                    <TextView
+                        android:id="@+id/txt_product_detail_bitamin_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textSize="13dp"
+                        android:textColor="@color/colorBlack"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="비타민 amp; 미네랄"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_product_detail_bitamin_title_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12dp"
+                        android:textColor="@color/colorPointBlue"
+                        android:lineSpacingExtra="6dp"
+                        app:layout_constraintStart_toEndOf="@+id/txt_product_detail_bitamin_title"
+                        app:layout_constraintTop_toTopOf="@+id/txt_product_detail_bitamin_title"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
+                        android:text="4"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_product_detail_bitamin_upper_intake"
+                        android:layout_width="58dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="12dp"
+                        android:textColor="@color/colorBlack"
+                        app:layout_constraintStart_toStartOf="@+id/txt_product_detail_bitamin_title"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_bitamin_title_number"
+                        android:layout_marginTop="57dp"
+                        android:lineSpacingExtra="6dp"
+                        android:text="상한 섭취량"
+                        />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/chart_product_detail_bitamin"
+                        app:layout_constraintStart_toEndOf="@+id/txt_product_detail_bitamin_upper_intake"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_bitamin_title_number"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="300dp"
+                        android:layout_height="205dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_product_detail_intake_bitamin_content_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_product_detail_bitamin">
+
+                    <TextView
+                        android:id="@+id/txt_product_detail_intake_bitamin_content_title_ingredient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="5dp"
+                        android:text="성분"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_product_detail_intake_bitamin_content_title_ingredient_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="57dp"
+                        android:lineSpacingExtra="5dp"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:text="식약처 기준 1일 섭취량"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@+id/txt_product_detail_intake_bitamin_content_title_ingredient"
+                        app:layout_constraintTop_toTopOf="@+id/txt_product_detail_intake_bitamin_content_title_ingredient" />
+
+                    <TextView
+                        android:id="@+id/txt_product_detail_intake_bitamin_content_title_ingredient_prediction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:lineSpacingExtra="5dp"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
+                        android:text="예상 섭취량"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@+id/txt_product_detail_intake_bitamin_content_title_ingredient_day"
+                        app:layout_constraintTop_toTopOf="@+id/txt_product_detail_intake_bitamin_content_title_ingredient_day" />
+
+                    <TextView
+                        android:id="@+id/txt_product_detail_intake_content_bitamin_title_ingredient_increase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:lineSpacingExtra="5dp"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
+                        android:text="상승량"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@+id/txt_product_detail_intake_bitamin_content_title_ingredient_prediction"
+                        app:layout_constraintTop_toTopOf="@+id/txt_product_detail_intake_bitamin_content_title_ingredient_prediction" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_product_detail_intake_bitamin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_product_detail_intake_bitamin_content_title" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_product_detail_intake_information"
+                android:layout_marginTop="11dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_product_detail_intake_bitamin">
+
+                <TextView
+                    android:id="@+id/txt_product_detail_intake_informatioin_way"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="24dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="섭취 방법"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_intake_informatioin_way_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:lineSpacingExtra="5dp"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="1일 3정 씩 섭취하세요."
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13dp"
+                    app:layout_constraintStart_toStartOf="@+id/txt_product_detail_intake_informatioin_way"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_informatioin_way" />
+
+                <TextView
+                    android:id="@+id/bar_product_detail_intake_informatioin_way_content"
+                    android:layout_width="312dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@color/whiteTwo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_informatioin_way_content" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_intake_informatioin_way_shape"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="24dp"
+                    android:lineSpacingExtra="5dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:text="형태 종류"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bar_product_detail_intake_informatioin_way_content" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_intake_informatioin_way_shape_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="식물성 소프트젤"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13dp"
+                    app:layout_constraintStart_toEndOf="@+id/txt_product_detail_intake_informatioin_way_shape"
+                    app:layout_constraintTop_toTopOf="@+id/txt_product_detail_intake_informatioin_way_shape" />
+
+                <TextView
+                    android:id="@+id/bar_product_detail_intake_informatioin_way_shape"
+                    android:layout_width="312dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@color/whiteTwo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_informatioin_way_shape_content" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_intake_informatioin_way_packing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="포장 형태"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13dp"
+                    app:layout_constraintStart_toStartOf="@+id/txt_product_detail_intake_informatioin_way_shape"
+                    app:layout_constraintTop_toBottomOf="@+id/bar_product_detail_intake_informatioin_way_shape" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_intake_informatioin_way_packing_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:lineSpacingExtra="5dp"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:text="병"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13dp"
+                    app:layout_constraintStart_toEndOf="@+id/txt_product_detail_intake_informatioin_way_packing"
+                    app:layout_constraintTop_toTopOf="@+id/txt_product_detail_intake_informatioin_way_packing" />
+
+                <TextView
+                    android:id="@+id/bar_product_detail_intake_informatioin_way_packing"
+                    android:layout_width="312dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@color/whiteTwo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_informatioin_way_packing" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_intake_informatioin_certification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/txt_product_detail_intake_informatioin_way_packing"
+                    app:layout_constraintTop_toBottomOf="@+id/bar_product_detail_intake_informatioin_way_packing"
+                    android:layout_marginTop="24dp"
+                    android:textSize="13dp"
+                    android:textColor="@color/colorBlack"
+                    android:lineSpacingExtra="5dp"
+                    android:text="제품 인증 마크"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_product_detail_intake_information_certification"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_informatioin_certification"
+                    android:layout_marginTop="14dp"
+                    app:layout_constraintStart_toStartOf="@+id/txt_product_detail_intake_informatioin_certification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
+                    tools:itemCount="1"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_product_detail_intake_informatioin_caution"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_product_detail_intake_information_certification"
+                    android:layout_marginTop="22dp"
+                    android:background="@color/colorSkyBlue"
+                    >
+
+                    <TextView
+                        android:id="@+id/txt_product_detail_intake_informatioin_caution"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="24dp"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
+                        android:textSize="13dp"
+                        android:textColor="@color/colorBlack"
+                        android:lineSpacingExtra="5sp"
+                        android:text="주의사항"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_product_detail_intake_informatioin_caution_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13dp"
+                        android:textColor="@color/colorBlack"
+                        android:lineSpacingExtra="9dp"
+                        app:layout_constraintStart_toStartOf="@+id/txt_product_detail_intake_informatioin_caution"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_informatioin_caution"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:text="임신 혹은 수유 중인 경우,\n
+약물을 복용 중이거나 질환이 있는 경우\n
+의사와 상의하십시오\n\n
+밀봉이 훼손된 경우에는 사용하지 마십시오"
+                        />
+                    <TextView
+                        android:id="@+id/txt_product_detail_intake_informatioin_caution_allergy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="@+id/txt_product_detail_intake_informatioin_caution"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_informatioin_caution_content"
+                        android:layout_marginTop="23dp"
+                        android:textSize="14dp"
+                        android:textColor="@color/colorPointBlue"
+                        android:lineSpacingExtra="4dp"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
+                        tools:text="#새우 알레르기 주의 #새우 알레르기 주의\n#새우 알레르기 주의 #새우 알레르기 주의"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:id="@+id/txt_product_detail_product_buy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13dp"
+                    android:textColor="@color/colorBlack"
+                    android:lineSpacingExtra="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    tools:text="제품 구매하기"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_product_detail_intake_informatioin_caution"
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_product_detail_buy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_product_buy"
+                    android:layout_marginTop="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

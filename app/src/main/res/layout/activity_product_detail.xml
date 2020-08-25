@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_product_detail"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@color/colorSkyBlue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_product_detail_product_imformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_product_detail">
+
+                <TextView
+                    android:id="@+id/txt_product_detail_brand"
+                    style="@style/light12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:includeFontPadding="false"
+                    android:text="더 리얼 | "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_origin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="6dp"
+                    android:text="해외직구"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorGrayBrown"
+                    android:textSize="12dp"
+                    app:layout_constraintStart_toEndOf="@+id/txt_product_detail_brand"
+                    app:layout_constraintTop_toTopOf="@+id/txt_product_detail_brand" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:lineSpacingExtra="2dp"
+                    android:text="알티지 오메가 3 맥스 1400"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toStartOf="@+id/txt_product_detail_brand"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_brand" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_maintain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="20dp"
+                    android:lineSpacingExtra="6dp"
+                    android:text="30일 유지가격"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_name" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_maintenance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4dp"
+                    android:text="유지일 :"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    app:layout_constraintStart_toStartOf="@+id/txt_product_detail_name"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_maintain" />
+
+
+                <TextView
+                    android:id="@+id/txt_product_detail_maintenance_per"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4dp"
+                    android:text="40"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorYellow"
+                    android:textSize="14dp"
+                    app:layout_constraintStart_toEndOf="@+id/txt_product_detail_maintenance"
+                    app:layout_constraintTop_toTopOf="@+id/txt_product_detail_maintenance" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_maintenance_per_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4dp"
+                    android:text="일"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    app:layout_constraintStart_toEndOf="@+id/txt_product_detail_maintenance_per"
+                    app:layout_constraintTop_toTopOf="@+id/txt_product_detail_maintenance_per" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_30_per_won"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:lineSpacingExtra="2dp"
+                    android:text="원"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="@id/txt_product_detail_maintain"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_maintain" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_30_per_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="2dp"
+                    android:text="21,000"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorYellow"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toStartOf="@+id/txt_product_detail_30_per_won"
+                    app:layout_constraintTop_toTopOf="@+id/txt_product_detail_30_per_won" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_won_bar"
+                    style="@style/light12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" | "
+                    app:layout_constraintEnd_toStartOf="@+id/txt_product_detail_30_per_price"
+                    app:layout_constraintTop_toTopOf="@+id/txt_product_detail_30_per_price" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_lowest_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="2dp"
+                    android:text="21,000원"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toStartOf="@+id/txt_product_detail_won_bar"
+                    app:layout_constraintTop_toTopOf="@+id/txt_product_detail_won_bar" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_standard_1"
+                    android:layout_width="101dp"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/blue_fill_4"
+                    android:gravity="center"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="5dp"
+                    android:text="260"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="13dp"
+                    app:layout_constraintEnd_toStartOf="@+id/txt_product_detail_standard_2"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_maintenance" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_standard_2"
+                    android:layout_width="101dp"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/blue_fill_4"
+                    android:gravity="center"
+                    android:lineSpacingExtra="5dp"
+                    android:text="260"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="13dp"
+                    app:layout_constraintEnd_toStartOf="@+id/txt_product_detail_standard_3"
+                    app:layout_constraintStart_toEndOf="@+id/txt_product_detail_standard_1"
+                    app:layout_constraintTop_toTopOf="@+id/txt_product_detail_standard_1" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_standard_3"
+                    android:layout_width="101dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/blue_fill_4"
+                    android:gravity="center"
+                    android:lineSpacingExtra="5dp"
+                    android:text="260"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="13dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_product_detail_standard_2"
+                    app:layout_constraintTop_toTopOf="@+id/txt_product_detail_standard_2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_product_detail_care_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:background="@color/colorWhite"
+                android:paddingBottom="22dp"
+                app:layout_constraintTop_toBottomOf="@+id/layout_product_detail_product_imformation">
+
+                <TextView
+                    android:id="@+id/txt_product_detail_care_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:lineSpacingExtra="5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="케어 분야" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_product_detail_care_category"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_care_category"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout_product_detail"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_product_detail_care_category">
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tab_item1_product_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="예상 섭취 변화량" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tab_item2_product_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="제품 함량" />
+            </com.google.android.material.tabs.TabLayout>
+
+            <com.caredirection.cadi.custom.WrapContentViewPager
+                android:id="@+id/view_pager_product_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tab_layout_product_detail"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

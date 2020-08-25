@@ -12,6 +12,10 @@ class FragmentName: Fragment(R.layout.fragment_product_search2) {
         super.onActivityCreated(savedInstanceState)
 
 
+        rvNameSetting()
+    }
+
+    fun rvNameSetting(){
         val rvNameAdapter = componentRvAdapter(requireContext())
 
         rvNameAdapter.items.add("가르시니아")
@@ -30,11 +34,9 @@ class FragmentName: Fragment(R.layout.fragment_product_search2) {
 
 
 
-        rv_product_search_name.layoutManager = GridLayoutManager(requireContext(), 3)
+
 
         rv_product_search_name.adapter = rvNameAdapter
-
-
-
     }
+
 }

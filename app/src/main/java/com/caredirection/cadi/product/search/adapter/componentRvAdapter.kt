@@ -24,10 +24,10 @@ class componentRvAdapter(val context: Context): RecyclerView.Adapter<componentRv
     }
 
     inner class nameRvViewHolder(view: View): RecyclerView.ViewHolder(view){
-        val txt_rv_item_product_search_name: TextView = view.findViewById(R.id.txt_rv_item_product_search_name)
+        val txt_rv_item_product_search_name_title: TextView = view.findViewById(R.id.txt_rv_item_product_search_name_title)
 
         fun bind(text: String){
-            txt_rv_item_product_search_name.text = text
+            txt_rv_item_product_search_name_title.text = text
         }
     }
 }

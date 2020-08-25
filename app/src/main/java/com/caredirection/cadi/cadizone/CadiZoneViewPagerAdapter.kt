@@ -9,6 +9,5 @@ class CadiZoneViewPagerAdapter(fm: FragmentManager, private val cnt: Int) : Frag
         return TopDicFragment(position)
     }
 
-
     override fun getCount(): Int = cnt
 }

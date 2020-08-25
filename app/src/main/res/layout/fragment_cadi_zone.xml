@@ -15,24 +15,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="성분 백과"
+            style="@style/bold20"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="27dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_top_dic"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="18dp"
             android:layout_height="42dp"
             app:tabSelectedTextColor="@color/colorBlack"
             app:layout_constraintBottom_toTopOf="@id/vp_viewPager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_top_title"
+            android:layout_marginTop="23dp"
             app:tabMode="scrollable" />
 
-        <androidx.viewpager.widget.ViewPager
+
+        <com.caredirection.cadi.custom.WrapContentViewPager
             android:id="@+id/vp_viewPager"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tab_top_dic" />
@@ -41,6 +47,8 @@
             android:id="@+id/tv_rv_direction_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/bold20"
+            android:layout_marginLeft="28dp"
             android:text="CARE Direction"
             android:textColor="@color/colorBlack"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,15 +58,15 @@
             android:id="@+id/tv_direction_sub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/light12"
             android:text="영양제에 대해 알지 못했던 정보들을 확인할 수 있어요."
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_rv_direction_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_rv_direction_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_direction_list"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_direction_sub" />
 
@@ -66,22 +74,25 @@
             android:id="@+id/tv_guide_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/bold20"
             android:text="CARE.D Guide"
             android:textColor="@color/colorBlack"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_rv_direction_title"
             app:layout_constraintTop_toBottomOf="@id/rv_direction_list" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_guide_sub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/light12"
             android:text="CARE.D만의 기준과 사용 방법을 확인할 수 있어요."
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_rv_direction_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_guide_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_guide_list"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_guide_sub" />
@@ -90,24 +101,33 @@
             android:id="@+id/tv_magazine_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/bold20"
             android:text="CARE.D Magazine"
             android:textColor="@color/colorBlack"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_guide_sub"
             app:layout_constraintTop_toBottomOf="@id/rv_guide_list" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_magazine_sub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/light12"
             android:text="콘텐츠 필터링"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_magazine_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_magazine_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_magazine_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_magazine_sub" />
+            android:nestedScrollingEnabled="true"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@+id/tv_magazine_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_magazine_sub"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

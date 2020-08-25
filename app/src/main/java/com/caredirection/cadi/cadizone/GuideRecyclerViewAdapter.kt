@@ -25,7 +25,7 @@ class GuideRecyclerViewAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_rv_guide, parent, false)
+            .inflate(R.layout.rv_item_guide, parent, false)
         return ViewHolder(itemView)
     }
 
@@ -35,8 +35,7 @@ class GuideRecyclerViewAdapter :
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val container: ConstraintLayout = itemView.findViewById(R.id.cl_rv_container)
-        val text: TextView = itemView.findViewById(R.id.tv_rv_guide_title)
+        val text: TextView = itemView.findViewById(R.id.txt_rv_item_guide_title)
     }
 }
 
