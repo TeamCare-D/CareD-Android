@@ -120,7 +120,7 @@
             android:id="@+id/rv_magazine_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="true"
+            android:nestedScrollingEnabled="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="@+id/tv_magazine_title"

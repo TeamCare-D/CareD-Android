@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_rv_item_home_care_detail"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <TextView
+            android:id="@+id/txt_rv_item_home_care_detail_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textColor="@color/colorPointBlue"
+            android:lineSpacingExtra="2dp"
+            android:text="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:layout_marginLeft="28dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <TextView
+            android:id="@+id/txt_rv_item_home_care_detail_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="@color/colorBlack"
+            android:lineSpacingExtra="4dp"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toEndOf="@+id/txt_rv_item_home_care_detail_number"
+            app:layout_constraintTop_toTopOf="@+id/txt_rv_item_home_care_detail_number"
+            android:layout_marginLeft="12dp"
+            android:text="간 건강"
+            />
+
+        <TextView
+            android:id="@+id/txt_rv_item_home_care_detail_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:textColor="@color/colorWhite"
+            android:lineSpacingExtra="6dp"
+            android:text="10"
+            android:fontFamily="@font/notosanskr_bold"
+            android:includeFontPadding="false"
+            app:layout_constraintEnd_toStartOf="@+id/img_rv_item_home_care_detail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/yellow_fill_20"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingLeft="11dp"
+            android:paddingRight="11dp"
+            />
+
+        <ImageView
+            android:id="@+id/img_rv_item_home_care_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="7dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_home_care_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_rv_item_home_care_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비타민 미네랄"
+            />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름"
+            />
+    </com.google.android.material.tabs.TabLayout>
+
+    <com.caredirection.cadi.custom.WrapContentViewPager
+        android:id="@+id/view_pager_home_care_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout_home_care_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

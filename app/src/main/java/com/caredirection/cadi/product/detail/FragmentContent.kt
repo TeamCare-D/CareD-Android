@@ -13,6 +13,7 @@ class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+
         intakeRvSetting()
 
         ingredientSetting()

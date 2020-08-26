@@ -28,10 +28,7 @@ class ProductSearch : AppCompatActivity() {
 
     fun ViewPagerSetting(){
         mViewPager = findViewById(R.id.view_pager_product_search)
-        val adapter: ViewPagerAdapter =
-            ViewPagerAdapter(
-                supportFragmentManager
-            )
+        val adapter: ViewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
 
         adapter.items.add(FragmentSymptom())
         adapter.items.add(FragmentName())

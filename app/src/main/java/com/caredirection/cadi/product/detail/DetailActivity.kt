@@ -24,6 +24,8 @@ class DetailActivity : AppCompatActivity() {
         ViewPagerSetting()
 
         careCategorySetting()
+
+
     }
 
     fun ViewPagerSetting() {
