@@ -35,7 +35,9 @@
         <activity android:name=".research.ResearchMedicineActivity" />
         <activity android:name=".research.ResearchDiseaseActivity" />
         <activity android:name=".research.ResearchGenderActivity" />
-        <activity android:name=".research.ResearchNicknameActivity"></activity>
+        <activity android:name=".research.ResearchNicknameActivity">
+
+        </activity>
 
         <activity android:name=".product.detail.DetailActivity">
 
