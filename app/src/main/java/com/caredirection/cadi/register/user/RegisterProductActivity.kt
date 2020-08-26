@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.caredirection.cadi.R
+import com.caredirection.cadi.register.user.ingredient.RegisterIngredientFragment
 import kotlinx.android.synthetic.main.activity_register_product.*
 
 class RegisterProductActivity : AppCompatActivity() {
@@ -30,16 +31,16 @@ class RegisterProductActivity : AppCompatActivity() {
 
     private fun setIngredientMoreClickListener(){
         txt_register_product_more.setOnClickListener {
-//            showIngredientDialog()
+            showIngredientDialog()
         }
     }
 
-//    private fun showIngredientDialog(){
-//        val fragmentManager = supportFragmentManager
-//        val registerIngredientFragment = RegisterIngredientFragment()
-//
-//        registerIngredientFragment.show(fragmentManager,"IngredientDialog")
-//    }
+    private fun showIngredientDialog(){
+        val fragmentManager = supportFragmentManager
+        val registerIngredientFragment = RegisterIngredientFragment()
+
+        registerIngredientFragment.show(fragmentManager,"IngredientDialog")
+    }
 
     // 상태바 투명 설정
     private fun setStatusBarTransparent(){

@@ -19,4 +19,11 @@
     <color name="dodger_blue">#358fff</color>
     <color name="very_light_pink">#c3c3c3</color>
 
+    <style name="RegisterIngredientTab" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="fontFamily">@font/notosanskr_bold</item>
+    </style>
+
 </resources>
