@@ -24,14 +24,12 @@
         />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_home_care_detail"
-        android:layout_width="300dp"
-        android:layout_height="205dp"
-        app:layout_constraintStart_toEndOf="@+id/txt_home_care_detail_chart"
+        android:layout_width="253dp"
+        android:layout_height="190dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp"
         />
 
     <TextView
@@ -39,9 +37,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rv_home_care_detail"
         app:layout_constraintBottom_toBottomOf="@+id/rv_home_care_detail"
-        android:layout_marginRight="110dp"
-        android:layout_width="48dp"
-        android:layout_height="172dp"
+        android:layout_marginRight="100dp"
+        android:layout_width="70dp"
+        android:layout_height="177dp"
         android:background="@color/colorWindowDuckEggBlue"
         />
     <ImageView
