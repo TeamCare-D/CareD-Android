@@ -48,6 +48,7 @@ class FragmentChartBitamin: Fragment(R.layout.fragment_home_care_detail_chart) {
                 maybeNotifySnapPositionChange(recyclerView)
                 Log.d("승희 테스트",chartRvADapter.items[snapHelper.getSnapPosition(rv_home_care_detail)].toString())
                 box_home_care_detail_chart.text = chartRvADapter.items[snapHelper.getSnapPosition(rv_home_care_detail)].toString()
+                txt_home_care_detail_chart_content_intake_number.text = chartRvADapter.items[snapHelper.getSnapPosition(rv_home_care_detail)].height.toString()
             }
         }
 
@@ -108,10 +109,6 @@ class FragmentChartBitamin: Fragment(R.layout.fragment_home_care_detail_chart) {
         chartRvADapter.items.add(ChartData("비타민12", 40))
         chartRvADapter.items.add(ChartData("비타민13", 40))
     }
-}
-enum class Behavior {
-    NOTIFY_ON_SCROLL,
-    NOTIFY_ON_SCROLL_STATE_IDLE
 }
 
 
