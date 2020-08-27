@@ -151,7 +151,57 @@
                     android:layout_marginLeft="27dp"
                     android:text="간 건강"
                     />
-                
+                <ImageView
+                    android:id="@+id/img_home_care_category_item1_bar"
+                    android:layout_width="1dp"
+                    android:layout_height="12dp"
+                    android:background="@color/colorPointGray"
+                    app:layout_constraintStart_toEndOf="@+id/txt_home_care_category_item1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginLeft="31dp"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_home_care_category_item2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/colorPointBlue"
+                    android:lineSpacingExtra="4dp"
+                    app:layout_constraintStart_toEndOf="@+id/img_home_care_category_item1_bar"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginLeft="26dp"
+                    android:text="간 건강"
+                    />
+                <ImageView
+                    android:id="@+id/img_home_care_category_item2_bar"
+                    android:layout_width="1dp"
+                    android:layout_height="12dp"
+                    android:background="@color/colorPointGray"
+                    app:layout_constraintStart_toEndOf="@+id/txt_home_care_category_item2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginLeft="31dp"
+                    />
+                <TextView
+                    android:id="@+id/txt_home_care_category_item3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/colorPointBlue"
+                    android:lineSpacingExtra="4dp"
+                    app:layout_constraintStart_toEndOf="@+id/img_home_care_category_item2_bar"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginLeft="26dp"
+                    android:text="간 건강"
+                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
