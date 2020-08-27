@@ -48,4 +48,40 @@
         android:orientation="vertical"
         />
 
+    <TextView
+        android:id="@+id/txt_home_care_detail_similar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/bold20"
+        app:layout_constraintStart_toStartOf="@+id/txt_home_care_detail_title"
+        app:layout_constraintTop_toBottomOf="@+id/rv_home_care_detail"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
+        android:text="비슷한 사람이 케어 하는 기능"
+        />
+    <TextView
+        android:id="@+id/txt_home_care_detail_similar_sub_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/notosanskr_light"
+        android:includeFontPadding="false"
+        style="@style/light12"
+        app:layout_constraintStart_toStartOf="@+id/txt_home_care_detail_similar_title"
+        app:layout_constraintTop_toBottomOf="@+id/txt_home_care_detail_similar_title"
+        android:layout_marginTop="7dp"
+        android:text="비슷한 사람들이 가장 신경써서 케어 하는 분야에요."
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_home_care_detail_similar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/txt_home_care_detail_similar_sub_title"
+        android:layout_marginTop="18dp"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,7 +53,7 @@
 
 
                 <TextView
-                    android:id="@+id/test"
+                    android:id="@+id/box_home_care_detail_chart"
                     android:layout_width="58dp"
                     android:layout_height="36dp"
                     android:layout_marginTop="76dp"
@@ -74,7 +74,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="18dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/test"
+                    app:layout_constraintStart_toEndOf="@+id/box_home_care_detail_chart"
                     app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_function" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
