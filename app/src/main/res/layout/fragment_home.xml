@@ -128,24 +128,39 @@
                 android:text="내가 가장 많이 케어받는 분야에요."
                 />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_home_care_category"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_home_care_category"
                 android:layout_width="304dp"
-                android:layout_height="wrap_content"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:orientation="horizontal"
+                android:layout_height="44dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_home_care_category_sub_title"
-                android:layout_marginTop="10dp"
-                />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_home_care_category_sub_title">
+
+                <TextView
+                    android:id="@+id/txt_home_care_category_item1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/colorPointBlue"
+                    android:lineSpacingExtra="4dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginLeft="27dp"
+                    android:text="간 건강"
+                    />
+                
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/txt_home_care_similar_category_sub_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@+id/txt_home_care_category_sub_title"
-                app:layout_constraintTop_toBottomOf="@+id/rv_home_care_category"
+                app:layout_constraintTop_toBottomOf="@+id/layout_home_care_category"
                 android:layout_marginTop="30dp"
                 style="@style/light12"
                 android:text="비슷한 사람들이 가장 신경써서 케어 하는 분야에요."
