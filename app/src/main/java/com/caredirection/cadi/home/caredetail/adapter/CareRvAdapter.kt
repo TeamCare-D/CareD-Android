@@ -39,12 +39,13 @@ class CareRvAdapter(val mFragment: FragmentManager): RecyclerView.Adapter<CareRv
         val view_pager_home_care_detail: ViewPager = itemView.findViewById(R.id.view_pager_home_care_detail)
         var checked: Boolean = false
 
+        
+
 
         fun bind(){
             tab_layout_home_care_detail.visibility = View.GONE
 
             img_rv_item_home_care_detail.setOnClickListener{
-
                 if(!checked){
                     viewPagerSetting(itemView)
                     tab_layout_home_care_detail.visibility = View.VISIBLE
@@ -57,7 +58,6 @@ class CareRvAdapter(val mFragment: FragmentManager): RecyclerView.Adapter<CareRv
 
                     checked = false
                 }
-
             }
 
 
