@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
+import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -66,6 +67,8 @@ class RegisterSearchActivity : AppCompatActivity() {
     private fun setSearchClickListener(){
         btn_register_search.setOnClickListener {
             initRegisterSearchResultList()
+
+            cl_register_search_result.visibility = View.VISIBLE
         }
     }
 
