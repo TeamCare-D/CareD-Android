@@ -5,7 +5,8 @@
     android:id="@+id/cl_register_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register.list.RegisterListActivity">
+    tools:context=".register.list.RegisterListActivity"
+    android:background="@color/colorWhite">
 
     <ScrollView
         android:id="@+id/scrollView3"

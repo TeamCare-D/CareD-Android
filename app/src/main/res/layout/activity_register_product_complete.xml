@@ -5,7 +5,8 @@
     android:id="@+id/cl_register_product_complete"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register.user.RegisterProductCompleteActivity">
+    tools:context=".register.user.RegisterProductCompleteActivity"
+    android:background="@color/colorWhite">
 
   <ImageView
       android:id="@+id/btn_register_product_complete_back"
