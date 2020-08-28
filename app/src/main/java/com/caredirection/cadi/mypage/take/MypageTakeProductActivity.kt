@@ -43,6 +43,7 @@ class MypageTakeProductActivity : AppCompatActivity() {
     private fun makeListener(){
         setCloseClickListener()
         setAddClickListener()
+        setCompleteClickListener()
     }
 
     private fun setCloseClickListener(){
@@ -56,6 +57,12 @@ class MypageTakeProductActivity : AppCompatActivity() {
             val searchIntent = Intent(this, RegisterSearchActivity::class.java)
 
             startActivity(searchIntent)
+        }
+    }
+
+    private fun setCompleteClickListener(){
+        btn_mypage_take_product_complete.setOnClickListener {
+            finish()
         }
     }
 
