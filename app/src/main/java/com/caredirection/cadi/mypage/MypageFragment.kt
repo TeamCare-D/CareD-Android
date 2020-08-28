@@ -20,6 +20,7 @@ class MypageFragment : Fragment(R.layout.fragment_mypage) {
         setTakeClickListener()
         setInterestClickListener()
         setNoticeClickListener()
+        setRequestClickListener()
     }
 
     private fun setTakeClickListener(){
@@ -43,6 +44,14 @@ class MypageFragment : Fragment(R.layout.fragment_mypage) {
             val noticeIntent = Intent(context, MypageNoticeActivity::class.java)
 
             startActivity(noticeIntent)
+        }
+    }
+
+    private fun setRequestClickListener(){
+        btn_mypage_request.setOnClickListener {
+            val requestIntent = Intent(context, MypageRequestActivity::class.java)
+
+            startActivity(requestIntent)
         }
     }
 }
