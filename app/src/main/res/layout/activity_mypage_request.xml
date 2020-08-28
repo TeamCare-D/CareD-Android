@@ -5,7 +5,8 @@
     android:id="@+id/cl_mypage_request"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mypage.MypageRequestActivity">
+    tools:context=".mypage.MypageRequestActivity"
+    android:background="@color/colorWhite">
 
     <ImageView
         android:id="@+id/btn_mypage_request_back"
