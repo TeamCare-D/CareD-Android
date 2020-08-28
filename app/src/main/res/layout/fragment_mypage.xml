@@ -56,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_mypage_user_name" />
 
     <ImageView
-        android:id="@+id/btn_mypage_taking_product"
+        android:id="@+id/btn_mypage_take_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/textView21"
@@ -70,9 +70,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="관심 제품"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_mypage_taking_product"
-        app:layout_constraintStart_toEndOf="@+id/btn_mypage_taking_product"
-        app:layout_constraintTop_toTopOf="@+id/btn_mypage_taking_product" />
+        app:layout_constraintBottom_toBottomOf="@+id/btn_mypage_take_product"
+        app:layout_constraintStart_toEndOf="@+id/btn_mypage_take_product"
+        app:layout_constraintTop_toTopOf="@+id/btn_mypage_take_product" />
 
     <ImageView
         android:id="@+id/btn_mypage_interest_product"
@@ -100,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="10"
-        app:layout_constraintStart_toEndOf="@+id/btn_mypage_taking_product"
+        app:layout_constraintStart_toEndOf="@+id/btn_mypage_take_product"
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <TextView

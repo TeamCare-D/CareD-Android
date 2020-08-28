@@ -200,7 +200,7 @@
         android:fontFamily="@font/notosanskr_bold"
         android:includeFontPadding="false"
         android:lineSpacingExtra="6sp"
-        android:text="다음으로 넘어가기"
+        android:text="등록하기"
         android:textColor="@color/colorCoolGray2"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"

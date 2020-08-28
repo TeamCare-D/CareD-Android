@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.caredirection.cadi.R
 import com.caredirection.cadi.mypage.interest.MypageInterestProductActivity
 import com.caredirection.cadi.mypage.notice.MypageNoticeActivity
+import com.caredirection.cadi.mypage.take.MypageTakeProductActivity
 import kotlinx.android.synthetic.main.fragment_mypage.*
 
 class MypageFragment : Fragment(R.layout.fragment_mypage) {
@@ -16,8 +17,17 @@ class MypageFragment : Fragment(R.layout.fragment_mypage) {
     }
 
     private fun makeListener(){
+        setTakeClickListener()
         setInterestClickListener()
         setNoticeClickListener()
+    }
+
+    private fun setTakeClickListener(){
+        btn_mypage_take_product.setOnClickListener {
+            val takeIntent = Intent(context, MypageTakeProductActivity::class.java)
+
+            startActivity(takeIntent)
+        }
     }
 
     private fun setInterestClickListener(){

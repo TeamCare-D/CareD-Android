@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mypage.notice.MypageNoticeActivity"></activity>
+        <activity android:name=".mypage.MypageRequestActivity"></activity>
+        <activity android:name=".mypage.take.MypageTakeProductActivity" />
+        <activity android:name=".mypage.notice.MypageNoticeActivity" />
         <activity android:name=".mypage.interest.MypageInterestProductActivity" />
         <activity android:name=".home.HomeDetailActivity" />
         <activity android:name=".MainActivity" />
