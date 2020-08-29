@@ -53,6 +53,8 @@ class UserCareBitaminFragment : Fragment(R.layout.view_home_care_user_detail) {
             if (behavior == Behavior.NOTIFY_ON_SCROLL_STATE_IDLE
                 && newState == RecyclerView.SCROLL_STATE_IDLE) {
                 maybeNotifySnapPositionChange(recyclerView)
+
+
             }
         }
 
@@ -91,8 +93,6 @@ class UserCareBitaminFragment : Fragment(R.layout.view_home_care_user_detail) {
     }
 
     fun ChartDataSetting(){
-
-
 
         val call: Call<GraphBitaminList> = RequestURL.service.getGraphVitamin("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE")
         call.enqueue(

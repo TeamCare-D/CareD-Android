@@ -36,7 +36,7 @@ class ProductSearch : AppCompatActivity() {
         mViewPager.adapter = adapter
 
         tab_layout_product_search.setupWithViewPager(mViewPager)
-        val menu = arrayListOf("증상", "이름")
+        val menu = arrayListOf("비타민 & 미네랄", "기능성 원료")
         for(i in 0..menu.size){
             tab_layout_product_search.getTabAt(i)?.text = menu[i]
         }

@@ -9,12 +9,18 @@ import androidx.recyclerview.widget.SnapHelper
 import com.caredirection.cadi.R
 import com.caredirection.cadi.adapter.ChartAdapter
 import com.caredirection.cadi.adapter.ChartData
+import com.caredirection.cadi.adapter.ChartFunctionAdapter
 import com.caredirection.cadi.custom.OnSnapPositionChangeListener
 import com.caredirection.cadi.custom.getSnapPosition
+import com.caredirection.cadi.network.RequestURL
+import com.caredirection.cadi.networkdata.GraphFunctionList
 import kotlinx.android.synthetic.main.fragment_home_care_detail_chart.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class FragmentChartFunction : Fragment(R.layout.fragment_home_care_detail_chart) {
-    lateinit var chartRvADapter: ChartAdapter
+    lateinit var chartRvADapter: ChartFunctionAdapter
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         ChartSetting()
@@ -38,11 +44,15 @@ class FragmentChartFunction : Fragment(R.layout.fragment_home_care_detail_chart)
 
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             if (behavior == Behavior.NOTIFY_ON_SCROLL_STATE_IDLE
-                && newState == RecyclerView.SCROLL_STATE_IDLE) {
+                && newState == RecyclerView.SCROLL_STATE_IDLE
+            ) {
                 maybeNotifySnapPositionChange(recyclerView)
-                Log.d("승희 테스트",chartRvADapter.items[snapHelper.getSnapPosition(rv_home_care_detail)].toString())
-                box_home_care_detail_chart.text = chartRvADapter.items[snapHelper.getSnapPosition(rv_home_care_detail)].toString()
-                txt_home_care_detail_chart_content_intake_number.text = chartRvADapter.items[snapHelper.getSnapPosition(rv_home_care_detail)].height.toString()
+                Log.d(
+                    "승희 테스트",
+                    chartRvADapter.items[snapHelper.getSnapPosition(rv_home_care_detail)].toString()
+                )
+                txt_home_care_detail_chart_content_intake_number.text =
+                    chartRvADapter.items[snapHelper.getSnapPosition(rv_home_care_detail)].ingredient_percentage.toString()
             }
         }
 
@@ -58,10 +68,10 @@ class FragmentChartFunction : Fragment(R.layout.fragment_home_care_detail_chart)
     }
 
 
-    fun ChartSetting(){
+    fun ChartSetting() {
         val snapHelper = LinearSnapHelper()
 
-        chartRvADapter = ChartAdapter(requireContext())
+        chartRvADapter = ChartFunctionAdapter(requireContext())
 
         snapHelper.attachToRecyclerView(rv_home_care_detail)
         val layoutManager = rv_home_care_detail.layoutManager
@@ -69,13 +79,14 @@ class FragmentChartFunction : Fragment(R.layout.fragment_home_care_detail_chart)
 
         val snapPosition = snapView?.let { layoutManager?.getPosition(it) }
 
-        val snapOnScrollListener = SnapOnScrollListener(snapHelper, behavior = Behavior.NOTIFY_ON_SCROLL_STATE_IDLE)
+        val snapOnScrollListener =
+            SnapOnScrollListener(snapHelper, behavior = Behavior.NOTIFY_ON_SCROLL_STATE_IDLE)
 
         rv_home_care_detail.addOnScrollListener(snapOnScrollListener)
 
 
 
-        rv_home_care_detail.adapter = chartRvADapter
+
 
 
 
@@ -83,27 +94,29 @@ class FragmentChartFunction : Fragment(R.layout.fragment_home_care_detail_chart)
 
     }
 
-    fun ChartDataSetting(){
-        chartRvADapter.items.add(ChartData("",0))
-        chartRvADapter.items.add(ChartData("",0))
-        chartRvADapter.items.add(ChartData("",0))
-        chartRvADapter.items.add(ChartData("",0))
+    fun ChartDataSetting() {
 
-        chartRvADapter.items.add(ChartData("비타민1", 70))
-        chartRvADapter.items.add(ChartData("비타민2", 50))
-        chartRvADapter.items.add(ChartData("비타민3", 40))
-        chartRvADapter.items.add(ChartData("비타민4", 60))
-        chartRvADapter.items.add(ChartData("비타민5", 70))
-        chartRvADapter.items.add(ChartData("비타민6", 80))
-        chartRvADapter.items.add(ChartData("비타민7", 100))
-        chartRvADapter.items.add(ChartData("비타민8", 110))
-        chartRvADapter.items.add(ChartData("비타민9", 70))
-        chartRvADapter.items.add(ChartData("비타민10", 50))
-        chartRvADapter.items.add(ChartData("비타민11", 40))
-        chartRvADapter.items.add(ChartData("비타민12", 40))
-        chartRvADapter.items.add(ChartData("비타민13", 40))
+        val call: Call<GraphFunctionList> =
+            RequestURL.service.getGraphFunction("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE")
+        call.enqueue(
+            object : Callback<GraphFunctionList> {
+                override fun onFailure(call: Call<GraphFunctionList>, t: Throwable?) {
+                    Log.d("FragmentChartFunction onFailure", t.toString())
+                }
+
+                override fun onResponse(
+                    call: Call<GraphFunctionList>,
+                    response: Response<GraphFunctionList>
+                ) {
+                    chartRvADapter.items.addAll(response.body().data)
+                    rv_home_care_detail.adapter = chartRvADapter
+                }
+            }
+        )
+
     }
 }
+
 enum class Behavior {
     NOTIFY_ON_SCROLL,
     NOTIFY_ON_SCROLL_STATE_IDLE
