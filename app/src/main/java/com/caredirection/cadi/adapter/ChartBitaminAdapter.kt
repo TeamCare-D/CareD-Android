@@ -10,33 +10,33 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import com.caredirection.cadi.networkdata.GraphIngredient
+import com.caredirection.cadi.networkdata.GraphBitamin
 
-class ChartBitaminAdapter(private val context: Context): RecyclerView.Adapter<ChartBitaminAdapter.ChartRvHolder>() {
+class ChartBitaminAdapter(private val context: Context): RecyclerView.Adapter<ChartBitaminAdapter.ChartBitaminHolder>() {
 
-    val items = mutableListOf<GraphIngredient>()
+    val items = mutableListOf<GraphBitamin>()
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChartRvHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChartBitaminHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.rv_item_chart, parent, false)
-        return ChartRvHolder(view)
+        return ChartBitaminHolder(view)
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 
-    override fun onBindViewHolder(holder: ChartRvHolder, position: Int) {
+    override fun onBindViewHolder(holder: ChartBitaminHolder, position: Int) {
         holder.bind(items[position])
     }
 
-    inner class ChartRvHolder(view: View): RecyclerView.ViewHolder(view){
+    inner class ChartBitaminHolder(view: View): RecyclerView.ViewHolder(view){
+
         val bar_rv_item_chart1: TextView = view.findViewById(R.id.bar_rv_item_chart_1)
         val bar_rv_item_chart2: TextView = view.findViewById(R.id.bar_rv_item_chart_2)
         val bar_rv_item_chart_3: TextView = view.findViewById(R.id.bar_rv_item_chart_3)
         val txt_rv_item_name: TextView = view.findViewById(R.id.txt_rv_item_chart_name)
 
-        fun bind(item: GraphIngredient){
+        fun bind(item: GraphBitamin){
             val h = item.ingredient_percentage * 1.7 * 3
 
 //            if(item.height == 0){
@@ -45,6 +45,8 @@ class ChartBitaminAdapter(private val context: Context): RecyclerView.Adapter<Ch
 //                bar_rv_item_chart_3.layoutParams.height = 0
 //                return
 //            }
+
+            Log.d("홀더 잘되나", h.toString())
 
             if(item.ingredient_percentage < 30){
                 bar_rv_item_chart1.layoutParams.height = h.toInt()

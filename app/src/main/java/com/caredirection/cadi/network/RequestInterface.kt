@@ -1,23 +1,20 @@
 package com.caredirection.cadi.network
 
-import com.caredirection.cadi.networkdata.GraphInfo
-import com.caredirection.cadi.networkdata.GraphIngredient
-import com.caredirection.cadi.networkdata.GraphIngredientList
+import com.caredirection.cadi.networkdata.GraphFunctionList
+import com.caredirection.cadi.networkdata.GraphBitaminList
 import retrofit2.Call
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
-import retrofit2.http.POST
 
 interface RequestInterface {
 
     @GET("/graph/vitaminMineral")
     fun getGraphVitamin(
         @Header("token")token : String
-    ) : Call<GraphIngredientList>
+    ) : Call<GraphBitaminList>
 
     @GET("/graph/functional")
-    fun getGraphInfo(
+    fun getGraphFunction(
         @Header("token")token : String
-    ): Call<GraphInfo>
+    ): Call<GraphFunctionList>
 }

@@ -40,7 +40,8 @@ class HomeDetailActivity : AppCompatActivity() {
 
         view_pager_home_care_user_detail.adapter = adapter
 
-        tab_layout_home_care_user_detail.setupWithViewPager(view_pager_home)
+        tab_layout_home_care_user_detail.setupWithViewPager(view_pager_home_care_user_detail)
+
         val menu = arrayListOf("증상", "이름")
         for(i in 0..menu.size){
             tab_layout_home_care_user_detail.getTabAt(i)?.text = menu[i]

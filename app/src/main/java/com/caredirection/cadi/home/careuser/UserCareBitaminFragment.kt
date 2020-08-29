@@ -8,23 +8,29 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.caredirection.cadi.R
 import com.caredirection.cadi.adapter.ChartAdapter
+import com.caredirection.cadi.adapter.ChartBitaminAdapter
 import com.caredirection.cadi.adapter.ChartData
 import com.caredirection.cadi.adapter.MagazineIngredientRvAdapter
 import com.caredirection.cadi.custom.OnSnapPositionChangeListener
 import com.caredirection.cadi.custom.getSnapPosition
 import com.caredirection.cadi.home.caredetail.Behavior
+import com.caredirection.cadi.network.RequestURL
+import com.caredirection.cadi.networkdata.GraphBitaminList
 import com.caredirection.cadi.product.list.adapter.ProductMagazineData
 import kotlinx.android.synthetic.main.fragment_home_care_detail_chart.*
 import kotlinx.android.synthetic.main.view_home_care_user_detail.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class UserCareBitaminFragment : Fragment(R.layout.view_home_care_user_detail) {
-    lateinit var chartRvADapter: ChartAdapter
+    lateinit var chartRvADapter: ChartBitaminAdapter
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         ChartSetting()
-        ChartDataSetting()
+
 
         MagazineSetting()
     }
@@ -65,7 +71,7 @@ class UserCareBitaminFragment : Fragment(R.layout.view_home_care_user_detail) {
     fun ChartSetting(){
         val snapHelper = LinearSnapHelper()
 
-        chartRvADapter = ChartAdapter(requireContext())
+        chartRvADapter = ChartBitaminAdapter(requireContext())
 
         snapHelper.attachToRecyclerView(rv_home_care_user_detail)
         val layoutManager = rv_home_care_user_detail.layoutManager
@@ -77,10 +83,7 @@ class UserCareBitaminFragment : Fragment(R.layout.view_home_care_user_detail) {
 
         rv_home_care_user_detail.addOnScrollListener(snapOnScrollListener)
 
-
-
-        rv_home_care_user_detail.adapter = chartRvADapter
-
+        ChartDataSetting()
 
 
         snapHelper.attachToRecyclerView(rv_home_care_user_detail)
@@ -88,24 +91,25 @@ class UserCareBitaminFragment : Fragment(R.layout.view_home_care_user_detail) {
     }
 
     fun ChartDataSetting(){
-        chartRvADapter.items.add(ChartData("",0))
-        chartRvADapter.items.add(ChartData("",0))
-        chartRvADapter.items.add(ChartData("",0))
-        chartRvADapter.items.add(ChartData("",0))
 
-        chartRvADapter.items.add(ChartData("비타민1", 70))
-        chartRvADapter.items.add(ChartData("비타민2", 50))
-        chartRvADapter.items.add(ChartData("비타민3", 40))
-        chartRvADapter.items.add(ChartData("비타민4", 60))
-        chartRvADapter.items.add(ChartData("비타민5", 70))
-        chartRvADapter.items.add(ChartData("비타민6", 80))
-        chartRvADapter.items.add(ChartData("비타민7", 100))
-        chartRvADapter.items.add(ChartData("비타민8", 110))
-        chartRvADapter.items.add(ChartData("비타민9", 70))
-        chartRvADapter.items.add(ChartData("비타민10", 50))
-        chartRvADapter.items.add(ChartData("비타민11", 40))
-        chartRvADapter.items.add(ChartData("비타민12", 40))
-        chartRvADapter.items.add(ChartData("비타민13", 40))
+
+
+        val call: Call<GraphBitaminList> = RequestURL.service.getGraphVitamin("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE")
+        call.enqueue(
+            object : Callback<GraphBitaminList>{
+                override fun onFailure(call: Call<GraphBitaminList>, t: Throwable?) {
+                    Log.d("UserCareBitaminFragment onFailure", t.toString())
+                }
+
+                override fun onResponse(
+                    call: Call<GraphBitaminList>,
+                    response: Response<GraphBitaminList>
+                ) {
+                    chartRvADapter.items.addAll(response.body().data)
+                    rv_home_care_user_detail.adapter = chartRvADapter
+                }
+            }
+        )
     }
 
     fun MagazineSetting(){

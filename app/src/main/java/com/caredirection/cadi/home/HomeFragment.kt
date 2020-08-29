@@ -36,7 +36,7 @@ class HomeFragment : Fragment(R.layout.fragment_home){
         view_pager_home.adapter = adapter
 
         tab_layout_home.setupWithViewPager(view_pager_home)
-        val menu = arrayListOf("증상", "이름")
+        val menu = arrayListOf("비타민 & 미네랄", "기능성 원료")
         for(i in 0..menu.size){
             tab_layout_home.getTabAt(i)?.text = menu[i]
         }
