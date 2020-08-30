@@ -106,7 +106,6 @@ class ResearchGenderActivity : AppCompatActivity() {
         npYear.textColor = this.resources.getColor(R.color.colorWhite)
 
         btnCancel.setOnClickListener {
-            yearDialog.dismiss()
             yearDialog.cancel()
 
             checkNextButton()
@@ -117,7 +116,6 @@ class ResearchGenderActivity : AppCompatActivity() {
             btn_year?.isChecked = true
 
             yearDialog.dismiss()
-            yearDialog.cancel()
 
             checkNextButton()
         }

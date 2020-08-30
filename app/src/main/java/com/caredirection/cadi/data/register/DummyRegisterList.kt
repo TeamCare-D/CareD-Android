@@ -1,8 +1,8 @@
 package com.caredirection.cadi.data.register
 
 class DummyRegisterList {
-    fun getRegisterList() : List<RegisterListItem>{
-        return listOf(
+    fun getRegisterList() : MutableList<RegisterListItem>{
+        return mutableListOf(
             RegisterListItem(
                 brand = "브랜드1",
                 name = "상품명1",

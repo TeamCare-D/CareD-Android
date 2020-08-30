@@ -20,16 +20,5 @@ class RegisterListViewHolder(view: View) : RecyclerView.ViewHolder(view){
         txtProductName.text = product.name
         txtProductOverseas.text = product.overseas
         txtProductDay.text = product.day.toString()
-
-        btnDeleted.setOnClickListener {
-//            showDeleteDialog()
-        }
     }
-
-//    private fun showDeleteDialog(){
-//        val fragmentManager = FragmentManager
-//        val registerListDeleteFragment = RegisterListDeleteFragment()
-//
-//        registerListDeleteFragment.show(fragmentManager,"DeleteDialog")
-//    }
 }
