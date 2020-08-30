@@ -22,11 +22,9 @@ class ListActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_list)
 
+
         changeFragment()
-
         productRvSetting()
-
-
     }
     fun changeFragment(){
         supportFragmentManager.beginTransaction().replace(R.id.fragment_product_list_detail, FragmentDetail()).commit()

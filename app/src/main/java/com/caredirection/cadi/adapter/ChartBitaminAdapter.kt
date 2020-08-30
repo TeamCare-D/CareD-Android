@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.view.animation.ScaleAnimation
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -53,11 +54,16 @@ class ChartBitaminAdapter(private val context: Context): RecyclerView.Adapter<Ch
 
                 bar_rv_item_chart1.visibility = View.VISIBLE
                 bar_rv_item_chart1.background = ContextCompat.getDrawable(context, R.drawable.chart_carolina_blue_4)
+
+                //bar_rv_item_chart1.animation = AnimationUtils.loadAnimation(context, R.anim.ani_test)
+
             }
             else if(item.ingredient_percentage in 30..100){
                 bar_rv_item_chart1.layoutParams.height = 153
                 bar_rv_item_chart2.layoutParams.height = (h - 153).toInt()
                 bar_rv_item_chart2.background = ContextCompat.getDrawable(context, R.drawable.chart_blue_4)
+//                bar_rv_item_chart1.animation = AnimationUtils.loadAnimation(context, R.anim.ani_test)
+//                bar_rv_item_chart2.animation = AnimationUtils.loadAnimation(context, R.anim.ani_test)
 
             }
             else if(item.ingredient_percentage > 100){
@@ -66,12 +72,15 @@ class ChartBitaminAdapter(private val context: Context): RecyclerView.Adapter<Ch
                 bar_rv_item_chart_3.layoutParams.height = (h-510).toInt()
                 bar_rv_item_chart_3.background = ContextCompat.getDrawable(context, R.drawable.chart_yellow_4)
 
+//                bar_rv_item_chart1.animation = AnimationUtils.loadAnimation(context, R.anim.ani_test)
+//                bar_rv_item_chart2.animation = AnimationUtils.loadAnimation(context, R.anim.ani_test)
+//                bar_rv_item_chart_3.animation = AnimationUtils.loadAnimation(context, R.anim.ani_test)
+
 
             }
 
             txt_rv_item_name.text = item.ingredient_name
             itemView.animation = AnimationUtils.loadAnimation(context, R.anim.ani_chart)
-
         }
 
     }

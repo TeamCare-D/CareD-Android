@@ -23,6 +23,8 @@ class ProductFilterActivity : AppCompatActivity(){
 
         rvRange()
 
+        closeSetting()
+
     }
 
     fun seekbarSetting(){
@@ -73,4 +75,9 @@ class ProductFilterActivity : AppCompatActivity(){
         rv_product_filter_range.adapter = rvRangeAdapter
     }
 
+    fun closeSetting(){
+        img_product_filter_close.setOnClickListener{
+            finish()
+        }
+    }
 }
