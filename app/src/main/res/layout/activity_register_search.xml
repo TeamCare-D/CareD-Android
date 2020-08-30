@@ -68,6 +68,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_register_search_keyword" />
 
+    <TextView
+        android:id="@+id/txt_register_search_none"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:text="검색 결과가 존재하지 않아요."
+        android:visibility="gone"
+        android:fontFamily="@font/notosanskr_regular"
+        android:textSize="15dp"
+        android:lineSpacingExtra="3sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorCoolGray2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_register_search_result"
         android:layout_width="match_parent"

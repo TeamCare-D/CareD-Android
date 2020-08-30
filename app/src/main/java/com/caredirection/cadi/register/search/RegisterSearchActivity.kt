@@ -68,7 +68,12 @@ class RegisterSearchActivity : AppCompatActivity() {
         btn_register_search.setOnClickListener {
             initRegisterSearchResultList()
 
-            cl_register_search_result.visibility = View.VISIBLE
+            if(registerSearchListAdapter.itemCount > 0){
+                cl_register_search_result.visibility = View.VISIBLE
+            }
+            else{
+                txt_register_search_none.visibility = View.VISIBLE
+            }
         }
     }
 
