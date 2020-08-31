@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     android:background="@color/colorDuckEggBlue">
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -17,37 +17,37 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/txt_fragment_product_search_bitaminb_title1"
+                android:id="@+id/txt_fragment_product_search_multibitamin_title1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="56dp"
                 android:fontFamily="@font/notosanskr_bold"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="-2dp"
-                android:text="비타민B 컴플렉스"
+                android:text="종합 비타민"
                 android:textColor="@color/colorPointBlue"
                 android:textSize="20dp"
-                app:layout_constraintEnd_toStartOf="@+id/txt_fragment_product_search_bitaminb_title2"
+                app:layout_constraintEnd_toStartOf="@+id/txt_fragment_product_search_multibitamin_title2"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/txt_fragment_product_search_bitaminb_title2"
+                android:id="@+id/txt_fragment_product_search_multibitamin_title2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanskr_bold"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="-2dp"
-                android:text="를 고르셨네요?"
+                android:text="을 고르셨네요?"
                 android:textColor="@color/colorBlack"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/txt_fragment_product_search_bitaminb_title1"
-                app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_search_bitaminb_title1" />
+                app:layout_constraintStart_toEndOf="@+id/txt_fragment_product_search_multibitamin_title1"
+                app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_search_multibitamin_title1" />
 
             <TextView
-                android:id="@+id/txt_fragment_product_search_title_explain"
+                android:id="@+id/txt_fragment_product_search_multibitamin_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -62,13 +62,23 @@
                 android:textSize="13dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_search_bitaminb_title2" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_search_multibitamin_title2" />
+
+            <ImageView
+                android:id="@+id/bar_fragment_product_search_multibitamin"
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="18dp"
+                android:background="@color/colorPointBlue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_search_multibitamin_content" />
 
             <TextView
-                android:id="@+id/txt_fragment_product_search_standard_title"
+                android:id="@+id/txt_fragment_product_search_multibitamin_standard_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="18dp"
                 android:fontFamily="@font/notosanskr_bold"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="2dp"
@@ -77,21 +87,20 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_search_title_explain" />
-
+                app:layout_constraintTop_toBottomOf="@+id/bar_fragment_product_search_multibitamin" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_fragment_product_search_standard_item1"
+                android:id="@+id/layout_fragment_product_search_multibitamin_standard_item1"
                 android:layout_width="98dp"
                 android:layout_height="118dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="8dp"
                 android:background="@color/colorWhite"
                 android:elevation="3dp"
-                app:layout_constraintEnd_toStartOf="@+id/layout_fragment_product_search_standard_item2"
+                app:layout_constraintEnd_toStartOf="@+id/layout_fragment_product_search_multibitamin_standard_item2"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_search_standard_title">
+                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_search_multibitamin_standard_title">
 
                 <TextView
                     android:id="@+id/txt_fragment_product_search_standard_item1_title"
@@ -126,15 +135,15 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_fragment_product_search_standard_item2"
+                android:id="@+id/layout_fragment_product_search_multibitamin_standard_item2"
                 android:layout_width="98dp"
                 android:layout_height="118dp"
                 android:layout_marginEnd="8dp"
                 android:background="@color/colorWhite"
                 android:elevation="3dp"
-                app:layout_constraintEnd_toStartOf="@+id/layout_fragment_product_search_standard_item3"
-                app:layout_constraintStart_toEndOf="@+id/layout_fragment_product_search_standard_item1"
-                app:layout_constraintTop_toTopOf="@+id/layout_fragment_product_search_standard_item1">
+                app:layout_constraintEnd_toStartOf="@+id/layout_fragment_product_search_multibitamin_standard_item3"
+                app:layout_constraintStart_toEndOf="@+id/layout_fragment_product_search_multibitamin_standard_item1"
+                app:layout_constraintTop_toTopOf="@+id/layout_fragment_product_search_multibitamin_standard_item1">
 
                 <TextView
                     android:id="@+id/txt_fragment_product_search_standard_item2_title"
@@ -169,14 +178,14 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout_fragment_product_search_standard_item3"
+                android:id="@+id/layout_fragment_product_search_multibitamin_standard_item3"
                 android:layout_width="98dp"
                 android:layout_height="118dp"
                 android:background="@color/colorWhite"
                 android:elevation="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/layout_fragment_product_search_standard_item2"
-                app:layout_constraintTop_toTopOf="@+id/layout_fragment_product_search_standard_item2">
+                app:layout_constraintStart_toEndOf="@+id/layout_fragment_product_search_multibitamin_standard_item2"
+                app:layout_constraintTop_toTopOf="@+id/layout_fragment_product_search_multibitamin_standard_item2">
 
                 <TextView
                     android:id="@+id/txt_fragment_product_search_standard_item3_title"
@@ -211,8 +220,9 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+
             <TextView
-                android:id="@+id/txt_fragment_product_search_standard_item_explain_title_number"
+                android:id="@+id/txt_fragment_product_search_multibitamin_standard_item1_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
@@ -224,52 +234,52 @@
                 android:textColor="@color/colorPointBlue"
                 android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_fragment_product_search_standard_item1" />
+                app:layout_constraintTop_toBottomOf="@+id/layout_fragment_product_search_multibitamin_standard_item1" />
 
             <TextView
-                android:id="@+id/txt_fragment_product_search_standard_item_explain_title"
+                android:id="@+id/txt_fragment_product_search_multibitamin_standard_item1_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
                 android:fontFamily="@font/notosanskr_bold"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="9dp"
-                android:text="비타민B군 개수"
+                android:text="수용성 비타민 평균 함량"
                 android:textColor="@color/colorBlack"
                 android:textSize="18dp"
-                app:layout_constraintStart_toEndOf="@+id/txt_fragment_product_search_standard_item_explain_title_number"
-                app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_search_standard_item_explain_title_number" />
+                app:layout_constraintStart_toEndOf="@+id/txt_fragment_product_search_multibitamin_standard_item1_number"
+                app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_search_multibitamin_standard_item1_number" />
 
             <ImageView
-                android:id="@+id/img_fragment_product_search_bitaminb"
+                android:id="@+id/img_fragment_product_search_multibitamin_item2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/img_multivitamin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_search_multibitamin_standard_item1_title" />
+
+            <TextView
+                android:id="@+id/txt_fragment_product_search_multibitamin_item1_explain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_search_standard_item_explain_title"
-                android:layout_marginTop="18dp"
-                android:src="@drawable/img_vitaminb"
+                app:layout_constraintTop_toBottomOf="@+id/img_fragment_product_search_multibitamin_item2"
+                android:layout_marginTop="20dp"
+                android:textSize="13dp"
+                android:textColor="@color/colorBlack"
+                android:lineSpacingExtra="8dp"
+                android:text="KG당 5mg 섭취를 권장하며
+                \n영양제로서 상한 섭취량은 350mg 입니다.\n(성별, 연령에 따라 유동적으로 표시)"
+
                 />
 
             <TextView
-                android:id="@+id/txt_fragment_product_search_standard_item_explain_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/notosanskr_regular"
-                android:includeFontPadding="false"
-                android:lineSpacingExtra="8sp"
-                android:text="KG당 5mg 섭취를 권장하며\n
-영양제로서 상한 섭취량은 350mg 입니다.\n
-(성별, 연령에 따라 유동적으로 표시)"
-                android:textColor="@color/colorBlack"
-                android:textSize="13dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_fragment_product_search_bitaminb" />
-
-            <TextView
-                android:id="@+id/txt_fragment_product_search_standard_item2_explain_title_number"
+                android:id="@+id/txt_fragment_product_searhc_multibitamin_item2_title_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanskr_bold"
@@ -277,102 +287,81 @@
                 android:lineSpacingExtra="9dp"
                 android:text="02."
                 android:textColor="@color/colorPointBlue"
-                android:layout_marginTop="36dp"
                 android:textSize="18dp"
-                app:layout_constraintStart_toStartOf="@+id/txt_fragment_product_search_standard_item_explain_title_number"
-                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_search_standard_item_explain_content" />
-
+                android:layout_marginTop="34dp"
+                app:layout_constraintStart_toStartOf="@+id/txt_fragment_product_search_multibitamin_standard_item1_number"
+                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_search_multibitamin_item1_explain" />
+            
             <TextView
-                android:id="@+id/txt_fragment_product_search_standard_item2_explain_title"
+                android:id="@+id/txt_fragment_product_searhc_multibitamin_item2_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                app:layout_constraintStart_toEndOf="@+id/txt_fragment_product_searhc_multibitamin_item2_title_number"
                 android:layout_marginLeft="6dp"
-                android:fontFamily="@font/notosanskr_bold"
-                android:includeFontPadding="false"
-                android:lineSpacingExtra="9dp"
-                android:text="활성형 B군 개수"
-                android:textColor="@color/colorBlack"
+                app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_searhc_multibitamin_item2_title_number"
                 android:textSize="18dp"
-                app:layout_constraintStart_toEndOf="@+id/txt_fragment_product_search_standard_item2_explain_title_number"
-                app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_search_standard_item2_explain_title_number" />
-
-            <TextView
-                android:id="@+id/txt_fragment_product_search_standard_item2_explain_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:lineSpacingExtra="8dp"
-                android:text="KG당 5mg 섭취를 권장하며\n
-영양제로서 상한 섭취량은 350mg 입니다.\n
-(성별, 연령에 따라 유동적으로 표시)"
                 android:textColor="@color/colorBlack"
-                android:textSize="13dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_search_standard_item2_explain_title" />
+                android:lineSpacingExtra="9dp"
+                android:text="지용성 비타민 &amp; 미네랄 평균 함량"
+                />
 
-            <TextView
-                android:id="@+id/txt_fragment_product_search_standard_item3_explain_title_number"
+            <ImageView
+                android:id="@+id/img_fragment_product_search_multibitamin_stadard_itme2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:src="@drawable/img_vitamin_text1"
+                app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_searhc_multibitamin_item2_title"
+                android:layout_marginTop="18dp"
+                />
+
+            <TextView
+                android:id="@+id/txt_fragment_product_searhc_multibitamin_item3_title_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="@color/colorPointBlue"
                 android:fontFamily="@font/notosanskr_bold"
                 android:includeFontPadding="false"
+                app:layout_constraintStart_toStartOf="@+id/txt_fragment_product_searhc_multibitamin_item2_title_number"
+                app:layout_constraintTop_toBottomOf="@+id/img_fragment_product_search_multibitamin_stadard_itme2"
+                android:layout_marginTop="34dp"
                 android:lineSpacingExtra="9dp"
                 android:text="03."
-                android:textColor="@color/colorPointBlue"
-                android:textSize="18dp"
-                app:layout_constraintStart_toStartOf="@+id/txt_fragment_product_search_standard_item2_explain_title_number"
-                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_search_standard_item2_explain_content" />
-
+                />
             <TextView
-                android:id="@+id/txt_fragment_product_search_standard_item3_explain_title"
+                android:id="@+id/txt_fragment_product_searhc_multibitamin_item3_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
+                android:textSize="18dp"
+                android:textColor="@color/colorBlack"
                 android:fontFamily="@font/notosanskr_bold"
                 android:includeFontPadding="false"
+                app:layout_constraintStart_toEndOf="@+id/txt_fragment_product_searhc_multibitamin_item3_title_number"
+                app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_searhc_multibitamin_item3_title_number"
+                android:layout_marginLeft="6dp"
                 android:lineSpacingExtra="9dp"
-                android:text="추가 성분 여부"
-                android:textColor="@color/colorBlack"
-                android:textSize="18dp"
-                app:layout_constraintStart_toEndOf="@+id/txt_fragment_product_search_standard_item3_explain_title_number"
-                app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_search_standard_item3_explain_title_number" />
+                android:text="영양소 개수"
+                />
 
-           <ImageView
-               android:id="@+id/img_fragment_product_search_bitaminb_plus"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_search_standard_item3_explain_title"
-               android:layout_marginTop="18dp"
-               android:src="@drawable/img_vitaminb_plus"
-               />
-
-            <TextView
-                android:id="@+id/txt_fragment_product_search_standard_item3_explain_content"
+            <ImageView
+                android:id="@+id/img_fragment_product_search_multibitamin_item3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14dp"
-                android:textColor="@color/colorBlack"
-                android:lineSpacingExtra="7dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_fragment_product_search_bitaminb_plus"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/notosanskr_regular"
-                android:includeFontPadding="false"
-                android:text="8가지 비타민B군 개수중 6가지 제품은 상한량이 없어,\n
-충분한 양을 섭취하는 것이 좋아요!\n
-위 6가지 성분을 나의 권장량 대비 \n
-평균 얼만큼 섭취하고 있는지 살펴보아요!"
+                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_searhc_multibitamin_item3_title"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/img_vitamin_text2"
                 />
 
 
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

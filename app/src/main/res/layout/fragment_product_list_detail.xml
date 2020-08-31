@@ -63,11 +63,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_list_detail_2" />
 
+
+            <ImageView
+                android:id="@+id/bar_fragment_product_list"
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:background="@color/colorPointBlue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_list_detail_explain"
+                android:layout_marginTop="18dp"
+
+                />
+
             <TextView
                 android:id="@+id/txt_fragment_product_list_detail_standard_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="18dp"
                 android:fontFamily="@font/notosanskr_bold"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="2dp"
@@ -76,7 +89,7 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_list_detail_explain" />
+                app:layout_constraintTop_toBottomOf="@+id/bar_fragment_product_list" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_product_list_detail_item1"
@@ -242,10 +255,81 @@
                 app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_list_detail_explanation1_title_number" />
 
             <TextView
+                android:id="@+id/txt_fragment_product_list_detail_explanation1_sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textColor="@color/colorPointBlue"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                app:layout_constraintStart_toStartOf="@+id/txt_fragment_product_list_detail_explanation1_title_number"
+                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_list_detail_explanation1_title_number"
+                android:layout_marginTop="18dp"
+                android:lineSpacingExtra="6dp"
+                android:text="25세 남성"
+                />
+            <TextView
+                android:id="@+id/txt_fragment_product_list_detail_explanation1_sub_title_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textColor="@color/colorGrayishBrown1"
+                android:lineSpacingExtra="6dp"
+                android:fontFamily="@font/notosanskr_light"
+                android:includeFontPadding="false"
+                app:layout_constraintStart_toEndOf="@+id/txt_fragment_product_list_detail_explanation1_sub_title"
+                app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_list_detail_explanation1_sub_title"
+                android:layout_marginLeft="10dp"
+                android:text="(1일 적정 섭취량)"
+                />
+            <TextView
+                android:id="@+id/txt_fragment_product_list_detail_explanation1_sub_title_minimum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                app:layout_constraintStart_toEndOf="@+id/txt_fragment_product_list_detail_explanation1_sub_title_day"
+                app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_list_detail_explanation1_sub_title_day"
+                android:layout_marginLeft="4dp"
+                android:textSize="14dp"
+                android:textColor="@color/colorBlack"
+                android:lineSpacingExtra="6dp"
+                android:text="3,000mg"
+                />
+
+            <ImageView
+                android:id="@+id/img_fragment_product_list_detail_explanation1_sub_title"
+                android:layout_width="5dp"
+                android:layout_height="1dp"
+                android:background="@color/colorPointGray"
+                app:layout_constraintStart_toEndOf="@+id/txt_fragment_product_list_detail_explanation1_sub_title_minimum"
+                app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_list_detail_explanation1_sub_title_minimum"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_fragment_product_list_detail_explanation1_sub_title_minimum"
+                android:layout_marginLeft="6dp"
+                />
+            <TextView
+                android:id="@+id/txt_fragment_product_list_detail_explanation1_sub_title_maximum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:layout_marginLeft="6dp"
+                android:textSize="14dp"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintStart_toEndOf="@+id/img_fragment_product_list_detail_explanation1_sub_title"
+                app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_list_detail_explanation1_sub_title_minimum"
+
+                android:lineSpacingExtra="6dp"
+                android:text="3,000mg"
+                />
+
+
+
+            <TextView
                 android:id="@+id/txt_fragment_product_list_detail_explanation1_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="10dp"
                 android:lineSpacingExtra="8dp"
                 android:text="KG당 5mg 섭취를 권장하며\n영양제로서 상한 섭취량은 350mg 입니다.\n(성별, 연령에 따라 유동적으로 표시)"
                 android:textColor="@color/colorBlack"
@@ -253,14 +337,27 @@
                 android:includeFontPadding="false"
                 android:textSize="13dp"
                 app:layout_constraintStart_toStartOf="@+id/txt_fragment_product_list_detail_explanation1_title_number"
-                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_list_detail_explanation1_title_number" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_list_detail_explanation1_sub_title" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:fontFamily="@font/notosanskr_light"
+                android:includeFontPadding="false"
+                android:textColor="@color/colorSteel"
+                app:layout_constraintStart_toStartOf="@+id/txt_fragment_product_list_detail_explanation1_content"
+                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_list_detail_explanation1_content"
+                android:layout_marginTop="6dp"
+                android:lineSpacingExtra="8dp"
+                android:text="식약처와 식품안전나라 발표"
+                />
 
             <TextView
                 android:id="@+id/txt_fragment_product_list_detail_explanation2_title_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="51dp"
+                android:layout_marginTop="61dp"
                 android:fontFamily="@font/notosanskr_bold"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="9dp"
@@ -329,22 +426,34 @@
                 app:layout_constraintStart_toEndOf="@+id/txt_fragment_product_list_detail_explanation3_title_number"
                 app:layout_constraintTop_toTopOf="@+id/txt_fragment_product_list_detail_explanation3_title_number" />
 
-            <TextView
-                android:id="@+id/txt_fragment_product_list_detail_explanation3_content"
-                android:layout_width="wrap_content"
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_fragment_product_list_detail"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:lineSpacingExtra="7dp"
-                android:text="- 산화 마그네슘\n
-흡수율 낮지만 제품들이 고용량인 경향\n
-전체적인 마그네슘 함량은 괜찮습니다.\n
-먹고 위장장애가 있다면 다른 종류로 바꿔야 합니다."
-                android:fontFamily="@font/notosanskr_regular"
-                android:includeFontPadding="false"
-                android:textColor="@color/colorBlack"
-                android:textSize="14dp"
-                app:layout_constraintStart_toStartOf="@+id/txt_fragment_product_list_detail_explanation3_title_number"
-                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_list_detail_explanation3_title_number" />
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_list_detail_explanation3_title"
+                android:layout_marginTop="18dp"
+                android:orientation="vertical"
+                />
+
+<!--            <TextView-->
+<!--                android:id="@+id/txt_fragment_product_list_detail_explanation3_content"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:lineSpacingExtra="7dp"-->
+<!--                android:text="- 산화 마그네슘\n-->
+<!--흡수율 낮지만 제품들이 고용량인 경향\n-->
+<!--전체적인 마그네슘 함량은 괜찮습니다.\n-->
+<!--먹고 위장장애가 있다면 다른 종류로 바꿔야 합니다."-->
+<!--                android:fontFamily="@font/notosanskr_regular"-->
+<!--                android:includeFontPadding="false"-->
+<!--                android:textColor="@color/colorBlack"-->
+<!--                android:textSize="14dp"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/txt_fragment_product_list_detail_explanation3_title_number"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/txt_fragment_product_list_detail_explanation3_title_number" />-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
