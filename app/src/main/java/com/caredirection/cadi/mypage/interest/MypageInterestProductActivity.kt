@@ -2,6 +2,7 @@ package com.caredirection.cadi.mypage.interest
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -35,7 +36,7 @@ class MypageInterestProductActivity : AppCompatActivity() {
 
         mypageInterestProductAdapter.notifyDataSetChanged()
 
-        txt_mypage_interest_count.text = mypageInterestProductAdapter.itemCount.toString()
+        checkProductCount()
     }
 
     private fun makeListener(){
@@ -45,6 +46,15 @@ class MypageInterestProductActivity : AppCompatActivity() {
     private fun setBackClickListener(){
         btn_mypage_interest_back.setOnClickListener {
             finish()
+        }
+    }
+
+    private fun checkProductCount(){
+        txt_mypage_interest_count.text = mypageInterestProductAdapter.itemCount.toString()
+
+        if(mypageInterestProductAdapter.itemCount > 0){
+            rv_mypage_interest_list.visibility = View.VISIBLE
+            txt_mypage_interest_none.visibility = View.GONE
         }
     }
 

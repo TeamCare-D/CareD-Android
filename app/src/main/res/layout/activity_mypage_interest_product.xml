@@ -48,11 +48,29 @@
         android:id="@+id/rv_mypage_interest_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:visibility="gone"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+        app:layout_constraintTop_toBottomOf="@+id/textView31" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/txt_mypage_interest_none"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="관심 제품이 존재하지 않아요."
+        android:fontFamily="@font/notosanskr_regular"
+        android:textSize="15dp"
+        android:lineSpacingExtra="3sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorCoolGray2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
