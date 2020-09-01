@@ -3,10 +3,7 @@ package com.caredirection.cadi.mypage.notice
 import android.content.Context
 import android.util.SparseBooleanArray
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.mypage.MypageNoticeListItem
@@ -32,6 +29,10 @@ class MypageNoticeAdapter (private val context: Context) : RecyclerView.Adapter<
     override fun onBindViewHolder(holder: MypageNoticeViewHolder, position: Int) {
         holder.onBind(data[position], selectedItem.get(position))
 
+        setItemClickListener(holder,position)
+    }
+
+    private fun setItemClickListener(holder: MypageNoticeViewHolder, position: Int){
         holder.itemView.setOnClickListener {
             if(selectedItem.get(position)){
                 selectedItem.delete(position)
