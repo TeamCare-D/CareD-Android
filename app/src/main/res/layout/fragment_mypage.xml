@@ -124,13 +124,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <TextView
-        style="@style/bold20"
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="50dp"
         android:text="고객센터"
+        android:fontFamily="@font/notosanskr_bold"
+        android:textSize="16dp"
+        android:lineSpacingExtra="8sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorBlack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
@@ -215,12 +219,16 @@
         app:srcCompat="@color/colorWhite2" />
 
     <TextView
-        style="@style/bold20"
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="앱정보"
+        android:fontFamily="@font/notosanskr_bold"
+        android:textSize="16dp"
+        android:lineSpacingExtra="8sp"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorBlack"
         app:layout_constraintStart_toStartOf="@+id/imageView13"
         app:layout_constraintTop_toBottomOf="@+id/imageView13" />
 

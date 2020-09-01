@@ -5,8 +5,7 @@
     android:id="@+id/cl_mypage_notice"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mypage.notice.MypageNoticeActivity"
-    >
+    tools:context=".mypage.notice.MypageNoticeActivity">
 
     <ImageView
         android:id="@+id/btn_mypage_notice_back"
