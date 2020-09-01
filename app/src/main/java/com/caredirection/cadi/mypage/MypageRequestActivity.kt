@@ -4,8 +4,13 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.LayoutInflater
+import android.view.View
 import android.view.WindowManager
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDialog
 import com.caredirection.cadi.R
 import kotlinx.android.synthetic.main.activity_mypage_request.*
 
@@ -28,7 +33,7 @@ class MypageRequestActivity : AppCompatActivity() {
 
     private fun setBackClickListener(){
         btn_mypage_request_back.setOnClickListener {
-            finish()
+            showBackDialog()
         }
     }
 
@@ -36,6 +41,32 @@ class MypageRequestActivity : AppCompatActivity() {
         btn_mypage_request_complete.setOnClickListener {
             finish()
         }
+    }
+
+    private fun showBackDialog(){
+        val backDialog = AppCompatDialog(this)
+        val backLayout : LayoutInflater = LayoutInflater.from(this)
+        val backView : View = backLayout.inflate(R.layout.dialog_popup,null)
+
+        val btnCancel : Button = backView.findViewById(R.id.btn_popup_cancel)
+        val btnConfirm : Button = backView.findViewById(R.id.btn_popup_confirm)
+        val txtTitle : TextView = backView.findViewById(R.id.txt_popup_tilte)
+
+        txtTitle.text = "입력하신 필터가 적용되지 않았습니다.\n필터를 나가시겠습니까?"
+
+        btnCancel.setOnClickListener {
+            backDialog.cancel()
+        }
+
+        btnConfirm.setOnClickListener {
+            backDialog.dismiss()
+            finish()
+        }
+
+        backDialog.setContentView(backView)
+        backDialog.setCanceledOnTouchOutside(false)
+        backDialog.create()
+        backDialog.show()
     }
 
     private fun checkNameEmpty(){
