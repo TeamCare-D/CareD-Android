@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home.HomeDetailActivity"></activity>
-
-        <activity android:name="com.caredirection.cadi.MainActivity"></activity>
-        <activity android:name=".register.user.RegisterProductActivity">
-
-        </activity>
+        <activity android:name=".mypage.MypageQuestionActivity"></activity>
+        <activity android:name=".mypage.MypageRequestActivity" />
+        <activity android:name=".mypage.take.MypageTakeProductActivity" />
+        <activity android:name=".mypage.notice.MypageNoticeActivity" />
+        <activity android:name=".mypage.interest.MypageInterestProductActivity" />
+        <activity android:name=".home.HomeDetailActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".register.user.RegisterProductActivity" />
         <activity android:name=".register.list.RegisterListCompleteActivity" />
         <activity android:name=".register.user.RegisterProductCompleteActivity" />
         <activity android:name=".register.search.RegisterSearchActivity" />
@@ -25,19 +27,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".product.search.ProductSearch">
-
-        </activity>
-        <activity android:name=".research.ResearchInterestActivity"></activity>
-
+        <activity android:name=".product.search.ProductSearch" />
+        <activity android:name=".research.ResearchInterestActivity" />
         <activity android:name=".product.list.ListActivity" />
         <activity android:name=".research.ResearchMedicineActivity" />
         <activity android:name=".research.ResearchDiseaseActivity" />
         <activity android:name=".research.ResearchGenderActivity" />
-        <activity android:name=".research.ResearchNicknameActivity">
-
-        </activity>
+        <activity android:name=".research.ResearchNicknameActivity"></activity>
 
         <activity android:name=".product.detail.DetailActivity">
 
