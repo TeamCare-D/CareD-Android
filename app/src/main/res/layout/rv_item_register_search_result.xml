@@ -98,13 +98,14 @@
         app:layout_constraintTop_toTopOf="@+id/txt_register_search_result_day" />
 
     <Button
-        android:id="@+id/btn_register_search_reuslt_check"
+        android:id="@+id/btn_register_search_result_check"
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/selector_register_search_result"
         android:enabled="false"
+        android:button="@color/colorTransparentWhite"
         app:layout_constraintEnd_toEndOf="@+id/img_register_search_result"
         app:layout_constraintTop_toTopOf="@+id/img_register_search_result" />
 </androidx.constraintlayout.widget.ConstraintLayout>

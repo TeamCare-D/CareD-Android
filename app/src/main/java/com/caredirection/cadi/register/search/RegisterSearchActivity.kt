@@ -7,6 +7,7 @@ import android.text.Editable
 import android.text.SpannableString
 import android.text.TextWatcher
 import android.text.style.UnderlineSpan
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -82,6 +83,7 @@ class RegisterSearchActivity : AppCompatActivity() {
 
     private fun setNextClickListener(){
         btn_register_search_next.setOnClickListener {
+            Log.d("명",registerSearchListAdapter.selectedItems.toString())
             val userCompleteIntent = Intent(this,RegisterProductCompleteActivity::class.java)
 
             startActivity(userCompleteIntent)
