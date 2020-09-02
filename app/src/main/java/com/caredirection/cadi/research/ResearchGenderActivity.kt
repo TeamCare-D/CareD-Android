@@ -9,6 +9,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.NumberPicker
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
@@ -93,8 +94,8 @@ class ResearchGenderActivity : AppCompatActivity() {
         val yearView : View = yearLayout.inflate(R.layout.dialog_research_year,null)
 
         val npYear : NumberPicker = yearView.findViewById(R.id.np_year)
-        val btnCancel : Button = yearView.findViewById(R.id.btn_cancel)
-        val btnConfirm : Button = yearView.findViewById(R.id.btn_confirm)
+        val btnCancel : TextView = yearView.findViewById(R.id.btn_cancel)
+        val btnConfirm : TextView = yearView.findViewById(R.id.btn_confirm)
 
         npYear.minValue = 1900
         npYear.maxValue = 2020
@@ -103,7 +104,7 @@ class ResearchGenderActivity : AppCompatActivity() {
         npYear.wrapSelectorWheel = false
         npYear.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
 
-        npYear.textColor = this.resources.getColor(R.color.colorWhite)
+        npYear.textColor = this.resources.getColor(R.color.colorPointBlue)
 
         btnCancel.setOnClickListener {
             yearDialog.dismiss()
