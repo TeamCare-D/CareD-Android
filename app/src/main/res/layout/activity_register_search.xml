@@ -45,6 +45,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/edt_register_search_keyword"
         app:layout_constraintEnd_toEndOf="@+id/edt_register_search_keyword"
         app:layout_constraintTop_toTopOf="@+id/edt_register_search_keyword"
+        android:visibility="gone"
         app:srcCompat="@drawable/btn_delete" />
 
     <ImageView

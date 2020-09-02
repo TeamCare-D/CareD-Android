@@ -2,7 +2,6 @@ package com.caredirection.cadi.register.user.ingredient
 
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,7 +69,7 @@ class RegisterIngredientFragment : BottomSheetDialogFragment(){
 
         val registerIngredientMenuAdapter = RegisterIngredientMenuAdapter(childFragmentManager)
         registerIngredientMenuAdapter.data = fragments
-        Log.d("명",registerIngredientMenuAdapter.data.toString())
+
         rootView.vp_register_product_ingredient.adapter = registerIngredientMenuAdapter
         rootView.tl_register_product_ingredient.setupWithViewPager(rootView.vp_register_product_ingredient)
     }

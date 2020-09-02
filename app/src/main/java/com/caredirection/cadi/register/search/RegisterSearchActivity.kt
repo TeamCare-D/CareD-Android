@@ -3,7 +3,9 @@ package com.caredirection.cadi.register.search
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
 import android.text.SpannableString
+import android.text.TextWatcher
 import android.text.style.UnderlineSpan
 import android.view.View
 import android.view.WindowManager
@@ -28,6 +30,7 @@ class RegisterSearchActivity : AppCompatActivity() {
         setRegisterUnderLine()
 
         makeListener()
+        checkKeywordEmpty()
     }
 
     private fun initRegisterSearchResultList(){
@@ -91,6 +94,30 @@ class RegisterSearchActivity : AppCompatActivity() {
 
             startActivity(userProductIntent)
         }
+    }
+
+    private fun checkKeywordEmpty(){
+        edt_register_search_keyword?.addTextChangedListener(object: TextWatcher {
+            var keywordLength = 0
+            override fun afterTextChanged(p0: Editable?) {
+                keywordLength = edt_register_search_keyword?.length()!!
+
+                if(keywordLength > 0){
+                    btn_register_search_delete.visibility = View.VISIBLE
+                }
+                else{
+                    btn_register_search_delete.visibility = View.GONE
+                }
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                //TODO("Not yet implemented")
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                //TODO("Not yet implemented")
+            }
+        })
     }
 
     private fun setRegisterUnderLine(){
