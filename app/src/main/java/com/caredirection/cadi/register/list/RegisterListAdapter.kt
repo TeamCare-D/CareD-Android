@@ -46,10 +46,10 @@ class RegisterListAdapter(private val context: Context) : RecyclerView.Adapter<R
     private fun showDeleteDialog(position: Int){
         val deleteDialog = AppCompatDialog(context)
         val deleteLayout : LayoutInflater = LayoutInflater.from(context)
-        val deleteView : View = deleteLayout.inflate(R.layout.dialog_register_product_delete,null)
+        val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup,null)
 
-        val btnCancel : Button = deleteView.findViewById(R.id.btn_register_product_cancel)
-        val btnConfirm : Button = deleteView.findViewById(R.id.btn_register_product_confirm)
+        val btnCancel : Button = deleteView.findViewById(R.id.btn_popup_cancel)
+        val btnConfirm : Button = deleteView.findViewById(R.id.btn_popup_confirm)
 
         btnCancel.setOnClickListener {
             deleteDialog.cancel()

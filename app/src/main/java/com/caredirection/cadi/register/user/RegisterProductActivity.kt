@@ -2,6 +2,8 @@ package com.caredirection.cadi.register.user
 
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.caredirection.cadi.R
@@ -16,6 +18,8 @@ class RegisterProductActivity : AppCompatActivity() {
         setStatusBarTransparent()
 
         makeListener()
+
+        checkNameEmpty()
     }
 
     private fun makeListener(){
@@ -40,6 +44,30 @@ class RegisterProductActivity : AppCompatActivity() {
         val registerIngredientFragment = RegisterIngredientFragment()
 
         registerIngredientFragment.show(fragmentManager,"IngredientDialog")
+    }
+
+    private fun checkNameEmpty(){
+        edt_register_product_name?.addTextChangedListener(object: TextWatcher {
+            var productNameLength = 0
+            override fun afterTextChanged(p0: Editable?) {
+                productNameLength = edt_register_product_name?.length()!!
+
+                if(productNameLength > 0){
+                    edt_register_product_name.background = resources.getDrawable(R.drawable.blue_2_line_4)
+                }
+                else{
+                    edt_register_product_name.background = resources.getDrawable(R.drawable.gray_line_4)
+                }
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                //TODO("Not yet implemented")
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                //TODO("Not yet implemented")
+            }
+        })
     }
 
     // 상태바 투명 설정
