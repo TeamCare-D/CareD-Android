@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.mypage.MypageNoticeListItem
+import com.caredirection.cadi.data.mypage.RvMypageNoticeListItem
 
 class MypageNoticeAdapter (private val context: Context) : RecyclerView.Adapter<MypageNoticeViewHolder>(){
-    var data: List<MypageNoticeListItem> = listOf()
+    var data: List<RvMypageNoticeListItem> = listOf()
 
     private var selectedItem = SparseBooleanArray()
     private var noticePosition = -1

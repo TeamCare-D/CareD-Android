@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.mypage.MypageNoticeListItem
+import com.caredirection.cadi.data.mypage.RvMypageNoticeListItem
 
 class MypageNoticeViewHolder (view: View) : RecyclerView.ViewHolder(view){
 
@@ -14,7 +14,7 @@ class MypageNoticeViewHolder (view: View) : RecyclerView.ViewHolder(view){
     private val imgNoticeBackGround : ImageView = view.findViewById(R.id.img_mypage_notice_background)
     private val txtNoticeContent : TextView = view.findViewById(R.id.txt_mypage_notice_content)
 
-    fun onBind(notice: MypageNoticeListItem, isExpanded: Boolean){
+    fun onBind(notice: RvMypageNoticeListItem, isExpanded: Boolean){
         txtNoticeDay.text = notice.day
         txtNoticeTitle.text = notice.title
 
