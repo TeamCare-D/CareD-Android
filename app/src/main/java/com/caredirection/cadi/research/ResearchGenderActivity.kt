@@ -7,7 +7,8 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import android.widget.Button
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.NumberPicker
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_research_gender.*
+
 
 class ResearchGenderActivity : AppCompatActivity() {
 
@@ -41,12 +43,17 @@ class ResearchGenderActivity : AppCompatActivity() {
     }
 
     private fun initProgressBar(){
-        var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT,ConstraintLayout.LayoutParams.WRAP_CONTENT)
+        var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
+            ConstraintLayout.LayoutParams.WRAP_CONTENT,
+            ConstraintLayout.LayoutParams.WRAP_CONTENT
+        )
         param.width = displayMetrics.widthPixels/4
         param.height = getDisplayHeight()/6
 
-        pb_gender.layoutParams = param
-        pb_gender.progress = 100
+        pb_research_gender.layoutParams = param
+
+        val animation: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.translate)
+        pb_research_gender.startAnimation(animation)
     }
 
     private fun getDisplayHeight():Int{
@@ -91,7 +98,7 @@ class ResearchGenderActivity : AppCompatActivity() {
     private fun showYearPicker(){
         val yearDialog = BottomSheetDialog(this)
         val yearLayout : LayoutInflater = LayoutInflater.from(this)
-        val yearView : View = yearLayout.inflate(R.layout.dialog_research_year,null)
+        val yearView : View = yearLayout.inflate(R.layout.dialog_research_year, null)
 
         val npYear : NumberPicker = yearView.findViewById(R.id.np_year)
         val btnCancel : TextView = yearView.findViewById(R.id.btn_cancel)
@@ -153,7 +160,10 @@ class ResearchGenderActivity : AppCompatActivity() {
 
     // 상태바 투명 설정
     private fun setStatusBarTransparent(){
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
         cl_researchGender.setPadding(0, getStatusBarHeight(this), 0, 0)
     }
 
@@ -167,7 +177,11 @@ class ResearchGenderActivity : AppCompatActivity() {
 
     // 네비게이션바 높이 정보
     private fun getNavigationBarHeight(context: Context): Int{
-        val resourceBottom = context.resources.getIdentifier("navigation_bar_height", "dimen", "android")
+        val resourceBottom = context.resources.getIdentifier(
+            "navigation_bar_height",
+            "dimen",
+            "android"
+        )
 
         return if (resourceBottom > 0) context.resources.getDimensionPixelSize(resourceBottom)
         else 0
@@ -175,7 +189,11 @@ class ResearchGenderActivity : AppCompatActivity() {
 
     // 네비게이션바 구분(소프트/하드)
     private fun getNavigationBarInfo(context: Context):Boolean{
-        val resourceBottom = context.resources.getIdentifier("config_showNavigationBar", "bool", "android")
+        val resourceBottom = context.resources.getIdentifier(
+            "config_showNavigationBar",
+            "bool",
+            "android"
+        )
 
         return context.resources.getBoolean(resourceBottom)
     }
