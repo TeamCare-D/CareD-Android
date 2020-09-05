@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/selector_mypage_interest_product"
         android:button="@color/colorTransparentWhite"
-        android:checked="false"
+        android:checked="true"
         app:layout_constraintEnd_toEndOf="@+id/img_mypage_interest_product"
         app:layout_constraintTop_toTopOf="@+id/img_mypage_interest_product" />
 
@@ -69,7 +69,7 @@
 
     <TextView
         android:id="@+id/textView37"
-        android:layout_width="55dp"
+        android:layout_width="wrap_content"
         android:layout_height="18dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="18dp"

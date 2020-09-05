@@ -1,11 +1,10 @@
 package com.caredirection.cadi.mypage.interest
 
 import android.view.View
-import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.mypage.MypageInterestProductListItem
+import com.caredirection.cadi.data.mypage.RvMypageInterestListItem
 
 class MypageInterestProductViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
@@ -13,16 +12,19 @@ class MypageInterestProductViewHolder(view: View) : RecyclerView.ViewHolder(view
     private val txtProductName : TextView = view.findViewById(R.id.txt_mypage_interest_name)
     private val txtProductOverseas : TextView = view.findViewById(R.id.txt_mypage_interest_overseas)
     private val txtProductDay : TextView = view.findViewById(R.id.txt_mypage_interest_day)
-    private val btnDelete : CheckBox = view.findViewById(R.id.btn_mypage_interest)
 
-    fun onBind(product: MypageInterestProductListItem){
+    fun onBind(product: RvMypageInterestListItem){
         txtProductBrand.text = product.brand
         txtProductName.text = product.name
-        txtProductOverseas.text = product.overseas
         txtProductDay.text = product.day.toString()
 
-        itemView.setOnClickListener {
-            btnDelete.isChecked = !btnDelete.isChecked
-        }
+        if(product.overseas == 1){
+            txtProductOverseas.text = "해외직구"
+       }
+
+//        Glide.with(this@MypageInterestProductActivity)
+//            .load(detailsReso.main_contents.image_key)
+//            .centerCrop()
+//            .into(img_article_details)
     }
 }
