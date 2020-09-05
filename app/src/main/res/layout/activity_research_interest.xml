@@ -28,7 +28,7 @@
         app:srcCompat="@drawable/btn_close" />
 
     <ProgressBar
-        android:id="@+id/pb_interest"
+        android:id="@+id/pb_research_interest"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

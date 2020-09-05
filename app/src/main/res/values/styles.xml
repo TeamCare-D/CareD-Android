@@ -15,7 +15,7 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
-    <style name="ResearchProgressbarTheme" parent="AppTheme">
+    <style name="ResearchProgressbarTheme">
         <item name="colorAccent">@color/colorBlack</item>
     </style>
 

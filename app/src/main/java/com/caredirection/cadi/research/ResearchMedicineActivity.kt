@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.CheckedTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -41,11 +43,14 @@ class ResearchMedicineActivity : AppCompatActivity() {
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
             ConstraintLayout.LayoutParams.WRAP_CONTENT,
             ConstraintLayout.LayoutParams.WRAP_CONTENT)
-        param.width = (displayMetrics.widthPixels/4)*3
+        param.width = (displayMetrics.widthPixels/5)*3
         param.height = getDisplayHeight()/6
 
-        pb_medicine.layoutParams = param
-        pb_medicine.progress = 100
+        pb_research_medicine.layoutParams = param
+        pb_research_medicine.progress = 100
+
+        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate3)
+        pb_research_medicine.startAnimation(animation)
     }
 
     private fun getDisplayHeight():Int{
@@ -95,9 +100,9 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
     private fun setNextClickListener(){
         btn_medicine_next.setOnClickListener {
-            val interestIntent = Intent(this, ResearchInterestActivity::class.java)
+            val allergyIntent = Intent(this, ResearchAllergyActivity::class.java)
 
-            startActivity(interestIntent)
+            startActivity(allergyIntent)
         }
     }
 

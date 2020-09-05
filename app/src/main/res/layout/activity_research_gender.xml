@@ -27,15 +27,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/btn_close" />
 
-
-    <ImageView
+    <ProgressBar
         android:id="@+id/pb_research_gender"
-        android:layout_width="0dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:theme="@style/ResearchProgressbarTheme"
+        android:progressTint="@color/colorBlack"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_genderBack"
-        app:srcCompat="@drawable/progress_bar_1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_genderTitle"

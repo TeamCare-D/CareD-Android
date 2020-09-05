@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.CheckedTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -40,11 +42,14 @@ class ResearchInterestActivity : AppCompatActivity() {
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
             ConstraintLayout.LayoutParams.WRAP_CONTENT,
             ConstraintLayout.LayoutParams.WRAP_CONTENT)
-        param.width = (displayMetrics.widthPixels/4)*4
+        param.width = (displayMetrics.widthPixels/5)*5
         param.height = getDisplayHeight()/6
 
-        pb_interest.layoutParams = param
-        pb_interest.progress = 100
+        pb_research_interest.layoutParams = param
+        pb_research_interest.progress = 100
+
+        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate5)
+        pb_research_interest.startAnimation(animation)
     }
 
     private fun getDisplayHeight():Int{

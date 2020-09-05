@@ -47,8 +47,9 @@ class ResearchAllergyActivity : AppCompatActivity() {
         param.height = getDisplayHeight()/6
 
         pb_research_allergy.layoutParams = param
+        pb_research_allergy.progress = 100
 
-        val animation: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.translate2)
+        val animation: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.translate4)
         pb_research_allergy.startAnimation(animation)
     }
 

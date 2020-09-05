@@ -47,12 +47,13 @@ class ResearchGenderActivity : AppCompatActivity() {
             ConstraintLayout.LayoutParams.WRAP_CONTENT,
             ConstraintLayout.LayoutParams.WRAP_CONTENT
         )
-        param.width = displayMetrics.widthPixels/4
+        param.width = displayMetrics.widthPixels/5
         param.height = getDisplayHeight()/6
 
         pb_research_gender.layoutParams = param
+        pb_research_gender.progress = 100
 
-        val animation: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.translate)
+        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate)
         pb_research_gender.startAnimation(animation)
     }
 
