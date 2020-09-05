@@ -17,8 +17,10 @@ class MypageNoticeViewHolder (view: View) : RecyclerView.ViewHolder(view){
     fun onBind(notice: RvMypageNoticeListItem, isExpanded: Boolean){
         txtNoticeDay.text = notice.day
         txtNoticeTitle.text = notice.title
+        txtNoticeContent.text = notice.content
 
         changeVisibility(isExpanded)
+
     }
 
     private fun changeVisibility(isExpanded : Boolean){

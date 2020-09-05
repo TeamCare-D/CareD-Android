@@ -2,7 +2,6 @@ package com.caredirection.cadi.mypage.notice
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +17,6 @@ import retrofit2.Response
 class MypageNoticeActivity : AppCompatActivity() {
 
     private lateinit var mypageNoticeAdapter: MypageNoticeAdapter
-    private var dummyMypageNoticeList = DummyMypageNoticeList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,10 +34,6 @@ class MypageNoticeActivity : AppCompatActivity() {
         rv_mypage_notice_list.adapter = mypageNoticeAdapter
 
         rv_mypage_notice_list.layoutManager = LinearLayoutManager(this)
-
-//        mypageNoticeAdapter.data = dummyMypageNoticeList.getMypageNoticeList()
-//
-//        mypageNoticeAdapter.notifyDataSetChanged()
 
         getNoticeResponse()
     }
@@ -73,21 +67,18 @@ class MypageNoticeActivity : AppCompatActivity() {
         call.enqueue(
             object : Callback<MypageNoticeData> {
                 override fun onFailure(call: Call<MypageNoticeData>, t: Throwable) {
-                    Log.d("명",t.toString())
                 }
 
                 override fun onResponse(
                     call: Call<MypageNoticeData>,
                     response: Response<MypageNoticeData>
                 ) {
-                    Log.d("명","성공")
                     if(response.isSuccessful){
                         val noticeInfo=response.body()!!
-                        Log.d("명",noticeInfo.toString())
 
                         val notice = mutableListOf<RvMypageNoticeListItem>()
                         for(item in noticeInfo.data){
-                            notice.add(RvMypageNoticeListItem(item.notice_time,item.notice_title))
+                            notice.add(RvMypageNoticeListItem(item.notice_idx,item.notice_time,item.notice_title,null))
                         }
                         mypageNoticeAdapter.data=notice
                         mypageNoticeAdapter.notifyDataSetChanged()
