@@ -58,7 +58,7 @@ class MypageRequestActivity : AppCompatActivity() {
         val btnConfirm : Button = backView.findViewById(R.id.btn_popup_confirm)
         val txtTitle : TextView = backView.findViewById(R.id.txt_popup_tilte)
 
-        txtTitle.text = "입력하신 필터가 적용되지 않았습니다.\n필터를 나가시겠습니까?"
+        txtTitle.text = "제품 등록 요청이 완료되지 않았습니다.\n페이지를 나가시겠습니까?"
 
         btnCancel.setOnClickListener {
             backDialog.cancel()
