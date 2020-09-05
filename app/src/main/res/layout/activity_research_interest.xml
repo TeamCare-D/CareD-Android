@@ -5,7 +5,8 @@
     android:id="@+id/cl_research_interest"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".research.ResearchInterestActivity">
+    tools:context=".research.ResearchInterestActivity"
+    android:background="@color/colorWhite">
 
     <ImageView
         android:id="@+id/btn_interest_back"
@@ -75,7 +76,6 @@
         android:layout_marginTop="44dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="50dp"
-        android:background="@color/colorScrollGray"
         android:scrollbarThumbVertical="@color/colorScrollYellow"
         app:layout_constraintBottom_toTopOf="@+id/btn_interest_next"
         app:layout_constraintEnd_toEndOf="parent"
