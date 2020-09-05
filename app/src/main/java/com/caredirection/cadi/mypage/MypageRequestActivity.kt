@@ -12,7 +12,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.network.MypageRequestData
+import com.caredirection.cadi.network.RequestURL
 import kotlinx.android.synthetic.main.activity_mypage_request.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MypageRequestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +44,7 @@ class MypageRequestActivity : AppCompatActivity() {
 
     private fun setCompleteClickListener(){
         btn_mypage_request_complete.setOnClickListener {
+            postRequestProductResponse(edt_mypage_request_name.text.toString())
             finish()
         }
     }
@@ -93,6 +99,31 @@ class MypageRequestActivity : AppCompatActivity() {
                 //TODO("Not yet implemented")
             }
         })
+    }
+
+    private fun postRequestProductResponse(productName: String){
+        val call: Call<MypageRequestData> = RequestURL.service.postProductRequest(
+            productName = productName,
+            token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
+        )
+        call.enqueue(
+            object : Callback<MypageRequestData> {
+                override fun onFailure(call: Call<MypageRequestData>, t: Throwable) {
+                }
+
+                override fun onResponse(
+                    call: Call<MypageRequestData>,
+                    response: Response<MypageRequestData>
+                ) {
+                    if(response.isSuccessful){
+                        val message = response.body()!!.message
+
+                        //Log.d("명", "메시지 : $message")
+                    }
+                }
+
+            }
+        )
     }
 
     // 상태바 투명 설정
