@@ -6,11 +6,18 @@ import retrofit2.http.*
 
 interface RequestInterface {
 
-    // 마이페이지 - 복용 제품 리스트 조회
+    // 복용제품등록, 마이페이지 - 복용 제품 리스트 조회
     @GET("/dose/product")
     fun getTakeList(
         @Header("token")token: String
     ): Call<TakeProductData>
+
+    // 복용제품등록, 마이페이지 - 복용 제품 취소
+    @DELETE("/dose/{product_idx}")
+    fun deleteTakeProduct(
+        @Path("product_idx")product_idx:Int,
+        @Header("token")token: String
+    ) : Call<DeleteTakeData>
 
     // 마이페이지 - 관심 제품 리스트 조회
     @GET("/product/like")

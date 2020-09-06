@@ -12,8 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.MainActivity
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.register.RvTakeListItem
 import com.caredirection.cadi.data.network.TakeProductData
+import com.caredirection.cadi.data.register.RvTakeListItem
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.register.search.RegisterSearchActivity
 import kotlinx.android.synthetic.main.activity_register_list.*
