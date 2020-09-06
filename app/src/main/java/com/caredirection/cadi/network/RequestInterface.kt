@@ -19,6 +19,21 @@ interface RequestInterface {
         @Header("token")token: String
     ) : Call<DeleteTakeData>
 
+    // 복용제품등록, 마이페이지 - 복용 제품 검색
+    @GET("/dose/search")
+    fun getTakeSearchList(
+        @Query("query")keyword:String,
+        @Header("token")token: String
+    ): Call<TakeSearchData>
+
+    // 복용제품등록, 마이페이지 - 복용 제품 등록
+    @FormUrlEncoded
+    @POST("/dose/{product_idx}")
+    fun postTakeProduct(
+        @Path("product_idx")product_idx:Int,
+        @Header("token")token: String
+    ) : Call<RegisterTakeProductData>
+
     // 마이페이지 - 관심 제품 리스트 조회
     @GET("/product/like")
     fun getInterestList(

@@ -13,15 +13,18 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.register.DummyRegisterSearchList
+import com.caredirection.cadi.data.network.TakeSearchData
+import com.caredirection.cadi.data.register.RvTakeSearchItem
+import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.register.user.RegisterProductActivity
-import com.caredirection.cadi.register.user.RegisterProductCompleteActivity
 import kotlinx.android.synthetic.main.activity_register_search.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterSearchActivity : AppCompatActivity() {
 
     private lateinit var registerSearchListAdapter: RegisterSearchAdapter
-    private var dummyRegisterSearchList = DummyRegisterSearchList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,11 +44,7 @@ class RegisterSearchActivity : AppCompatActivity() {
 
         rv_register_search_list.layoutManager = GridLayoutManager(this,2)
 
-        registerSearchListAdapter.data = dummyRegisterSearchList.getRegisterSearchResultList()
-
-        registerSearchListAdapter.notifyDataSetChanged()
-
-        txt_register_search_count.text = "결과 "+registerSearchListAdapter.itemCount+"건"
+        getTakeSearchResponse(edt_register_search_keyword.text.toString())
     }
 
     private fun makeListener(){
@@ -71,22 +70,17 @@ class RegisterSearchActivity : AppCompatActivity() {
     private fun setSearchClickListener(){
         btn_register_search.setOnClickListener {
             initRegisterSearchResultList()
-
-            if(registerSearchListAdapter.itemCount > 0){
-                cl_register_search_result.visibility = View.VISIBLE
-            }
-            else{
-                txt_register_search_none.visibility = View.VISIBLE
-            }
         }
     }
 
     private fun setNextClickListener(){
-        btn_register_search_next.setOnClickListener {
-            Log.d("명",registerSearchListAdapter.selectedItems.toString())
-            val userCompleteIntent = Intent(this,RegisterProductCompleteActivity::class.java)
+        btn_register_search_complete.setOnClickListener {
 
-            startActivity(userCompleteIntent)
+            for(item in registerSearchListAdapter.selectedItem) {
+                Log.d("명111, 선택번호", item.toString())
+            }
+
+            finish()
         }
     }
 
@@ -95,6 +89,15 @@ class RegisterSearchActivity : AppCompatActivity() {
             val userProductIntent = Intent(this, RegisterProductActivity::class.java)
 
             startActivity(userProductIntent)
+        }
+    }
+
+    private fun checkSearchResult(){
+        if(registerSearchListAdapter.itemCount > 0){
+            cl_register_search_result.visibility = View.VISIBLE
+        }
+        else{
+            txt_register_search_none.visibility = View.VISIBLE
         }
     }
 
@@ -126,6 +129,52 @@ class RegisterSearchActivity : AppCompatActivity() {
         var spannableString = SpannableString("나만의 제품 등록")
         spannableString.setSpan(UnderlineSpan(), 0, spannableString.length, 0)
         txt_register_search_user_product.text = spannableString
+    }
+
+    private fun getTakeSearchResponse(keyword: String){
+        val call: Call<TakeSearchData> = RequestURL.service.getTakeSearchList(
+            keyword = keyword,
+            token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
+        )
+        call.enqueue(
+            object : Callback<TakeSearchData> {
+                override fun onFailure(call: Call<TakeSearchData>, t: Throwable) {
+                    Log.d("복용 제품 검색 실패", "메시지 : $t")
+                }
+
+                override fun onResponse(
+                    call: Call<TakeSearchData>,
+                    response: Response<TakeSearchData>
+                ) {
+                    if(response.isSuccessful){
+                        val searchList=response.body()!!
+
+                        val searchItem = mutableListOf<RvTakeSearchItem>()
+                        for(item in searchList.data.products){
+                            searchItem.add(
+                                RvTakeSearchItem(
+                                    item.productIdx,
+                                    item.imgUrl,
+                                    item.brand,
+                                    item.name,
+                                    item.overseas,
+                                    item.day
+                                )
+                            )
+                        }
+
+                        registerSearchListAdapter.data=searchItem
+                        registerSearchListAdapter.notifyDataSetChanged()
+
+                        txt_register_search_count.text = "결과 "+registerSearchListAdapter.itemCount+"건"
+                        checkSearchResult()
+
+                        //Log.d("복용 제품 검색 성공", "메시지 : $message")
+                    }
+                }
+
+            }
+        )
     }
 
     // 상태바 투명 설정
