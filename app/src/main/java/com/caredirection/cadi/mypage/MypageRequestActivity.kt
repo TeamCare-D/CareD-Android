@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -102,6 +103,7 @@ class MypageRequestActivity : AppCompatActivity() {
     }
 
     private fun postRequestProductResponse(productName: String){
+        Log.d("명", "실행1")
         val call: Call<MypageRequestData> = RequestURL.service.postProductRequest(
             productName = productName,
             token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
@@ -109,6 +111,7 @@ class MypageRequestActivity : AppCompatActivity() {
         call.enqueue(
             object : Callback<MypageRequestData> {
                 override fun onFailure(call: Call<MypageRequestData>, t: Throwable) {
+                    Log.d("제품 등록 요청 실패", "메시지 : $t")
                 }
 
                 override fun onResponse(
@@ -118,7 +121,7 @@ class MypageRequestActivity : AppCompatActivity() {
                     if(response.isSuccessful){
                         val message = response.body()!!.message
 
-                        //Log.d("명", "메시지 : $message")
+                        Log.d("제품 등록 요청 성공", "메시지 : $message")
                     }
                 }
 
