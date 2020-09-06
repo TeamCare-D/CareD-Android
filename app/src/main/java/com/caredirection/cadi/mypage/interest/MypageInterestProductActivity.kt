@@ -125,6 +125,8 @@ class MypageInterestProductActivity : AppCompatActivity() {
                     if(response.isSuccessful){
                         val message=response.body()!!.message
 
+                        checkProductCount()
+
                         Log.d("관심 제품 취소 성공", "메시지 : $message")
                     }
                 }
