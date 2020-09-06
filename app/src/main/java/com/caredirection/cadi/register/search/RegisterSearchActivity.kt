@@ -13,6 +13,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.network.RegisterTakeProductData
 import com.caredirection.cadi.data.network.TakeSearchData
 import com.caredirection.cadi.data.register.RvTakeSearchItem
 import com.caredirection.cadi.network.RequestURL
@@ -78,6 +79,7 @@ class RegisterSearchActivity : AppCompatActivity() {
 
             for(item in registerSearchListAdapter.selectedItem) {
                 Log.d("명111, 선택번호", item.toString())
+                //postTakeProductResponse(item)
             }
 
             finish()
@@ -170,6 +172,32 @@ class RegisterSearchActivity : AppCompatActivity() {
                         checkSearchResult()
 
                         //Log.d("복용 제품 검색 성공", "메시지 : $message")
+                    }
+                }
+
+            }
+        )
+    }
+
+    private fun postTakeProductResponse(idx: Int){
+        val call: Call<RegisterTakeProductData> = RequestURL.service.postTakeProduct(
+            product_idx = idx,
+            token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
+        )
+        call.enqueue(
+            object : Callback<RegisterTakeProductData> {
+                override fun onFailure(call: Call<RegisterTakeProductData>, t: Throwable) {
+                    Log.d("복용 제품 등록 실패", "메시지 : $t")
+                }
+
+                override fun onResponse(
+                    call: Call<RegisterTakeProductData>,
+                    response: Response<RegisterTakeProductData>
+                ) {
+                    if(response.isSuccessful){
+                        val message = response.body()!!.message
+
+                        Log.d("복용 제품 등록 성공", "메시지 : $message")
                     }
                 }
 
