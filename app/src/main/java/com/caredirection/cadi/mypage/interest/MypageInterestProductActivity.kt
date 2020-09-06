@@ -38,7 +38,7 @@ class MypageInterestProductActivity : AppCompatActivity() {
 
         rv_mypage_interest_list.layoutManager = GridLayoutManager(this,2)
 
-        getInterestResponse()
+        getInterestProductResponse()
     }
 
     private fun makeListener(){
@@ -58,7 +58,6 @@ class MypageInterestProductActivity : AppCompatActivity() {
     }
 
     private fun checkProductCount(){
-        Log.d("명2",mypageInterestProductAdapter.data.toString())
         txt_mypage_interest_count.text = mypageInterestProductAdapter.itemCount.toString()
 
         if(mypageInterestProductAdapter.itemCount > 0){
@@ -67,14 +66,14 @@ class MypageInterestProductActivity : AppCompatActivity() {
         }
     }
 
-    private fun getInterestResponse(){
+    private fun getInterestProductResponse(){
         val call: Call<MypageInterestData> = RequestURL.service.getInterestList(
             token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
         )
         call.enqueue(
             object : Callback<MypageInterestData> {
                 override fun onFailure(call: Call<MypageInterestData>, t: Throwable) {
-                   //Log.d("명",t.toString())
+                   Log.d("관심 제품 리스트 조회 실패","메시지 : $t")
                 }
 
                 override fun onResponse(
@@ -84,9 +83,9 @@ class MypageInterestProductActivity : AppCompatActivity() {
                     if(response.isSuccessful){
                         val interestList=response.body()!!
 
-                        val interest = mutableListOf<RvMypageInterestListItem>()
+                        val interestItem = mutableListOf<RvMypageInterestListItem>()
                         for(item in interestList.data){
-                            interest.add(RvMypageInterestListItem(
+                            interestItem.add(RvMypageInterestListItem(
                                 item.productIdx,
                                 item.imgUrl,
                                 item.brand,
@@ -96,7 +95,7 @@ class MypageInterestProductActivity : AppCompatActivity() {
                             ))
                         }
 
-                        mypageInterestProductAdapter.data=interest
+                        mypageInterestProductAdapter.data=interestItem
                         mypageInterestProductAdapter.notifyDataSetChanged()
 
                         checkProductCount()

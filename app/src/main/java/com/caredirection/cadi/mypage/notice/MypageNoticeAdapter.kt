@@ -55,18 +55,18 @@ class MypageNoticeAdapter (private val context: Context) : RecyclerView.Adapter<
 
             noticePosition = position
 
-            getContentResponse(position)
+            getNoticeContentResponse(position)
         }
     }
 
-    private fun getContentResponse(idx : Int){
+    private fun getNoticeContentResponse(idx : Int){
         val call: Call<MypageNoticeContentData> = RequestURL.service.getNoticeContent(
             notice_idx = idx + 1
         )
         call.enqueue(
             object : Callback<MypageNoticeContentData> {
                 override fun onFailure(call: Call<MypageNoticeContentData>, t: Throwable) {
-                    Log.d("명1",t.toString())
+                    Log.d("공지사항 상세 내용 조회 실패", "메시지 : $t")
                 }
 
                 override fun onResponse(
@@ -77,8 +77,6 @@ class MypageNoticeAdapter (private val context: Context) : RecyclerView.Adapter<
                         val noticeContentInfo=response.body()!!
 
                         data[idx].content=noticeContentInfo.data.notice_content
-
-                        Log.d("명2",idx.toString()+noticeContentInfo.toString())
 
                         notifyItemChanged(idx)
                     }

@@ -42,7 +42,7 @@ class MypageTakeProductActivity : AppCompatActivity() {
 
         rv_mypage_take_product_list.layoutManager = LinearLayoutManager(this)
 
-        getTakeResponse()
+        getTakeProductResponse()
     }
 
     private fun makeListener(){
@@ -95,14 +95,14 @@ class MypageTakeProductActivity : AppCompatActivity() {
         btn_mypage_take_prdouct_skip.text = spannableString
     }
 
-    private fun getTakeResponse(){
+    private fun getTakeProductResponse(){
         val call: Call<MypageTakeProductData> = RequestURL.service.getTakeList(
             token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
         )
         call.enqueue(
             object : Callback<MypageTakeProductData> {
                 override fun onFailure(call: Call<MypageTakeProductData>, t: Throwable) {
-                    Log.d("명1",t.toString())
+                    Log.d("복용 제품 리스트 조회 실패","메시지 : $t")
                 }
 
                 override fun onResponse(
@@ -111,7 +111,6 @@ class MypageTakeProductActivity : AppCompatActivity() {
                 ) {
                     if(response.isSuccessful){
                         val takeList=response.body()!!
-                        Log.d("명2",takeList.toString())
 
                         val takeItem = mutableListOf<RvMypageTakeListItem>()
                         for(item in takeList.data.products){

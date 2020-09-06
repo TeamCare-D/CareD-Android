@@ -2,6 +2,7 @@ package com.caredirection.cadi.mypage.notice
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,7 +36,7 @@ class MypageNoticeActivity : AppCompatActivity() {
 
         rv_mypage_notice_list.layoutManager = LinearLayoutManager(this)
 
-        getNoticeResponse()
+        getNoticeListResponse()
     }
 
     private fun makeListener(){
@@ -62,11 +63,12 @@ class MypageNoticeActivity : AppCompatActivity() {
         else 0
     }
 
-    private fun getNoticeResponse(){
+    private fun getNoticeListResponse(){
         val call: Call<MypageNoticeData> = RequestURL.service.getNoticeList()
         call.enqueue(
             object : Callback<MypageNoticeData> {
                 override fun onFailure(call: Call<MypageNoticeData>, t: Throwable) {
+                    Log.d("공지사항 리스트 조회 실패", "메시지 : $t")
                 }
 
                 override fun onResponse(
@@ -76,11 +78,11 @@ class MypageNoticeActivity : AppCompatActivity() {
                     if(response.isSuccessful){
                         val noticeInfo=response.body()!!
 
-                        val notice = mutableListOf<RvMypageNoticeListItem>()
+                        val noticeItem = mutableListOf<RvMypageNoticeListItem>()
                         for(item in noticeInfo.data){
-                            notice.add(RvMypageNoticeListItem(item.notice_idx,item.notice_time,item.notice_title,null))
+                            noticeItem.add(RvMypageNoticeListItem(item.notice_idx,item.notice_time,item.notice_title,null))
                         }
-                        mypageNoticeAdapter.data=notice
+                        mypageNoticeAdapter.data=noticeItem
                         mypageNoticeAdapter.notifyDataSetChanged()
                     }
                 }
