@@ -11,8 +11,8 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.mypage.RvMypageTakeListItem
-import com.caredirection.cadi.data.network.MypageTakeProductData
+import com.caredirection.cadi.data.register.RvTakeListItem
+import com.caredirection.cadi.data.network.TakeProductData
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.register.search.RegisterSearchActivity
 import kotlinx.android.synthetic.main.activity_mypage_take_product.*
@@ -96,26 +96,26 @@ class MypageTakeProductActivity : AppCompatActivity() {
     }
 
     private fun getTakeProductResponse(){
-        val call: Call<MypageTakeProductData> = RequestURL.service.getTakeList(
+        val call: Call<TakeProductData> = RequestURL.service.getTakeList(
             token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
         )
         call.enqueue(
-            object : Callback<MypageTakeProductData> {
-                override fun onFailure(call: Call<MypageTakeProductData>, t: Throwable) {
+            object : Callback<TakeProductData> {
+                override fun onFailure(call: Call<TakeProductData>, t: Throwable) {
                     Log.d("복용 제품 리스트 조회 실패","메시지 : $t")
                 }
 
                 override fun onResponse(
-                    call: Call<MypageTakeProductData>,
-                    response: Response<MypageTakeProductData>
+                    call: Call<TakeProductData>,
+                    response: Response<TakeProductData>
                 ) {
                     if(response.isSuccessful){
                         val takeList=response.body()!!
 
-                        val takeItem = mutableListOf<RvMypageTakeListItem>()
+                        val takeItem = mutableListOf<RvTakeListItem>()
                         for(item in takeList.data.products){
                             takeItem.add(
-                                RvMypageTakeListItem(
+                                RvTakeListItem(
                                 item.productIdx,
                                 item.imgUrl,
                                 item.brand,

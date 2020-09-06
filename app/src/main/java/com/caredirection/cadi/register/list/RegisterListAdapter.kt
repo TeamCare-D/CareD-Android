@@ -8,13 +8,11 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.register.DummyRegisterList
+import com.caredirection.cadi.data.register.RvTakeListItem
 
 class RegisterListAdapter(private val context: Context) : RecyclerView.Adapter<RegisterListViewHolder>(){
 
-    private val registerListActivity = RegisterListActivity()
-    private var dummyRegisterList = DummyRegisterList()
-    var data  = dummyRegisterList.getRegisterList()
+    var data  : List<RvTakeListItem> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RegisterListViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.rv_item_register_list, parent, false)
@@ -34,12 +32,12 @@ class RegisterListAdapter(private val context: Context) : RecyclerView.Adapter<R
         }
     }
 
-    private fun removeItem(position: Int){
-        data.removeAt(position)
-        notifyItemRemoved(position)
-        notifyDataSetChanged()
-        //checkCompleteButton()
-    }
+//    private fun removeItem(position: Int){
+//        data.removeAt(position)
+//        notifyItemRemoved(position)
+//        notifyDataSetChanged()
+//        //checkCompleteButton()
+//    }
 
 //    private fun checkCompleteButton(){
 //        if(itemCount == 0){
@@ -64,7 +62,7 @@ class RegisterListAdapter(private val context: Context) : RecyclerView.Adapter<R
         }
 
         btnConfirm.setOnClickListener {
-            removeItem(position)
+            //removeItem(position)
             deleteDialog.dismiss()
         }
 

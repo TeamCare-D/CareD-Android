@@ -1,6 +1,6 @@
-package com.caredirection.cadi.data.mypage
+package com.caredirection.cadi.data.register
 
-data class RvMypageTakeListItem(
+data class RvTakeListItem(
     val productIdx : Int,
     val imgUrl : String,
     val brand : String,

@@ -2,17 +2,17 @@ package com.caredirection.cadi.data.network
 
 import com.google.gson.annotations.SerializedName
 
-data class MypageTakeProductData(
+data class TakeProductData(
     val status:Int,
     val message:String,
-    val data: MypageTakeList
+    val data: TakeList
 )
 
-data class MypageTakeList(
-    val products: List<MypageTakeProductItem>
+data class TakeList(
+    val products: List<TakeProductItem>
 )
 
-data class MypageTakeProductItem(
+data class TakeProductItem(
     @SerializedName("productIdx")
     val productIdx : Int,
     @SerializedName("productName")

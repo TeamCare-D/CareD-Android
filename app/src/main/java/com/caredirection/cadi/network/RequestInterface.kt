@@ -10,7 +10,7 @@ interface RequestInterface {
     @GET("/dose/product")
     fun getTakeList(
         @Header("token")token: String
-    ): Call<MypageTakeProductData>
+    ): Call<TakeProductData>
 
     // 마이페이지 - 관심 제품 리스트 조회
     @GET("/product/like")

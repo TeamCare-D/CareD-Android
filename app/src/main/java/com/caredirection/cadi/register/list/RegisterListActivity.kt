@@ -5,20 +5,25 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.MainActivity
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.register.DummyRegisterList
+import com.caredirection.cadi.data.register.RvTakeListItem
+import com.caredirection.cadi.data.network.TakeProductData
+import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.register.search.RegisterSearchActivity
 import kotlinx.android.synthetic.main.activity_register_list.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterListActivity : AppCompatActivity() {
 
     private lateinit var registerListAdapter: RegisterListAdapter
-    private var dummyRegisterList = DummyRegisterList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,11 +43,7 @@ class RegisterListActivity : AppCompatActivity() {
 
         rv_register_list.layoutManager = LinearLayoutManager(this)
 
-        registerListAdapter.data = dummyRegisterList.getRegisterList()
-
-        registerListAdapter.notifyDataSetChanged()
-
-        checkCompleteButton()
+        getTakeProductResponse()
     }
 
     private fun makeListener(){
@@ -90,6 +91,48 @@ class RegisterListActivity : AppCompatActivity() {
         var spannableString = SpannableString("건너뛰기")
         spannableString.setSpan(UnderlineSpan(), 0, spannableString.length, 0)
         btn_register_list_skip.text = spannableString
+    }
+
+    private fun getTakeProductResponse(){
+        val call: Call<TakeProductData> = RequestURL.service.getTakeList(
+            token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
+        )
+        call.enqueue(
+            object : Callback<TakeProductData> {
+                override fun onFailure(call: Call<TakeProductData>, t: Throwable) {
+                    Log.d("복용 제품 리스트 조회 실패","메시지 : $t")
+                }
+
+                override fun onResponse(
+                    call: Call<TakeProductData>,
+                    response: Response<TakeProductData>
+                ) {
+                    if(response.isSuccessful){
+                        val takeList=response.body()!!
+
+                        val takeItem = mutableListOf<RvTakeListItem>()
+                        for(item in takeList.data.products){
+                            takeItem.add(
+                                RvTakeListItem(
+                                    item.productIdx,
+                                    item.imgUrl,
+                                    item.brand,
+                                    item.name,
+                                    item.overseas,
+                                    item.day
+                                )
+                            )
+                        }
+
+                        registerListAdapter.data=takeItem
+                        registerListAdapter.notifyDataSetChanged()
+
+                        checkCompleteButton()
+                    }
+                }
+
+            }
+        )
     }
 
     // 상태바 투명 설정

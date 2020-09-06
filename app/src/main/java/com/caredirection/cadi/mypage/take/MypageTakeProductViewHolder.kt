@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.mypage.RvMypageTakeListItem
+import com.caredirection.cadi.data.register.RvTakeListItem
 
 class MypageTakeProductViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
@@ -15,7 +15,7 @@ class MypageTakeProductViewHolder(view: View) : RecyclerView.ViewHolder(view){
     private val txtProductDay : TextView = view.findViewById(R.id.txt_register_list_day)
     private val btnDeleted : ImageView = view.findViewById(R.id.btn_register_list_delete)
 
-    fun onBind(product: RvMypageTakeListItem){
+    fun onBind(product: RvTakeListItem){
         txtProductBrand.text = product.brand
         txtProductName.text = product.name
         txtProductDay.text = product.day.toString()
