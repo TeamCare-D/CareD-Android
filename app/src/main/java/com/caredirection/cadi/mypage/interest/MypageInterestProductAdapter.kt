@@ -1,8 +1,6 @@
 package com.caredirection.cadi.mypage.interest
 
 import android.content.Context
-import android.util.Log
-import android.util.SparseBooleanArray
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.CheckBox
@@ -12,7 +10,7 @@ import com.caredirection.cadi.data.mypage.RvMypageInterestListItem
 
 class MypageInterestProductAdapter(private val context: Context) : RecyclerView.Adapter<MypageInterestProductViewHolder>(){
     var data: List<RvMypageInterestListItem> = listOf()
-    var selectedItem = SparseBooleanArray()
+    var selectedItem = mutableListOf<Int>()
 
     private lateinit var btnDelete : CheckBox
 
@@ -33,16 +31,19 @@ class MypageInterestProductAdapter(private val context: Context) : RecyclerView.
     override fun onBindViewHolder(holder: MypageInterestProductViewHolder, position: Int) {
         holder.onBind(data[position])
 
+        setDeleteClickListener(position)
+    }
+
+    private fun setDeleteClickListener(position: Int){
         btnDelete.setOnClickListener {
-            if(selectedItem.get(position)){
-                selectedItem.delete(position)
-                Log.d("명",position.toString()+"삭제")
+            if(selectedItem.contains(data[position].productIdx)){
+                selectedItem.remove(data[position].productIdx)
+                //Log.d("명",data[position].productIdx.toString()+"삭제")
             }
             else{
-                selectedItem.put(position,true)
-                Log.d("명",position.toString()+"추가")
+                selectedItem.add(data[position].productIdx)
+                //Log.d("명",data[position].productIdx.toString()+"추가")
             }
-
         }
     }
 }

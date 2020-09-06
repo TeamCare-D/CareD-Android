@@ -1,9 +1,6 @@
 package com.caredirection.cadi.network
 
-import com.caredirection.cadi.data.network.MypageInterestData
-import com.caredirection.cadi.data.network.MypageNoticeContentData
-import com.caredirection.cadi.data.network.MypageNoticeData
-import com.caredirection.cadi.data.network.MypageRequestData
+import com.caredirection.cadi.data.network.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -14,6 +11,13 @@ interface RequestInterface {
     fun getInterestList(
         @Header("token")token: String
     ): Call<MypageInterestData>
+
+    // 마이페이지 - 관심 제품 취소
+    @DELETE("/product/{product_idx}/like")
+    fun deleteInterestProduct(
+        @Path("product_idx")product_idx:Int,
+        @Header("token")token: String
+    ) : Call<MypageDeleteInterestData>
 
     // 마이페이지 - 공지사항 리스트 조회
     @GET("/notice")
