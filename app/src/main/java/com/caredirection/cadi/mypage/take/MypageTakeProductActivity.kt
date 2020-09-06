@@ -3,24 +3,33 @@ package com.caredirection.cadi.mypage.take
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.UnderlineSpan
+import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.mypage.DummyMypageTakeProductList
+import com.caredirection.cadi.data.mypage.RvMypageTakeListItem
+import com.caredirection.cadi.data.network.MypageTakeProductData
+import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.register.search.RegisterSearchActivity
 import kotlinx.android.synthetic.main.activity_mypage_take_product.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MypageTakeProductActivity : AppCompatActivity() {
 
     private lateinit var mypageTakeProductAdapter: MypageTakeProductAdapter
-    private var dummyMypageTakeProductList = DummyMypageTakeProductList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage_take_product)
 
         setStatusBarTransparent()
+        setSkipUnderLine()
 
         takeListInit()
         makeListener()
@@ -33,17 +42,14 @@ class MypageTakeProductActivity : AppCompatActivity() {
 
         rv_mypage_take_product_list.layoutManager = LinearLayoutManager(this)
 
-        mypageTakeProductAdapter.data = dummyMypageTakeProductList.getMypageTakeProductList()
-
-        mypageTakeProductAdapter.notifyDataSetChanged()
-
-        checkCompleteButton()
+        getTakeProductResponse()
     }
 
     private fun makeListener(){
         setCloseClickListener()
         setAddClickListener()
         setCompleteClickListener()
+        setSkipClickListener()
     }
 
     private fun setCloseClickListener(){
@@ -66,13 +72,69 @@ class MypageTakeProductActivity : AppCompatActivity() {
         }
     }
 
+    private fun setSkipClickListener(){
+        btn_mypage_take_prdouct_skip.setOnClickListener {
+            finish()
+        }
+    }
+
     private fun checkCompleteButton(){
         btn_mypage_take_product_complete.isEnabled = false
 
         if(mypageTakeProductAdapter.itemCount > 0){
             btn_mypage_take_product_complete.isEnabled = true
             btn_mypage_take_product_complete.setTextColor(resources.getColor(R.color.colorWhite))
+            btn_mypage_take_prdouct_skip.visibility = View.GONE
+            btn_mypage_take_product_close.visibility = View.VISIBLE
         }
+    }
+
+    private fun setSkipUnderLine(){
+        var spannableString = SpannableString("건너뛰기")
+        spannableString.setSpan(UnderlineSpan(), 0, spannableString.length, 0)
+        btn_mypage_take_prdouct_skip.text = spannableString
+    }
+
+    private fun getTakeProductResponse(){
+        val call: Call<MypageTakeProductData> = RequestURL.service.getTakeList(
+            token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
+        )
+        call.enqueue(
+            object : Callback<MypageTakeProductData> {
+                override fun onFailure(call: Call<MypageTakeProductData>, t: Throwable) {
+                    Log.d("복용 제품 리스트 조회 실패","메시지 : $t")
+                }
+
+                override fun onResponse(
+                    call: Call<MypageTakeProductData>,
+                    response: Response<MypageTakeProductData>
+                ) {
+                    if(response.isSuccessful){
+                        val takeList=response.body()!!
+
+                        val takeItem = mutableListOf<RvMypageTakeListItem>()
+                        for(item in takeList.data.products){
+                            takeItem.add(
+                                RvMypageTakeListItem(
+                                item.productIdx,
+                                item.imgUrl,
+                                item.brand,
+                                item.name,
+                                item.overseas,
+                                item.day
+                            )
+                            )
+                        }
+
+                        mypageTakeProductAdapter.data=takeItem
+                        mypageTakeProductAdapter.notifyDataSetChanged()
+
+                        checkCompleteButton()
+                    }
+                }
+
+            }
+        )
     }
 
     // 상태바 투명 설정

@@ -1,8 +1,10 @@
 package com.caredirection.cadi.data.mypage
 
-data class MypageInterestProductListItem(
+data class RvMypageTakeListItem(
+    val productIdx : Int,
+    val imgUrl : String,
     val brand : String,
     val name : String,
-    val overseas : String,
+    val overseas : Int,
     val day : Int
 )

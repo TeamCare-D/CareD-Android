@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blue_fill_20" />
+        app:srcCompat="@color/colorDuckEggBlue" />
 
     <TextView
         android:id="@+id/txt_mypage_notice_day"

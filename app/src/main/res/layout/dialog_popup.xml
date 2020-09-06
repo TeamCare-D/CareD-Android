@@ -35,10 +35,20 @@
         android:text="확인"
         android:textColor="@color/colorWhite"
         android:textSize="13dp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_popup_cancel"
+        app:layout_constraintEnd_toStartOf="@+id/imageView9"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btn_popup_cancel" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_popup_confirm"
+        app:layout_constraintEnd_toEndOf="@+id/btn_popup_cancel"
+        app:layout_constraintStart_toEndOf="@+id/btn_popup_confirm"
+        app:layout_constraintTop_toTopOf="@+id/btn_popup_confirm"
+        app:srcCompat="@color/colorBlack40" />
 
     <Button
         android:id="@+id/btn_popup_cancel"
@@ -53,18 +63,8 @@
         android:textColor="@color/colorWhite"
         android:textSize="13dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_popup_confirm"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
         app:layout_constraintTop_toBottomOf="@+id/txt_popup_tilte" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="1dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_popup_cancel"
-        app:layout_constraintEnd_toEndOf="@+id/btn_popup_confirm"
-        app:layout_constraintStart_toEndOf="@+id/btn_popup_confirm"
-        app:layout_constraintTop_toTopOf="@+id/btn_popup_cancel"
-        app:srcCompat="@color/colorCoolGray2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
