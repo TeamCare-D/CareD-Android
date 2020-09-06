@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.mypage.MypageTakeProductListItem
+import com.caredirection.cadi.data.mypage.RvMypageTakeListItem
 
 class MypageTakeProductAdapter(private val context: Context) : RecyclerView.Adapter<MypageTakeProductViewHolder>(){
-    var data: List<MypageTakeProductListItem> = listOf()
+    var data: List<RvMypageTakeListItem> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MypageTakeProductViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.rv_item_register_list,parent,false)
