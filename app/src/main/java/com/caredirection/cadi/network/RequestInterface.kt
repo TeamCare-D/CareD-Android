@@ -34,6 +34,11 @@ interface RequestInterface {
         @Header("token")token: String
     ) : Call<RegisterTakeProductData>
 
+    // 나만의 복용 제품 - 성분 리스트 조회
+    @GET("/search/ingredient")
+    fun getIngredientList(
+    ): Call<RegisterIngredientData>
+
     // 마이페이지 - 관심 제품 리스트 조회
     @GET("/product/like")
     fun getInterestList(

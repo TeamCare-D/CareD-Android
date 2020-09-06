@@ -1,5 +1,6 @@
 package com.caredirection.cadi.data.register
 
-data class RegisterMaterialListItem(
+data class RvIngredientListItem(
+    val ingredientIdx : Int,
     val name: String
 )

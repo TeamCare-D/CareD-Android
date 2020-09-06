@@ -5,13 +5,13 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.register.RegisterMaterialListItem
+import com.caredirection.cadi.data.register.RvIngredientListItem
 
 class RegisterMaterialViewHolder(view: View) : RecyclerView.ViewHolder(view){
     private val txtMaterialName : TextView = view.findViewById(R.id.txt_register_material_name)
     private val btnMaterialCheck : CheckBox = view.findViewById(R.id.btn_register_material_check)
 
-    fun onBind(material : RegisterMaterialListItem){
+    fun onBind(material : RvIngredientListItem){
         txtMaterialName.text = material.name
 
         itemView.setOnClickListener {
