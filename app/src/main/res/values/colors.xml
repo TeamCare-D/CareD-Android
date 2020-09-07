@@ -39,6 +39,11 @@
 
     <color name="colorCarolinaBlue">#8dc8ff</color>
     <color name="colorDuckEggBlue">#f0f6fd</color>
+    <color name="colorWindowDuckEggBlue">#66f0f6fd</color>
+
+
+    <color name="colorSteel">#8f8f93</color>
+
 
     <color name="colorBlack40">#66000000</color>
 

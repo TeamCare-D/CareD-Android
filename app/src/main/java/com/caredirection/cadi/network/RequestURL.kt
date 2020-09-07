@@ -3,7 +3,8 @@ package com.caredirection.cadi.network
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RequestURL{
+
+object RequestURL {
     private const val BASE_URL ="http://3.34.153.207:8080"
 
     private val retrofit: Retrofit = Retrofit.Builder()

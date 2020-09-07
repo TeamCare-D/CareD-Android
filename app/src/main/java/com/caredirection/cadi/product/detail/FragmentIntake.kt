@@ -32,14 +32,30 @@ class FragmentIntake : Fragment(R.layout.fragment_product_detail) {
         val chartAdapter = ChartAdapter(requireContext())
 
 
-        chartAdapter.items.add( ChartData( "비타민",  30))
-        chartAdapter.items.add( ChartData( "비타민",  50))
-        chartAdapter.items.add( ChartData( "비타민",  70))
-        chartAdapter.items.add( ChartData( "비타민",  70))
-        chartAdapter.items.add( ChartData( "비타민",  70))
-        chartAdapter.items.add( ChartData("비타민", 100))
-        chartAdapter.items.add( ChartData("비타민", 110))
-        chartAdapter.items.add( ChartData("비타민", 100))
+        chartAdapter.items.add( ChartData( "비타민1",  0))
+        chartAdapter.items.add( ChartData( "비타민1",  0))
+        chartAdapter.items.add( ChartData( "비타민1",  0))
+        chartAdapter.items.add( ChartData( "비타민1",  30))
+        chartAdapter.items.add( ChartData( "비타민2",  50))
+        chartAdapter.items.add( ChartData( "비타민3",  70))
+        chartAdapter.items.add( ChartData( "비타민4",  70))
+        chartAdapter.items.add( ChartData( "비타민5",  70))
+        chartAdapter.items.add( ChartData("비타민6", 100))
+        chartAdapter.items.add( ChartData("비타민7", 110))
+        chartAdapter.items.add( ChartData("비타민8", 100))
+        chartAdapter.items.add( ChartData("비타민9", 100))
+        chartAdapter.items.add( ChartData("비타민10", 100))
+        chartAdapter.items.add( ChartData("비타민11", 100))
+        chartAdapter.items.add( ChartData("비타민12", 100))
+        chartAdapter.items.add( ChartData("비타민13", 100))
+        chartAdapter.items.add( ChartData("비타민14", 100))
+        chartAdapter.items.add( ChartData("비타민15", 100))
+        chartAdapter.items.add( ChartData("비타민16", 100))
+        chartAdapter.items.add( ChartData("비타민17", 100))
+
+
+
+
 
         chart_product_detail_intake.adapter = chartAdapter
         chart_product_detail_intake.layoutManager =  LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)

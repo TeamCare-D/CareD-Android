@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import com.caredirection.cadi.product.detail.DetailActivity
+
 
 class ProductIngredientRvAdapter: RecyclerView.Adapter<ProductIngredientRvAdapter.ProductIngredientRvHolder>() {
 

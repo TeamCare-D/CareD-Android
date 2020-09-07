@@ -6,12 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.adapter.CareCategoryRvAdapter
-import com.caredirection.cadi.adapter.ChartAdapter
-import com.caredirection.cadi.adapter.ChartData
 import com.caredirection.cadi.product.search.adapter.ViewPagerAdapter
 import kotlinx.android.synthetic.main.activity_product_detail.*
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : AppCompatActivity(), pickerCallback {
 
     private lateinit var productDetailViewPager: ViewPager
 
@@ -24,6 +22,10 @@ class DetailActivity : AppCompatActivity() {
         ViewPagerSetting()
 
         careCategorySetting()
+
+        pickerSetting()
+
+
     }
 
     fun ViewPagerSetting() {
@@ -44,11 +46,33 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    fun careCategorySetting(){
+    fun careCategorySetting() {
         val careCategoryAdapter = CareCategoryRvAdapter()
         careCategoryAdapter.items.add("피로회복")
         careCategoryAdapter.items.add("피로")
         careCategoryAdapter.items.add("간")
         rv_product_detail_care_category.adapter = careCategoryAdapter
     }
+
+    fun pickerSetting() {
+
+        txt_product_detail_amount.setOnClickListener {
+            val bottomSheetFragment = bottomSheetFragment()
+            val bottomView = layoutInflater.inflate(R.layout.view_bottom_sheet, null)
+
+            bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+
+        }
+
+
+    }
+
+    override fun callback(per: String) {
+        txt_product_detail_amount.text = per
+    }
+}
+
+
+interface pickerCallback {
+    fun callback(per: String)
 }

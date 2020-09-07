@@ -51,38 +51,55 @@
                     android:text="3"
                     />
 
-
-                <TextView
-                    android:id="@+id/test"
+                <ImageView
+                    android:id="@+id/img_home_care_detail_chart_box"
                     android:layout_width="58dp"
-                    android:layout_height="36dp"
-                    android:layout_marginTop="76dp"
-                    android:background="@color/colorDuckEggBlue"
-                    android:gravity="center_horizontal"
-                    android:lineSpacingExtra="6sp"
-                    android:text="식약처 기준
-1일 섭취량"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="12sp"
-                    app:layout_constraintStart_toStartOf="@+id/txt_product_detail_intake_function"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_function" />
+                    android:layout_height="60dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_function"
+                    android:layout_marginTop="64dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/standard"
+                    />
+                <ImageView
+                    app:layout_constraintStart_toEndOf="@+id/img_home_care_detail_chart_box"
+                    app:layout_constraintTop_toBottomOf="@+id/img_home_care_detail_chart_box"
+                    android:layout_marginLeft="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line_graph_low"
+                    />
+
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/chart_product_detail_intake"
-                    android:layout_width="300dp"
-                    android:layout_height="205dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_width="258dp"
+                    android:layout_height="161dp"
+                    android:layout_marginLeft="24dp"
                     android:layout_marginTop="18dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/test"
+                    app:layout_constraintStart_toEndOf="@+id/img_home_care_detail_chart_box"
                     app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_intake_function" />
+
+                <ImageView
+                    android:id="@+id/img_product_detail_line_divider"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chart_product_detail_intake"
+                    android:layout_marginTop="26dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line_divider"
+                    />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layout_product_detail_intake_function_content_title"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/chart_product_detail_intake">
+                    app:layout_constraintTop_toBottomOf="@id/img_product_detail_line_divider"
+                    android:layout_marginTop="26dp"
+                    >
 
                     <TextView
                         android:id="@+id/txt_product_detail_intake_function_content_title_ingredient"
@@ -202,11 +219,13 @@
 
                     <TextView
                         android:id="@+id/txt_product_detail_bitamin_upper_intake"
-                        android:layout_width="58dp"
-                        android:layout_height="36dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:textSize="12dp"
                         android:textColor="@color/colorBlack"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
                         app:layout_constraintStart_toStartOf="@+id/txt_product_detail_bitamin_title"
                         app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_bitamin_title_number"
                         android:layout_marginTop="57dp"
@@ -214,15 +233,67 @@
                         android:text="상한 섭취량"
                         />
 
+                    <TextView
+                        android:id="@+id/txt_product_detail_bitamin_down_intake"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12dp"
+                        android:textColor="@color/colorBlack"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:includeFontPadding="false"
+                        app:layout_constraintStart_toStartOf="@+id/txt_product_detail_bitamin_upper_intake"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_bitamin_upper_intake"
+                        android:layout_marginTop="42dp"
+                        android:lineSpacingExtra="6dp"
+                        android:text="권장 섭취량"
+                        />
+
+                    <ImageView
+                        android:id="@+id/bar_product_detail_bitamin_upper_intake"
+                        android:src="@drawable/line_graph_high"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/txt_product_detail_bitamin_upper_intake"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_bitamin_title"
+                        android:layout_marginTop="66dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginLeft="24dp"
+                        />
+
+                    <ImageView
+                        android:id="@+id/bar_product_detail_bitamin_down_intake"
+                        android:src="@drawable/line_graph_low"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/txt_product_detail_bitamin_down_intake"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_bitamin_title"
+                        android:layout_marginTop="126dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginLeft="24dp"
+                        />
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/chart_product_detail_bitamin"
                         app:layout_constraintStart_toEndOf="@+id/txt_product_detail_bitamin_upper_intake"
                         app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_bitamin_title_number"
                         android:layout_marginTop="20dp"
-                        android:layout_width="300dp"
-                        android:layout_height="205dp"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginLeft="24dp"
+                        android:layout_width="258dp"
+                        android:layout_height="161dp"
                         />
+
+                    <ImageView
+                        android:id="@+id/img_product_detail_bitamin_line_divider"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/chart_product_detail_bitamin"
+                        android:layout_marginTop="26dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/line_divider"
+                        />
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -231,7 +302,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/layout_product_detail_bitamin">
+                    app:layout_constraintTop_toBottomOf="@+id/layout_product_detail_bitamin"
+                    android:layout_marginTop="26dp">
 
                     <TextView
                         android:id="@+id/txt_product_detail_intake_bitamin_content_title_ingredient"
