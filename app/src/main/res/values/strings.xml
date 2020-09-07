@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">cadi</string>
 
-    <string name="home">home</string>
-    <string name="product">product</string>
-    <string name="cadiZone">cadiZone</string>
-    <string name="mypage">mypage</string>
+    <string name="home">홈</string>
+    <string name="product">제품검색</string>
+    <string name="cadiZone">케어디존</string>
+    <string name="mypage">마이페이지</string>
 
 </resources>

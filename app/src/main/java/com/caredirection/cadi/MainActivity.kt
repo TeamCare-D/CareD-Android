@@ -14,12 +14,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initNavigation()
+
+        setStatusBarTransparent()
+    }
+
+    private fun initNavigation() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navi)
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
         bottomNav.setupWithNavController(navController)
-
-        setStatusBarTransparent()
+        bottomNav.itemIconTintList = null
     }
 
     // 상태바 투명 설정

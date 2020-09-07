@@ -3,22 +3,26 @@
 
     <item
         android:id="@+id/homeFragment"
-        android:icon="@android:drawable/ic_menu_add"
-        android:title="@string/home" />
+        android:enabled="true"
+        android:icon="@drawable/selector_menu_home"
+        android:title="@string/home"/>
 
     <item
         android:id="@+id/productFragment"
-        android:icon="@android:drawable/ic_menu_preferences"
+        android:enabled="true"
+        android:icon="@drawable/selector_menu_product"
         android:title="@string/product" />
 
     <item
         android:id="@+id/cadiZoneFragment"
-        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:enabled="true"
+        android:icon="@drawable/selector_menu_cadizone"
         android:title="@string/cadiZone" />
 
     <item
         android:id="@+id/mypageFragment"
-        android:icon="@android:drawable/ic_dialog_dialer"
+        android:enabled="true"
+        android:icon="@drawable/selector_menu_mypage"
         android:title="@string/mypage" />
 
 </menu>
