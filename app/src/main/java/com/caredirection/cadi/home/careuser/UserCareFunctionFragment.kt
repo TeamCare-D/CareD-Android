@@ -103,7 +103,7 @@ class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail) {
                     call: Call<GraphFunctionList>,
                     response: Response<GraphFunctionList>
                 ) {
-                    chartRvADapter.items.addAll(response.body().data)
+//                    chartRvADapter.items.addAll(response.body().data)
                     rv_home_care_user_detail.adapter = chartRvADapter
                 }
             }

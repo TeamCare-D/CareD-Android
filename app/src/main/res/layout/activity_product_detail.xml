@@ -40,21 +40,35 @@
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/notosanskr_light"
                     android:includeFontPadding="false"
-                    android:text="더 리얼 | "
+                    android:text="더 리얼"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/bar_product_detail_brand"
+                    style="@style/light12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:includeFontPadding="false"
+                    android:layout_marginLeft="6dp"
+                    android:text="|"
+                    app:layout_constraintStart_toEndOf="@+id/txt_product_detail_brand"
+                    app:layout_constraintTop_toTopOf="@+id/txt_product_detail_brand"
+                     />
 
                 <TextView
                     android:id="@+id/txt_product_detail_origin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="6dp"
+                    android:layout_marginLeft="6dp"
                     android:text="해외직구"
                     android:fontFamily="@font/notosanskr_bold"
                     android:includeFontPadding="false"
                     android:textColor="@color/colorGrayishBrown2"
                     android:textSize="12dp"
-                    app:layout_constraintStart_toEndOf="@+id/txt_product_detail_brand"
+                    app:layout_constraintStart_toEndOf="@+id/bar_product_detail_brand"
                     app:layout_constraintTop_toTopOf="@+id/txt_product_detail_brand" />
 
                 <TextView
@@ -70,6 +84,33 @@
                     android:textSize="16dp"
                     app:layout_constraintStart_toStartOf="@+id/txt_product_detail_brand"
                     app:layout_constraintTop_toBottomOf="@+id/txt_product_detail_brand" />
+
+                <TextView
+                    android:id="@+id/txt_product_detail_amount"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/img_product_Detail_drop_down"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="20dp"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorPointBlue"
+                    android:lineSpacingExtra="6dp"
+                    android:text="180정"
+                    />
+
+                <ImageView
+                    android:id="@+id/img_product_Detail_drop_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="9dp"
+                    android:src="@drawable/btn_dropdown_product_pill"
+                    />
 
                 <TextView
                     android:id="@+id/txt_product_detail_maintain"
@@ -105,6 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="4dp"
+                    android:layout_marginLeft="4dp"
                     android:text="40"
                     android:fontFamily="@font/notosanskr_bold"
                     android:includeFontPadding="false"
@@ -158,7 +200,9 @@
                     style="@style/light12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:text=" | "
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_product_detail_30_per_price"
                     app:layout_constraintEnd_toStartOf="@+id/txt_product_detail_30_per_price"
                     app:layout_constraintTop_toTopOf="@+id/txt_product_detail_30_per_price" />
 
@@ -168,6 +212,7 @@
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="2dp"
                     android:text="21,000원"
+                    android:layout_marginRight="8dp"
                     android:fontFamily="@font/notosanskr_bold"
                     android:includeFontPadding="false"
                     android:textColor="@color/colorBlack"

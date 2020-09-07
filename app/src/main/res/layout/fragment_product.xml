@@ -11,11 +11,18 @@
         android:id="@+id/layout_product_top"
         android:layout_width="match_parent"
         android:layout_height="260dp"
-        android:background="@color/colorCoolGray2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
+        <ImageView
+            android:id="@+id/img_product_main_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/img_product_main"
+            android:scaleType="fitXY"
+            />
 
         <TextView
             android:id="@+id/txt_product_title"

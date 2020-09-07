@@ -33,11 +33,11 @@
         />
 
     <TextView
-        android:id="@+id/box_home_care_detail_chart"
+        android:id="@+id/img_home_care_detail_chart_box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rv_home_care_detail"
         app:layout_constraintBottom_toBottomOf="@+id/rv_home_care_detail"
-        android:layout_marginRight="100dp"
+        android:layout_marginRight="92dp"
         android:layout_width="70dp"
         android:layout_height="177dp"
         android:background="@color/colorWindowDuckEggBlue"
@@ -46,9 +46,9 @@
         android:id="@+id/img_home_care_detail_chart_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/box_home_care_detail_chart"
-        app:layout_constraintStart_toStartOf="@+id/box_home_care_detail_chart"
-        app:layout_constraintEnd_toEndOf="@+id/box_home_care_detail_chart"
+        app:layout_constraintTop_toBottomOf="@+id/img_home_care_detail_chart_box"
+        app:layout_constraintStart_toStartOf="@+id/img_home_care_detail_chart_box"
+        app:layout_constraintEnd_toEndOf="@+id/img_home_care_detail_chart_box"
         android:src="@drawable/btn_dropdown"
         />
     

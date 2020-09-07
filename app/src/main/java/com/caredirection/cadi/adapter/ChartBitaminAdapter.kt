@@ -38,7 +38,7 @@ class ChartBitaminAdapter(private val context: Context): RecyclerView.Adapter<Ch
         val txt_rv_item_name: TextView = view.findViewById(R.id.txt_rv_item_chart_name)
 
         fun bind(item: GraphBitamin){
-            val h = item.ingredient_percentage * 1.7 * 3
+            var h = item.ingredient_percentage * 1.7 * 3
 
 //            if(item.height == 0){
 //                bar_rv_item_chart1.layoutParams.height = 0
@@ -47,11 +47,10 @@ class ChartBitaminAdapter(private val context: Context): RecyclerView.Adapter<Ch
 //                return
 //            }
 
-            Log.d("홀더 잘되나", h.toString())
 
             if(item.ingredient_percentage < 30){
-                bar_rv_item_chart1.layoutParams.height = h.toInt()
-
+                //bar_rv_item_chart1.layoutParams.height = h.toInt()
+                bar_rv_item_chart1.layoutParams.height = 90
                 bar_rv_item_chart1.visibility = View.VISIBLE
                 bar_rv_item_chart1.background = ContextCompat.getDrawable(context, R.drawable.chart_carolina_blue_4)
 

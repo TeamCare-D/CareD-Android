@@ -2,6 +2,7 @@ package com.caredirection.cadi.product.search
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.caredirection.cadi.R
@@ -24,6 +25,8 @@ class ProductSearch : AppCompatActivity() {
             startActivity(intent)
         }
 
+        autoTextSetting()
+
     }
 
     fun ViewPagerSetting(){
@@ -42,5 +45,12 @@ class ProductSearch : AppCompatActivity() {
         }
     }
 
-
+    fun autoTextSetting(){
+        val list = mutableListOf<String>()
+        val adaptwer = ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, list)
+        list.add("오메가3")
+        list.add("비타민B")
+        list.add("비타민C")
+        edt_product_search.setAdapter(adaptwer)
+    }
 }

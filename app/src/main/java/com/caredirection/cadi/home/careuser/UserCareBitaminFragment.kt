@@ -105,7 +105,7 @@ class UserCareBitaminFragment : Fragment(R.layout.view_home_care_user_detail) {
                     call: Call<GraphBitaminList>,
                     response: Response<GraphBitaminList>
                 ) {
-                    chartRvADapter.items.addAll(response.body().data)
+//                    chartRvADapter.items.addAll(response.body().data)
                     rv_home_care_user_detail.adapter = chartRvADapter
                 }
             }
