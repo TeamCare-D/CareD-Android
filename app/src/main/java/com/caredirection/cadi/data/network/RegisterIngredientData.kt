@@ -5,7 +5,12 @@ import com.google.gson.annotations.SerializedName
 data class RegisterIngredientData(
     val status:Int,
     val message:String,
-    val data: List<RegisterIngredientItem>
+    val data: IngredientList
+)
+
+data class IngredientList(
+    val vitaminMineralIngredients : List<RegisterIngredientItem>,
+    val functionalIngredients : List<RegisterIngredientItem>
 )
 
 data class RegisterIngredientItem(

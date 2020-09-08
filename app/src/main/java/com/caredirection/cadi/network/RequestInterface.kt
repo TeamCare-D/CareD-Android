@@ -38,7 +38,7 @@ interface RequestInterface {
     ): Call<RegisterTakeProductData>
 
     // 나만의 복용 제품 - 성분 리스트 조회
-    @GET("/search/ingredient")
+    @GET("/ingredient")
     fun getIngredientList(
     ): Call<RegisterIngredientData>
 
