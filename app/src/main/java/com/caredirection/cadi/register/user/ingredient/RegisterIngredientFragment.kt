@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import com.caredirection.cadi.R
+import com.caredirection.cadi.register.user.RegisterProductActivity
 import com.caredirection.cadi.register.user.ingredient.material.RegisterMaterialFragment
 import com.caredirection.cadi.register.user.ingredient.vitamin.RegisterVitaminFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -45,6 +46,7 @@ class RegisterIngredientFragment : BottomSheetDialogFragment(){
         getIngredientMenuTab()
 
         rootView.btn_register_product_ingredient_apply.setOnClickListener {
+            (activity as RegisterProductActivity).getIngredientList()
             dismiss()
         }
 

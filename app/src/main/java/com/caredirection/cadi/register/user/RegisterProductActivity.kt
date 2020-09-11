@@ -4,13 +4,20 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.register.DummySelectIngredient
 import com.caredirection.cadi.register.user.ingredient.RegisterIngredientFragment
 import kotlinx.android.synthetic.main.activity_register_product.*
 
 class RegisterProductActivity : AppCompatActivity() {
+
+    private lateinit var registerSelectAdapter: RegisterSelectAdapter
+    private var dummySelectIngredient = DummySelectIngredient()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_product)
@@ -20,6 +27,29 @@ class RegisterProductActivity : AppCompatActivity() {
         makeListener()
 
         checkNameEmpty()
+    }
+
+    private fun setIngredientView(){
+        txt_register_ingredient_name.visibility = View.GONE
+        edt_register_ingredient_content.visibility = View.GONE
+        txt_register_ingredient_unit.visibility = View.GONE
+        btn_register_ingredient_dropdown.visibility = View.GONE
+
+        rv_register_product_ingredient.visibility = View.VISIBLE
+    }
+
+    fun getIngredientList(){
+        setIngredientView()
+
+        registerSelectAdapter = RegisterSelectAdapter(this)
+
+        rv_register_product_ingredient.adapter = registerSelectAdapter
+
+        rv_register_product_ingredient.layoutManager = LinearLayoutManager(this)
+
+        registerSelectAdapter.data = dummySelectIngredient.getSelectIngredientList()
+
+        registerSelectAdapter.notifyDataSetChanged()
     }
 
     private fun makeListener(){
