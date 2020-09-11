@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.caredirection.cadi.MainActivity
 import com.caredirection.cadi.R
 import kotlinx.android.synthetic.main.activity_register_list_complete.*
@@ -17,6 +18,8 @@ class RegisterListCompleteActivity : AppCompatActivity() {
         setStatusBarTransparent()
 
         makeListener()
+
+        Glide.with(this).load(R.raw.done_gif).into(img_register_complete)
     }
 
     private fun makeListener(){
