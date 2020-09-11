@@ -2,14 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cl_research_disease"
+    android:id="@+id/cl_research_allergy"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".research.ResearchDiseaseActivity"
+    tools:context=".research.ResearchAllergyActivity"
     android:background="@color/colorWhite">
 
     <ImageView
-        android:id="@+id/btn_disease_back"
+        android:id="@+id/btn_allergy_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/btn_back" />
 
     <ImageView
-        android:id="@+id/btn_disease_close"
+        android:id="@+id/btn_allergy_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
@@ -29,7 +29,7 @@
         app:srcCompat="@drawable/btn_close" />
 
     <ProgressBar
-        android:id="@+id/pb_research_disease"
+        android:id="@+id/pb_research_allergy"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,14 +38,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_disease_title"
+        android:id="@+id/txt_allergy_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="111dp"
         android:fontFamily="@font/notosanskr_light"
         android:includeFontPadding="false"
         android:lineSpacingExtra="9sp"
-        android:text="체질과 보유 질환을 선택해주세요"
+        android:text="알레르기를 모두 등록해주세요"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
         android:textSize="20dp"
@@ -54,22 +54,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_disease_subtitle"
+        android:id="@+id/txt_allergy_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/notosanskr_regular"
         android:includeFontPadding="false"
         android:lineSpacingExtra="6sp"
-        android:text="체질, 보유 질환에 따라 주의해야할 영양소들이 있어요"
+        android:text="알레르기에 따라 주의해야 할 영양소들이 있어요"
         android:textColor="@color/colorBlack"
         android:textSize="13dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_disease_title" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_allergy_title" />
 
     <ScrollView
-        android:id="@+id/sv_research_disease"
+        android:id="@+id/sv_research_allergy"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
@@ -77,10 +77,10 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="50dp"
         android:scrollbarThumbVertical="@color/colorScrollYellow"
-        app:layout_constraintBottom_toTopOf="@+id/btn_disease_next"
+        app:layout_constraintBottom_toTopOf="@+id/btn_allergy_next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_disease_subtitle">
+        app:layout_constraintTop_toBottomOf="@+id/txt_allergy_subtitle">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -88,7 +88,7 @@
             android:orientation="vertical">
 
             <CheckedTextView
-                android:id="@+id/btn_disease_none"
+                android:id="@+id/btn_allergy_none"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="15dp"
@@ -103,12 +103,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_disease_1"
+                app:layout_constraintEnd_toStartOf="@+id/btn_allergy_1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_1"
+                android:id="@+id/btn_allergy_1"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="11dp"
@@ -124,11 +124,11 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btn_disease_none"
+                app:layout_constraintStart_toEndOf="@+id/btn_allergy_none"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_2"
+                android:id="@+id/btn_allergy_2"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
@@ -143,12 +143,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_disease_3"
-                app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_none" />
+                app:layout_constraintEnd_toStartOf="@+id/btn_allergy_3"
+                app:layout_constraintStart_toStartOf="@+id/btn_allergy_none"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_none" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_3"
+                android:id="@+id/btn_allergy_3"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="11dp"
@@ -163,12 +163,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
-                app:layout_constraintStart_toEndOf="@+id/btn_disease_2"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_1" />
+                app:layout_constraintEnd_toEndOf="@+id/btn_allergy_1"
+                app:layout_constraintStart_toEndOf="@+id/btn_allergy_2"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_1" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_4"
+                android:id="@+id/btn_allergy_4"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
@@ -183,12 +183,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_disease_5"
-                app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_2" />
+                app:layout_constraintEnd_toStartOf="@+id/btn_allergy_5"
+                app:layout_constraintStart_toStartOf="@+id/btn_allergy_none"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_2" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_5"
+                android:id="@+id/btn_allergy_5"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="11dp"
@@ -203,12 +203,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
-                app:layout_constraintStart_toEndOf="@+id/btn_disease_4"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_3" />
+                app:layout_constraintEnd_toEndOf="@+id/btn_allergy_1"
+                app:layout_constraintStart_toEndOf="@+id/btn_allergy_4"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_3" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_6"
+                android:id="@+id/btn_allergy_6"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
@@ -223,12 +223,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_disease_7"
-                app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_4" />
+                app:layout_constraintEnd_toStartOf="@+id/btn_allergy_7"
+                app:layout_constraintStart_toStartOf="@+id/btn_allergy_none"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_4" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_7"
+                android:id="@+id/btn_allergy_7"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="11dp"
@@ -243,12 +243,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
-                app:layout_constraintStart_toEndOf="@+id/btn_disease_6"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_5" />
+                app:layout_constraintEnd_toEndOf="@+id/btn_allergy_1"
+                app:layout_constraintStart_toEndOf="@+id/btn_allergy_6"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_5" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_8"
+                android:id="@+id/btn_allergy_8"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
@@ -263,12 +263,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_disease_9"
-                app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_6" />
+                app:layout_constraintEnd_toStartOf="@+id/btn_allergy_9"
+                app:layout_constraintStart_toStartOf="@+id/btn_allergy_none"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_6" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_9"
+                android:id="@+id/btn_allergy_9"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="11dp"
@@ -283,12 +283,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
-                app:layout_constraintStart_toEndOf="@+id/btn_disease_8"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_7" />
+                app:layout_constraintEnd_toEndOf="@+id/btn_allergy_1"
+                app:layout_constraintStart_toEndOf="@+id/btn_allergy_8"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_7" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_10"
+                android:id="@+id/btn_allergy_10"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
@@ -303,12 +303,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_disease_11"
-                app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_8" />
+                app:layout_constraintEnd_toStartOf="@+id/btn_allergy_11"
+                app:layout_constraintStart_toStartOf="@+id/btn_allergy_none"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_8" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_11"
+                android:id="@+id/btn_allergy_11"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="11dp"
@@ -323,12 +323,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
-                app:layout_constraintStart_toEndOf="@+id/btn_disease_10"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_9" />
+                app:layout_constraintEnd_toEndOf="@+id/btn_allergy_1"
+                app:layout_constraintStart_toEndOf="@+id/btn_allergy_10"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_9" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_12"
+                android:id="@+id/btn_allergy_12"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
@@ -343,12 +343,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_disease_13"
-                app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_10" />
+                app:layout_constraintEnd_toStartOf="@+id/btn_allergy_13"
+                app:layout_constraintStart_toStartOf="@+id/btn_allergy_none"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_10" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_13"
+                android:id="@+id/btn_allergy_13"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="11dp"
@@ -363,12 +363,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
-                app:layout_constraintStart_toEndOf="@+id/btn_disease_12"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_11" />
+                app:layout_constraintEnd_toEndOf="@+id/btn_allergy_1"
+                app:layout_constraintStart_toEndOf="@+id/btn_allergy_12"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_11" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_14"
+                android:id="@+id/btn_allergy_14"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
@@ -383,12 +383,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_disease_15"
-                app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_12" />
+                app:layout_constraintEnd_toStartOf="@+id/btn_allergy_15"
+                app:layout_constraintStart_toStartOf="@+id/btn_allergy_none"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_12" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_15"
+                android:id="@+id/btn_allergy_15"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="11dp"
@@ -403,12 +403,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
-                app:layout_constraintStart_toEndOf="@+id/btn_disease_14"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_13" />
+                app:layout_constraintEnd_toEndOf="@+id/btn_allergy_1"
+                app:layout_constraintStart_toEndOf="@+id/btn_allergy_14"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_13" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_16"
+                android:id="@+id/btn_allergy_16"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
@@ -423,12 +423,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_disease_17"
-                app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_14" />
+                app:layout_constraintEnd_toStartOf="@+id/btn_allergy_17"
+                app:layout_constraintStart_toStartOf="@+id/btn_allergy_none"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_14" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_17"
+                android:id="@+id/btn_allergy_17"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="11dp"
@@ -443,12 +443,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
-                app:layout_constraintStart_toEndOf="@+id/btn_disease_16"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_15" />
+                app:layout_constraintEnd_toEndOf="@+id/btn_allergy_1"
+                app:layout_constraintStart_toEndOf="@+id/btn_allergy_16"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_15" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_18"
+                android:id="@+id/btn_allergy_18"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
@@ -463,13 +463,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_disease_19"
-                app:layout_constraintStart_toStartOf="@+id/btn_disease_none"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_16" />
+                app:layout_constraintEnd_toStartOf="@+id/btn_allergy_19"
+                app:layout_constraintStart_toStartOf="@+id/btn_allergy_none"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_16" />
 
             <CheckedTextView
-                android:id="@+id/btn_disease_19"
+                android:id="@+id/btn_allergy_19"
                 android:layout_width="0dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="11dp"
@@ -484,15 +483,34 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
                 android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/btn_allergy_1"
+                app:layout_constraintStart_toEndOf="@+id/btn_allergy_18"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_17" />
+
+            <CheckedTextView
+                android:id="@+id/btn_allergy_20"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector_research_userinfo"
+                android:checked="false"
+                android:fontFamily="@font/notosanskr_bold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="6sp"
+                android:text="질병질병질병20"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/btn_disease_1"
-                app:layout_constraintStart_toEndOf="@+id/btn_disease_18"
-                app:layout_constraintTop_toBottomOf="@+id/btn_disease_17" />
+                app:layout_constraintEnd_toEndOf="@+id/btn_allergy_18"
+                app:layout_constraintStart_toStartOf="@+id/btn_allergy_none"
+                app:layout_constraintTop_toBottomOf="@+id/btn_allergy_18" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/btn_disease_next"
+        android:id="@+id/btn_allergy_next"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="28dp"

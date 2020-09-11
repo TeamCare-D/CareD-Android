@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".research.ResearchGenderActivity"
-    android:id="@+id/cl_researchGender">
+    android:id="@+id/cl_researchGender"
+    android:background="@color/colorWhite">
 
     <ImageView
         android:id="@+id/btn_genderBack"
@@ -28,11 +29,12 @@
         app:srcCompat="@drawable/btn_close" />
 
     <ProgressBar
-        android:id="@+id/pb_gender"
+        android:id="@+id/pb_research_gender"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:theme="@style/ResearchProgressbarTheme"
+        android:progressTint="@color/colorBlack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

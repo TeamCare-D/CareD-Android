@@ -11,17 +11,16 @@ import android.widget.CheckedTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
-import com.caredirection.cadi.register.list.RegisterListActivity
-import kotlinx.android.synthetic.main.activity_research_interest.*
+import kotlinx.android.synthetic.main.activity_research_allergy.*
 
-class ResearchInterestActivity : AppCompatActivity() {
+class ResearchAllergyActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var interestButtons: List<CheckedTextView>
+    private lateinit var allergyButtons: List<CheckedTextView>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_research_interest)
+        setContentView(R.layout.activity_research_allergy)
 
         windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
@@ -34,22 +33,24 @@ class ResearchInterestActivity : AppCompatActivity() {
     }
 
     private fun initButtons(){
-        interestButtons = listOf(
-            btn_interest_1,btn_interest_2,btn_interest_3,btn_interest_4,btn_interest_5,btn_interest_6,btn_interest_7,btn_interest_8,btn_interest_9,btn_interest_10,btn_interest_11
+        allergyButtons = listOf(
+            btn_allergy_1,btn_allergy_2,btn_allergy_3,btn_allergy_4,btn_allergy_5,btn_allergy_6,btn_allergy_7,btn_allergy_8,btn_allergy_9,btn_allergy_10,
+            btn_allergy_11,btn_allergy_12,btn_allergy_13,btn_allergy_14,btn_allergy_15,btn_allergy_16,btn_allergy_17,btn_allergy_18,btn_allergy_19,btn_allergy_20
         )
     }
+
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
             ConstraintLayout.LayoutParams.WRAP_CONTENT,
             ConstraintLayout.LayoutParams.WRAP_CONTENT)
-        param.width = (displayMetrics.widthPixels/5)*5
+        param.width = (displayMetrics.widthPixels/5)*4
         param.height = getDisplayHeight()/6
 
-        pb_research_interest.layoutParams = param
-        pb_research_interest.progress = 100
+        pb_research_allergy.layoutParams = param
+        pb_research_allergy.progress = 100
 
-        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate5)
-        pb_research_interest.startAnimation(animation)
+        val animation: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.translate4)
+        pb_research_allergy.startAnimation(animation)
     }
 
     private fun getDisplayHeight():Int{
@@ -63,52 +64,63 @@ class ResearchInterestActivity : AppCompatActivity() {
         return displayHeight-statusBarHeight
     }
 
-    // 버튼 클릭리스너 지정
     private fun makeListener(){
+        setNoneClickListener()
         setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
     }
 
-    private fun setButtonsClickListener(){
-        interestButtons.forEachIndexed { index, checkedTextView ->
-            interestButtons[index].setOnClickListener {
-                interestButtons[index].isChecked = !interestButtons[index].isChecked
+    private fun setNoneClickListener(){
+        btn_allergy_none.setOnClickListener {
+            btn_allergy_none.isChecked = !btn_allergy_none.isChecked
+            allergyButtons.forEach {
+                it.isChecked = false
+            }
+            checkNextButton()
+        }
+    }
+
+    private fun setButtonsClickListener() {
+        allergyButtons.forEachIndexed { index, _ ->
+            allergyButtons[index].setOnClickListener {
+                allergyButtons[index].isChecked = !allergyButtons[index].isChecked
+                btn_allergy_none.isChecked = false
                 checkNextButton()
             }
         }
     }
 
     private fun setBackClickListener(){
-        btn_interest_back.setOnClickListener {
+        btn_allergy_back.setOnClickListener {
             finish()
         }
     }
 
     private fun setNextClickListener(){
-        btn_interest_next.setOnClickListener {
-            val registerIntent = Intent(this, RegisterListActivity::class.java)
+        btn_allergy_next.setOnClickListener {
+            val interestIntent = Intent(this, ResearchInterestActivity::class.java)
 
-            startActivity(registerIntent)
+            startActivity(interestIntent)
         }
     }
 
     // 다음 버튼 활성화 처리
     private fun checkNextButton(){
-        if(interestButtons.any{it.isChecked}){
-            btn_interest_next.isEnabled = true
-            btn_interest_next.setTextColor(resources.getColor(R.color.colorWhite))
+        if(btn_allergy_none.isChecked || allergyButtons.any{it.isChecked}){
+            btn_allergy_next.isEnabled = true
+            btn_allergy_next.setTextColor(resources.getColor(R.color.colorWhite))
         }
         else{
-            btn_interest_next.isEnabled = false
-            btn_interest_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
+            btn_allergy_next.isEnabled = false
+            btn_allergy_next.setTextColor(resources.getColor(R.color.colorDarkGray))
         }
     }
 
     // 상태바 투명 설정
     private fun setStatusBarTransparent(){
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        cl_research_interest.setPadding(0, getStatusBarHeight(this), 0, 0)
+        cl_research_allergy.setPadding(0, getStatusBarHeight(this), 0, 0)
     }
 
     // 상태바 높이 정보
