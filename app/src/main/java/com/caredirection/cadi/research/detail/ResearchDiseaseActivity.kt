@@ -1,4 +1,4 @@
-package com.caredirection.cadi.research
+package com.caredirection.cadi.research.detail
 
 import android.content.Context
 import android.content.Intent
@@ -10,13 +10,17 @@ import android.view.animation.AnimationUtils
 import android.widget.CheckedTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.research.DummyDetail
 import kotlinx.android.synthetic.main.activity_research_disease.*
 
 class ResearchDiseaseActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var diseaseButtons: List<CheckedTextView>
+    private lateinit var disButtons: List<CheckedTextView>
+    private lateinit var detailAdapter: ResearchDetailAdapter
+    private var dummyDetail = DummyDetail()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,30 +30,43 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-        initButtons()
+        //initButtons()
         initProgressBar()
+        initDiseaseList()
 
         makeListener()
     }
 
-    private fun initButtons(){
-        diseaseButtons = listOf(
-            btn_disease_1, btn_disease_2, btn_disease_3, btn_disease_4, btn_disease_5, btn_disease_6, btn_disease_7, btn_disease_8, btn_disease_9, btn_disease_10,
-            btn_disease_11, btn_disease_12, btn_disease_13, btn_disease_14, btn_disease_15, btn_disease_16, btn_disease_17, btn_disease_18, btn_disease_19
-        )
+    private fun initDiseaseList(){
+        detailAdapter = ResearchDetailAdapter(this)
+
+        rv_research_disease.adapter = detailAdapter
+
+        rv_research_disease.layoutManager = GridLayoutManager(this,2)
+
+        detailAdapter.data = dummyDetail.getDetailList()
+
+        detailAdapter.notifyDataSetChanged()
     }
+
+//    private fun initButtons(){
+//        disButtons = listOf(
+//            btn_disease_none, btn_disease_1, btn_disease_2, btn_disease_3, btn_disease_4, btn_disease_5, btn_disease_6, btn_disease_7
+//        )
+//    }
 
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
             ConstraintLayout.LayoutParams.WRAP_CONTENT,
-            ConstraintLayout.LayoutParams.WRAP_CONTENT)
+            ConstraintLayout.LayoutParams.WRAP_CONTENT
+        )
         param.width = (displayMetrics.widthPixels/5)*2
         param.height = getDisplayHeight()/6
 
         pb_research_disease.layoutParams = param
         pb_research_disease.progress = 100
 
-        val animation: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.translate2)
+        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate2)
         pb_research_disease.startAnimation(animation)
     }
 
@@ -66,27 +83,15 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
     // 버튼 클릭리스너 지정
     private fun makeListener(){
-        setNoneClickListener()
-        setButtonsClickListener()
+        //setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
     }
 
-    private fun setNoneClickListener(){
-        btn_disease_none.setOnClickListener {
-            btn_disease_none.isChecked = !btn_disease_none.isChecked
-            diseaseButtons.forEach {
-                it.isChecked = false
-            }
-            checkNextButton()
-        }
-    }
-
     private fun setButtonsClickListener() {
-        diseaseButtons.forEachIndexed { index, _ ->
-            diseaseButtons[index].setOnClickListener {
-                diseaseButtons[index].isChecked = !diseaseButtons[index].isChecked
-                btn_disease_none.isChecked = false
+        disButtons.forEachIndexed { index, checkedTextView ->
+            disButtons[index].setOnClickListener {
+                disButtons[index].isChecked = !disButtons[index].isChecked
                 checkNextButton()
             }
         }
@@ -108,7 +113,7 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
     // 다음 버튼 활성화 처리
     private fun checkNextButton(){
-        if(btn_disease_none.isChecked || diseaseButtons.any{it.isChecked}){
+        if(disButtons.any{it.isChecked}){
             btn_disease_next.isEnabled = true
             btn_disease_next.setTextColor(resources.getColor(R.color.colorWhite))
         }

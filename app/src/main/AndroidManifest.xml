@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".research.ResearchAllergyActivity"></activity>
+        <activity android:name=".research.detail.ResearchAllergyActivity"></activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".product.list.ListActivity" />
         <activity android:name=".product.search.ProductSearch" />
-        <activity android:name=".research.ResearchInterestActivity" />
-        <activity android:name=".research.ResearchMedicineActivity" />
-        <activity android:name=".research.ResearchDiseaseActivity" />
+        <activity android:name=".research.detail.ResearchInterestActivity" />
+        <activity android:name=".research.detail.ResearchMedicineActivity" />
+        <activity android:name=".research.detail.ResearchDiseaseActivity" />
         <activity android:name=".research.ResearchGenderActivity" />
         <activity android:name=".research.ResearchNicknameActivity">
             <intent-filter>

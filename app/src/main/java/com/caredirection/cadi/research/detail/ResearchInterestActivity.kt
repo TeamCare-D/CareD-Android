@@ -1,4 +1,4 @@
-package com.caredirection.cadi.research
+package com.caredirection.cadi.research.detail
 
 import android.content.Context
 import android.content.Intent
@@ -10,14 +10,17 @@ import android.view.animation.AnimationUtils
 import android.widget.CheckedTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.home.HomeFragment
+import com.caredirection.cadi.data.research.DummyDetail
 import kotlinx.android.synthetic.main.activity_research_interest.*
 
 class ResearchInterestActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var interestButtons: List<CheckedTextView>
+    private lateinit var intButtons: List<CheckedTextView>
+    private lateinit var detailAdapter: ResearchDetailAdapter
+    private var dummyDetail = DummyDetail()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,21 +30,29 @@ class ResearchInterestActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-        initButtons()
         initProgressBar()
+        initInterestList()
 
         makeListener()
     }
 
-    private fun initButtons(){
-        interestButtons = listOf(
-            btn_interest_1,btn_interest_2,btn_interest_3,btn_interest_4,btn_interest_5,btn_interest_6,btn_interest_7,btn_interest_8,btn_interest_9,btn_interest_10,btn_interest_11
-        )
+    private fun initInterestList(){
+        detailAdapter = ResearchDetailAdapter(this)
+
+        rv_research_interest.adapter = detailAdapter
+
+        rv_research_interest.layoutManager = LinearLayoutManager(this)
+
+        detailAdapter.data = dummyDetail.getDetailList()
+
+        detailAdapter.notifyDataSetChanged()
     }
+
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
             ConstraintLayout.LayoutParams.WRAP_CONTENT,
-            ConstraintLayout.LayoutParams.WRAP_CONTENT)
+            ConstraintLayout.LayoutParams.WRAP_CONTENT
+        )
         param.width = (displayMetrics.widthPixels/5)*5
         param.height = getDisplayHeight()/6
 
@@ -65,18 +76,9 @@ class ResearchInterestActivity : AppCompatActivity() {
 
     // 버튼 클릭리스너 지정
     private fun makeListener(){
-        setButtonsClickListener()
+        //setButtonsClickListener()
         setBackClickListener()
-        //setNextClickListener()
-    }
-
-    private fun setButtonsClickListener(){
-        interestButtons.forEachIndexed { index, checkedTextView ->
-            interestButtons[index].setOnClickListener {
-                interestButtons[index].isChecked = !interestButtons[index].isChecked
-                checkNextButton()
-            }
-        }
+        setNextClickListener()
     }
 
     private fun setBackClickListener(){
@@ -87,7 +89,7 @@ class ResearchInterestActivity : AppCompatActivity() {
 
     private fun setNextClickListener(){
         btn_interest_next.setOnClickListener {
-            val interestIntent = Intent(this, HomeFragment::class.java)
+            val interestIntent = Intent(this, ResearchMedicineActivity::class.java)
 
             startActivity(interestIntent)
         }
@@ -95,7 +97,7 @@ class ResearchInterestActivity : AppCompatActivity() {
 
     // 다음 버튼 활성화 처리
     private fun checkNextButton(){
-        if(interestButtons.any{it.isChecked}){
+        if(intButtons.any{it.isChecked}){
             btn_interest_next.isEnabled = true
             btn_interest_next.setTextColor(resources.getColor(R.color.colorWhite))
         }
