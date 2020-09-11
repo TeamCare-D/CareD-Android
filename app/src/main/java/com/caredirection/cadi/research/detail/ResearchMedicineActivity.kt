@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -30,7 +31,6 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-        //initButtons()
         initProgressBar()
         initMedicineList()
 
@@ -48,12 +48,6 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
         detailAdapter.notifyDataSetChanged()
     }
-
-//    private fun initButtons(){
-//        medButtons = listOf(
-//            btn_medicine_A, btn_medicine_B, btn_medicine_C, btn_medicine_D, btn_medicine_E, btn_medicine_F, btn_medicine_G, btn_medicine_H
-//        )
-//    }
 
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
@@ -150,5 +144,15 @@ class ResearchMedicineActivity : AppCompatActivity() {
         val resourceBottom = context.resources.getIdentifier("config_showNavigationBar", "bool", "android")
 
         return context.resources.getBoolean(resourceBottom)
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) setDarkStatusBar()
+    }
+
+    // 상태바 어둡게
+    private fun setDarkStatusBar() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
     }
 }

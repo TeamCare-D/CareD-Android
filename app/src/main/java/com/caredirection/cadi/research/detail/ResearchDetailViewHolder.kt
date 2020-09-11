@@ -13,8 +13,8 @@ class ResearchDetailViewHolder(view: View) : RecyclerView.ViewHolder(view){
     fun onBind(detail: RvResearchListItem){
         btnDisease.text = detail.item
 
-        itemView.setOnClickListener {
-            btnDisease.isChecked = !btnDisease.isChecked
-        }
+//        btnDisease.setOnClickListener {
+//            btnDisease.isChecked = !btnDisease.isChecked
+//        }
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -30,7 +31,6 @@ class ResearchAllergyActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-//        initButtons()
         initAllergyList()
         initProgressBar()
 
@@ -48,13 +48,6 @@ class ResearchAllergyActivity : AppCompatActivity() {
 
         detailAdapter.notifyDataSetChanged()
     }
-
-//    private fun initButtons(){
-//        allergyButtons = listOf(
-//            btn_allergy_1,btn_allergy_2,btn_allergy_3,btn_allergy_4,btn_allergy_5,btn_allergy_6,btn_allergy_7,btn_allergy_8,btn_allergy_9,btn_allergy_10,
-//            btn_allergy_11,btn_allergy_12,btn_allergy_13,btn_allergy_14,btn_allergy_15,btn_allergy_16,btn_allergy_17,btn_allergy_18,btn_allergy_19,btn_allergy_20
-//        )
-//    }
 
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
@@ -161,5 +154,15 @@ class ResearchAllergyActivity : AppCompatActivity() {
         val resourceBottom = context.resources.getIdentifier("config_showNavigationBar", "bool", "android")
 
         return context.resources.getBoolean(resourceBottom)
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) setDarkStatusBar()
+    }
+
+    // 상태바 어둡게
+    private fun setDarkStatusBar() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
     }
 }
