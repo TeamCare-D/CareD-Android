@@ -9,7 +9,7 @@
     android:background="@color/colorWhite">
 
     <ImageView
-        android:id="@+id/btn_genderBack"
+        android:id="@+id/btn_gender_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/btn_back" />
 
     <ImageView
-        android:id="@+id/btn_genderClose"
+        android:id="@+id/btn_gender_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_genderTitle"
+        android:id="@+id/txt_gender_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_genderSubtitle"
+        android:id="@+id/txt_gender_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -67,7 +67,7 @@
         android:textColor="@color/colorBlack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_genderTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_gender_title" />
 
     <CheckedTextView
         android:id="@+id/btn_women"
@@ -88,7 +88,7 @@
         android:textSize="14dp"
         app:layout_constraintEnd_toStartOf="@+id/btn_man"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_genderSubtitle" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_gender_subtitle" />
 
     <CheckedTextView
         android:id="@+id/btn_man"
@@ -108,7 +108,7 @@
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_women"
-        app:layout_constraintTop_toBottomOf="@+id/txt_genderSubtitle" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_gender_subtitle" />
 
     <CheckedTextView
         android:id="@+id/btn_year"

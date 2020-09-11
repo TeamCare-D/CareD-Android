@@ -5,9 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDialog
 import com.caredirection.cadi.R
 import kotlinx.android.synthetic.main.activity_research_name.*
 
@@ -26,6 +30,13 @@ class ResearchNicknameActivity : AppCompatActivity() {
     // 버튼 클릭리스너 지정
     private fun makeListener(){
         setNextClickListener()
+        setCloseClickListener()
+    }
+
+    private fun setCloseClickListener(){
+        btn_nick_close.setOnClickListener {
+            showDeleteDialog()
+        }
     }
 
     private fun setNextClickListener(){
@@ -64,6 +75,31 @@ class ResearchNicknameActivity : AppCompatActivity() {
                 //TODO("Not yet implemented")
             }
         })
+    }
+
+    private fun showDeleteDialog(){
+        val deleteDialog = AppCompatDialog(this)
+        val deleteLayout : LayoutInflater = LayoutInflater.from(this)
+        val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup,null)
+
+        val btnCancel : Button = deleteView.findViewById(R.id.btn_popup_cancel)
+        val btnConfirm : Button = deleteView.findViewById(R.id.btn_popup_confirm)
+        val txtTitle : TextView = deleteView.findViewById(R.id.txt_popup_tilte)
+
+        txtTitle.text = "지금 설문을 중단하시면\n케어디의 서비스를 이용할 수 없습니다."
+
+        btnCancel.setOnClickListener {
+            deleteDialog.cancel()
+        }
+
+        btnConfirm.setOnClickListener {
+            deleteDialog.dismiss()
+        }
+
+        deleteDialog.setContentView(deleteView)
+        deleteDialog.setCanceledOnTouchOutside(false)
+        deleteDialog.create()
+        deleteDialog.show()
     }
 
     // 상태바 투명 설정

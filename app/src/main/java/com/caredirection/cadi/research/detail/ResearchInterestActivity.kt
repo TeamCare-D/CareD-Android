@@ -4,12 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Button
 import android.widget.CheckedTextView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
@@ -81,11 +85,18 @@ class ResearchInterestActivity : AppCompatActivity() {
         //setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
+        setCloseClickListener()
     }
 
     private fun setBackClickListener(){
         btn_interest_back.setOnClickListener {
             finish()
+        }
+    }
+
+    private fun setCloseClickListener(){
+        btn_interest_close.setOnClickListener {
+            showDeleteDialog()
         }
     }
 
@@ -107,6 +118,31 @@ class ResearchInterestActivity : AppCompatActivity() {
             btn_interest_next.isEnabled = false
             btn_interest_next.setTextColor(resources.getColor(R.color.colorDarkGray))
         }
+    }
+
+    private fun showDeleteDialog(){
+        val deleteDialog = AppCompatDialog(this)
+        val deleteLayout : LayoutInflater = LayoutInflater.from(this)
+        val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup,null)
+
+        val btnCancel : Button = deleteView.findViewById(R.id.btn_popup_cancel)
+        val btnConfirm : Button = deleteView.findViewById(R.id.btn_popup_confirm)
+        val txtTitle : TextView = deleteView.findViewById(R.id.txt_popup_tilte)
+
+        txtTitle.text = "지금 설문을 중단하시면\n케어디의 서비스를 이용할 수 없습니다."
+
+        btnCancel.setOnClickListener {
+            deleteDialog.cancel()
+        }
+
+        btnConfirm.setOnClickListener {
+            deleteDialog.dismiss()
+        }
+
+        deleteDialog.setContentView(deleteView)
+        deleteDialog.setCanceledOnTouchOutside(false)
+        deleteDialog.create()
+        deleteDialog.show()
     }
 
     // 상태바 투명 설정

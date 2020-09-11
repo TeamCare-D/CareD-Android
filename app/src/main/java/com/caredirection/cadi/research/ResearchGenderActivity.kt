@@ -9,9 +9,11 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Button
 import android.widget.NumberPicker
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
 import com.caredirection.cadi.research.detail.ResearchDiseaseActivity
@@ -40,7 +42,7 @@ class ResearchGenderActivity : AppCompatActivity() {
     private fun initTitle(){
         val nick = intent.getStringExtra("nick")
 
-        txt_genderTitle.text = nick + "님의\n건강기능식품 선택을 도와드릴게요"
+        txt_gender_title.text = nick + "님의\n건강기능식품 선택을 도와드릴게요"
     }
 
     private fun initProgressBar(){
@@ -75,6 +77,7 @@ class ResearchGenderActivity : AppCompatActivity() {
         setYearClickListener()
         setBackClickListener()
         setNextClickListener()
+        setCloseClickListener()
     }
 
     private fun setGenderClickListener(){
@@ -137,8 +140,13 @@ class ResearchGenderActivity : AppCompatActivity() {
     }
 
     private fun setBackClickListener(){
-        btn_genderBack?.setOnClickListener {
+        btn_gender_back?.setOnClickListener {
             finish()
+        }
+    }
+    private fun setCloseClickListener(){
+        btn_gender_close.setOnClickListener {
+            showDeleteDialog()
         }
     }
 
@@ -156,6 +164,31 @@ class ResearchGenderActivity : AppCompatActivity() {
 
         if(btn_genderNext.isEnabled) btn_genderNext.setTextColor(resources.getColor(R.color.colorWhite))
         else btn_genderNext.setTextColor(resources.getColor(R.color.colorCoolGray2))
+    }
+
+    private fun showDeleteDialog(){
+        val deleteDialog = AppCompatDialog(this)
+        val deleteLayout : LayoutInflater = LayoutInflater.from(this)
+        val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup,null)
+
+        val btnCancel : Button = deleteView.findViewById(R.id.btn_popup_cancel)
+        val btnConfirm : Button = deleteView.findViewById(R.id.btn_popup_confirm)
+        val txtTitle : TextView = deleteView.findViewById(R.id.txt_popup_tilte)
+
+        txtTitle.text = "지금 설문을 중단하시면\n케어디의 서비스를 이용할 수 없습니다."
+
+        btnCancel.setOnClickListener {
+            deleteDialog.cancel()
+        }
+
+        btnConfirm.setOnClickListener {
+            deleteDialog.dismiss()
+        }
+
+        deleteDialog.setContentView(deleteView)
+        deleteDialog.setCanceledOnTouchOutside(false)
+        deleteDialog.create()
+        deleteDialog.show()
     }
 
     // 상태바 투명 설정
