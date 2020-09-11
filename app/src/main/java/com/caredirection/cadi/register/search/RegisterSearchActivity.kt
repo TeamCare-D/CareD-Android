@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.network.RegisterTakeProductData
 import com.caredirection.cadi.data.network.TakeSearchData
+import com.caredirection.cadi.data.register.DummyRegisterSearchList
 import com.caredirection.cadi.data.register.RvTakeSearchItem
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.register.user.RegisterProductActivity
@@ -26,6 +27,7 @@ import retrofit2.Response
 class RegisterSearchActivity : AppCompatActivity() {
 
     private lateinit var registerSearchListAdapter: RegisterSearchAdapter
+    private val dummyRegisterSearchList = DummyRegisterSearchList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +47,13 @@ class RegisterSearchActivity : AppCompatActivity() {
 
         rv_register_search_list.layoutManager = GridLayoutManager(this,2)
 
-        getTakeSearchResponse(edt_register_search_keyword.text.toString())
+        registerSearchListAdapter.data = dummyRegisterSearchList.getRegisterSearchResultList()
+
+        registerSearchListAdapter.notifyDataSetChanged()
+
+        checkSearchResult()
+
+        //getTakeSearchResponse(edt_register_search_keyword.text.toString())
     }
 
     private fun makeListener(){
