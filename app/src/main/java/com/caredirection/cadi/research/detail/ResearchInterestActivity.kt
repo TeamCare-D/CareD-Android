@@ -1,4 +1,4 @@
-package com.caredirection.cadi.research
+package com.caredirection.cadi.research.detail
 
 import android.content.Context
 import android.content.Intent
@@ -10,47 +10,57 @@ import android.view.animation.AnimationUtils
 import android.widget.CheckedTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
-import kotlinx.android.synthetic.main.activity_research_medicine.*
+import com.caredirection.cadi.data.research.DummyDetail
+import kotlinx.android.synthetic.main.activity_research_interest.*
 
-class ResearchMedicineActivity : AppCompatActivity() {
+class ResearchInterestActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var medicineButtons: List<CheckedTextView>
+    private lateinit var intButtons: List<CheckedTextView>
+    private lateinit var detailAdapter: ResearchDetailAdapter
+    private var dummyDetail = DummyDetail()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_research_medicine)
+        setContentView(R.layout.activity_research_interest)
 
         windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
         setStatusBarTransparent()
 
-        initButtons()
         initProgressBar()
+        initInterestList()
 
         makeListener()
     }
 
-    private fun initButtons(){
-        medicineButtons = listOf(
-            btn_medicine_1,btn_medicine_2,btn_medicine_3,btn_medicine_4,btn_medicine_5,btn_medicine_6,btn_medicine_7,btn_medicine_8,btn_medicine_9,btn_medicine_10,
-            btn_medicine_11,btn_medicine_12,btn_medicine_13,btn_medicine_14,btn_medicine_15,btn_medicine_16,btn_medicine_17,btn_medicine_18,btn_medicine_19
-        )
+    private fun initInterestList(){
+        detailAdapter = ResearchDetailAdapter(this)
+
+        rv_research_interest.adapter = detailAdapter
+
+        rv_research_interest.layoutManager = LinearLayoutManager(this)
+
+        detailAdapter.data = dummyDetail.getDetailList()
+
+        detailAdapter.notifyDataSetChanged()
     }
 
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
             ConstraintLayout.LayoutParams.WRAP_CONTENT,
-            ConstraintLayout.LayoutParams.WRAP_CONTENT)
-        param.width = (displayMetrics.widthPixels/5)*3
+            ConstraintLayout.LayoutParams.WRAP_CONTENT
+        )
+        param.width = (displayMetrics.widthPixels/5)*5
         param.height = getDisplayHeight()/6
 
-        pb_research_medicine.layoutParams = param
-        pb_research_medicine.progress = 100
+        pb_research_interest.layoutParams = param
+        pb_research_interest.progress = 100
 
-        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate3)
-        pb_research_medicine.startAnimation(animation)
+        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate5)
+        pb_research_interest.startAnimation(animation)
     }
 
     private fun getDisplayHeight():Int{
@@ -66,62 +76,41 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
     // 버튼 클릭리스너 지정
     private fun makeListener(){
-        setNoneClickListener()
-        setButtonsClickListener()
+        //setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
     }
 
-    private fun setNoneClickListener(){
-        btn_medicine_none.setOnClickListener {
-            btn_medicine_none.isChecked = !btn_medicine_none.isChecked
-            medicineButtons.forEach {
-                it.isChecked = false
-            }
-            checkNextButton()
-        }
-    }
-
-    private fun setButtonsClickListener(){
-        medicineButtons.forEachIndexed { index, checkedTextView ->
-            medicineButtons[index].setOnClickListener {
-                medicineButtons[index].isChecked = !medicineButtons[index].isChecked
-                btn_medicine_none.isChecked = false
-                checkNextButton()
-            }
-        }
-    }
-
     private fun setBackClickListener(){
-        btn_medicine_back.setOnClickListener {
+        btn_interest_back.setOnClickListener {
             finish()
         }
     }
 
     private fun setNextClickListener(){
-        btn_medicine_next.setOnClickListener {
-            val allergyIntent = Intent(this, ResearchAllergyActivity::class.java)
+        btn_interest_next.setOnClickListener {
+            val interestIntent = Intent(this, ResearchMedicineActivity::class.java)
 
-            startActivity(allergyIntent)
+            startActivity(interestIntent)
         }
     }
 
     // 다음 버튼 활성화 처리
     private fun checkNextButton(){
-        if(btn_medicine_none.isChecked || medicineButtons.any{it.isChecked}){
-            btn_medicine_next.isEnabled = true
-            btn_medicine_next.setTextColor(resources.getColor(R.color.colorWhite))
+        if(intButtons.any{it.isChecked}){
+            btn_interest_next.isEnabled = true
+            btn_interest_next.setTextColor(resources.getColor(R.color.colorWhite))
         }
         else{
-            btn_medicine_next.isEnabled = false
-            btn_medicine_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
+            btn_interest_next.isEnabled = false
+            btn_interest_next.setTextColor(resources.getColor(R.color.colorDarkGray))
         }
     }
 
     // 상태바 투명 설정
     private fun setStatusBarTransparent(){
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        cl_research_medicine.setPadding(0, getStatusBarHeight(this), 0, 0)
+        cl_research_interest.setPadding(0, getStatusBarHeight(this), 0, 0)
     }
 
     // 상태바 높이 정보

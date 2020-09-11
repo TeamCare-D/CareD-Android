@@ -1,4 +1,4 @@
-package com.caredirection.cadi.research
+package com.caredirection.cadi.research.detail
 
 import android.content.Context
 import android.content.Intent
@@ -10,13 +10,17 @@ import android.view.animation.AnimationUtils
 import android.widget.CheckedTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.research.DummyDetail
 import kotlinx.android.synthetic.main.activity_research_allergy.*
 
 class ResearchAllergyActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
     private lateinit var allergyButtons: List<CheckedTextView>
+    private lateinit var detailAdapter: ResearchDetailAdapter
+    private var dummyDetail = DummyDetail()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,18 +30,31 @@ class ResearchAllergyActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-        initButtons()
+//        initButtons()
+        initAllergyList()
         initProgressBar()
 
         makeListener()
     }
 
-    private fun initButtons(){
-        allergyButtons = listOf(
-            btn_allergy_1,btn_allergy_2,btn_allergy_3,btn_allergy_4,btn_allergy_5,btn_allergy_6,btn_allergy_7,btn_allergy_8,btn_allergy_9,btn_allergy_10,
-            btn_allergy_11,btn_allergy_12,btn_allergy_13,btn_allergy_14,btn_allergy_15,btn_allergy_16,btn_allergy_17,btn_allergy_18,btn_allergy_19,btn_allergy_20
-        )
+    private fun initAllergyList(){
+        detailAdapter = ResearchDetailAdapter(this)
+
+        rv_research_allergy.adapter = detailAdapter
+
+        rv_research_allergy.layoutManager = GridLayoutManager(this,2)
+
+        detailAdapter.data = dummyDetail.getDetailList()
+
+        detailAdapter.notifyDataSetChanged()
     }
+
+//    private fun initButtons(){
+//        allergyButtons = listOf(
+//            btn_allergy_1,btn_allergy_2,btn_allergy_3,btn_allergy_4,btn_allergy_5,btn_allergy_6,btn_allergy_7,btn_allergy_8,btn_allergy_9,btn_allergy_10,
+//            btn_allergy_11,btn_allergy_12,btn_allergy_13,btn_allergy_14,btn_allergy_15,btn_allergy_16,btn_allergy_17,btn_allergy_18,btn_allergy_19,btn_allergy_20
+//        )
+//    }
 
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
@@ -65,31 +82,31 @@ class ResearchAllergyActivity : AppCompatActivity() {
     }
 
     private fun makeListener(){
-        setNoneClickListener()
-        setButtonsClickListener()
+//        setNoneClickListener()
+//        setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
     }
 
-    private fun setNoneClickListener(){
-        btn_allergy_none.setOnClickListener {
-            btn_allergy_none.isChecked = !btn_allergy_none.isChecked
-            allergyButtons.forEach {
-                it.isChecked = false
-            }
-            checkNextButton()
-        }
-    }
+//    private fun setNoneClickListener(){
+//        btn_allergy_none.setOnClickListener {
+//            btn_allergy_none.isChecked = !btn_allergy_none.isChecked
+//            allergyButtons.forEach {
+//                it.isChecked = false
+//            }
+//            checkNextButton()
+//        }
+//    }
 
-    private fun setButtonsClickListener() {
-        allergyButtons.forEachIndexed { index, _ ->
-            allergyButtons[index].setOnClickListener {
-                allergyButtons[index].isChecked = !allergyButtons[index].isChecked
-                btn_allergy_none.isChecked = false
-                checkNextButton()
-            }
-        }
-    }
+//    private fun setButtonsClickListener() {
+//        allergyButtons.forEachIndexed { index, _ ->
+//            allergyButtons[index].setOnClickListener {
+//                allergyButtons[index].isChecked = !allergyButtons[index].isChecked
+//                btn_allergy_none.isChecked = false
+//                checkNextButton()
+//            }
+//        }
+//    }
 
     private fun setBackClickListener(){
         btn_allergy_back.setOnClickListener {
@@ -105,17 +122,17 @@ class ResearchAllergyActivity : AppCompatActivity() {
         }
     }
 
-    // 다음 버튼 활성화 처리
-    private fun checkNextButton(){
-        if(btn_allergy_none.isChecked || allergyButtons.any{it.isChecked}){
-            btn_allergy_next.isEnabled = true
-            btn_allergy_next.setTextColor(resources.getColor(R.color.colorWhite))
-        }
-        else{
-            btn_allergy_next.isEnabled = false
-            btn_allergy_next.setTextColor(resources.getColor(R.color.colorDarkGray))
-        }
-    }
+//    // 다음 버튼 활성화 처리
+//    private fun checkNextButton(){
+//        if(btn_allergy_none.isChecked || allergyButtons.any{it.isChecked}){
+//            btn_allergy_next.isEnabled = true
+//            btn_allergy_next.setTextColor(resources.getColor(R.color.colorWhite))
+//        }
+//        else{
+//            btn_allergy_next.isEnabled = false
+//            btn_allergy_next.setTextColor(resources.getColor(R.color.colorDarkGray))
+//        }
+//    }
 
     // 상태바 투명 설정
     private fun setStatusBarTransparent(){
