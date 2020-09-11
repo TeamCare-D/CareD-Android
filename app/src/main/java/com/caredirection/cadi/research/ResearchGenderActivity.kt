@@ -113,7 +113,7 @@ class ResearchGenderActivity : AppCompatActivity() {
         npYear.wrapSelectorWheel = false
         npYear.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
 
-        npYear.textColor = this.resources.getColor(R.color.colorPointBlue)
+        //npYear.textColor = this.resources.getColor(R.color.colorPointBlue)
 
         btnCancel.setOnClickListener {
             yearDialog.cancel()
