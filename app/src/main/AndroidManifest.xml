@@ -28,8 +28,6 @@
         <activity android:name=".register.user.RegisterProductActivity" />
 
 
-
-
         <activity android:name="com.caredirection.cadi.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
