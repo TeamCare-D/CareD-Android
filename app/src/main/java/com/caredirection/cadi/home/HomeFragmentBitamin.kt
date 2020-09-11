@@ -35,7 +35,7 @@ class HomeFragmentBitamin: Fragment(R.layout.view_pager_home_chart) {
                     response: Response<GraphBitaminList>
                 ) {
                     try{
-//                        chartBitaminAdapter.items.addAll(response.body().data)
+                         chartBitaminAdapter.items.addAll(response.body()!!.data)
 
 
                         rv_view_pager_home_chart.adapter = chartBitaminAdapter

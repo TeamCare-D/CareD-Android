@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.adapter.MagazineIngredientRvAdapter
-import com.caredirection.cadi.product.list.adapter.ProductMagazineData
 import kotlinx.android.synthetic.main.fragment_cadi_zone.*
 
 class CadiZoneFragment : Fragment(R.layout.fragment_cadi_zone) {
@@ -63,10 +62,10 @@ class CadiZoneFragment : Fragment(R.layout.fragment_cadi_zone) {
 
 
         val tag = listOf<String>("방향성", "방향성")
-        magazineAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
-        magazineAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
-        magazineAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
-        magazineAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
+//        magazineAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
+//        magazineAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
+//        magazineAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
+//        magazineAdapter.items.add(ProductMagazineData("테스트테스트테스트", tag))
 
         rv_magazine_list.adapter = magazineAdapter
 

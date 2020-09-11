@@ -1,15 +1,20 @@
 package com.caredirection.cadi.home
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import com.caredirection.cadi.R
 import com.caredirection.cadi.home.caredetail.CareDetailActivity
 import com.caredirection.cadi.home.careuser.HomeDetailActivity
-import com.caredirection.cadi.product.list.adapter.MarketingData
-import com.caredirection.cadi.product.list.adapter.ProductMagazineData
+import com.caredirection.cadi.network.RequestURL
+import com.caredirection.cadi.networkdata.MagazineHome
+import com.caredirection.cadi.networkdata.MagazineHomeData
 import com.caredirection.cadi.product.list.adapter.ProductMagazineRvAdapter
 import com.caredirection.cadi.product.search.adapter.ViewPagerAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeFragment : Fragment(R.layout.fragment_home){
 
@@ -23,7 +28,6 @@ class HomeFragment : Fragment(R.layout.fragment_home){
         moreCategoryIntent()
 
         userIntakeMore()
-
     }
 
     fun ViewPagerSetting(){
@@ -45,50 +49,26 @@ class HomeFragment : Fragment(R.layout.fragment_home){
     fun magazineSetting(){
         val productMagazineRvAdapter = ProductMagazineRvAdapter()
 
-        val tag = listOf<String>("방향성", "방향성")
+        val call: Call<MagazineHome> = RequestURL.service.getMagazineHome("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE")
+        call.enqueue(
+            object : Callback<MagazineHome>{
+                override fun onFailure(call: Call<MagazineHome>, t: Throwable) {
+                    Log.d("getMagazineHome Fail", t.toString())
+                }
 
-        productMagazineRvAdapter.items.add(
-            ProductMagazineData("테스트테스트테스트", tag)
-        )
-        productMagazineRvAdapter.items.add(
-            ProductMagazineData(
-                "테스트테스트테스트",
-                tag
-            )
-        )
-        productMagazineRvAdapter.items.add(
-            ProductMagazineData(
-                "테스트테스트테스트",
-                tag
-            )
-        )
-        productMagazineRvAdapter.items.add(
-            ProductMagazineData(
-                "테스트테스트테스트",
-                tag
-            )
+                override fun onResponse(
+                    call: Call<MagazineHome>,
+                    response: Response<MagazineHome>
+                ) {
+                    val data = response.body()!!.data
+                    productMagazineRvAdapter.items.addAll(data.magazine)
+                    productMagazineRvAdapter.marketingItems.addAll(data.directions)
+                    rv_home_magazine.adapter = productMagazineRvAdapter
+                }
+            }
         )
 
-        productMagazineRvAdapter.marketingItems.add(
-            MarketingData(
-                "test",
-                "test"
-            )
-        )
-        productMagazineRvAdapter.marketingItems.add(
-            MarketingData(
-                "test",
-                "test"
-            )
-        )
-        productMagazineRvAdapter.marketingItems.add(
-            MarketingData(
-                "test",
-                "test"
-            )
-        )
 
-        rv_home_magazine.adapter = productMagazineRvAdapter
 
 
 
