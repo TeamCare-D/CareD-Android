@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -12,15 +13,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.research.DummyDetail
+import com.caredirection.cadi.data.network.ResearchItemData
+import com.caredirection.cadi.data.research.RvResearchListItem
+import com.caredirection.cadi.network.RequestURL
 import kotlinx.android.synthetic.main.activity_research_disease.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ResearchDiseaseActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
     private lateinit var disButtons: List<CheckedTextView>
     private lateinit var detailAdapter: ResearchDetailAdapter
-    private var dummyDetail = DummyDetail()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +35,6 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-        //initButtons()
         initProgressBar()
         initDiseaseList()
 
@@ -44,16 +48,42 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
         rv_research_disease.layoutManager = GridLayoutManager(this,2)
 
-        detailAdapter.data = dummyDetail.getDetailList()
-
-        detailAdapter.notifyDataSetChanged()
+        getResearchItemResponse()
     }
 
-//    private fun initButtons(){
-//        disButtons = listOf(
-//            btn_disease_none, btn_disease_1, btn_disease_2, btn_disease_3, btn_disease_4, btn_disease_5, btn_disease_6, btn_disease_7
-//        )
-//    }
+    private fun getResearchItemResponse(){
+        val call: Call<ResearchItemData> = RequestURL.service.getResearchList()
+        call.enqueue(
+            object : Callback<ResearchItemData> {
+                override fun onFailure(call: Call<ResearchItemData>, t: Throwable) {
+                    Log.d("설문조사 리스트 조회 실패","메시지 : $t")
+                }
+
+                override fun onResponse(
+                    call: Call<ResearchItemData>,
+                    response: Response<ResearchItemData>
+                ) {
+                    if(response.isSuccessful){
+                        val researchList=response.body()!!
+
+                        val researchItem = mutableListOf<RvResearchListItem>()
+                        for(item in researchList.data.userWarning){
+                            researchItem.add(
+                                RvResearchListItem(
+                                item.itemIdx,
+                                item.name
+                            )
+                            )
+                        }
+
+                        detailAdapter.data=researchItem
+                        detailAdapter.notifyDataSetChanged()
+                    }
+                }
+
+            }
+        )
+    }
 
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(

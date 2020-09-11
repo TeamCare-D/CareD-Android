@@ -9,6 +9,11 @@ import retrofit2.http.*
 
 interface RequestInterface {
 
+    // 설문조사 - 설문조사 리스트 조회
+    @GET("/user/survey-item")
+    fun getResearchList(
+    ): Call<ResearchItemData>
+
     // 복용제품등록, 마이페이지 - 복용 제품 리스트 조회
     @GET("/dose/product")
     fun getTakeList(

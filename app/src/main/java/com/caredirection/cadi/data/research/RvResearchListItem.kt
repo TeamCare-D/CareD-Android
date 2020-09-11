@@ -1,5 +1,6 @@
 package com.caredirection.cadi.data.research
 
-data class ResearchDetailItem (
+data class RvResearchListItem (
+    val itemIdx: Int,
     val item: String
 )
