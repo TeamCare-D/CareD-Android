@@ -22,15 +22,15 @@ class ResearchNicknameActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-        checkNicknameEmpty()
-
         makeListener()
     }
 
-    // 버튼 클릭리스너 지정
     private fun makeListener(){
         setNextClickListener()
         setCloseClickListener()
+
+        checkNicknameEmpty()
+        checkNicknameFocus()
     }
 
     private fun setCloseClickListener(){
@@ -48,19 +48,17 @@ class ResearchNicknameActivity : AppCompatActivity() {
         }
     }
 
-    // 사용자 입력 확인
     private fun checkNicknameEmpty(){
-        // 이름 입력 실시간 검사
         edt_nick?.addTextChangedListener(object: TextWatcher{
             var nickLength = 0
             override fun afterTextChanged(p0: Editable?) {
                 nickLength = edt_nick?.length()!!
-                // 입력값 있는 경우
+
                 if(nickLength > 0){
                     btn_nickNext?.isEnabled = true
                     btn_nickNext?.setTextColor(resources.getColor(R.color.colorWhite))
                 }
-                // 입력값 없는 경우
+
                 else{
                     btn_nickNext?.isEnabled = false
                     btn_nickNext?.setTextColor(resources.getColor(R.color.colorCoolGray2))
@@ -68,13 +66,17 @@ class ResearchNicknameActivity : AppCompatActivity() {
             }
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                //TODO("Not yet implemented")
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                //TODO("Not yet implemented")
             }
         })
+    }
+
+    private fun checkNicknameFocus(){
+        edt_nick.setOnFocusChangeListener { _, hasFocus ->
+            edt_nick.hint = ""
+        }
     }
 
     private fun showDeleteDialog(){
