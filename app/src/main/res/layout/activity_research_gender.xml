@@ -45,7 +45,7 @@
         android:layout_marginTop="112dp"
         android:fontFamily="@font/notosanskr_light"
         android:includeFontPadding="false"
-        android:lineSpacingExtra="9sp"
+        android:lineSpacingExtra="2sp"
         android:text="님의\n건강기능식품 선택을 도와드릴게요"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
