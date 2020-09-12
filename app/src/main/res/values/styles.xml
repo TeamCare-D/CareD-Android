@@ -8,12 +8,11 @@
     </style>
 
     <style name="ResearchNumberPickerTheme" parent="AppTheme">
-        <item name="colorControlNormal">@color/colorPinkishGray</item>
+        <item name="colorControlNormal">@color/colorTransparentWhite</item>
         <item name="fontFamily">@font/notosanskr_bold</item>
         <item name="android:textSize">20dp</item>
         <item name="android:lineSpacingExtra">2sp</item>
         <item name="android:includeFontPadding">false</item>
-        <item name="android:selectionDividerHeight">0dp</item>
     </style>
 
     <style name="ResearchProgressbarTheme" parent="AppTheme">
