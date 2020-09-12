@@ -19,11 +19,15 @@ import com.caredirection.cadi.R
 import com.caredirection.cadi.research.detail.ResearchDiseaseActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_research_gender.*
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 class ResearchGenderActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
+
+    private lateinit var yearDialog : BottomSheetDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +41,12 @@ class ResearchGenderActivity : AppCompatActivity() {
         initProgressBar()
 
         makeListener()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        yearDialog.dismiss()
     }
 
     private fun initTitle(){
@@ -56,7 +66,10 @@ class ResearchGenderActivity : AppCompatActivity() {
         pb_research_gender.layoutParams = param
         pb_research_gender.progress = 100
 
-        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate)
+        val animation: Animation = AnimationUtils.loadAnimation(
+            applicationContext,
+            R.anim.translate
+        )
         pb_research_gender.startAnimation(animation)
     }
 
@@ -101,7 +114,7 @@ class ResearchGenderActivity : AppCompatActivity() {
     }
 
     private fun showYearPicker(){
-        val yearDialog = BottomSheetDialog(this)
+        yearDialog = BottomSheetDialog(this)
         val yearLayout : LayoutInflater = LayoutInflater.from(this)
         val yearView : View = yearLayout.inflate(R.layout.dialog_research_year, null)
 
@@ -109,14 +122,16 @@ class ResearchGenderActivity : AppCompatActivity() {
         val btnCancel : TextView = yearView.findViewById(R.id.btn_cancel)
         val btnConfirm : TextView = yearView.findViewById(R.id.btn_confirm)
 
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy")
+        val formatted = current.format(formatter)
+
         npYear.minValue = 1900
-        npYear.maxValue = 2020
+        npYear.maxValue = formatted.toInt()
         npYear.value = 1990
 
         npYear.wrapSelectorWheel = false
         npYear.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
-
-        //npYear.textColor = this.resources.getColor(R.color.colorPointBlue)
 
         btnCancel.setOnClickListener {
             yearDialog.cancel()
@@ -133,6 +148,7 @@ class ResearchGenderActivity : AppCompatActivity() {
             checkNextButton()
         }
 
+        yearDialog.behavior.isHideable = false
         yearDialog.setContentView(yearView)
         yearDialog.setCanceledOnTouchOutside(false)
         yearDialog.create()
@@ -169,7 +185,7 @@ class ResearchGenderActivity : AppCompatActivity() {
     private fun showDeleteDialog(){
         val deleteDialog = AppCompatDialog(this)
         val deleteLayout : LayoutInflater = LayoutInflater.from(this)
-        val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup,null)
+        val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup, null)
 
         val btnCancel : Button = deleteView.findViewById(R.id.btn_popup_cancel)
         val btnConfirm : Button = deleteView.findViewById(R.id.btn_popup_confirm)
