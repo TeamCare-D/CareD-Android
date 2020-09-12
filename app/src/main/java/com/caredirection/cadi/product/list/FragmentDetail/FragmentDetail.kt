@@ -1,16 +1,16 @@
-package com.caredirection.cadi.product.list
+package com.caredirection.cadi.product.list.FragmentDetail
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import com.caredirection.cadi.R
-import kotlinx.android.synthetic.main.fragment_product_list_detail.*
+import com.caredirection.cadi.product.list.FragmentDetailSimplicity
 
 
 class FragmentDetail : Fragment(R.layout.fragment_product_list_detail) {
 
 //    private val fragmentDetailItem = FragmentDetailItem()
-    private val fragmentDetailSimplicity = FragmentDetailSimplicity()
+    private val fragmentDetailSimplicity =
+    FragmentDetailSimplicity()
 //    private var active: Fragment = fragmentDetailItem
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

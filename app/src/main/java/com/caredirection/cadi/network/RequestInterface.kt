@@ -96,11 +96,21 @@ interface RequestInterface {
         @Header("token")token : String
     ): Call<MagazineHome>
 
-
+    // 제품 탭 비슷한 사람들이 섭취하는 성분
     @GET("/suggestion")
     fun getSimilarIngredient(
         @Header("token")token : String
     ): Call<SimilarIngredient>
 
+    // search/efficacy 효능 리스트 가져오기
+    @GET("/search/efficacy")
+    fun getEfficacy(): Call<EfficacyListData>
+
+    // search/product 제품 검색 하기
+    @GET("/search/product")
+    fun getSearchPrudct(
+        @Query("keyword") keyword: String,
+        @Header("token") token: String
+    ) : Call<ProductSearchData>
 
 }

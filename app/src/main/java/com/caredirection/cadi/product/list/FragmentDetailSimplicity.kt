@@ -9,6 +9,8 @@ import kotlinx.android.synthetic.main.fragment_product_list_detail_simplicity.*
 
 class FragmentDetailSimplicity: Fragment(R.layout.fragment_product_list_detail_simplicity) {
 
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -17,5 +19,16 @@ class FragmentDetailSimplicity: Fragment(R.layout.fragment_product_list_detail_s
             startActivity(intent)
         }
 
+
+    }
+
+    fun ingredientSetting(){
+
     }
 }
+data class IngredientDataSimplicity(
+    val ingredientTitle: String,
+    val standard1: String,
+    val standard2: String,
+    val standard3: String
+)
