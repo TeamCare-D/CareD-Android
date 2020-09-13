@@ -19,6 +19,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.research.ResearchDetailList
+import com.caredirection.cadi.data.research.ResearchSelectList
 import com.caredirection.cadi.data.research.RvResearchListItem
 import com.caredirection.cadi.register.list.RegisterListActivity
 import kotlinx.android.synthetic.main.activity_research_interest.*
@@ -114,6 +115,8 @@ class ResearchInterestActivity : AppCompatActivity() {
     private fun setNextClickListener(){
         btn_interest_next.setOnClickListener {
             showToastMessage()
+
+            ResearchSelectList.setInterestList(detailAdapter.selectedItem)
 
             val registerIntent = Intent(this, RegisterListActivity::class.java)
 

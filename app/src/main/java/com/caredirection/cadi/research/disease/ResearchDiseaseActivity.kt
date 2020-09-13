@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.network.ResearchItemData
 import com.caredirection.cadi.data.research.ResearchDetailList
+import com.caredirection.cadi.data.research.ResearchSelectList
 import com.caredirection.cadi.data.research.RvResearchListItem
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.research.medicine.ResearchMedicineActivity
@@ -139,6 +140,8 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
     private fun setNextClickListener(){
         btn_disease_next.setOnClickListener {
+            ResearchSelectList.setDiseaseList(detailAdapter.selectedItem)
+
             val medicineIntent = Intent(this, ResearchMedicineActivity::class.java)
 
             startActivity(medicineIntent)

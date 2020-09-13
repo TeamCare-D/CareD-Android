@@ -17,6 +17,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.research.ResearchDetailList
+import com.caredirection.cadi.data.research.ResearchSelectList
 import com.caredirection.cadi.data.research.RvResearchListItem
 import com.caredirection.cadi.research.allergy.ResearchAllergyActivity
 import kotlinx.android.synthetic.main.activity_research_medicine.*
@@ -111,6 +112,8 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
     private fun setNextClickListener(){
         btn_medicine_next.setOnClickListener {
+            ResearchSelectList.setMedicineList(detailAdapter.selectedItem)
+
             val allergyIntent = Intent(this, ResearchAllergyActivity::class.java)
 
             startActivity(allergyIntent)
