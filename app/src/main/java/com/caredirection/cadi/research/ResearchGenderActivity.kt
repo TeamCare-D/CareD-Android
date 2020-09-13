@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.UserController
 import com.caredirection.cadi.research.disease.ResearchDiseaseActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_research_gender.*
@@ -26,8 +27,6 @@ import java.time.format.DateTimeFormatter
 class ResearchGenderActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-
-    private lateinit var yearDialog : BottomSheetDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,16 +42,8 @@ class ResearchGenderActivity : AppCompatActivity() {
         makeListener()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-
-        yearDialog.dismiss()
-    }
-
     private fun initTitle(){
-        val nick = intent.getStringExtra("nick")
-
-        txt_gender_title.text = nick + "님의\n건강기능식품 선택을 도와드릴게요"
+        txt_gender_title.text = UserController.getName(this) + "님의\n건강기능식품 선택을 도와드릴게요"
     }
 
     private fun initProgressBar(){
@@ -114,7 +105,7 @@ class ResearchGenderActivity : AppCompatActivity() {
     }
 
     private fun showYearPicker(){
-        yearDialog = BottomSheetDialog(this)
+        val yearDialog = BottomSheetDialog(this)
         val yearLayout : LayoutInflater = LayoutInflater.from(this)
         val yearView : View = yearLayout.inflate(R.layout.dialog_research_year, null)
 

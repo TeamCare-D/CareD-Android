@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.UserController
 import kotlinx.android.synthetic.main.activity_research_name.*
 
 class ResearchNicknameActivity : AppCompatActivity() {
@@ -42,7 +43,7 @@ class ResearchNicknameActivity : AppCompatActivity() {
     private fun setNextClickListener(){
         btn_nickNext?.setOnClickListener{
             val genderIntent = Intent(this,ResearchGenderActivity::class.java)
-            genderIntent.putExtra("nick", edt_nick.text.toString())
+            UserController.setName(this, edt_nick.text.toString())
 
             startActivity(genderIntent)
         }
