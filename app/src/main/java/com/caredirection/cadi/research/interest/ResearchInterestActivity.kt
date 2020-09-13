@@ -113,10 +113,23 @@ class ResearchInterestActivity : AppCompatActivity() {
 
     private fun setNextClickListener(){
         btn_interest_next.setOnClickListener {
+            showToastMessage()
+
             val registerIntent = Intent(this, RegisterListActivity::class.java)
 
             startActivity(registerIntent)
         }
+    }
+
+    private fun showToastMessage(){
+        var toastView = layoutInflater.inflate(R.layout.toast_message, null)
+
+        toastView.setBackgroundResource(android.R.drawable.toast_frame)
+
+        var completeToast = Toast(this)
+        completeToast.setGravity(Gravity.TOP,10,60)
+        completeToast.view = toastView
+        completeToast.show()
     }
 
     // 다음 버튼 활성화 처리
