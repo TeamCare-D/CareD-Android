@@ -1,9 +1,10 @@
-package com.caredirection.cadi.research.detail
+package com.caredirection.cadi.research.disease
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -15,43 +16,79 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.research.DummyDetail
-import com.caredirection.cadi.register.list.RegisterListActivity
-import kotlinx.android.synthetic.main.activity_research_interest.*
+import com.caredirection.cadi.data.network.ResearchItemData
+import com.caredirection.cadi.data.research.RvResearchListItem
+import com.caredirection.cadi.network.RequestURL
+import com.caredirection.cadi.research.medicine.ResearchMedicineActivity
+import kotlinx.android.synthetic.main.activity_research_disease.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class ResearchInterestActivity : AppCompatActivity() {
+class ResearchDiseaseActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var intButtons: List<CheckedTextView>
-    private lateinit var detailAdapter: ResearchDetailAdapter
-    private var dummyDetail = DummyDetail()
+    private lateinit var disButtons: List<CheckedTextView>
+    private lateinit var detailAdapter: ResearchDiseaseAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_research_interest)
+        setContentView(R.layout.activity_research_disease)
 
         windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
         setStatusBarTransparent()
 
         initProgressBar()
-        initInterestList()
+        initDiseaseList()
 
         makeListener()
     }
 
-    private fun initInterestList(){
-        detailAdapter = ResearchDetailAdapter(this)
+    private fun initDiseaseList(){
+        detailAdapter = ResearchDiseaseAdapter(this)
 
-        rv_research_interest.adapter = detailAdapter
+        rv_research_disease.adapter = detailAdapter
 
-        rv_research_interest.layoutManager = LinearLayoutManager(this)
+        rv_research_disease.layoutManager = GridLayoutManager(this,2)
 
-        detailAdapter.data = dummyDetail.getDetailList()
+        getResearchItemResponse()
+    }
 
-        detailAdapter.notifyDataSetChanged()
+    private fun getResearchItemResponse(){
+        val call: Call<ResearchItemData> = RequestURL.service.getResearchList()
+        call.enqueue(
+            object : Callback<ResearchItemData> {
+                override fun onFailure(call: Call<ResearchItemData>, t: Throwable) {
+                    Log.d("설문조사 리스트 조회 실패","메시지 : $t")
+                }
+
+                override fun onResponse(
+                    call: Call<ResearchItemData>,
+                    response: Response<ResearchItemData>
+                ) {
+                    if(response.isSuccessful){
+                        val researchList=response.body()!!
+
+                        val researchItem = mutableListOf<RvResearchListItem>()
+                        for(item in researchList.data.userWarning){
+                            researchItem.add(
+                                RvResearchListItem(
+                                item.itemIdx,
+                                item.name
+                                )
+                            )
+                        }
+
+                        detailAdapter.data=researchItem
+                        detailAdapter.notifyDataSetChanged()
+                    }
+                }
+
+            }
+        )
     }
 
     private fun initProgressBar(){
@@ -59,14 +96,14 @@ class ResearchInterestActivity : AppCompatActivity() {
             ConstraintLayout.LayoutParams.WRAP_CONTENT,
             ConstraintLayout.LayoutParams.WRAP_CONTENT
         )
-        param.width = (displayMetrics.widthPixels/5)*5
+        param.width = (displayMetrics.widthPixels/5)*2
         param.height = getDisplayHeight()/6
 
-        pb_research_interest.layoutParams = param
-        pb_research_interest.progress = 100
+        pb_research_disease.layoutParams = param
+        pb_research_disease.progress = 100
 
-        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate5)
-        pb_research_interest.startAnimation(animation)
+        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate2)
+        pb_research_disease.startAnimation(animation)
     }
 
     private fun getDisplayHeight():Int{
@@ -82,41 +119,40 @@ class ResearchInterestActivity : AppCompatActivity() {
 
     // 버튼 클릭리스너 지정
     private fun makeListener(){
-        //setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
         setCloseClickListener()
     }
 
     private fun setBackClickListener(){
-        btn_interest_back.setOnClickListener {
+        btn_disease_back.setOnClickListener {
             finish()
         }
     }
 
     private fun setCloseClickListener(){
-        btn_interest_close.setOnClickListener {
+        btn_disease_close.setOnClickListener {
             showDeleteDialog()
         }
     }
 
     private fun setNextClickListener(){
-        btn_interest_next.setOnClickListener {
-            val registerIntent = Intent(this, RegisterListActivity::class.java)
+        btn_disease_next.setOnClickListener {
+            val medicineIntent = Intent(this, ResearchMedicineActivity::class.java)
 
-            startActivity(registerIntent)
+            startActivity(medicineIntent)
         }
     }
 
     // 다음 버튼 활성화 처리
-    private fun checkNextButton(){
-        if(intButtons.any{it.isChecked}){
-            btn_interest_next.isEnabled = true
-            btn_interest_next.setTextColor(resources.getColor(R.color.colorWhite))
+    fun checkNextButton(){
+        if(detailAdapter.selectedItem.size > 0){
+            btn_disease_next.isEnabled = true
+            btn_disease_next.setTextColor(resources.getColor(R.color.colorWhite))
         }
         else{
-            btn_interest_next.isEnabled = false
-            btn_interest_next.setTextColor(resources.getColor(R.color.colorDarkGray))
+            btn_disease_next.isEnabled = false
+            btn_disease_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
         }
     }
 
@@ -148,7 +184,7 @@ class ResearchInterestActivity : AppCompatActivity() {
     // 상태바 투명 설정
     private fun setStatusBarTransparent(){
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        cl_research_interest.setPadding(0, getStatusBarHeight(this), 0, 0)
+        cl_research_disease.setPadding(0, getStatusBarHeight(this), 0, 0)
     }
 
     // 상태바 높이 정보

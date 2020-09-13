@@ -1,4 +1,4 @@
-package com.caredirection.cadi.research.detail
+package com.caredirection.cadi.research.medicine
 
 import android.content.Context
 import android.content.Intent
@@ -18,35 +18,36 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.research.DummyDetail
-import kotlinx.android.synthetic.main.activity_research_allergy.*
+import com.caredirection.cadi.research.allergy.ResearchAllergyActivity
+import kotlinx.android.synthetic.main.activity_research_medicine.*
 
-class ResearchAllergyActivity : AppCompatActivity() {
+class ResearchMedicineActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var allergyButtons: List<CheckedTextView>
-    private lateinit var detailAdapter: ResearchDetailAdapter
+    private lateinit var medButtons: List<CheckedTextView>
+    private lateinit var detailAdapter: ResearchMedicineAdapter
     private var dummyDetail = DummyDetail()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_research_allergy)
+        setContentView(R.layout.activity_research_medicine)
 
         windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
         setStatusBarTransparent()
 
-        initAllergyList()
         initProgressBar()
+        initMedicineList()
 
         makeListener()
     }
 
-    private fun initAllergyList(){
-        detailAdapter = ResearchDetailAdapter(this)
+    private fun initMedicineList(){
+        detailAdapter = ResearchMedicineAdapter(this)
 
-        rv_research_allergy.adapter = detailAdapter
+        rv_research_medicine.adapter = detailAdapter
 
-        rv_research_allergy.layoutManager = GridLayoutManager(this,2)
+        rv_research_medicine.layoutManager = GridLayoutManager(this, 2)
 
         detailAdapter.data = dummyDetail.getDetailList()
 
@@ -56,15 +57,16 @@ class ResearchAllergyActivity : AppCompatActivity() {
     private fun initProgressBar(){
         var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
             ConstraintLayout.LayoutParams.WRAP_CONTENT,
-            ConstraintLayout.LayoutParams.WRAP_CONTENT)
-        param.width = (displayMetrics.widthPixels/5)*4
+            ConstraintLayout.LayoutParams.WRAP_CONTENT
+        )
+        param.width = (displayMetrics.widthPixels/5)*3
         param.height = getDisplayHeight()/6
 
-        pb_research_allergy.layoutParams = param
-        pb_research_allergy.progress = 100
+        pb_research_medicine.layoutParams = param
+        pb_research_medicine.progress = 100
 
-        val animation: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.translate4)
-        pb_research_allergy.startAnimation(animation)
+        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate3)
+        pb_research_medicine.startAnimation(animation)
     }
 
     private fun getDisplayHeight():Int{
@@ -78,65 +80,54 @@ class ResearchAllergyActivity : AppCompatActivity() {
         return displayHeight-statusBarHeight
     }
 
+    // 버튼 클릭리스너 지정
     private fun makeListener(){
-//        setNoneClickListener()
-//        setButtonsClickListener()
+        //setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
         setCloseClickListener()
     }
 
-//    private fun setNoneClickListener(){
-//        btn_allergy_none.setOnClickListener {
-//            btn_allergy_none.isChecked = !btn_allergy_none.isChecked
-//            allergyButtons.forEach {
-//                it.isChecked = false
-//            }
-//            checkNextButton()
-//        }
-//    }
-
-//    private fun setButtonsClickListener() {
-//        allergyButtons.forEachIndexed { index, _ ->
-//            allergyButtons[index].setOnClickListener {
-//                allergyButtons[index].isChecked = !allergyButtons[index].isChecked
-//                btn_allergy_none.isChecked = false
-//                checkNextButton()
-//            }
-//        }
-//    }
+    private fun setButtonsClickListener(){
+        medButtons.forEachIndexed { index, checkedTextView ->
+            medButtons[index].setOnClickListener {
+                medButtons[index].isChecked = !medButtons[index].isChecked
+                checkNextButton()
+            }
+        }
+    }
 
     private fun setBackClickListener(){
-        btn_allergy_back.setOnClickListener {
+        btn_medicine_back.setOnClickListener {
             finish()
         }
     }
 
     private fun setCloseClickListener(){
-        btn_allergy_close.setOnClickListener {
+        btn_medicine_close.setOnClickListener {
             showDeleteDialog()
         }
     }
 
     private fun setNextClickListener(){
-        btn_allergy_next.setOnClickListener {
-            val interestIntent = Intent(this, ResearchInterestActivity::class.java)
+        btn_medicine_next.setOnClickListener {
+            val allergyIntent = Intent(this, ResearchAllergyActivity::class.java)
 
-            startActivity(interestIntent)
+            startActivity(allergyIntent)
         }
     }
 
-//    // 다음 버튼 활성화 처리
-//    private fun checkNextButton(){
-//        if(btn_allergy_none.isChecked || allergyButtons.any{it.isChecked}){
-//            btn_allergy_next.isEnabled = true
-//            btn_allergy_next.setTextColor(resources.getColor(R.color.colorWhite))
-//        }
-//        else{
-//            btn_allergy_next.isEnabled = false
-//            btn_allergy_next.setTextColor(resources.getColor(R.color.colorDarkGray))
-//        }
-//    }
+    // 다음 버튼 활성화 처리
+    fun checkNextButton(){
+        if(detailAdapter.selectedItem.size > 0){
+            btn_medicine_next.isEnabled = true
+            btn_medicine_next.setTextColor(resources.getColor(R.color.colorWhite))
+        }
+        else{
+            btn_medicine_next.isEnabled = false
+            btn_medicine_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
+        }
+    }
 
     private fun showDeleteDialog(){
         val deleteDialog = AppCompatDialog(this)
@@ -166,7 +157,7 @@ class ResearchAllergyActivity : AppCompatActivity() {
     // 상태바 투명 설정
     private fun setStatusBarTransparent(){
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        cl_research_allergy.setPadding(0, getStatusBarHeight(this), 0, 0)
+        cl_research_medicine.setPadding(0, getStatusBarHeight(this), 0, 0)
     }
 
     // 상태바 높이 정보

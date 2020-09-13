@@ -1,17 +1,17 @@
-package com.caredirection.cadi.research.detail
+package com.caredirection.cadi.research.interest
 
 import android.view.View
-import android.widget.CheckedTextView
+import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.research.RvResearchListItem
 
-class ResearchDetailViewHolder(view: View) : RecyclerView.ViewHolder(view){
+class ResearchInterestViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
-    private val btnDisease : CheckedTextView = view.findViewById(R.id.btn_item)
+    private val btnInterest : CheckBox = view.findViewById(R.id.btn_item)
 
     fun onBind(detail: RvResearchListItem){
-        btnDisease.text = detail.item
+        btnInterest.text = detail.item
 
 //        btnDisease.setOnClickListener {
 //            btnDisease.isChecked = !btnDisease.isChecked

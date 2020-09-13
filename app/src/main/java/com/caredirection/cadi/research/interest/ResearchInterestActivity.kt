@@ -1,4 +1,4 @@
-package com.caredirection.cadi.research.detail
+package com.caredirection.cadi.research.interest
 
 import android.content.Context
 import android.content.Intent
@@ -15,38 +15,39 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.research.DummyDetail
-import kotlinx.android.synthetic.main.activity_research_medicine.*
+import com.caredirection.cadi.register.list.RegisterListActivity
+import kotlinx.android.synthetic.main.activity_research_interest.*
 
-class ResearchMedicineActivity : AppCompatActivity() {
+class ResearchInterestActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var medButtons: List<CheckedTextView>
-    private lateinit var detailAdapter: ResearchDetailAdapter
+    private lateinit var intButtons: List<CheckedTextView>
+    private lateinit var detailAdapter: ResearchInterestAdapter
     private var dummyDetail = DummyDetail()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_research_medicine)
+        setContentView(R.layout.activity_research_interest)
 
         windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
         setStatusBarTransparent()
 
         initProgressBar()
-        initMedicineList()
+        initInterestList()
 
         makeListener()
     }
 
-    private fun initMedicineList(){
-        detailAdapter = ResearchDetailAdapter(this)
+    private fun initInterestList(){
+        detailAdapter = ResearchInterestAdapter(this)
 
-        rv_research_medicine.adapter = detailAdapter
+        rv_research_interest.adapter = detailAdapter
 
-        rv_research_medicine.layoutManager = GridLayoutManager(this, 2)
+        rv_research_interest.layoutManager = LinearLayoutManager(this)
 
         detailAdapter.data = dummyDetail.getDetailList()
 
@@ -58,14 +59,14 @@ class ResearchMedicineActivity : AppCompatActivity() {
             ConstraintLayout.LayoutParams.WRAP_CONTENT,
             ConstraintLayout.LayoutParams.WRAP_CONTENT
         )
-        param.width = (displayMetrics.widthPixels/5)*3
+        param.width = (displayMetrics.widthPixels/5)*5
         param.height = getDisplayHeight()/6
 
-        pb_research_medicine.layoutParams = param
-        pb_research_medicine.progress = 100
+        pb_research_interest.layoutParams = param
+        pb_research_interest.progress = 100
 
-        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate3)
-        pb_research_medicine.startAnimation(animation)
+        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate5)
+        pb_research_interest.startAnimation(animation)
     }
 
     private fun getDisplayHeight():Int{
@@ -87,44 +88,35 @@ class ResearchMedicineActivity : AppCompatActivity() {
         setCloseClickListener()
     }
 
-    private fun setButtonsClickListener(){
-        medButtons.forEachIndexed { index, checkedTextView ->
-            medButtons[index].setOnClickListener {
-                medButtons[index].isChecked = !medButtons[index].isChecked
-                checkNextButton()
-            }
-        }
-    }
-
     private fun setBackClickListener(){
-        btn_medicine_back.setOnClickListener {
+        btn_interest_back.setOnClickListener {
             finish()
         }
     }
 
     private fun setCloseClickListener(){
-        btn_medicine_close.setOnClickListener {
+        btn_interest_close.setOnClickListener {
             showDeleteDialog()
         }
     }
 
     private fun setNextClickListener(){
-        btn_medicine_next.setOnClickListener {
-            val allergyIntent = Intent(this, ResearchAllergyActivity::class.java)
+        btn_interest_next.setOnClickListener {
+            val registerIntent = Intent(this, RegisterListActivity::class.java)
 
-            startActivity(allergyIntent)
+            startActivity(registerIntent)
         }
     }
 
     // 다음 버튼 활성화 처리
-    private fun checkNextButton(){
-        if(medButtons.any{it.isChecked}){
-            btn_medicine_next.isEnabled = true
-            btn_medicine_next.setTextColor(resources.getColor(R.color.colorWhite))
+    fun checkNextButton(){
+        if(detailAdapter.selectedItem.size > 0){
+            btn_interest_next.isEnabled = true
+            btn_interest_next.setTextColor(resources.getColor(R.color.colorWhite))
         }
         else{
-            btn_medicine_next.isEnabled = false
-            btn_medicine_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
+            btn_interest_next.isEnabled = false
+            btn_interest_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
         }
     }
 
@@ -156,7 +148,7 @@ class ResearchMedicineActivity : AppCompatActivity() {
     // 상태바 투명 설정
     private fun setStatusBarTransparent(){
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        cl_research_medicine.setPadding(0, getStatusBarHeight(this), 0, 0)
+        cl_research_interest.setPadding(0, getStatusBarHeight(this), 0, 0)
     }
 
     // 상태바 높이 정보
