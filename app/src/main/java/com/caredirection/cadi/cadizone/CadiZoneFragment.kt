@@ -5,25 +5,25 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.adapter.MagazineIngredientRvAdapter
 import com.caredirection.cadi.network.RequestURL
+import com.caredirection.cadi.networkdata.MagazineDirectionData
+import com.caredirection.cadi.networkdata.MagazineGuideData
 import com.caredirection.cadi.networkdata.MagazineHome
 import com.caredirection.cadi.product.list.adapter.ProductMagazineRvAdapter
 import kotlinx.android.synthetic.main.fragment_cadi_zone.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class CadiZoneFragment : Fragment(R.layout.fragment_cadi_zone) {
 
-    private val directionAdapter = DirectionRecyclerViewAdapter()
-    private val guideAdapter = GuideRecyclerViewAdapter()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initViewPager()
         initRecyclerView()
+
+
     }
 
     private fun initViewPager() {
@@ -42,41 +42,75 @@ class CadiZoneFragment : Fragment(R.layout.fragment_cadi_zone) {
 
     private fun initRecyclerView() {
 
+        guideSetting()
+
+        directionSetting()
+
+        magazineSetting()
+    }
+
+    fun directionSetting() {
+        val directionAdapter = DirectionRecyclerViewAdapter()
+
         rv_direction_list.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         rv_direction_list.adapter = directionAdapter
-        directionAdapter.submitList(
-            listOf(
-                Direction("아ㅏㅏ", "방향성", 0),
-                Direction("아ㅏㅏ", "방향성", 0),
-                Direction("아ㅏㅏ", "방향성", 0),
-                Direction("아ㅏㅏ", "방향성", 0),
-                Direction("아ㅏㅏ", "방향성", 0)
-            )
-        )
-        rv_guide_list.layoutManager =
-            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        rv_guide_list.adapter = guideAdapter
-        guideAdapter.submitList(
-            listOf(
-                Guide("아ㅏㅏ", 0),
-                Guide("아ㅏㅏ", 0),
-                Guide("아ㅏㅏ", 0),
-                Guide("아ㅏㅏ", 0),
-                Guide("아ㅏㅏ", 0)
-            )
-        )
 
+        val call: Call<MagazineDirectionData> = RequestURL.service.getMagazineDirection()
+        call.enqueue(
+            object : Callback<MagazineDirectionData> {
+                override fun onFailure(call: Call<MagazineDirectionData>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
 
-        magazineSetting()
+                override fun onResponse(
+                    call: Call<MagazineDirectionData>,
+                    response: Response<MagazineDirectionData>
+                ) {
+                    directionAdapter.submitList(
+                        response.body()!!.data
+                    )
+                }
+            }
+        )
 
 
     }
 
-    fun magazineSetting(){
-        val productMagazineRvAdapter = ProductMagazineRvAdapter()
+    fun guideSetting() {
+        val guideAdapter = GuideRecyclerViewAdapter()
 
-        val call: Call<MagazineHome> = RequestURL.service.getMagazineHome("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE")
+        rv_guide_list.layoutManager =
+            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        rv_guide_list.adapter = guideAdapter
+
+
+
+        val call: Call<MagazineGuideData> = RequestURL.service.getMAgazineGuide()
+        call.enqueue(
+            object : Callback<MagazineGuideData>{
+                override fun onFailure(call: Call<MagazineGuideData>, t: Throwable) {
+
+                }
+
+                override fun onResponse(
+                    call: Call<MagazineGuideData>,
+                    response: Response<MagazineGuideData>
+                ) {
+                    guideAdapter.submitList(response.body()!!.data)
+                }
+            }
+        )
+
+
+
+    }
+
+    fun magazineSetting() {
+        val productMagazineRvAdapter = MagazineRecyclerViewAdapter()
+
+        val call: Call<MagazineHome> =
+            RequestURL.service.getMagazineHome("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE")
         call.enqueue(
             object : Callback<MagazineHome> {
                 override fun onFailure(call: Call<MagazineHome>, t: Throwable) {
@@ -88,12 +122,17 @@ class CadiZoneFragment : Fragment(R.layout.fragment_cadi_zone) {
                     response: Response<MagazineHome>
                 ) {
                     val data = response.body()!!.data
-                    productMagazineRvAdapter.items.addAll(data.magazine)
+
+                    Log.d("이거 잘 되니ㅏ", data.toString())
+
+                    productMagazineRvAdapter.submitList(data.magazine)
+
                     rv_magazine_list.adapter = productMagazineRvAdapter
                 }
             }
         )
 
     }
+
 
 }

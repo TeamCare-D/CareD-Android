@@ -116,4 +116,12 @@ interface RequestInterface {
     // search/ingredient 성분 리스트 가져오기
     @GET("/search/ingredient")
     fun  getIngredentList() : Call<IngredientListData>
+
+    // magazine/direction 메거진 디렉션 리스트 가져오기
+    @GET("/magazine/direction")
+    fun getMagazineDirection(): Call<MagazineDirectionData>
+
+    // magazine/guide 메거진 가이드 리스트 가져오기
+    @GET("/magazine/guide")
+    fun getMAgazineGuide(): Call<MagazineGuideData>
 }

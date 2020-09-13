@@ -9,16 +9,17 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
+import com.caredirection.cadi.networkdata.MagazineGuideDataList
 
 class GuideRecyclerViewAdapter :
-    ListAdapter<Guide, GuideRecyclerViewAdapter.ViewHolder>(DiffTool()) {
+    ListAdapter<MagazineGuideDataList, GuideRecyclerViewAdapter.ViewHolder>(DiffTool()) {
 
-    private class DiffTool : DiffUtil.ItemCallback<Guide>() {
-        override fun areItemsTheSame(oldItem: Guide, newItem: Guide): Boolean {
-            return oldItem.idx == newItem.idx
+    private class DiffTool : DiffUtil.ItemCallback<MagazineGuideDataList>() {
+        override fun areItemsTheSame(oldItem: MagazineGuideDataList, newItem: MagazineGuideDataList): Boolean {
+            return oldItem.magazine_idx == newItem.magazine_idx
         }
 
-        override fun areContentsTheSame(oldItem: Guide, newItem: Guide): Boolean {
+        override fun areContentsTheSame(oldItem: MagazineGuideDataList, newItem: MagazineGuideDataList): Boolean {
             return oldItem == newItem
         }
     }
@@ -30,7 +31,7 @@ class GuideRecyclerViewAdapter :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.text.text = getItem(position).name
+        holder.text.text = getItem(position).magazine_title
     }
 
 
@@ -38,8 +39,3 @@ class GuideRecyclerViewAdapter :
         val text: TextView = itemView.findViewById(R.id.txt_rv_item_guide_title)
     }
 }
-
-data class Guide(
-    val name: String,
-    val idx: Int
-)
