@@ -1,6 +1,7 @@
 package com.caredirection.cadi.research.interest
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.CheckBox
@@ -31,17 +32,29 @@ class ResearchInterestAdapter(private val context: Context) : RecyclerView.Adapt
         holder.onBind(data[position])
 
         btnInterest.setOnClickListener {
-            if(selectedItem.contains(data[position].itemIdx)){
-                selectedItem.remove(data[position].itemIdx)
-                btnInterest.isChecked = !btnInterest.isChecked
-                //Log.d("명",data[position].productIdx.toString()+"삭제")
+            toggleItemSelected(position)
+        }
+    }
+
+    private fun toggleItemSelected(position: Int) {
+        if (selectedItem.contains(data[position].itemIdx)) {
+            selectedItem.remove(data[position].itemIdx)
+            Log.d("명",data[position].itemIdx.toString()+"삭제")
+        } else {
+            if(position==0){
+                selectedItem.forEach { index ->
+                    notifyItemChanged(index)
+                }
+                selectedItem.clear()
+                selectedItem.add(0)
             }
             else{
                 selectedItem.add(data[position].itemIdx)
-                btnInterest.isChecked = !btnInterest.isChecked
-                //Log.d("명",data[position].productIdx.toString()+"추가")
+                selectedItem.remove(0)
             }
-            (context as ResearchInterestActivity).checkNextButton()
+            Log.d("명",data[position].itemIdx.toString()+"추가")
         }
+        Log.d("명",selectedItem.toString())
+        (context as ResearchInterestActivity).checkNextButton()
     }
 }

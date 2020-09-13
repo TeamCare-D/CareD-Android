@@ -4,29 +4,29 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.CheckedTextView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.research.DummyDetail
+import com.caredirection.cadi.data.research.ResearchDetailList
+import com.caredirection.cadi.data.research.RvResearchListItem
 import com.caredirection.cadi.register.list.RegisterListActivity
 import kotlinx.android.synthetic.main.activity_research_interest.*
 
 class ResearchInterestActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var intButtons: List<CheckedTextView>
     private lateinit var detailAdapter: ResearchInterestAdapter
-    private var dummyDetail = DummyDetail()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +49,18 @@ class ResearchInterestActivity : AppCompatActivity() {
 
         rv_research_interest.layoutManager = LinearLayoutManager(this)
 
-        detailAdapter.data = dummyDetail.getDetailList()
+        val researchItem = mutableListOf<RvResearchListItem>()
+
+        for(item in ResearchDetailList.getResearchList().data.userEfficacy){
+            researchItem.add(
+                RvResearchListItem(
+                    item.itemIdx,
+                    item.name
+                )
+            )
+        }
+
+        detailAdapter.data = researchItem
 
         detailAdapter.notifyDataSetChanged()
     }

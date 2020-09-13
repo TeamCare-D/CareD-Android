@@ -11,7 +11,6 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.CheckedTextView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
@@ -19,6 +18,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.network.ResearchItemData
+import com.caredirection.cadi.data.research.ResearchDetailList
 import com.caredirection.cadi.data.research.RvResearchListItem
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.research.medicine.ResearchMedicineActivity
@@ -30,7 +30,6 @@ import retrofit2.Response
 class ResearchDiseaseActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var disButtons: List<CheckedTextView>
     private lateinit var detailAdapter: ResearchDiseaseAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,6 +70,7 @@ class ResearchDiseaseActivity : AppCompatActivity() {
                 ) {
                     if(response.isSuccessful){
                         val researchList=response.body()!!
+                        ResearchDetailList.setResearchList(researchList)
 
                         val researchItem = mutableListOf<RvResearchListItem>()
                         for(item in researchList.data.userWarning){
@@ -83,6 +83,7 @@ class ResearchDiseaseActivity : AppCompatActivity() {
                         }
 
                         detailAdapter.data=researchItem
+
                         detailAdapter.notifyDataSetChanged()
                     }
                 }

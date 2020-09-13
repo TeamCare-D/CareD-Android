@@ -10,24 +10,21 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.CheckedTextView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.research.DummyDetail
+import com.caredirection.cadi.data.research.ResearchDetailList
+import com.caredirection.cadi.data.research.RvResearchListItem
 import com.caredirection.cadi.research.interest.ResearchInterestActivity
-import com.caredirection.cadi.research.interest.ResearchInterestAdapter
 import kotlinx.android.synthetic.main.activity_research_allergy.*
 
 class ResearchAllergyActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var allergyButtons: List<CheckedTextView>
-    private lateinit var detailAdapter: ResearchInterestAdapter
-    private var dummyDetail = DummyDetail()
+    private lateinit var detailAdapter: ResearchAllergyAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,13 +41,24 @@ class ResearchAllergyActivity : AppCompatActivity() {
     }
 
     private fun initAllergyList(){
-        detailAdapter = ResearchInterestAdapter(this)
+        detailAdapter = ResearchAllergyAdapter(this)
 
         rv_research_allergy.adapter = detailAdapter
 
         rv_research_allergy.layoutManager = GridLayoutManager(this,2)
 
-        detailAdapter.data = dummyDetail.getDetailList()
+        val researchItem = mutableListOf<RvResearchListItem>()
+
+        for(item in ResearchDetailList.getResearchList().data.userAllergy){
+            researchItem.add(
+                RvResearchListItem(
+                    item.itemIdx,
+                    item.name
+                )
+            )
+        }
+
+        detailAdapter.data = researchItem
 
         detailAdapter.notifyDataSetChanged()
     }
@@ -81,32 +89,10 @@ class ResearchAllergyActivity : AppCompatActivity() {
     }
 
     private fun makeListener(){
-//        setNoneClickListener()
-//        setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
         setCloseClickListener()
     }
-
-//    private fun setNoneClickListener(){
-//        btn_allergy_none.setOnClickListener {
-//            btn_allergy_none.isChecked = !btn_allergy_none.isChecked
-//            allergyButtons.forEach {
-//                it.isChecked = false
-//            }
-//            checkNextButton()
-//        }
-//    }
-
-//    private fun setButtonsClickListener() {
-//        allergyButtons.forEachIndexed { index, _ ->
-//            allergyButtons[index].setOnClickListener {
-//                allergyButtons[index].isChecked = !allergyButtons[index].isChecked
-//                btn_allergy_none.isChecked = false
-//                checkNextButton()
-//            }
-//        }
-//    }
 
     private fun setBackClickListener(){
         btn_allergy_back.setOnClickListener {

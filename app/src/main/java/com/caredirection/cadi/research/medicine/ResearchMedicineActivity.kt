@@ -10,23 +10,21 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.CheckedTextView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.research.DummyDetail
+import com.caredirection.cadi.data.research.ResearchDetailList
+import com.caredirection.cadi.data.research.RvResearchListItem
 import com.caredirection.cadi.research.allergy.ResearchAllergyActivity
 import kotlinx.android.synthetic.main.activity_research_medicine.*
 
 class ResearchMedicineActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var medButtons: List<CheckedTextView>
     private lateinit var detailAdapter: ResearchMedicineAdapter
-    private var dummyDetail = DummyDetail()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +47,18 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
         rv_research_medicine.layoutManager = GridLayoutManager(this, 2)
 
-        detailAdapter.data = dummyDetail.getDetailList()
+        val researchItem = mutableListOf<RvResearchListItem>()
+
+        for(item in ResearchDetailList.getResearchList().data.userDiseaseMedicine){
+            researchItem.add(
+                RvResearchListItem(
+                    item.itemIdx,
+                    item.name
+                )
+            )
+        }
+
+        detailAdapter.data = researchItem
 
         detailAdapter.notifyDataSetChanged()
     }
@@ -86,15 +95,6 @@ class ResearchMedicineActivity : AppCompatActivity() {
         setBackClickListener()
         setNextClickListener()
         setCloseClickListener()
-    }
-
-    private fun setButtonsClickListener(){
-        medButtons.forEachIndexed { index, checkedTextView ->
-            medButtons[index].setOnClickListener {
-                medButtons[index].isChecked = !medButtons[index].isChecked
-                checkNextButton()
-            }
-        }
     }
 
     private fun setBackClickListener(){
