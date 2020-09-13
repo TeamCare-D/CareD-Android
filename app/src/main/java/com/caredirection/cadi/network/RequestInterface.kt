@@ -113,4 +113,7 @@ interface RequestInterface {
         @Header("token") token: String
     ) : Call<ProductSearchData>
 
+    // search/ingredient 성분 리스트 가져오기
+    @GET("/search/ingredient")
+    fun  getIngredentList() : Call<IngredientListData>
 }

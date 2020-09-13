@@ -19,9 +19,9 @@ data class ProductSearchInfo(
     val criterionValue2: List<String>,
     val criterionName3: String,
     val criterionValue3: List<String>,
-    val criterionDescription1: List<criterionDescription1Data>,
-    val criterionDescription2: List<criterionDescription2Data>,
-    val criterionDescription3: List<criterionDescription3Data>,
+    val criterionDescription1: criterionDescription1Data,
+    val criterionDescription2: criterionDescription2Data,
+    val criterionDescription3: criterionDescription3Data,
     val products: List<String>
 )
 
