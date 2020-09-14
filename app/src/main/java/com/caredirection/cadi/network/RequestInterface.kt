@@ -109,7 +109,7 @@ interface RequestInterface {
     // search/product 제품 검색 하기
     @GET("/search/product")
     fun getSearchPrudct(
-        @Query("keyword") keyword: String,
+        @Query("keyword") keyword: String?,
         @Header("token") token: String
     ) : Call<ProductSearchData>
 
