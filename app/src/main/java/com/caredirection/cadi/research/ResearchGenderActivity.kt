@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.UserController
+import com.caredirection.cadi.data.research.ResearchSelectList
 import com.caredirection.cadi.research.disease.ResearchDiseaseActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_research_gender.*
@@ -159,10 +160,23 @@ class ResearchGenderActivity : AppCompatActivity() {
 
     private fun setNextClickListener() {
         btn_genderNext?.setOnClickListener {
+            setSelectedList()
+
             val diseaseIntent = Intent(this, ResearchDiseaseActivity::class.java)
 
             startActivity(diseaseIntent)
         }
+    }
+
+    private fun setSelectedList(){
+        if(btn_women.isChecked){
+            ResearchSelectList.setGender(0)
+        }
+        else{
+            ResearchSelectList.setGender(1)
+        }
+
+        ResearchSelectList.setAge(btn_year.text.toString())
     }
 
     // 다음 버튼 처리를 위한 확인

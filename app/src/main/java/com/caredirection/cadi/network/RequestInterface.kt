@@ -14,6 +14,14 @@ interface RequestInterface {
     fun getResearchList(
     ): Call<ResearchItemData>
 
+    // 설문조사 - 설문조사 등록
+    @FormUrlEncoded
+    @POST("/user/survey")
+    fun postResearchSelectedList(
+        @Field("userInfoReq") userInfoReq: ResearchSelecListData,
+        @Header("token") token: String
+    ): Call<DeleteTakeData>
+
     // 복용제품등록, 마이페이지 - 복용 제품 리스트 조회
     @GET("/dose/product")
     fun getTakeList(

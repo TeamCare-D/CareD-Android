@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -18,11 +19,18 @@ import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.UserController
+import com.caredirection.cadi.data.network.DeleteTakeData
+import com.caredirection.cadi.data.network.ResearchSelecListData
 import com.caredirection.cadi.data.research.ResearchDetailList
 import com.caredirection.cadi.data.research.ResearchSelectList
 import com.caredirection.cadi.data.research.RvResearchListItem
+import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.register.list.RegisterListActivity
 import kotlinx.android.synthetic.main.activity_research_interest.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ResearchInterestActivity : AppCompatActivity() {
 
@@ -118,10 +126,46 @@ class ResearchInterestActivity : AppCompatActivity() {
 
             ResearchSelectList.setInterestList(detailAdapter.selectedItem)
 
+            postResearchSelectResponse()
+
             val registerIntent = Intent(this, RegisterListActivity::class.java)
 
             startActivity(registerIntent)
         }
+    }
+
+    private fun postResearchSelectResponse(){
+        val call: Call<DeleteTakeData> = RequestURL.service.postResearchSelectedList(
+            userInfoReq = ResearchSelecListData(
+                nickName = UserController.getName(this),
+                gender = ResearchSelectList.getAge(),
+                age = ResearchSelectList.getAge(),
+                warning = ResearchSelectList.getDiseaseList(),
+                diseaseMedicine = ResearchSelectList.getMedicineList(),
+                allergy = ResearchSelectList.getAllergyList(),
+                efficacy = ResearchSelectList.getInterestList()
+            ),
+            token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
+        )
+        call.enqueue(
+            object : Callback<DeleteTakeData> {
+                override fun onFailure(call: Call<DeleteTakeData>, t: Throwable) {
+                    Log.d("설문조사 등록 실패", "메시지 : $t")
+                }
+
+                override fun onResponse(
+                    call: Call<DeleteTakeData>,
+                    response: Response<DeleteTakeData>
+                ) {
+                    if(response.isSuccessful){
+                        val message = response.body()!!.message
+
+                        Log.d("설문조사 등록 성공", "메시지 : $message")
+                    }
+                }
+
+            }
+        )
     }
 
     private fun showToastMessage(){
