@@ -76,8 +76,11 @@ class RegisterListActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkCompleteButton(){
+    fun checkCompleteButton(){
         btn_register_list_complete.isEnabled = false
+        btn_register_list_complete.setTextColor(resources.getColor(R.color.colorCoolGray2))
+        btn_register_list_skip.visibility = View.VISIBLE
+        btn_register_list_close.visibility = View.INVISIBLE
 
         if(registerListAdapter.itemCount > 0){
             btn_register_list_complete.isEnabled = true
@@ -85,6 +88,8 @@ class RegisterListActivity : AppCompatActivity() {
             btn_register_list_skip.visibility = View.GONE
             btn_register_list_close.visibility = View.VISIBLE
         }
+
+
     }
 
     private fun setSkipUnderLine(){
