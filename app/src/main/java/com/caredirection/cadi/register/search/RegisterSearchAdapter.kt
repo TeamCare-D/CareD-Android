@@ -1,13 +1,13 @@
 package com.caredirection.cadi.register.search
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.register.RvTakeSearchItem
+import kotlinx.android.synthetic.main.rv_item_register_search_result.view.*
 
 class RegisterSearchAdapter(private val context: Context) : RecyclerView.Adapter<RegisterSearchViewHolder>(){
 
@@ -31,19 +31,30 @@ class RegisterSearchAdapter(private val context: Context) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: RegisterSearchViewHolder, position: Int) {
         holder.onBind(data[position])
 
-        setItemClickListener(holder, position)
+        setItemBackground(holder, position)
+
+        holder.itemView.setOnClickListener {
+            toggleItemSelected(position)
+        }
     }
 
-    private fun setItemClickListener(holder: RegisterSearchViewHolder, position: Int){
-        holder.itemView.setOnClickListener {
-            if(selectedItem.contains(data[position].productIdx)){
-                selectedItem.remove(data[position].productIdx)
-                Log.d("명",data[position].productIdx.toString()+"삭제")
-            }
-            else{
-                selectedItem.add(data[position].productIdx)
-                Log.d("명",data[position].productIdx.toString()+"추가")
-            }
+    private fun setItemBackground(holder: RegisterSearchViewHolder, position: Int){
+        holder.itemView.btn_register_search_result_check.isChecked = isItemSelected(position)
+    }
+
+    private fun isItemSelected(position: Int): Boolean{
+        return selectedItem.contains(data[position].productIdx)
+    }
+
+    private fun toggleItemSelected(position: Int) {
+        if (selectedItem.contains(data[position].productIdx)) {
+            selectedItem.remove(data[position].productIdx)
         }
+        else {
+            selectedItem.add(data[position].productIdx)
+        }
+        notifyDataSetChanged()
+
+        (context as RegisterSearchActivity).checkRegisterButton()
     }
 }

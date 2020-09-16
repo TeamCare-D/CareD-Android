@@ -111,6 +111,10 @@ class RegisterSearchActivity : AppCompatActivity() {
         }
     }
 
+    fun checkRegisterButton(){
+        btn_register_search_complete.isEnabled = registerSearchListAdapter.selectedItem.size > 0
+    }
+
     private fun checkKeywordEmpty(){
         edt_register_search_keyword?.addTextChangedListener(object: TextWatcher {
             var keywordLength = 0
