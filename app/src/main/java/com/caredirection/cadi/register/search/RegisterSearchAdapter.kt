@@ -1,9 +1,10 @@
 package com.caredirection.cadi.register.search
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.CheckBox
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.register.RvTakeSearchItem
@@ -14,7 +15,7 @@ class RegisterSearchAdapter(private val context: Context) : RecyclerView.Adapter
     var data : List<RvTakeSearchItem> = listOf()
     var selectedItem = mutableListOf<Int>()
 
-    private lateinit var btnChecked : CheckBox
+    private lateinit var btnChecked : ImageView
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RegisterSearchViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.rv_item_register_search_result, parent, false)
@@ -39,7 +40,12 @@ class RegisterSearchAdapter(private val context: Context) : RecyclerView.Adapter
     }
 
     private fun setItemBackground(holder: RegisterSearchViewHolder, position: Int){
-        holder.itemView.btn_register_search_result_check.isChecked = isItemSelected(position)
+        if(isItemSelected(position)){
+            holder.itemView.btn_register_search_result_check.background = context.resources.getDrawable(R.drawable.img_selected)
+        }
+        else{
+            holder.itemView.btn_register_search_result_check.background = context.resources.getDrawable(R.drawable.img_empty)
+        }
     }
 
     private fun isItemSelected(position: Int): Boolean{
@@ -53,7 +59,9 @@ class RegisterSearchAdapter(private val context: Context) : RecyclerView.Adapter
         else {
             selectedItem.add(data[position].productIdx)
         }
-        notifyDataSetChanged()
+        notifyItemChanged(position)
+
+        Log.d("명", selectedItem.toString())
 
         (context as RegisterSearchActivity).checkRegisterButton()
     }

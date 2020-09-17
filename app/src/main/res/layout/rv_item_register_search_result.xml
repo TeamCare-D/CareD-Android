@@ -97,10 +97,12 @@
         app:layout_constraintStart_toEndOf="@+id/txt_register_search_result_day"
         app:layout_constraintTop_toTopOf="@+id/txt_register_search_result_day" />
 
-    <CheckBox
+    <ImageView
         android:id="@+id/btn_register_search_result_check"
         android:layout_width="28dp"
         android:layout_height="28dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="9dp"
         android:background="@drawable/selector_register_search_result"
         android:button="@color/colorTransparentWhite"
         android:checked="false"

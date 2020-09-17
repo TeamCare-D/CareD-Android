@@ -12,7 +12,7 @@ class DummyRegisterSearchList {
                 day = 30
             ),
             RvTakeSearchItem(
-                productIdx = 0,
+                productIdx = 1,
                 imgUrl = "dd",
                 brand = "브랜드2",
                 name = "상품명2",
@@ -21,7 +21,7 @@ class DummyRegisterSearchList {
             )
             ,
             RvTakeSearchItem(
-                productIdx = 0,
+                productIdx = 2,
                 imgUrl = "dd",
                 brand = "브랜드3",
                 name = "상품명3",
@@ -30,7 +30,7 @@ class DummyRegisterSearchList {
             )
             ,
             RvTakeSearchItem(
-                productIdx = 0,
+                productIdx = 3,
                 imgUrl = "dd",
                 brand = "브랜드4",
                 name = "상품명4",
@@ -38,7 +38,7 @@ class DummyRegisterSearchList {
                 day = 60
             ),
             RvTakeSearchItem(
-                productIdx = 0,
+                productIdx = 4,
                 imgUrl = "dd",
                 brand = "브랜드2",
                 name = "상품명2",
@@ -47,7 +47,7 @@ class DummyRegisterSearchList {
             )
             ,
             RvTakeSearchItem(
-                productIdx = 0,
+                productIdx = 5,
                 imgUrl = "dd",
                 brand = "브랜드3",
                 name = "상품명3",
@@ -56,7 +56,7 @@ class DummyRegisterSearchList {
             )
             ,
             RvTakeSearchItem(
-                productIdx = 0,
+                productIdx = 6,
                 imgUrl = "dd",
                 brand = "브랜드4",
                 name = "상품명4",
@@ -64,7 +64,7 @@ class DummyRegisterSearchList {
                 day = 60
             ),
             RvTakeSearchItem(
-                productIdx = 0,
+                productIdx = 7,
                 imgUrl = "dd",
                 brand = "브랜드2",
                 name = "상품명2",
@@ -73,7 +73,7 @@ class DummyRegisterSearchList {
             )
             ,
             RvTakeSearchItem(
-                productIdx = 0,
+                productIdx = 8,
                 imgUrl = "dd",
                 brand = "브랜드3",
                 name = "상품명3",
@@ -82,7 +82,7 @@ class DummyRegisterSearchList {
             )
             ,
             RvTakeSearchItem(
-                productIdx = 0,
+                productIdx = 9,
                 imgUrl = "dd",
                 brand = "브랜드4",
                 name = "상품명4",

@@ -112,7 +112,15 @@ class RegisterSearchActivity : AppCompatActivity() {
     }
 
     fun checkRegisterButton(){
-        btn_register_search_complete.isEnabled = registerSearchListAdapter.selectedItem.size > 0
+
+        if(registerSearchListAdapter.selectedItem.size > 0){
+            btn_register_search_complete.isEnabled = true
+            btn_register_search_complete.setTextColor(getColor(R.color.colorWhite))
+        }
+        else{
+            btn_register_search_complete.isEnabled = false
+            btn_register_search_complete.setTextColor(getColor(R.color.colorCoolGray2))
+        }
     }
 
     private fun checkKeywordEmpty(){
