@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.UserController
 import com.caredirection.cadi.mypage.interest.MypageInterestProductActivity
 import com.caredirection.cadi.mypage.notice.MypageNoticeActivity
 import com.caredirection.cadi.mypage.take.MypageTakeProductActivity
@@ -13,7 +14,17 @@ class MypageFragment : Fragment(R.layout.fragment_mypage) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        initMypage()
+
         makeListener()
+    }
+
+    private fun initMypage(){
+        txt_mypage_user_name.text = "${UserController.getName(context!!)}+님"
+
+        //txt_mypage_taking_count.text = takeList.data.products.size.toString()
+
+        //txt_mypage_interest_count.text = interestList.data.size.toString()
     }
 
     private fun makeListener(){

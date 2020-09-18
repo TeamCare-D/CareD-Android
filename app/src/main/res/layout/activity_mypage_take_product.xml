@@ -8,6 +8,17 @@
     tools:context=".mypage.take.MypageTakeProductActivity"
     android:background="@color/colorWhite">
 
+    <ImageView
+        android:id="@+id/btn_mypage_take_product_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="4dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_close" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -15,29 +26,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_mypage_take_product_close"
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/btn_mypage_take_product_close"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="4dp"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/btn_close" />
-
             <TextView
                 android:id="@+id/txt_mypage_take"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="112dp"
+                android:layout_marginTop="62dp"
                 android:fontFamily="@font/notosanskr_light"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="9sp"
