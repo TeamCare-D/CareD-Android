@@ -51,6 +51,8 @@ class RegisterSearchActivity : AppCompatActivity() {
 
         registerSearchListAdapter.notifyDataSetChanged()
 
+        txt_register_search_count.text = "결과 ${registerSearchListAdapter.itemCount}건"
+
         checkSearchResult()
 
         //getTakeSearchResponse(edt_register_search_keyword.text.toString())
