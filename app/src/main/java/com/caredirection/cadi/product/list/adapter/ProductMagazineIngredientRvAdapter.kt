@@ -9,23 +9,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
 import com.caredirection.cadi.adapter.MagazineMarketingAdapter
 import com.caredirection.cadi.adapter.MagazineTagRvAdapter
+import com.caredirection.cadi.networkdata.MagazineDirections
+import com.caredirection.cadi.networkdata.MagazineHomeList
 
 class ProductMagazineRvAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    val items = mutableListOf<ProductMagazineData>()
-    val marketingItems = mutableListOf<MarketingData>()
+    //큰거
+    val items = mutableListOf<MagazineHomeList>()
+    //작은거
+    val marketingItems = mutableListOf<MagazineDirections>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             R.layout.rv_item_magazine_ingredient -> {
-                Log.d("test", viewType.toString())
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.rv_item_magazine_ingredient, parent, false)
                 ProductMagazineRvHolder(view)
             }
             R.layout.view_rv_magazine_marketing -> {
-                Log.d("test2", viewType.toString())
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.view_rv_magazine_marketing, parent, false)
                 MagezineMarketing(view)
@@ -61,10 +63,11 @@ class ProductMagazineRvAdapter :
         val txt_rv_item_magazine_ingredient: TextView =
             view.findViewById(R.id.txt_rv_item_magazine_ingredient)
 
-        fun bind(items: ProductMagazineData) {
-            txt_rv_item_magazine_ingredient.text = items.title
+        fun bind(items: MagazineHomeList) {
+            Log.d("String", items.magazine_title)
+            txt_rv_item_magazine_ingredient.text = items.magazine_title
             rv_rv_item_magazine_ingredient.adapter = rvMagazineTagAdapter
-            rvMagazineTagAdapter.items.addAll(items.tag)
+            rvMagazineTagAdapter.items.addAll(items.hashtag_name)
         }
     }
 
@@ -74,19 +77,9 @@ class ProductMagazineRvAdapter :
             MagazineMarketingAdapter()
         val rv_magazine_marketing: RecyclerView = view.findViewById(R.id.rv_magazine_marketing)
 
-        fun bind(item: MutableList<MarketingData>) {
+        fun bind(item: MutableList<MagazineDirections>) {
             magazineMarketingAdapter.marketingItems.addAll(item)
             rv_magazine_marketing.adapter = magazineMarketingAdapter
         }
     }
 }
-
-data class ProductMagazineData(
-    var title: String,
-    var tag: List<String>
-)
-
-data class MarketingData(
-    var tag: String,
-    var title: String
-)

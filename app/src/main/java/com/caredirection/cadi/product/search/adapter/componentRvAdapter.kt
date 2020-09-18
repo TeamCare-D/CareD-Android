@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
+import com.caredirection.cadi.networkdata.IngredientList
 
 class componentRvAdapter(val context: Context): RecyclerView.Adapter<componentRvAdapter.nameRvViewHolder>() {
-    val items = mutableListOf<String>()
+    val items = mutableListOf<IngredientList>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): nameRvViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.rv_item_product_search_name, parent, false)
         return nameRvViewHolder(view)
@@ -26,8 +27,8 @@ class componentRvAdapter(val context: Context): RecyclerView.Adapter<componentRv
     inner class nameRvViewHolder(view: View): RecyclerView.ViewHolder(view){
         val txt_rv_item_product_search_name_title: TextView = view.findViewById(R.id.txt_rv_item_product_search_name_title)
 
-        fun bind(text: String){
-            txt_rv_item_product_search_name_title.text = text
+        fun bind(data: IngredientList){
+            txt_rv_item_product_search_name_title.text = data.ingredient_name
         }
     }
 }

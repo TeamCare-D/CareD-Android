@@ -10,16 +10,18 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
+import com.caredirection.cadi.adapter.MagazineTagRvAdapter
+import com.caredirection.cadi.networkdata.MagazineHomeList
 
 class MagazineRecyclerViewAdapter :
-    ListAdapter<Magazine, MagazineRecyclerViewAdapter.ViewHolder>(DiffTool()) {
+    ListAdapter<MagazineHomeList, MagazineRecyclerViewAdapter.ViewHolder>(DiffTool()) {
 
-    private class DiffTool : DiffUtil.ItemCallback<Magazine>() {
-        override fun areItemsTheSame(oldItem: Magazine, newItem: Magazine): Boolean {
-            return oldItem.idx == newItem.idx
+    private class DiffTool : DiffUtil.ItemCallback<MagazineHomeList>() {
+        override fun areItemsTheSame(oldItem: MagazineHomeList, newItem: MagazineHomeList): Boolean {
+            return oldItem.magazine_idx == newItem.magazine_idx
         }
 
-        override fun areContentsTheSame(oldItem: Magazine, newItem: Magazine): Boolean {
+        override fun areContentsTheSame(oldItem: MagazineHomeList, newItem: MagazineHomeList): Boolean {
             return oldItem == newItem
         }
     }
@@ -31,18 +33,22 @@ class MagazineRecyclerViewAdapter :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.text.text = getItem(position).name
+        holder.text.text = getItem(position).magazine_title
+        holder.bind(getItem(position).hashtag_name)
+
     }
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        val rvMagazineTagAdapter = MagazineTagRvAdapter()
+        val rv_rv_item_magazine_ingredient: RecyclerView = itemView.findViewById(R.id.rv_rv_item_magazine_ingredient)
+
         val text: TextView = itemView.findViewById(R.id.txt_rv_item_magazine_ingredient)
+
+        fun bind(items: MutableList<String>){
+            rvMagazineTagAdapter.items.addAll(items)
+            rv_rv_item_magazine_ingredient.adapter = rvMagazineTagAdapter
+        }
     }
 }
-
-data class Magazine(
-    val name: String,
-    val tag: List<String>,
-    val img: String,
-    val idx: Int
-)
