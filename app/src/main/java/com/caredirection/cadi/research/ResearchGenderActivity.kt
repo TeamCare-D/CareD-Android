@@ -209,7 +209,9 @@ class ResearchGenderActivity : AppCompatActivity() {
         deleteDialog.setContentView(deleteView)
         deleteDialog.setCanceledOnTouchOutside(false)
         deleteDialog.create()
-        deleteDialog.show()
+        if(isFinishing){
+            deleteDialog.show()
+        }
     }
 
     // 상태바 투명 설정

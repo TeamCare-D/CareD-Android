@@ -18,9 +18,14 @@ interface RequestInterface {
     @FormUrlEncoded
     @POST("/user/survey")
     fun postResearchSelectedList(
-        @Field("userInfoReq") userInfoReq: ResearchSelecListData,
-        @Header("token") token: String
-    ): Call<DeleteTakeData>
+        @Field("nickName") nickName: String,
+        @Field("gender") gender: Int,
+        @Field("age") age: Int,
+        @Field("warning") warning: List<Int>,
+        @Field("diseaseMedicine") diseaseMedicine: List<Int>,
+        @Field("allergy") allergy: List<Int>,
+        @Field("efficacy") efficacy: List<Int>
+    ): Call<ResearchTokenData>
 
     // 복용제품등록, 마이페이지 - 복용 제품 리스트 조회
     @GET("/dose/product")
