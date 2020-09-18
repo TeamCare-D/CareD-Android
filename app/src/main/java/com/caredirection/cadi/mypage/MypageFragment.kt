@@ -8,6 +8,7 @@ import com.caredirection.cadi.data.UserController
 import com.caredirection.cadi.mypage.interest.MypageInterestProductActivity
 import com.caredirection.cadi.mypage.notice.MypageNoticeActivity
 import com.caredirection.cadi.mypage.take.MypageTakeProductActivity
+import com.caredirection.cadi.research.disease.ResearchDiseaseActivity
 import kotlinx.android.synthetic.main.fragment_mypage.*
 
 class MypageFragment : Fragment(R.layout.fragment_mypage) {
@@ -33,6 +34,15 @@ class MypageFragment : Fragment(R.layout.fragment_mypage) {
         setNoticeClickListener()
         setRequestClickListener()
         setQuestionClickListener()
+        setResearchClickListener()
+    }
+    
+    private fun setResearchClickListener(){
+        btn_mypage_modified.setOnClickListener {
+            val researchIntent = Intent(context, ResearchDiseaseActivity::class.java)
+
+            startActivity(researchIntent)
+        }
     }
 
     private fun setTakeClickListener(){

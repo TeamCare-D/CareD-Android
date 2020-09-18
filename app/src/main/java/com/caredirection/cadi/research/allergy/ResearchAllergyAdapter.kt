@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.research.ResearchSelectList
 import com.caredirection.cadi.data.research.RvResearchListItem
 import kotlinx.android.synthetic.main.rv_item_research.view.*
 
 class ResearchAllergyAdapter(private val context: Context) : RecyclerView.Adapter<ResearchAllergyViewHolder>(){
 
     var data : List<RvResearchListItem> = listOf()
-    var selectedItem = mutableListOf<Int>()
+    var selectedItem = ResearchSelectList.getAllergyList()
 
     private lateinit var btnAllergy : TextView
 
