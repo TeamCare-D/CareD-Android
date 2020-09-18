@@ -103,7 +103,6 @@ class MypageRequestActivity : AppCompatActivity() {
     }
 
     private fun postRequestProductResponse(productName: String){
-        Log.d("명", "실행1")
         val call: Call<MypageRequestData> = RequestURL.service.postProductRequest(
             productName = productName,
             token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
