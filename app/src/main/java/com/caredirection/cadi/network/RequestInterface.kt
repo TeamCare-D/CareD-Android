@@ -85,9 +85,17 @@ interface RequestInterface {
 
     // 마이페이지 - 제품 등록 요청
     @FormUrlEncoded
-    @POST("/request")
+    @POST("/request/product")
     fun postProductRequest(
         @Field("productName") productName: String,
+        @Header("token") token: String
+    ): Call<MypageRequestData>
+
+    // 마이페이지 - 문의하기
+    @FormUrlEncoded
+    @POST("/request")
+    fun postRequest(
+        @Field("contents") contents: String,
         @Header("token") token: String
     ): Call<MypageRequestData>
 

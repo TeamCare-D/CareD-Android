@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -12,7 +13,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.network.MypageRequestData
+import com.caredirection.cadi.network.RequestURL
 import kotlinx.android.synthetic.main.activity_mypage_question.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MypageQuestionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +45,8 @@ class MypageQuestionActivity : AppCompatActivity() {
 
     private fun setCompleteClickListener(){
         btn_mypage_question_complete.setOnClickListener {
+            postRequestProductResponse(edt_mypage_question.text.toString())
+
             finish()
         }
     }
@@ -93,6 +101,32 @@ class MypageQuestionActivity : AppCompatActivity() {
                 //TODO("Not yet implemented")
             }
         })
+    }
+
+    private fun postRequestProductResponse(contents: String){
+        val call: Call<MypageRequestData> = RequestURL.service.postRequest(
+            contents = contents,
+            token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
+        )
+        call.enqueue(
+            object : Callback<MypageRequestData> {
+                override fun onFailure(call: Call<MypageRequestData>, t: Throwable) {
+                    Log.d("문의하기 실패", "메시지 : $t")
+                }
+
+                override fun onResponse(
+                    call: Call<MypageRequestData>,
+                    response: Response<MypageRequestData>
+                ) {
+                    if(response.isSuccessful){
+                        val message = response.body()!!.message
+
+                        Log.d("문의하기 성공", "메시지 : $message")
+                    }
+                }
+
+            }
+        )
     }
 
     // 상태바 투명 설정
