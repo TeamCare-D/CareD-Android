@@ -46,6 +46,8 @@ class ResearchDiseaseAdapter(private val context: Context) : RecyclerView.Adapte
         else{
             holder.itemView.btn_item.background = context.resources.getDrawable(R.drawable.gray_line_4)
         }
+
+        (context as ResearchDiseaseActivity).checkNextButton()
     }
 
     private fun isItemSelected(position: Int): Boolean{
@@ -66,8 +68,7 @@ class ResearchDiseaseAdapter(private val context: Context) : RecyclerView.Adapte
                 selectedItem.remove(0)
             }
         }
-        notifyDataSetChanged()
 
-        (context as ResearchDiseaseActivity).checkNextButton()
+        notifyDataSetChanged()
     }
 }
