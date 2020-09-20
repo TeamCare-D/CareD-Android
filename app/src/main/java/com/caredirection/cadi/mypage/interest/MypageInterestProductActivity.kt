@@ -50,7 +50,7 @@ class MypageInterestProductActivity : AppCompatActivity() {
 
             for(item in mypageInterestProductAdapter.selectedItem) {
                 //Log.d("명, 선택취소번호", item.toString())
-                deleteInterestProductResponse(item)
+                //deleteInterestProductResponse(item)
             }
 
             finish()
