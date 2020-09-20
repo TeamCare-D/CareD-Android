@@ -21,7 +21,7 @@ class MypageFragment : Fragment(R.layout.fragment_mypage) {
     }
 
     private fun initMypage(){
-        txt_mypage_user_name.text = "${UserController.getName(context!!)}+님"
+        txt_mypage_user_name.text = "${UserController.getName(context!!)}님"
 
         //txt_mypage_taking_count.text = takeList.data.products.size.toString()
 
