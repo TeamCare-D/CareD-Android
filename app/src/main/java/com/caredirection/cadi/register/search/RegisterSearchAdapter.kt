@@ -41,10 +41,10 @@ class RegisterSearchAdapter(private val context: Context) : RecyclerView.Adapter
 
     private fun setItemBackground(holder: RegisterSearchViewHolder, position: Int){
         if(isItemSelected(position)){
-            holder.itemView.btn_register_search_result_check.background = context.resources.getDrawable(R.drawable.img_selected)
+            holder.itemView.btn_register_search_result_check.background = context.resources.getDrawable(R.drawable.btn_checkbox_selected_product_register)
         }
         else{
-            holder.itemView.btn_register_search_result_check.background = context.resources.getDrawable(R.drawable.img_empty)
+            holder.itemView.btn_register_search_result_check.background = context.resources.getDrawable(R.drawable.btn_checkbox_unselected_product_register)
         }
     }
 

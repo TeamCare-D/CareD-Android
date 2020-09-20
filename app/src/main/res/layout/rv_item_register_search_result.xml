@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
@@ -10,7 +10,7 @@
         android:layout_width="144dp"
         android:layout_height="144dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,10 +20,11 @@
     <TextView
         android:id="@+id/txt_register_search_result_brand"
         style="@style/light12"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="더리얼"
+        app:layout_constraintEnd_toStartOf="@+id/txt_register_search_result_overseas"
         app:layout_constraintStart_toStartOf="@+id/img_register_search_result"
         app:layout_constraintTop_toBottomOf="@+id/img_register_search_result" />
 
@@ -60,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="18dp"
         android:fontFamily="@font/notosanskr_regular"
         android:includeFontPadding="false"
         android:lineSpacingExtra="6sp"
@@ -99,11 +100,9 @@
 
     <ImageView
         android:id="@+id/btn_register_search_result_check"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="9dp"
-        android:background="@drawable/selector_register_search_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_checkbox_unselected_product_register"
         android:button="@color/colorTransparentWhite"
         android:checked="false"
         app:layout_constraintEnd_toEndOf="@+id/img_register_search_result"
