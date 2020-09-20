@@ -2,14 +2,21 @@ package com.caredirection.cadi.mypage
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.UserController
+import com.caredirection.cadi.data.network.MypageInterestData
+import com.caredirection.cadi.data.network.TakeProductData
 import com.caredirection.cadi.mypage.interest.MypageInterestProductActivity
 import com.caredirection.cadi.mypage.notice.MypageNoticeActivity
 import com.caredirection.cadi.mypage.take.MypageTakeProductActivity
+import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.research.disease.ResearchDiseaseActivity
 import kotlinx.android.synthetic.main.fragment_mypage.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MypageFragment : Fragment(R.layout.fragment_mypage) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -23,9 +30,58 @@ class MypageFragment : Fragment(R.layout.fragment_mypage) {
     private fun initMypage(){
         txt_mypage_user_name.text = "${UserController.getName(context!!)}님"
 
-        //txt_mypage_taking_count.text = takeList.data.products.size.toString()
+        getTakeProductResponse()
 
-        //txt_mypage_interest_count.text = interestList.data.size.toString()
+        getInterestProductResponse()
+    }
+
+    private fun getTakeProductResponse(){
+        val call: Call<TakeProductData> = RequestURL.service.getTakeList(
+            token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
+        )
+        call.enqueue(
+            object : Callback<TakeProductData> {
+                override fun onFailure(call: Call<TakeProductData>, t: Throwable) {
+                    Log.d("복용 제품 리스트 조회 실패","메시지 : $t")
+                }
+
+                override fun onResponse(
+                    call: Call<TakeProductData>,
+                    response: Response<TakeProductData>
+                ) {
+                    if (response.isSuccessful) {
+                        val takeList = response.body()!!
+
+                        txt_mypage_taking_count.text = takeList.data.products.size.toString()
+                    }
+                }
+            }
+        )
+    }
+
+    private fun getInterestProductResponse(){
+        val call: Call<MypageInterestData> = RequestURL.service.getInterestList(
+            token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
+        )
+        call.enqueue(
+            object : Callback<MypageInterestData> {
+                override fun onFailure(call: Call<MypageInterestData>, t: Throwable) {
+                    Log.d("관심 제품 리스트 조회 실패","메시지 : $t")
+                }
+
+                override fun onResponse(
+                    call: Call<MypageInterestData>,
+                    response: Response<MypageInterestData>
+                ) {
+                    if(response.isSuccessful){
+                        val interestList=response.body()!!
+
+                        txt_mypage_interest_count.text = interestList.data.size.toString()
+                    }
+                }
+
+            }
+        )
     }
 
     private fun makeListener(){
