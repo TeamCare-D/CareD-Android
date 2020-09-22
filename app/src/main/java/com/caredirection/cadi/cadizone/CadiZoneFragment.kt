@@ -9,7 +9,6 @@ import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.networkdata.MagazineDirectionData
 import com.caredirection.cadi.networkdata.MagazineGuideData
 import com.caredirection.cadi.networkdata.MagazineHome
-import com.caredirection.cadi.product.list.adapter.ProductMagazineRvAdapter
 import kotlinx.android.synthetic.main.fragment_cadi_zone.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,7 +28,7 @@ class CadiZoneFragment : Fragment(R.layout.fragment_cadi_zone) {
     private fun initViewPager() {
         val tabLayout = tab_top_dic
         val viewPager = vp_viewPager
-        val menu = arrayListOf("피부회복", "활력", "성기능", "피부", "모발", "뼈", "관절")
+        val menu = arrayListOf("피부회복", "활력 · 성기능", "피부 · 모발", "뼈 · 관절")
         val viewPagerAdapter = CadiZoneViewPagerAdapter(fragmentManager!!, menu.count())
         viewPager.adapter = viewPagerAdapter
 

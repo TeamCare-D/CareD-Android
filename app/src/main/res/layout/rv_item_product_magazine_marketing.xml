@@ -3,9 +3,8 @@
     android:layout_width="274dp"
     android:layout_height="160dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginLeft="25dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
     android:background="@color/colorWhite"
     android:elevation="3dp"
     >
