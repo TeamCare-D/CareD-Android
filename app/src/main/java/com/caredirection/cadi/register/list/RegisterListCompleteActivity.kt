@@ -3,6 +3,7 @@ package com.caredirection.cadi.register.list
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -18,33 +19,29 @@ class RegisterListCompleteActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-        makeListener()
+        makeHandler()
 
         Glide.with(this).load(R.raw.done_gif).into(img_register_complete)
     }
 
-    private fun makeListener(){
-        setBackClickListener()
-        setCloseClickListener()
-    }
+    private fun makeHandler(){
+        val hand = Handler();
 
-    private fun setBackClickListener(){
-        btn_register_list_complete_back.setOnClickListener {
-            finish()
-        }
-    }
-
-    private fun setCloseClickListener(){
-        btn_register_list_complete_close.setOnClickListener {
+        hand.postDelayed({
             val registerCompleteIntent = Intent(this, MainActivity::class.java)
 
+            registerCompleteIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
             startActivity(registerCompleteIntent)
-        }
+        }, 2000)
     }
 
     // 상태바 투명 설정
     private fun setStatusBarTransparent(){
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
         cl_register_list_complete.setPadding(0, getStatusBarHeight(this), 0, 0)
     }
 
