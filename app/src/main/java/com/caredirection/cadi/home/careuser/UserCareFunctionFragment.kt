@@ -7,14 +7,12 @@ import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.caredirection.cadi.R
-import com.caredirection.cadi.adapter.ChartBitaminAdapter
 import com.caredirection.cadi.adapter.ChartFunctionAdapter
 import com.caredirection.cadi.adapter.MagazineIngredientRvAdapter
 import com.caredirection.cadi.custom.OnSnapPositionChangeListener
 import com.caredirection.cadi.custom.getSnapPosition
 import com.caredirection.cadi.home.caredetail.Behavior
 import com.caredirection.cadi.network.RequestURL
-import com.caredirection.cadi.networkdata.GraphBitaminList
 import com.caredirection.cadi.networkdata.GraphFunctionList
 import com.caredirection.cadi.networkdata.IngredientDetail
 import com.caredirection.cadi.networkdata.MagazineList
@@ -23,7 +21,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail) {
+class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail2) {
     lateinit var chartRvADapter: ChartFunctionAdapter
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

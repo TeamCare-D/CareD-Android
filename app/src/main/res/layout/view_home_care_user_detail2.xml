@@ -13,43 +13,24 @@
         app:layout_constraintTop_toTopOf="parent"
         >
 
-        <TextView
-            android:id="@+id/txt_home_care_user_detail_increase_high"
+        <ImageView
+            android:id="@+id/img_view_home_care_detail2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:fontFamily="@font/notosanskr_medium"
-            android:textColor="@color/colorBlack"
-            android:includeFontPadding="false"
-            android:layout_marginTop="71dp"
             android:layout_marginLeft="28dp"
-            android:gravity="center"
-            android:text="상한 섭취량"
-            />
-
-        <TextView
-            android:id="@+id/txt_home_care_user_detail_increase_low"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/txt_home_care_user_detail_increase_high"
-            app:layout_constraintTop_toBottomOf="@+id/txt_home_care_user_detail_increase_high"
-            android:layout_marginTop="42dp"
-            android:fontFamily="@font/notosanskr_medium"
-            android:textColor="@color/colorBlack"
-            android:includeFontPadding="false"
-            android:gravity="center"
-            android:text="권장 섭취량"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/standard"
             />
 
         <ImageView
             android:id="@+id/img_view_home_care_user_detail_high"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/txt_home_care_user_detail_increase_high"
+            app:layout_constraintStart_toEndOf="@+id/img_view_home_care_detail2"
             android:layout_marginLeft="21dp"
-            app:layout_constraintTop_toTopOf="@+id/txt_home_care_user_detail_increase_high"
-            app:layout_constraintBottom_toBottomOf="@+id/txt_home_care_user_detail_increase_high"
+            app:layout_constraintTop_toTopOf="@+id/img_view_home_care_detail2"
             android:src="@drawable/line_graph_high"
             />
 
@@ -57,9 +38,8 @@
             android:id="@+id/img_view_pager_home_chart_min"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/txt_home_care_user_detail_increase_low"
-            app:layout_constraintTop_toTopOf="@+id/txt_home_care_user_detail_increase_low"
-            app:layout_constraintBottom_toBottomOf="@+id/txt_home_care_user_detail_increase_low"
+            app:layout_constraintStart_toEndOf="@+id/img_view_home_care_detail2"
+            app:layout_constraintBottom_toBottomOf="@+id/img_view_home_care_detail2"
             android:layout_marginLeft="21dp"
             android:src="@drawable/line_graph_low"
             />
@@ -68,7 +48,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/rv_home_care_detail"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="30dp"
             android:layout_marginBottom="38dp"
             android:layout_width="50dp"
             android:layout_height="177dp"
@@ -82,7 +62,7 @@
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txt_home_care_user_detail_increase_low"
+            app:layout_constraintStart_toEndOf="@+id/img_view_home_care_detail2"
             app:layout_constraintTop_toTopOf="parent" />
 
 
