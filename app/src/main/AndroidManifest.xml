@@ -26,6 +26,11 @@
         <activity android:name=".mypage.interest.MypageInterestProductActivity" />
         <activity android:name=".home.careuser.HomeDetailActivity" />
         <activity android:name=".register.user.RegisterProductActivity" >
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
         <activity android:name="com.caredirection.cadi.MainActivity">
 
@@ -33,11 +38,7 @@
         <activity android:name=".register.list.RegisterListCompleteActivity" />
         <activity android:name=".register.search.RegisterSearchActivity" />
         <activity android:name=".register.list.RegisterListActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".product.search.ProductSearch" />
         <activity android:name=".research.ResearchInterestActivity" />

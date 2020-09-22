@@ -18,6 +18,7 @@ class DummySelectIngredient{
                 ingredientIdx = 0,
                 name = "비타민B컴플렉스",
                 unit = listOf(
+                    "mg NE",
                     "Mg",
                     "Mcg"
                 )
