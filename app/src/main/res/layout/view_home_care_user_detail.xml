@@ -41,7 +41,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/rv_home_care_detail"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginRight="110dp"
+            android:layout_marginRight="25dp"
             android:layout_marginBottom="38dp"
             android:layout_width="70dp"
             android:layout_height="177dp"

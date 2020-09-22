@@ -30,6 +30,8 @@ class CareDetailActivity: AppCompatActivity() {
 
         SimilarRvSetting()
 
+
+
     }
 
     fun SimilarRvSetting(){
@@ -44,4 +46,9 @@ class CareDetailActivity: AppCompatActivity() {
         rv_home_care_detail_similar.adapter = careSimliarRvAdapter
 
     }
+
+    fun careDetailSetting(){
+
+    }
+
 }

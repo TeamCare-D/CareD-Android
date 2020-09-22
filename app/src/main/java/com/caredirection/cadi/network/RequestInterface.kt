@@ -2,8 +2,7 @@ package com.caredirection.cadi.network
 
 
 import com.caredirection.cadi.data.network.*
-import com.caredirection.cadi.networkdata.GraphBitaminList
-import com.caredirection.cadi.networkdata.GraphFunctionList
+import com.caredirection.cadi.networkdata.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -74,6 +73,7 @@ interface RequestInterface {
         @Header("token") token: String
     ): Call<MypageRequestData>
 
+    //그래프
     @GET("/graph/vitaminMineral")
     fun getGraphVitamin(
         @Header("token")token : String
@@ -83,4 +83,45 @@ interface RequestInterface {
     fun getGraphFunction(
         @Header("token")token : String
     ): Call<GraphFunctionList>
+
+    @GET("/graph/{ingredient_idx}")
+    fun getIngredientDetail(
+        @Path("ingredient_idx") ingredient_idx: Int,
+        @Header("token")token : String
+    ): Call<IngredientDetail>
+
+    // 홈 매거진,디렉션 리스트 가져오기
+    @GET("/magazine")
+    fun getMagazineHome(
+        @Header("token")token : String
+    ): Call<MagazineHome>
+
+    // 제품 탭 비슷한 사람들이 섭취하는 성분
+    @GET("/suggestion")
+    fun getSimilarIngredient(
+        @Header("token")token : String
+    ): Call<SimilarIngredient>
+
+    // search/efficacy 효능 리스트 가져오기
+    @GET("/search/efficacy")
+    fun getEfficacy(): Call<EfficacyListData>
+
+    // search/product 제품 검색 하기
+    @GET("/search/product")
+    fun getSearchPrudct(
+        @Query("keyword") keyword: String,
+        @Header("token") token: String
+    ) : Call<ProductSearchData>
+
+    // search/ingredient 성분 리스트 가져오기
+    @GET("/search/ingredient")
+    fun  getIngredentList() : Call<IngredientListData>
+
+    // magazine/direction 메거진 디렉션 리스트 가져오기
+    @GET("/magazine/direction")
+    fun getMagazineDirection(): Call<MagazineDirectionData>
+
+    // magazine/guide 메거진 가이드 리스트 가져오기
+    @GET("/magazine/guide")
+    fun getMAgazineGuide(): Call<MagazineGuideData>
 }

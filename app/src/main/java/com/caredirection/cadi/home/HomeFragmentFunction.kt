@@ -34,7 +34,7 @@ class HomeFragmentFunction: Fragment(R.layout.view_pager_home_chart){
                     call: Call<GraphFunctionList>,
                     response: Response<GraphFunctionList>
                 ) {
-                   // chartAdapter.items.addAll(response.body().data)
+                    chartAdapter.items.addAll(response.body()!!.data)
                     rv_view_pager_home_chart.adapter = chartAdapter
                 }
             }
