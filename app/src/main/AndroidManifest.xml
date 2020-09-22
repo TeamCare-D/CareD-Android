@@ -26,6 +26,7 @@
         <activity android:name=".mypage.interest.MypageInterestProductActivity" />
         <activity android:name=".home.careuser.HomeDetailActivity" />
         <activity android:name=".register.user.RegisterProductActivity" />
+        <activity android:name=".product.detail.ActivityProductDetailWeb" />
 
 
 

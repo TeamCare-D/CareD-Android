@@ -6,10 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.adapter.ChartAdapter
 import com.caredirection.cadi.adapter.ChartData
+import com.caredirection.cadi.networkdata.ProductDetailList
 import com.caredirection.cadi.product.detail.adapter.*
 import kotlinx.android.synthetic.main.fragment_product_detail.*
 
 class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
+
+    lateinit var productDetailData: ProductDetailList
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -25,55 +29,29 @@ class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
         productBuySetting()
     }
     fun intakeRvSetting(){
-        val chartAdapter = ChartAdapter(requireContext())
+        val chartAdapter = DetailFunctionChartAdapter(requireContext())
 
 
-        chartAdapter.items.add( ChartData( "비타민",  200))
-        chartAdapter.items.add( ChartData( "비타민",  50))
-        chartAdapter.items.add( ChartData( "비타민",  600))
-        chartAdapter.items.add( ChartData( "비타민",  60))
-        chartAdapter.items.add( ChartData( "비타민",  20))
-        chartAdapter.items.add( ChartData("비타민", 600))
-        chartAdapter.items.add( ChartData("비타민", 600))
-        chartAdapter.items.add( ChartData("비타민", 600))
+        chartAdapter.items.addAll(productDetailData.product_functional_graph)
 
         chart_product_detail_intake.adapter = chartAdapter
-        chart_product_detail_intake.layoutManager =  LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
     }
 
     fun ingredientSetting(){
         val ingredientAdapter = RvIngredientAdapter(requireContext())
 
-        var data2 = mutableListOf<String>()
-        data2.add("프로바이오틱스 종류")
-        data2.add("프로바이오틱스 종류")
-        data2.add("프로바이오틱스 종류")
 
-
-
-        ingredientAdapter.items.add(RvIngredientData("프로바이오 틱스", "30,000mg - 30,000mg","50,000mg","20,000Up", data2))
-        ingredientAdapter.items.add(RvIngredientData("기능성원료", "30,000mg - 30,000mg","50,000mg","20,000Up", data2))
-        ingredientAdapter.items.add(RvIngredientData("기능성원료", "30,000mg - 30,000mg","50,000mg","20,000Up", data2))
+        ingredientAdapter.items.addAll(productDetailData.product_functional_graph)
         rv_product_detail_intake_functional.adapter = ingredientAdapter
-        rv_product_detail_intake_functional.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
     }
 
 
     fun bitaminSetting(){
-        var charBitaminAdapter = ChartAdapter(requireContext())
+        var charBitaminAdapter = DetailBitaminChartAdapter(requireContext())
 
-        charBitaminAdapter.items.add( ChartData( "비타민",  200))
-        charBitaminAdapter.items.add( ChartData( "비타민",  50))
-        charBitaminAdapter.items.add( ChartData( "비타민",  600))
-        charBitaminAdapter.items.add( ChartData( "비타민",  60))
-        charBitaminAdapter.items.add( ChartData( "비타민",  20))
-        charBitaminAdapter.items.add( ChartData("비타민", 600))
-        charBitaminAdapter.items.add( ChartData("비타민", 600))
-        charBitaminAdapter.items.add( ChartData("비타민", 600))
+        charBitaminAdapter.items.addAll(productDetailData.product_vitamin_mineral_graph)
 
         chart_product_detail_bitamin.adapter = charBitaminAdapter
-        chart_product_detail_bitamin.layoutManager =  LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
     }
 
     fun certificationSetting(){
@@ -88,10 +66,8 @@ class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
 
     fun productBuySetting(){
 
-        val productBuyRvAdapter = ProductBuyRvAdapter()
-        productBuyRvAdapter.items.add(ProductBuyData("쿠팡", "25000",""))
-        productBuyRvAdapter.items.add(ProductBuyData("쿠팡", "25000",""))
-        productBuyRvAdapter.items.add(ProductBuyData("쿠팡", "25000",""))
+        val productBuyRvAdapter = ProductBuyRvAdapter(requireContext())
+        productBuyRvAdapter.items.addAll(productDetailData.store_info)
 
         rv_product_detail_buy.adapter = productBuyRvAdapter
 

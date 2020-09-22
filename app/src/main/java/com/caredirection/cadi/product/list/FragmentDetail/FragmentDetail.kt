@@ -24,8 +24,6 @@ class FragmentDetail : Fragment(R.layout.fragment_product_list_detail) {
         super.onActivityCreated(savedInstanceState)
 
         getProductData()
-
-
     }
 
     fun getProductData() {

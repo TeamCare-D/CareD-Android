@@ -124,4 +124,18 @@ interface RequestInterface {
     // magazine/guide 메거진 가이드 리스트 가져오기
     @GET("/magazine/guide")
     fun getMAgazineGuide(): Call<MagazineGuideData>
+
+    // product/{product_idx} 제품 상세보기
+    @GET("/product/{product_idx}")
+    fun getProductDetail(
+        @Path("product_idx") product_idx: Int,
+        @Header("token")token : String
+    ): Call<ProductDetailData>
+
+    // product/{product_idx}/like 제품 찜하기
+    @POST("/product/{product_idx}/like")
+    fun postProductLike(
+        @Path("product_idx") product_idx: Int,
+        @Header("token") token: String
+    ): Call<ProductLikeData>
 }

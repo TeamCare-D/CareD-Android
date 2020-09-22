@@ -59,8 +59,9 @@
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tab_layout_home_care_user_detail"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="40dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="25dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txt_home_detail_sub">
 

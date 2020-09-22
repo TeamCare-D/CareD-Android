@@ -1,17 +1,19 @@
 package com.caredirection.cadi.product.detail
 
-import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.adapter.ChartAdapter
 import com.caredirection.cadi.adapter.ChartData
+import com.caredirection.cadi.networkdata.ProductDetailList
 import com.caredirection.cadi.product.detail.adapter.*
-import kotlinx.android.synthetic.main.dialog_proudct_ingredient_explaination.view.*
 import kotlinx.android.synthetic.main.fragment_product_detail.*
 
 class FragmentIntake : Fragment(R.layout.fragment_product_detail) {
+
+    lateinit var productDetailData: ProductDetailList
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -29,54 +31,21 @@ class FragmentIntake : Fragment(R.layout.fragment_product_detail) {
         //dialogSetting()
     }
     fun intakeRvSetting(){
-        val chartAdapter = ChartAdapter(requireContext())
+        val chartAdapter = DetailFunctionChartAdapter(requireContext())
 
 
-        chartAdapter.items.add( ChartData( "비타민1",  0))
-        chartAdapter.items.add( ChartData( "비타민1",  0))
-        chartAdapter.items.add( ChartData( "비타민1",  0))
-        chartAdapter.items.add( ChartData( "비타민1",  30))
-        chartAdapter.items.add( ChartData( "비타민2",  50))
-        chartAdapter.items.add( ChartData( "비타민3",  70))
-        chartAdapter.items.add( ChartData( "비타민4",  70))
-        chartAdapter.items.add( ChartData( "비타민5",  70))
-        chartAdapter.items.add( ChartData("비타민6", 100))
-        chartAdapter.items.add( ChartData("비타민7", 110))
-        chartAdapter.items.add( ChartData("비타민8", 100))
-        chartAdapter.items.add( ChartData("비타민9", 100))
-        chartAdapter.items.add( ChartData("비타민10", 100))
-        chartAdapter.items.add( ChartData("비타민11", 100))
-        chartAdapter.items.add( ChartData("비타민12", 100))
-        chartAdapter.items.add( ChartData("비타민13", 100))
-        chartAdapter.items.add( ChartData("비타민14", 100))
-        chartAdapter.items.add( ChartData("비타민15", 100))
-        chartAdapter.items.add( ChartData("비타민16", 100))
-        chartAdapter.items.add( ChartData("비타민17", 100))
-
-
-
+        chartAdapter.items.addAll(productDetailData.product_functional_graph)
 
 
         chart_product_detail_intake.adapter = chartAdapter
-        chart_product_detail_intake.layoutManager =  LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
     }
 
     fun ingredientSetting(){
         val ingredientAdapter = RvIngredientAdapter(requireContext())
 
-        var data2 = mutableListOf<String>()
-        data2.add("프로바이오틱스 종류")
-        data2.add("프로바이오틱스 종류")
-        data2.add("프로바이오틱스 종류")
 
-
-
-        ingredientAdapter.items.add(RvIngredientData("프로바이오 틱스", "30,000mg - 30,000mg","50,000mg","20,000Up", data2))
-        ingredientAdapter.items.add(RvIngredientData("기능성원료", "30,000mg - 30,000mg","50,000mg","20,000Up", data2))
-        ingredientAdapter.items.add(RvIngredientData("기능성원료", "30,000mg - 30,000mg","50,000mg","20,000Up", data2))
+        ingredientAdapter.items.addAll(productDetailData.product_functional_graph)
         rv_product_detail_intake_functional.adapter = ingredientAdapter
-        rv_product_detail_intake_functional.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
     }
 
 
@@ -108,15 +77,11 @@ class FragmentIntake : Fragment(R.layout.fragment_product_detail) {
 
     fun productBuySetting(){
 
-        val productBuyRvAdapter = ProductBuyRvAdapter()
-        productBuyRvAdapter.items.add(ProductBuyData("쿠팡", "25000",""))
-        productBuyRvAdapter.items.add(ProductBuyData("쿠팡", "25000",""))
-        productBuyRvAdapter.items.add(ProductBuyData("쿠팡", "25000",""))
+        val productBuyRvAdapter = ProductBuyRvAdapter(requireContext())
+        productBuyRvAdapter.items.addAll(productDetailData.store_info)
 
         rv_product_detail_buy.adapter = productBuyRvAdapter
 
     }
-
-
 
 }

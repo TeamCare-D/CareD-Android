@@ -34,14 +34,15 @@
 
     <TextView
         android:id="@+id/img_home_care_detail_chart_box"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rv_home_care_detail"
-        app:layout_constraintBottom_toBottomOf="@+id/rv_home_care_detail"
-        android:layout_marginRight="92dp"
         android:layout_width="70dp"
         android:layout_height="177dp"
+        android:layout_marginEnd="86dp"
         android:background="@color/colorWindowDuckEggBlue"
-        />
+        app:layout_constraintBottom_toBottomOf="@+id/rv_home_care_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rv_home_care_detail"
+         />
+
     <ImageView
         android:id="@+id/img_home_care_detail_chart_content"
         android:layout_width="wrap_content"

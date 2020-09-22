@@ -49,6 +49,7 @@ class ProductListRvAdapter(private val context: Context) :
         fun bind(item: ProductInfo) {
             itemView.setOnClickListener {
                 val intent = Intent(context, DetailActivity::class.java)
+                intent.putExtra("product_idx", item.productIdx)
                 context.startActivity(intent)
             }
             txt_rv_item_product_list_brand.text = item.brandName

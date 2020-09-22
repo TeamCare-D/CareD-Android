@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.caredirection.cadi.R
@@ -22,12 +23,17 @@ class ProductSearch : AppCompatActivity() {
         ViewPagerSetting()
 
         img_product_search_search.setOnClickListener{
-            val intent = Intent(baseContext, ListActivity::class.java)
+            if(edt_product_search.text.isEmpty()){
+                Toast.makeText(baseContext, "입력하세요", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                val intent = Intent(baseContext, ListActivity::class.java)
 
-            val testData: String = edt_product_search.text.toString()
+                val productName: String = edt_product_search.text.toString()
 
-            intent.putExtra("name", testData)
-            startActivity(intent)
+                intent.putExtra("name", productName)
+                startActivity(intent)
+            }
         }
 
         autoTextSetting()
@@ -58,6 +64,7 @@ class ProductSearch : AppCompatActivity() {
         list.add("비타민C")
         list.add("비타민B 컴플렉스")
         list.add("종합 비타민")
+        list.add("코엔자임Q10")
         edt_product_search.setAdapter(adaptwer)
     }
 }

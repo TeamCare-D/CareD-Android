@@ -35,7 +35,7 @@ class ListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_list)
 
-        val productName = intent?.getStringExtra("name")
+        val productName = intent.getStringExtra("name")
 
         Log.d("실험이다", productName.toString())
 
