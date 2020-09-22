@@ -58,7 +58,7 @@ class RegisterIngredientFragment : BottomSheetDialogFragment(){
     }
 
     private fun getIngredientMenuTab(){
-        val menu = arrayListOf("비타민 & 미네랄","기능성 원료")
+        val menu = arrayListOf("비타민 & 미네랄", "기능성 원료")
         for(i in 0..menu.size){
             rootView.tl_register_product_ingredient.getTabAt(i)?.text = menu[i]
         }
@@ -74,10 +74,12 @@ class RegisterIngredientFragment : BottomSheetDialogFragment(){
 
         rootView.vp_register_product_ingredient.adapter = registerIngredientMenuAdapter
         rootView.tl_register_product_ingredient.setupWithViewPager(rootView.vp_register_product_ingredient)
+
     }
 
     private fun setTabSelectedListener(){
-        rootView.tl_register_product_ingredient.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+        rootView.tl_register_product_ingredient.addOnTabSelectedListener(object :
+            TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 //rootView.tl_register_product_ingredient.
             }

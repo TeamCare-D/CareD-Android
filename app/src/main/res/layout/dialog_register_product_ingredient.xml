@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
 
     <TextView
         android:id="@+id/textView20"
@@ -38,7 +39,7 @@
         app:tabPaddingEnd="18dp"
         app:tabIndicator="@drawable/tab_indicator"
         app:tabSelectedTextColor="@color/colorPointBlue"
-        app:tabTextColor="@color/colorCoolGray2"
+        app:tabTextColor="@color/colorWhite3"
         app:tabIndicatorColor="@color/colorPointBlue">
 
     </com.google.android.material.tabs.TabLayout>
