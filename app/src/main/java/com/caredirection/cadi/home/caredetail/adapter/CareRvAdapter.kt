@@ -1,9 +1,12 @@
 package com.caredirection.cadi.home.caredetail.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
@@ -11,9 +14,7 @@ import com.caredirection.cadi.R
 import com.caredirection.cadi.home.caredetail.FragmentChartBitamin
 import com.caredirection.cadi.home.caredetail.FragmentChartFunction
 import com.caredirection.cadi.product.search.adapter.ViewPagerAdapter
-import com.google.android.material.tabs.TabItem
 import com.google.android.material.tabs.TabLayout
-import kotlinx.android.synthetic.main.activity_product_search.*
 
 class CareRvAdapter(val mFragment: FragmentManager): RecyclerView.Adapter<CareRvAdapter.CareRvHolder>() {
 
@@ -35,8 +36,18 @@ class CareRvAdapter(val mFragment: FragmentManager): RecyclerView.Adapter<CareRv
     inner class CareRvHolder(view: View):RecyclerView.ViewHolder(view){
         val tab_layout_home_care_detail: TabLayout = itemView.findViewById(R.id.tab_layout_home_care_detail)
         val img_rv_item_home_care_detail: ImageView = itemView.findViewById(R.id.img_rv_item_home_care_detail)
+        val txt_rv_item_home_care_detail_name: TextView = itemView.findViewById(R.id.txt_rv_item_home_care_detail_name)
+
+        val line_rv_item_home_care_detail: TextView = itemView.findViewById(R.id.line_rv_item_home_care_detail)
+
+
+        val faceTrue = ResourcesCompat.getFont(itemView.context, R.font.notosanskr_bold)
+        val faceFalse = ResourcesCompat.getFont(itemView.context, R.font.notosanskr_regular)
+
 
         val view_pager_home_care_detail: ViewPager = itemView.findViewById(R.id.view_pager_home_care_detail)
+
+
         var checked: Boolean = false
 
         
@@ -44,17 +55,28 @@ class CareRvAdapter(val mFragment: FragmentManager): RecyclerView.Adapter<CareRv
 
         fun bind(){
             tab_layout_home_care_detail.visibility = View.GONE
+            line_rv_item_home_care_detail.visibility = View.GONE
 
-            img_rv_item_home_care_detail.setOnClickListener{
+            itemView.setOnClickListener{
                 if(!checked){
                     viewPagerSetting(itemView)
                     tab_layout_home_care_detail.visibility = View.VISIBLE
                     view_pager_home_care_detail.visibility = View.VISIBLE
+                    line_rv_item_home_care_detail.visibility = View.VISIBLE
+                    txt_rv_item_home_care_detail_name.typeface = faceTrue
+                    img_rv_item_home_care_detail.setImageResource(R.drawable.btn_dropup_blue_home)
+
+                    itemView.setBackgroundColor(Color.parseColor("#f0f6fd"))
+
                     checked = true
                 }
                 else {
                     tab_layout_home_care_detail.visibility = View.GONE
                     view_pager_home_care_detail.visibility = View.GONE
+                    line_rv_item_home_care_detail.visibility = View.GONE
+                    txt_rv_item_home_care_detail_name.typeface = faceFalse
+                    itemView.setBackgroundColor(Color.parseColor("#ffffff"))
+                    img_rv_item_home_care_detail.setImageResource(R.drawable.btn_dropdown)
 
                     checked = false
                 }

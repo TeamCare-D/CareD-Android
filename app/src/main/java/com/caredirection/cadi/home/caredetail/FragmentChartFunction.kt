@@ -20,7 +20,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FragmentChartFunction : Fragment(R.layout.fragment_home_care_detail_chart) {
+class FragmentChartFunction : Fragment(R.layout.fragment_home_care_detail_chart2) {
     lateinit var chartRvADapter: ChartFunctionAdapter
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

@@ -5,41 +5,24 @@
     android:background="@color/colorDuckEggBlue"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/img_home_care_detail_chart_content_increase_high"
+    <ImageView
+        android:id="@+id/img_fragment_home_care_detail_chart2_standard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:fontFamily="@font/notosanskr_medium"
-        android:textColor="@color/colorBlack"
-        android:includeFontPadding="false"
-        android:layout_marginTop="71dp"
         android:layout_marginLeft="28dp"
-        android:text="상한 섭취량"
-        />
-    <TextView
-        android:id="@+id/img_home_care_detail_chart_content_increase_low"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/img_home_care_detail_chart_content_increase_high"
-        app:layout_constraintTop_toBottomOf="@+id/img_home_care_detail_chart_content_increase_high"
-        android:layout_marginTop="42dp"
-        android:fontFamily="@font/notosanskr_medium"
-        android:textColor="@color/colorBlack"
-        android:includeFontPadding="false"
-        android:gravity="center"
-        android:text="권장 섭취량"
+        android:layout_marginTop="59dp"
+        android:src="@drawable/standard"
         />
 
     <ImageView
         android:id="@+id/line_home_care_detail_chart_content_increase_high"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/img_home_care_detail_chart_content_increase_high"
         android:layout_marginLeft="21dp"
-        app:layout_constraintTop_toTopOf="@+id/img_home_care_detail_chart_content_increase_high"
-        app:layout_constraintBottom_toBottomOf="@+id/img_home_care_detail_chart_content_increase_high"
+        app:layout_constraintStart_toEndOf="@+id/img_fragment_home_care_detail_chart2_standard"
+        app:layout_constraintTop_toTopOf="@+id/img_fragment_home_care_detail_chart2_standard"
         android:src="@drawable/line_graph_high"
         />
 
@@ -47,9 +30,8 @@
         android:id="@+id/line_home_care_detail_chart_content_increase_low"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/img_home_care_detail_chart_content_increase_low"
-        app:layout_constraintTop_toTopOf="@+id/img_home_care_detail_chart_content_increase_low"
-        app:layout_constraintBottom_toBottomOf="@+id/img_home_care_detail_chart_content_increase_low"
+        app:layout_constraintStart_toEndOf="@+id/img_fragment_home_care_detail_chart2_standard"
+        app:layout_constraintBottom_toBottomOf="@+id/img_fragment_home_care_detail_chart2_standard"
         android:layout_marginLeft="21dp"
         android:src="@drawable/line_graph_low"
         />
@@ -60,7 +42,7 @@
         android:layout_width="70dp"
         android:layout_height="177dp"
         android:layout_marginEnd="86dp"
-        android:background="@color/colorWhite"
+        android:background="#F2ffffff"
         android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/rv_home_care_detail"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,8 +54,7 @@
         android:layout_width="253dp"
         android:layout_height="190dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img_home_care_detail_chart_content_increase_low"
-        android:layout_marginLeft="37dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="horizontal"
         />
@@ -89,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="@+id/img_home_care_detail_chart_box"
         android:src="@drawable/btn_dropdown"
         />
-    
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_home_care_detail_chart_content"
         android:layout_width="304dp"
