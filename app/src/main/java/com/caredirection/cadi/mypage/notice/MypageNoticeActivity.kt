@@ -3,6 +3,7 @@ package com.caredirection.cadi.mypage.notice
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -49,20 +50,6 @@ class MypageNoticeActivity : AppCompatActivity() {
         }
     }
 
-    // 상태바 투명 설정
-    private fun setStatusBarTransparent(){
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        cl_mypage_notice.setPadding(0, getStatusBarHeight(this), 0, 0)
-    }
-
-    // 상태바 높이 정보
-    private fun getStatusBarHeight(context: Context): Int {
-        val resourceId = context.resources.getIdentifier("status_bar_height", "dimen", "android")
-
-        return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
-        else 0
-    }
-
     private fun getNoticeListResponse(){
         val call: Call<MypageNoticeData> = RequestURL.service.getNoticeList()
         call.enqueue(
@@ -89,5 +76,29 @@ class MypageNoticeActivity : AppCompatActivity() {
 
             }
         )
+    }
+
+    // 상태바 투명 설정
+    private fun setStatusBarTransparent(){
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        cl_mypage_notice.setPadding(0, getStatusBarHeight(this), 0, 0)
+    }
+
+    // 상태바 높이 정보
+    private fun getStatusBarHeight(context: Context): Int {
+        val resourceId = context.resources.getIdentifier("status_bar_height", "dimen", "android")
+
+        return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
+        else 0
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) setDarkStatusBar()
+    }
+
+    // 상태바 어둡게
+    private fun setDarkStatusBar() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
     }
 }

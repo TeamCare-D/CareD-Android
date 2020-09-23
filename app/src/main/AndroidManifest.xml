@@ -41,10 +41,11 @@
 
         </activity>
         <activity android:name=".product.search.ProductSearch" />
-        <activity android:name=".research.ResearchInterestActivity" />
+        <activity android:name=".research.interest.ResearchInterestActivity" />
         <activity android:name=".product.list.ListActivity" />
-        <activity android:name=".research.ResearchMedicineActivity" />
-        <activity android:name=".research.ResearchDiseaseActivity" />
+        <activity android:name=".research.allergy.ResearchAllergyActivity"></activity>
+        <activity android:name=".research.medicine.ResearchMedicineActivity" />
+        <activity android:name=".research.disease.ResearchDiseaseActivity" />
         <activity android:name=".research.ResearchGenderActivity" />
         <activity android:name=".research.ResearchNicknameActivity">
 

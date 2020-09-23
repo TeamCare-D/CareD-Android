@@ -7,13 +7,23 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.NumberPicker
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.UserController
+import com.caredirection.cadi.data.research.ResearchSelectList
+import com.caredirection.cadi.research.disease.ResearchDiseaseActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_research_gender.*
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 
 class ResearchGenderActivity : AppCompatActivity() {
 
@@ -34,18 +44,25 @@ class ResearchGenderActivity : AppCompatActivity() {
     }
 
     private fun initTitle(){
-        val nick = intent.getStringExtra("nick")
-
-        txt_genderTitle.text = nick + "님의\n건강기능식품 선택을 도와드릴게요"
+        txt_gender_title.text = UserController.getName(this) + "님의\n건강기능식품 선택을 도와드릴게요"
     }
 
     private fun initProgressBar(){
-        var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT,ConstraintLayout.LayoutParams.WRAP_CONTENT)
-        param.width = displayMetrics.widthPixels/4
+        var param : ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
+            ConstraintLayout.LayoutParams.WRAP_CONTENT,
+            ConstraintLayout.LayoutParams.WRAP_CONTENT
+        )
+        param.width = displayMetrics.widthPixels/5
         param.height = getDisplayHeight()/6
 
-        pb_gender.layoutParams = param
-        pb_gender.progress = 100
+        pb_research_gender.layoutParams = param
+        pb_research_gender.progress = 100
+
+        val animation: Animation = AnimationUtils.loadAnimation(
+            applicationContext,
+            R.anim.translate
+        )
+        pb_research_gender.startAnimation(animation)
     }
 
     private fun getDisplayHeight():Int{
@@ -65,6 +82,7 @@ class ResearchGenderActivity : AppCompatActivity() {
         setYearClickListener()
         setBackClickListener()
         setNextClickListener()
+        setCloseClickListener()
     }
 
     private fun setGenderClickListener(){
@@ -90,20 +108,22 @@ class ResearchGenderActivity : AppCompatActivity() {
     private fun showYearPicker(){
         val yearDialog = BottomSheetDialog(this)
         val yearLayout : LayoutInflater = LayoutInflater.from(this)
-        val yearView : View = yearLayout.inflate(R.layout.dialog_research_year,null)
+        val yearView : View = yearLayout.inflate(R.layout.dialog_research_year, null)
 
         val npYear : NumberPicker = yearView.findViewById(R.id.np_year)
-        val btnCancel : Button = yearView.findViewById(R.id.btn_cancel)
-        val btnConfirm : Button = yearView.findViewById(R.id.btn_confirm)
+        val btnCancel : TextView = yearView.findViewById(R.id.btn_cancel)
+        val btnConfirm : TextView = yearView.findViewById(R.id.btn_confirm)
+
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy")
+        val formatted = current.format(formatter)
 
         npYear.minValue = 1900
-        npYear.maxValue = 2020
+        npYear.maxValue = formatted.toInt()
         npYear.value = 1990
 
         npYear.wrapSelectorWheel = false
         npYear.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
-
-        npYear.textColor = this.resources.getColor(R.color.colorWhite)
 
         btnCancel.setOnClickListener {
             yearDialog.cancel()
@@ -120,6 +140,7 @@ class ResearchGenderActivity : AppCompatActivity() {
             checkNextButton()
         }
 
+        yearDialog.behavior.isHideable = false
         yearDialog.setContentView(yearView)
         yearDialog.setCanceledOnTouchOutside(false)
         yearDialog.create()
@@ -127,17 +148,35 @@ class ResearchGenderActivity : AppCompatActivity() {
     }
 
     private fun setBackClickListener(){
-        btn_genderBack?.setOnClickListener {
+        btn_gender_back?.setOnClickListener {
             finish()
+        }
+    }
+    private fun setCloseClickListener(){
+        btn_gender_close.setOnClickListener {
+            showDeleteDialog()
         }
     }
 
     private fun setNextClickListener() {
         btn_genderNext?.setOnClickListener {
+            setSelectedList()
+
             val diseaseIntent = Intent(this, ResearchDiseaseActivity::class.java)
 
             startActivity(diseaseIntent)
         }
+    }
+
+    private fun setSelectedList(){
+        if(btn_women.isChecked){
+            ResearchSelectList.setGender(0)
+        }
+        else{
+            ResearchSelectList.setGender(1)
+        }
+
+        ResearchSelectList.setAge(btn_year.text.toString())
     }
 
     // 다음 버튼 처리를 위한 확인
@@ -148,9 +187,39 @@ class ResearchGenderActivity : AppCompatActivity() {
         else btn_genderNext.setTextColor(resources.getColor(R.color.colorCoolGray2))
     }
 
+    private fun showDeleteDialog(){
+        val deleteDialog = AppCompatDialog(this)
+        val deleteLayout : LayoutInflater = LayoutInflater.from(this)
+        val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup, null)
+
+        val btnCancel : Button = deleteView.findViewById(R.id.btn_popup_cancel)
+        val btnConfirm : Button = deleteView.findViewById(R.id.btn_popup_confirm)
+        val txtTitle : TextView = deleteView.findViewById(R.id.txt_popup_tilte)
+
+        txtTitle.text = "지금 설문을 중단하시면\n케어디의 서비스를 이용할 수 없습니다."
+
+        btnCancel.setOnClickListener {
+            deleteDialog.cancel()
+        }
+
+        btnConfirm.setOnClickListener {
+            deleteDialog.dismiss()
+        }
+
+        deleteDialog.setContentView(deleteView)
+        deleteDialog.setCanceledOnTouchOutside(false)
+        deleteDialog.create()
+        if(isFinishing){
+            deleteDialog.show()
+        }
+    }
+
     // 상태바 투명 설정
     private fun setStatusBarTransparent(){
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
         cl_researchGender.setPadding(0, getStatusBarHeight(this), 0, 0)
     }
 
@@ -164,7 +233,11 @@ class ResearchGenderActivity : AppCompatActivity() {
 
     // 네비게이션바 높이 정보
     private fun getNavigationBarHeight(context: Context): Int{
-        val resourceBottom = context.resources.getIdentifier("navigation_bar_height", "dimen", "android")
+        val resourceBottom = context.resources.getIdentifier(
+            "navigation_bar_height",
+            "dimen",
+            "android"
+        )
 
         return if (resourceBottom > 0) context.resources.getDimensionPixelSize(resourceBottom)
         else 0
@@ -172,8 +245,22 @@ class ResearchGenderActivity : AppCompatActivity() {
 
     // 네비게이션바 구분(소프트/하드)
     private fun getNavigationBarInfo(context: Context):Boolean{
-        val resourceBottom = context.resources.getIdentifier("config_showNavigationBar", "bool", "android")
+        val resourceBottom = context.resources.getIdentifier(
+            "config_showNavigationBar",
+            "bool",
+            "android"
+        )
 
         return context.resources.getBoolean(resourceBottom)
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) setDarkStatusBar()
+    }
+
+    // 상태바 어둡게
+    private fun setDarkStatusBar() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
     }
 }

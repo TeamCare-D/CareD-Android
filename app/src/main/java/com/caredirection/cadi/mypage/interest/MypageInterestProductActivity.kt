@@ -50,7 +50,7 @@ class MypageInterestProductActivity : AppCompatActivity() {
 
             for(item in mypageInterestProductAdapter.selectedItem) {
                 //Log.d("명, 선택취소번호", item.toString())
-                deleteInterestProductResponse(item)
+                //deleteInterestProductResponse(item)
             }
 
             finish()
@@ -146,5 +146,15 @@ class MypageInterestProductActivity : AppCompatActivity() {
 
         return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
         else 0
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) setDarkStatusBar()
+    }
+
+    // 상태바 어둡게
+    private fun setDarkStatusBar() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
     }
 }

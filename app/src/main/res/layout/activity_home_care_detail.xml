@@ -30,13 +30,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                >
 
                 <TextView
                     android:id="@+id/txt_home_care_detail_title"
                     style="@style/bold20"
                     android:layout_width="wrap_content"
-                    
+
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="28dp"
                     android:layout_marginTop="19dp"
@@ -68,6 +70,8 @@
                     app:layout_constraintTop_toBottomOf="@+id/txt_home_care_detail_sub_title" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
             <TextView
                 android:id="@+id/txt_home_care_detail_similar_title"

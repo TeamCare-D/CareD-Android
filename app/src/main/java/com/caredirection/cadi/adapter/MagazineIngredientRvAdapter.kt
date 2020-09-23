@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import com.caredirection.cadi.product.list.adapter.ProductMagazineData
+import com.caredirection.cadi.networkdata.MagazineList
 
 class MagazineIngredientRvAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    val items = mutableListOf<ProductMagazineData>()
+    val items = mutableListOf<MagazineList>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_item_magazine_ingredient, parent, false)
@@ -33,9 +33,9 @@ class MagazineIngredientRvAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>
         val magazineTagRvAdapter = MagazineTagRvAdapter()
 
 
-        fun bind(item: ProductMagazineData){
-            txt_rv_item_magazine_ingredient.text = item.title
-            magazineTagRvAdapter.items.addAll(item.tag)
+        fun bind(item: MagazineList){
+            txt_rv_item_magazine_ingredient.text = item.magazine_title
+            magazineTagRvAdapter.items.addAll(item.hashtag_name)
             rv_rv_item_magazine_ingredient.adapter = magazineTagRvAdapter
 
         }

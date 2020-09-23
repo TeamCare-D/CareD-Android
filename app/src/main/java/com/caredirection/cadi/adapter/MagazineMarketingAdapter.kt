@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import com.caredirection.cadi.product.list.adapter.MarketingData
+import com.caredirection.cadi.networkdata.MagazineDirections
 
 class MagazineMarketingAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    val marketingItems = mutableListOf<MarketingData>()
+    val marketingItems = mutableListOf<MagazineDirections>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_item_product_magazine_marketing, parent, false)
@@ -30,9 +30,9 @@ class MagazineMarketingAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() 
         val txt_rv_item_product_magazine_marketing: TextView = view.findViewById(R.id.txt_rv_item_product_magazine_marketing)
         val txt_rv_item_product_magazine_marketing_title: TextView = view.findViewById(R.id.txt_rv_item_product_magazine_marketing_title)
 
-        fun bind(item: MarketingData){
-            txt_rv_item_product_magazine_marketing.text = item.tag
-            txt_rv_item_product_magazine_marketing_title.text = item.title
+        fun bind(item: MagazineDirections){
+            txt_rv_item_product_magazine_marketing.text = item.magazine_title
+            txt_rv_item_product_magazine_marketing_title.text = item.hashtag_name[0]
         }
 
     }

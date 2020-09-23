@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".research.ResearchNicknameActivity"
-    android:id="@+id/cl_researchNick">
+    android:id="@+id/cl_researchNick"
+    android:background="@color/colorWhite">
 
     <ImageView
-        android:id="@+id/btn_nickClose"
+        android:id="@+id/btn_nick_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
@@ -18,18 +19,18 @@
         app:srcCompat="@drawable/btn_close" />
 
     <TextView
-        android:id="@+id/txt_nickTitle"
+        android:id="@+id/txt_nick_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="65dp"
-        android:layout_marginTop="111dp"
+        android:layout_marginTop="112dp"
         android:layout_marginEnd="65dp"
-        android:text="사용할 닉네임을 적어주세요"
-        android:textSize="20dp"
         android:fontFamily="@font/notosanskr_light"
-        android:textColor="@color/colorBlack"
-        android:lineSpacingExtra="9sp"
         android:includeFontPadding="false"
+        android:lineSpacingExtra="9sp"
+        android:text="사용할 닉네임을 적어주세요"
+        android:textColor="@color/colorBlack"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:ems="5"
+        android:ems="10"
         android:inputType="textPersonName"
         android:hint="닉네임"
         android:textColorHint="@color/colorCoolGray1"
@@ -52,7 +53,7 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nickTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_nick_title" />
 
     <Button
         android:id="@+id/btn_nickNext"
