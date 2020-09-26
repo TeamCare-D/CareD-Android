@@ -1,7 +1,7 @@
 package com.caredirection.cadi.data.register
 
 data class RvSelectListItem(
-    val ingredientIdx: Int,
+    val ingredientIdx: Int?,
     val name: String,
-    val unit: List<String>
+    val unit: List<String>?
 )
