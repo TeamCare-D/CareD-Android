@@ -8,6 +8,7 @@ import com.caredirection.cadi.R
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.networkdata.EfficacyListData
 import com.caredirection.cadi.product.search.adapter.SymptomRvAdapter
+import com.caredirection.cadi.product.search.adapter.ingredientIdxData
 import com.caredirection.cadi.product.search.adapter.item
 import kotlinx.android.synthetic.main.fragment_product_search1.*
 import retrofit2.Call
@@ -38,20 +39,26 @@ class FragmentSymptom: Fragment(R.layout.fragment_product_search1) {
                     response: Response<EfficacyListData>
                 ) {
                     val data = response.body()!!.data
-                    val efficacyList = mutableListOf<String>()
-                    for (i in 0..data.size){
-                        //efficacyList.add(data[i].efficacy_name)
+                    val efficacyList = mutableListOf<item>()
+
+
+                    for (i in data){
+                        val testString = mutableListOf<ingredientIdxData>()
+                        for(j in i){
+                            testString.add(ingredientIdxData(j.ingredient_name, j.ingredient_idx))
+                        }
+                        efficacyList.add(item(i[0].efficacy_name, testString))
                     }
-                    efficacyList.distinct()
 
                     Log.d("testDis", efficacyList.toString())
-                    Log.d("testDis", data.toString())
+                    RvAdapter.items.addAll(efficacyList)
+                    rv_product_search_symptom.adapter = RvAdapter
 
 
                 }
             }
         )
 
-        rv_product_search_symptom.adapter = RvAdapter
+
     }
 }

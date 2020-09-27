@@ -138,4 +138,12 @@ interface RequestInterface {
         @Path("product_idx") product_idx: Int,
         @Header("token") token: String
     ): Call<ProductLikeData>
+
+
+    // user/care/detail 케어받는 기능 & 비슷한 사람들 케어 상세정보 가져오기
+    @GET("/user/care/detail")
+    fun getUserCareDetail(
+        @Header("token") token: String
+    ): Call<CareDetailData>
+
 }

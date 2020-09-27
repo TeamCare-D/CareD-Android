@@ -98,7 +98,7 @@ class CareRvAdapter(val mFragment: FragmentManager): RecyclerView.Adapter<CareRv
 
         tab_layout_home_care_detail.setupWithViewPager(mViewPager)
         val menu = arrayListOf("비타민 & 미네랄", "기능성 원료")
-        for(i in 0..menu.size){
+        for (i in 0..menu.size) {
             tab_layout_home_care_detail.getTabAt(i)?.text = menu[i]
         }
     }

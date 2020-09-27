@@ -94,10 +94,12 @@
 
             <TextView
                 android:id="@+id/txt_product_suggestion_item1"
-                android:layout_width="98dp"
+                android:layout_width="0dp"
                 android:layout_height="42dp"
                 android:layout_marginTop="18dp"
                 android:background="@drawable/blue_line_4"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
                 android:text="홍삼"
                 android:fontFamily="@font/notosanskr_bold"
@@ -112,15 +114,14 @@
 
             <TextView
                 android:id="@+id/txt_product_suggestion_item2"
-                android:layout_width="98dp"
+                android:layout_width="0dp"
                 android:layout_height="42dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:background="@drawable/blue_line_4"
                 android:gravity="center"
                 android:text="오메가3"
                 android:fontFamily="@font/notosanskr_bold"
                 android:textColor="@color/colorBlack"
+                android:layout_marginRight="8dp"
                 android:textSize="12dp"
                 app:layout_constraintEnd_toStartOf="@+id/txt_product_suggestion_item3"
                 app:layout_constraintStart_toEndOf="@+id/txt_product_suggestion_item1"
@@ -129,11 +130,12 @@
 
             <TextView
                 android:id="@+id/txt_product_suggestion_item3"
-                android:layout_width="98dp"
+                android:layout_width="0dp"
                 android:layout_height="42dp"
                 android:background="@drawable/blue_line_4"
                 android:gravity="center"
                 android:text="비타민D"
+                android:layout_marginRight="25dp"
                 android:fontFamily="@font/notosanskr_bold"
                 android:textColor="@color/colorBlack"
                 android:textSize="12dp"

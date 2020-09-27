@@ -3,7 +3,12 @@ package com.caredirection.cadi.product.search
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
+import android.view.KeyEvent.KEYCODE_ENTER
+import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
@@ -22,11 +27,10 @@ class ProductSearch : AppCompatActivity() {
 
         ViewPagerSetting()
 
-        img_product_search_search.setOnClickListener{
-            if(edt_product_search.text.isEmpty()){
+        img_product_search_search.setOnClickListener {
+            if (edt_product_search.text.isEmpty()) {
                 Toast.makeText(baseContext, "입력하세요", Toast.LENGTH_SHORT).show()
-            }
-            else{
+            } else {
                 val intent = Intent(baseContext, ListActivity::class.java)
 
                 val productName: String = edt_product_search.text.toString()
@@ -38,9 +42,11 @@ class ProductSearch : AppCompatActivity() {
 
         autoTextSetting()
 
+        EditEnterSetting()
+
     }
 
-    fun ViewPagerSetting(){
+    fun ViewPagerSetting() {
         mViewPager = findViewById(R.id.view_pager_product_search)
         val adapter: ViewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
 
@@ -51,12 +57,12 @@ class ProductSearch : AppCompatActivity() {
 
         tab_layout_product_search.setupWithViewPager(mViewPager)
         val menu = arrayListOf("증상", "이름")
-        for(i in 0..menu.size){
+        for (i in 0..menu.size) {
             tab_layout_product_search.getTabAt(i)?.text = menu[i]
         }
     }
 
-    fun autoTextSetting(){
+    fun autoTextSetting() {
         val list = mutableListOf<String>()
         val adaptwer = ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, list)
         list.add("오메가3")
@@ -67,4 +73,21 @@ class ProductSearch : AppCompatActivity() {
         list.add("코엔자임Q10")
         edt_product_search.setAdapter(adaptwer)
     }
+
+    fun EditEnterSetting() {
+        edt_product_search.setOnKeyListener { _, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+
+                val intent = Intent(baseContext, ListActivity::class.java)
+
+                val productName: String = edt_product_search.text.toString()
+
+                intent.putExtra("name", productName)
+                startActivity(intent)
+            }
+            return@setOnKeyListener false
+
+        }
+    }
 }
+

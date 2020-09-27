@@ -42,7 +42,7 @@ class CareDetailActivity: AppCompatActivity() {
         test.add("진세노사이드")
         test.add("진세노사이드")
 
-        careSimliarRvAdapter.items.add(CareSimliarData("간 건강", test))
+//        careSimliarRvAdapter.items.add(CareSimliarData("간 건강", test))
         rv_home_care_detail_similar.adapter = careSimliarRvAdapter
 
     }

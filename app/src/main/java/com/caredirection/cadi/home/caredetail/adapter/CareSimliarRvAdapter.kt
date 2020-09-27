@@ -10,10 +10,11 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
+import com.caredirection.cadi.networkdata.SimilarCareData
 
 class CareSimliarRvAdapter : RecyclerView.Adapter<CareSimliarRvAdapter.CareSimliarRvHolder>() {
 
-    var items = mutableListOf<CareSimliarData>()
+    var items = mutableListOf<SimilarCareData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CareSimliarRvHolder {
         val view = LayoutInflater.from(parent.context)
@@ -30,29 +31,34 @@ class CareSimliarRvAdapter : RecyclerView.Adapter<CareSimliarRvAdapter.CareSimli
     }
 
     inner class CareSimliarRvHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val rv_rv_item_hoem_care_detail_similar: RecyclerView = itemView.findViewById(R.id.rv_rv_item_hoem_care_detail_similar)
+        val rv_rv_item_hoem_care_detail_similar: RecyclerView =
+            itemView.findViewById(R.id.rv_rv_item_hoem_care_detail_similar)
         val careSimilarIngredientRvAdapter = CareSimilarIngredientRvAdapter()
 
-        val txt_rv_item_home_care_detail_similar_sub_title: TextView = itemView.findViewById(R.id.txt_rv_item_home_care_detail_similar_sub_title)
-        val img_rv_item_home_care_detail_similar_title: ImageView = itemView.findViewById(R.id.img_rv_item_home_care_detail_similar_title)
+        val txt_rv_item_home_care_detail_similar_sub_title: TextView =
+            itemView.findViewById(R.id.txt_rv_item_home_care_detail_similar_sub_title)
+        val img_rv_item_home_care_detail_similar_title: ImageView =
+            itemView.findViewById(R.id.img_rv_item_home_care_detail_similar_title)
 
-        val line_rv_item_home_care_detail_similar: TextView = itemView.findViewById(R.id.line_rv_item_home_care_detail_similar)
+        val line_rv_item_home_care_detail_similar: TextView =
+            itemView.findViewById(R.id.line_rv_item_home_care_detail_similar)
 
-        val txt_rv_item_home_care_detail_similar_title_name: TextView = itemView.findViewById(R.id.txt_rv_item_home_care_detail_similar_title_name)
+        val txt_rv_item_home_care_detail_similar_title_name: TextView =
+            itemView.findViewById(R.id.txt_rv_item_home_care_detail_similar_title_name)
         val faceTrue = ResourcesCompat.getFont(itemView.context, R.font.notosanskr_bold)
         val faceFalse = ResourcesCompat.getFont(itemView.context, R.font.notosanskr_regular)
 
         var checked: Boolean = false
 
-        fun bind(item: CareSimliarData) {
-            careSimilarIngredientRvAdapter.items.addAll(item.IngredientList)
+        fun bind(item: SimilarCareData) {
+            careSimilarIngredientRvAdapter.items.addAll(item.ingredientName)
             rv_rv_item_hoem_care_detail_similar.adapter = careSimilarIngredientRvAdapter
 
             line_rv_item_home_care_detail_similar.visibility = View.GONE
 
 
 
-            img_rv_item_home_care_detail_similar_title.setOnClickListener {
+            itemView.setOnClickListener {
                 if (!checked) {
                     rv_rv_item_hoem_care_detail_similar.visibility = View.VISIBLE
                     txt_rv_item_home_care_detail_similar_sub_title.visibility = View.VISIBLE
