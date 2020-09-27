@@ -127,10 +127,10 @@ class FragmentChartFunction : Fragment(R.layout.fragment_home_care_detail_chart2
                     response: Response<IngredientDetail>
                 ) {
                     val data = response.body()!!.data
-                    txt_home_care_detail_chart_content_title.text = data[1].ingredient_name
-                    txt_home_care_detail_chart_content_recommended_number1.text = data[1].vitamin_mineral_recommended_amount
-                    txt_home_care_detail_chart_content_recommended_number2.text = data[1].vitamin_mineral_upper_amount
-                    txt_home_care_detail_chart_content_intake_number.text = data[1].my_amount
+                    txt_home_care_detail_chart_content_title.text = data.graphVitaminMineralDetail.ingredient_name
+                    txt_home_care_detail_chart_content_recommended_number1.text = data.graphVitaminMineralDetail.vitamin_mineral_recommended_amount
+                    txt_home_care_detail_chart_content_recommended_number2.text = data.graphVitaminMineralDetail.vitamin_mineral_upper_amount
+                    txt_home_care_detail_chart_content_intake_number.text = data.graphVitaminMineralDetail.my_amount
 
                 }
             }

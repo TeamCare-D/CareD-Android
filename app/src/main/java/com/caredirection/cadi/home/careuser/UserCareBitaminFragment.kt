@@ -16,6 +16,7 @@ import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.networkdata.GraphBitaminList
 import com.caredirection.cadi.networkdata.IngredientDetail
 import com.caredirection.cadi.networkdata.MagazineList
+import com.caredirection.cadi.networkdata.MagazineListData
 import kotlinx.android.synthetic.main.view_home_care_user_detail.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -60,6 +61,7 @@ class UserCareBitaminFragment : Fragment(R.layout.view_home_care_user_detail) {
             if (snapPositionChanged) {
                 onSnapPositionChangeListener?.onSnapPositionChange(snapPosition)
                 this.snapPosition = snapPosition
+                Log.d("엥", snapPosition.toString())
                 ChartIngredientDetail(chartRvADapter.items[snapPosition].ingredient_idx)
             }
         }
@@ -114,7 +116,7 @@ class UserCareBitaminFragment : Fragment(R.layout.view_home_care_user_detail) {
         call.enqueue(
             object : Callback<IngredientDetail>{
                 override fun onFailure(call: Call<IngredientDetail>, t: Throwable) {
-
+                    Log.d("잘된대", t.toString())
                 }
 
                 override fun onResponse(
@@ -122,20 +124,26 @@ class UserCareBitaminFragment : Fragment(R.layout.view_home_care_user_detail) {
                     response: Response<IngredientDetail>
                 ) {
                     if(response.isSuccessful){
-                        txt_home_detail_desc_title.text = response.body()!!.data[1].ingredient_name
-                        txt_home_detail_user_bottom_limit.text = response.body()!!.data[1].vitamin_mineral_recommended_amount
-                        txt_home_detail_user_top_limit.text = response.body()!!.data[1].vitamin_mineral_upper_amount
-                        textView13.text = response.body()!!.data[1].ingredient_description
-                        txt_home_detail_user_Intake.text = response.body()!!.data[1].my_amount
 
-                        MagazineSetting(response.body()!!.data[0].magazineList)
+
+                        val data = response.body()!!.data
+                        txt_home_detail_desc_title.text = data.graphVitaminMineralDetail.ingredient_name
+                        txt_home_detail_user_bottom_limit.text = data.graphVitaminMineralDetail.vitamin_mineral_recommended_amount
+                        txt_home_detail_user_top_limit.text = data.graphVitaminMineralDetail.vitamin_mineral_upper_amount
+                        textView13.text = data.graphVitaminMineralDetail.ingredient_description
+                        txt_home_detail_user_Intake.text = data.graphVitaminMineralDetail.my_amount
+
+                        MagazineSetting(data.magazineList)
+                    }
+                    else{
+                        Log.d("잘안된대", response.message())
                     }
                 }
             }
         )
     }
 
-    fun MagazineSetting(items: MutableList<MagazineList>){
+    fun MagazineSetting(items: MutableList<MagazineListData>){
         val magazineIngredientRvAdapter = MagazineIngredientRvAdapter()
 
         magazineIngredientRvAdapter.items.addAll(items)

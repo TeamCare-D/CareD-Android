@@ -116,10 +116,19 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="20dp"
-            android:text="비타민C 에 대하여"
+            android:text="비타민C"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/txt_home_detail_desc_title2"
+            style="@style/bold20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text=" 에 대하여"
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_desc_title"
+            app:layout_constraintTop_toTopOf="parent" />
         <TextView
             android:id="@+id/txt_home_detail_desc_more"
             android:layout_width="wrap_content"

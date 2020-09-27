@@ -16,6 +16,7 @@ import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.networkdata.GraphFunctionList
 import com.caredirection.cadi.networkdata.IngredientDetail
 import com.caredirection.cadi.networkdata.MagazineList
+import com.caredirection.cadi.networkdata.MagazineListData
 import kotlinx.android.synthetic.main.view_home_care_user_detail.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -124,14 +125,15 @@ class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail2) {
                     response: Response<IngredientDetail>
                 ) {
                     if(response.isSuccessful){
-                        txt_home_detail_desc_title.text = response.body()!!.data[1].ingredient_name
-                        txt_home_detail_user_bottom_limit.text = response.body()!!.data[1].vitamin_mineral_recommended_amount
-                        txt_home_detail_user_top_limit.text = response.body()!!.data[1].vitamin_mineral_upper_amount
-                        textView13.text = response.body()!!.data[1].ingredient_description
-                        txt_home_detail_user_Intake.text = response.body()!!.data[1].my_amount
+                        val data = response.body()!!.data
+                        txt_home_detail_desc_title.text = data.graphVitaminMineralDetail.ingredient_name
+                        txt_home_detail_user_bottom_limit.text = data.graphVitaminMineralDetail.vitamin_mineral_recommended_amount
+                        txt_home_detail_user_top_limit.text = data.graphVitaminMineralDetail.vitamin_mineral_upper_amount
+                        textView13.text = data.graphVitaminMineralDetail.ingredient_description
+                        txt_home_detail_user_Intake.text = data.graphVitaminMineralDetail.my_amount
 
-                        Log.d("테스트다", response.body()!!.data[0].magazineList.toString())
-                        MagazineSetting(response.body()!!.data[0].magazineList)
+
+                        MagazineSetting(data.magazineList)
                     }
                 }
             }
@@ -139,7 +141,7 @@ class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail2) {
     }
 
 
-    fun MagazineSetting(items: MutableList<MagazineList>){
+    fun MagazineSetting(items: MutableList<MagazineListData>){
         val magazineIngredientRvAdapter = MagazineIngredientRvAdapter()
 
         magazineIngredientRvAdapter.items.addAll(items)
