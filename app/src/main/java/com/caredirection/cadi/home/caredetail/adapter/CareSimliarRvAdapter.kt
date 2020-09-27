@@ -31,8 +31,7 @@ class CareSimliarRvAdapter : RecyclerView.Adapter<CareSimliarRvAdapter.CareSimli
     }
 
     inner class CareSimliarRvHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val rv_rv_item_hoem_care_detail_similar: RecyclerView =
-            itemView.findViewById(R.id.rv_rv_item_hoem_care_detail_similar)
+        val rv_rv_item_hoem_care_detail_similar: RecyclerView = itemView.findViewById(R.id.rv_rv_item_hoem_care_detail_similar)
         val careSimilarIngredientRvAdapter = CareSimilarIngredientRvAdapter()
 
         val txt_rv_item_home_care_detail_similar_sub_title: TextView =
@@ -43,8 +42,7 @@ class CareSimliarRvAdapter : RecyclerView.Adapter<CareSimliarRvAdapter.CareSimli
         val line_rv_item_home_care_detail_similar: TextView =
             itemView.findViewById(R.id.line_rv_item_home_care_detail_similar)
 
-        val txt_rv_item_home_care_detail_similar_title_name: TextView =
-            itemView.findViewById(R.id.txt_rv_item_home_care_detail_similar_title_name)
+        val txt_rv_item_home_care_detail_similar_title_name: TextView = itemView.findViewById(R.id.txt_rv_item_home_care_detail_similar_title_name)
         val faceTrue = ResourcesCompat.getFont(itemView.context, R.font.notosanskr_bold)
         val faceFalse = ResourcesCompat.getFont(itemView.context, R.font.notosanskr_regular)
 
@@ -56,8 +54,6 @@ class CareSimliarRvAdapter : RecyclerView.Adapter<CareSimliarRvAdapter.CareSimli
             txt_rv_item_home_care_detail_similar_title_name.text = item.efficacyName
 
             line_rv_item_home_care_detail_similar.visibility = View.GONE
-
-
 
             itemView.setOnClickListener {
                 if (!checked) {

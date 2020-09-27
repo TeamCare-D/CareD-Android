@@ -38,6 +38,7 @@ class ChartBitaminAdapter(private val context: Context): RecyclerView.Adapter<Ch
         val txt_rv_item_name: TextView = view.findViewById(R.id.txt_rv_item_chart_name)
 
         fun bind(item: GraphBitamin){
+            Log.d("값이", item.toString())
             var h = item.ingredient_percentage * 1.7 * 3
 
 //            if(item.height == 0){

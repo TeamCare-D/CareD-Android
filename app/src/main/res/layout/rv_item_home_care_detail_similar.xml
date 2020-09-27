@@ -54,7 +54,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-            android:id="@+id/line_rv_item_home_care_detail_similar"
+        android:id="@+id/line_rv_item_home_care_detail_similar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_rv_item_home_care_detail_similar_title"
         android:layout_width="match_parent"

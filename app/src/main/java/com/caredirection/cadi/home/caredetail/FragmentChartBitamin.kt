@@ -26,9 +26,6 @@ class FragmentChartBitamin: Fragment(R.layout.fragment_home_care_detail_chart) {
 
 
         ChartSetting()
-
-        ChartDataSetting()
-
     }
 
     inner class SnapOnScrollListener(
@@ -73,6 +70,7 @@ class FragmentChartBitamin: Fragment(R.layout.fragment_home_care_detail_chart) {
         chartRvADapter = ChartBitaminAdapter(requireContext())
 
         chartRvADapter.items = items
+        rv_home_care_detail.adapter = chartRvADapter
 
         snapHelper.attachToRecyclerView(rv_home_care_detail)
         val layoutManager = rv_home_care_detail.layoutManager
@@ -88,10 +86,6 @@ class FragmentChartBitamin: Fragment(R.layout.fragment_home_care_detail_chart) {
 
     }
 
-    fun ChartDataSetting(){
-        chartRvADapter.items = items
-        rv_home_care_detail.adapter = chartRvADapter
-    }
 
 
     fun chartDetailContent(ingredient_idx: Int){

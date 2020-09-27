@@ -15,6 +15,7 @@ import com.caredirection.cadi.home.caredetail.Behavior
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.networkdata.GraphFunctionList
 import com.caredirection.cadi.networkdata.IngredientDetail
+import com.caredirection.cadi.networkdata.MagazineList
 import com.caredirection.cadi.networkdata.MagazineListData
 import kotlinx.android.synthetic.main.view_home_care_user_detail.*
 import retrofit2.Call
