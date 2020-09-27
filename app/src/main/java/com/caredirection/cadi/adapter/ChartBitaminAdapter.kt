@@ -15,7 +15,7 @@ import com.caredirection.cadi.networkdata.GraphBitamin
 
 class ChartBitaminAdapter(private val context: Context): RecyclerView.Adapter<ChartBitaminAdapter.ChartBitaminHolder>() {
 
-    val items = mutableListOf<GraphBitamin>()
+    var items = mutableListOf<GraphBitamin>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChartBitaminHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.rv_item_chart, parent, false)

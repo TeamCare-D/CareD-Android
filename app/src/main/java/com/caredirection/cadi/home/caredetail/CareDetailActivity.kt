@@ -8,10 +8,17 @@ import com.caredirection.cadi.R
 import com.caredirection.cadi.home.caredetail.adapter.CareRvAdapter
 import com.caredirection.cadi.home.caredetail.adapter.CareSimliarData
 import com.caredirection.cadi.home.caredetail.adapter.CareSimliarRvAdapter
+import com.caredirection.cadi.network.RequestURL
+import com.caredirection.cadi.networkdata.CareDetailData
+import com.caredirection.cadi.networkdata.SimilarCareData
+import com.caredirection.cadi.networkdata.UserCaredEfficacyListData
 import com.caredirection.cadi.product.list.ListActivity
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper
 import kotlinx.android.synthetic.main.activity_home_care_detail.*
 import kotlinx.android.synthetic.main.activity_product_search.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CareDetailActivity: AppCompatActivity() {
 
@@ -19,36 +26,43 @@ class CareDetailActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_care_detail)
 
-        val careRvAdapter = CareRvAdapter(supportFragmentManager)
-
-        careRvAdapter.items.add("test")
-        careRvAdapter.items.add("test")
-
-
-        rv_home_care_detail.adapter = careRvAdapter
-
-
-        SimilarRvSetting()
-
-
-
+        careDetailSetting()
     }
 
-    fun SimilarRvSetting(){
+    fun SimilarRvSetting(item: MutableList<SimilarCareData>){
         val careSimliarRvAdapter =CareSimliarRvAdapter()
+        careSimliarRvAdapter.items.addAll(item)
 
-        var test = mutableListOf<String>()
-        test.add("진세노사이드")
-        test.add("진세노사이드")
-        test.add("진세노사이드")
-
-//        careSimliarRvAdapter.items.add(CareSimliarData("간 건강", test))
         rv_home_care_detail_similar.adapter = careSimliarRvAdapter
 
     }
 
-    fun careDetailSetting(){
+    fun userCaredSetting(item: MutableList<UserCaredEfficacyListData>){
+        val careRvAdapter = CareRvAdapter(supportFragmentManager)
 
+        careRvAdapter.items.addAll(item)
+        rv_home_care_detail.adapter = careRvAdapter
+    }
+
+    fun careDetailSetting(){
+        val call: Call<CareDetailData> = RequestURL.service.getUserCareDetail("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE")
+        call.enqueue(
+            object : Callback<CareDetailData>{
+                override fun onFailure(call: Call<CareDetailData>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onResponse(
+                    call: Call<CareDetailData>,
+                    response: Response<CareDetailData>
+                ) {
+                    val data = response.body()!!.data
+
+                    SimilarRvSetting(data.SimilarCare)
+                    userCaredSetting(data.userCaredEfficacyList)
+                }
+            }
+        )
     }
 
 }

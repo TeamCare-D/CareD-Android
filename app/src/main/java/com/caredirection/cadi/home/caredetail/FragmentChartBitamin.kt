@@ -13,6 +13,7 @@ import com.caredirection.cadi.adapter.ChartData
 import com.caredirection.cadi.custom.OnSnapPositionChangeListener
 import com.caredirection.cadi.custom.getSnapPosition
 import com.caredirection.cadi.network.RequestURL
+import com.caredirection.cadi.networkdata.GraphBitamin
 import com.caredirection.cadi.networkdata.GraphBitaminList
 import com.caredirection.cadi.networkdata.IngredientDetail
 import kotlinx.android.synthetic.main.fragment_home_care_detail_chart.*
@@ -22,8 +23,7 @@ import retrofit2.Response
 
 class FragmentChartBitamin: Fragment(R.layout.fragment_home_care_detail_chart) {
     lateinit var chartRvADapter: ChartBitaminAdapter
-
-
+    var items = mutableListOf<GraphBitamin>()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -76,6 +76,8 @@ class FragmentChartBitamin: Fragment(R.layout.fragment_home_care_detail_chart) {
 
         chartRvADapter = ChartBitaminAdapter(requireContext())
 
+        chartRvADapter.items = items
+
         snapHelper.attachToRecyclerView(rv_home_care_detail)
         val layoutManager = rv_home_care_detail.layoutManager
         val snapView = snapHelper.findSnapView(layoutManager)
@@ -91,25 +93,11 @@ class FragmentChartBitamin: Fragment(R.layout.fragment_home_care_detail_chart) {
     }
 
     fun ChartDataSetting(){
-
-        val call: Call<GraphBitaminList> = RequestURL.service.getGraphVitamin("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE")
-
-        call.enqueue(
-            object : Callback<GraphBitaminList>{
-                override fun onFailure(call: Call<GraphBitaminList>, t: Throwable?) {
-                    Log.d("FragmentChartBitamin onFailure", t.toString())
-                }
-
-                override fun onResponse(
-                    call: Call<GraphBitaminList>,
-                    response: Response<GraphBitaminList>
-                ) {
-                    chartRvADapter.items.addAll(response.body()!!.data)
-                    rv_home_care_detail.adapter = chartRvADapter
-                }
-            }
-        )
+        chartRvADapter.items = items
+        rv_home_care_detail.adapter = chartRvADapter
     }
+
+
     fun chartDetailContent(ingredient_idx: Int){
         val call: Call<IngredientDetail> = RequestURL.service.getIngredientDetail(ingredient_idx, "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE")
         call.enqueue(

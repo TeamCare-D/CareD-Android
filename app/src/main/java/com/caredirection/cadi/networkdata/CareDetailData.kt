@@ -16,7 +16,7 @@ data class UserCaredEfficacyListData(
     val vitaminMineralCount: Int,
     val vitaminMineralGraph: MutableList<GraphBitamin>,
     val functionalCount: Int,
-    val functionalGraph: MutableList<GraphBitamin>
+    val functionalGraph: MutableList<GraphFunction>
 )
 data class VitaminMineralGraphData(
     val ingredient_idx: Int,

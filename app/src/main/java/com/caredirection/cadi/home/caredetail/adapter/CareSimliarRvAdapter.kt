@@ -53,6 +53,7 @@ class CareSimliarRvAdapter : RecyclerView.Adapter<CareSimliarRvAdapter.CareSimli
         fun bind(item: SimilarCareData) {
             careSimilarIngredientRvAdapter.items.addAll(item.ingredientName)
             rv_rv_item_hoem_care_detail_similar.adapter = careSimilarIngredientRvAdapter
+            txt_rv_item_home_care_detail_similar_title_name.text = item.efficacyName
 
             line_rv_item_home_care_detail_similar.visibility = View.GONE
 

@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.view_home_care_user_detail.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 
 class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail2) {
     lateinit var chartRvADapter: ChartFunctionAdapter
@@ -61,6 +62,7 @@ class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail2) {
             if (snapPositionChanged) {
                 onSnapPositionChangeListener?.onSnapPositionChange(snapPosition)
                 this.snapPosition = snapPosition
+                Log.d("진상", chartRvADapter.items[snapPosition].toString())
                 ChartIngredientDetail(chartRvADapter.items[snapPosition].ingredient_idx)
             }
         }
@@ -125,15 +127,19 @@ class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail2) {
                     response: Response<IngredientDetail>
                 ) {
                     if(response.isSuccessful){
-                        val data = response.body()!!.data
-                        txt_home_detail_desc_title.text = data.graphVitaminMineralDetail.ingredient_name
-                        txt_home_detail_user_bottom_limit.text = data.graphVitaminMineralDetail.vitamin_mineral_recommended_amount
-                        txt_home_detail_user_top_limit.text = data.graphVitaminMineralDetail.vitamin_mineral_upper_amount
-                        textView13.text = data.graphVitaminMineralDetail.ingredient_description
-                        txt_home_detail_user_Intake.text = data.graphVitaminMineralDetail.my_amount
+                        try{
+                            val data = response.body()!!.data
+                            txt_home_detail_desc_title.text = data.graphVitaminMineralDetail.ingredient_name
+                            txt_home_detail_user_bottom_limit.text = data.graphVitaminMineralDetail.vitamin_mineral_recommended_amount
+                            txt_home_detail_user_top_limit.text = data.graphVitaminMineralDetail.vitamin_mineral_upper_amount
+                            textView13.text = data.graphVitaminMineralDetail.ingredient_description
+                            txt_home_detail_user_Intake.text = data.graphVitaminMineralDetail.my_amount
 
 
-                        MagazineSetting(data.magazineList)
+                            MagazineSetting(data.magazineList)
+                        }catch (e: Exception){
+                        }
+
                     }
                 }
             }

@@ -13,12 +13,13 @@ import androidx.viewpager.widget.ViewPager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.home.caredetail.FragmentChartBitamin
 import com.caredirection.cadi.home.caredetail.FragmentChartFunction
+import com.caredirection.cadi.networkdata.UserCaredEfficacyListData
 import com.caredirection.cadi.product.search.adapter.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 
 class CareRvAdapter(val mFragment: FragmentManager): RecyclerView.Adapter<CareRvAdapter.CareRvHolder>() {
 
-    val items = mutableListOf<String>()
+    val items = mutableListOf<UserCaredEfficacyListData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CareRvHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_item_home_care_detail, parent, false)
@@ -30,7 +31,7 @@ class CareRvAdapter(val mFragment: FragmentManager): RecyclerView.Adapter<CareRv
     }
 
     override fun onBindViewHolder(holder: CareRvHolder, position: Int) {
-        holder.bind()
+        holder.bind(items[position])
     }
 
     inner class CareRvHolder(view: View):RecyclerView.ViewHolder(view){
@@ -50,20 +51,19 @@ class CareRvAdapter(val mFragment: FragmentManager): RecyclerView.Adapter<CareRv
 
         var checked: Boolean = false
 
-        
-
-
-        fun bind(){
+        fun bind(item: UserCaredEfficacyListData){
             tab_layout_home_care_detail.visibility = View.GONE
             line_rv_item_home_care_detail.visibility = View.GONE
+            txt_rv_item_home_care_detail_name.text = item.efficacyName
 
             itemView.setOnClickListener{
                 if(!checked){
-                    viewPagerSetting(itemView)
+                    viewPagerSetting(itemView, item)
                     tab_layout_home_care_detail.visibility = View.VISIBLE
                     view_pager_home_care_detail.visibility = View.VISIBLE
                     line_rv_item_home_care_detail.visibility = View.VISIBLE
                     txt_rv_item_home_care_detail_name.typeface = faceTrue
+
                     img_rv_item_home_care_detail.setImageResource(R.drawable.btn_dropup_blue_home)
 
                     itemView.setBackgroundColor(Color.parseColor("#f0f6fd"))
@@ -86,10 +86,16 @@ class CareRvAdapter(val mFragment: FragmentManager): RecyclerView.Adapter<CareRv
         }
     }
 
-    fun viewPagerSetting(view: View){
+    fun viewPagerSetting(view: View, item: UserCaredEfficacyListData){
         val mViewPager: ViewPager = view.findViewById(R.id.view_pager_home_care_detail)
         val tab_layout_home_care_detail: TabLayout = view.findViewById(R.id.tab_layout_home_care_detail)
         val adapter : ViewPagerAdapter= ViewPagerAdapter(mFragment)
+
+        val fragmentChartBitamin = FragmentChartBitamin()
+        val fragmentChartFunction = FragmentChartFunction()
+
+        fragmentChartBitamin.items.addAll(item.vitaminMineralGraph)
+        fragmentChartFunction.items.addAll(item.functionalGraph)
 
         adapter.items.add(FragmentChartBitamin())
         adapter.items.add(FragmentChartFunction())
