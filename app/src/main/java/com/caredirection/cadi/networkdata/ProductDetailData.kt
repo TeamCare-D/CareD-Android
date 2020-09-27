@@ -24,7 +24,7 @@ data class ProductDetailList(
     val product_package: String,
     val product_name: String,
     val product_unit: String,
-    val product_allergy: List<String>,
+    val product_allergy: String,
     val product_functional_graph_size: Int,
     val different_quantity_product: List<DifferentQuantityProductData>,
     val product_criterion: List<String>,

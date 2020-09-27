@@ -31,7 +31,6 @@ class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
     fun intakeRvSetting(){
         val chartAdapter = DetailFunctionChartAdapter(requireContext())
 
-
         chartAdapter.items.addAll(productDetailData.product_functional_graph)
 
         chart_product_detail_intake.adapter = chartAdapter

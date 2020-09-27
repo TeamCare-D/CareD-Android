@@ -29,12 +29,11 @@ class DetailActivity : AppCompatActivity(), pickerCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_detail)
 
-
-
         pickerSetting()
 
         val product_idx = intent.getIntExtra("product_idx", 0)
 
+        Log.d("이거는", product_idx.toString())
         productLikeSetting(10)
         productRegister()
 
@@ -44,9 +43,7 @@ class DetailActivity : AppCompatActivity(), pickerCallback {
     fun ViewPagerSetting(productDetailData: ProductDetailList) {
 
         productDetailViewPager = findViewById(R.id.view_pager_product_detail)
-        val adapter: ViewPagerAdapter = ViewPagerAdapter(
-            supportFragmentManager
-        )
+        val adapter: ViewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
 
         val fragmentContent = FragmentContent()
         fragmentContent.productDetailData = productDetailData
@@ -77,10 +74,13 @@ class DetailActivity : AppCompatActivity(), pickerCallback {
 
     }
 
-    fun productDetailSetting(product_idx: Int){
-        val call: Call<ProductDetailData> = RequestURL.service.getProductDetail(product_idx = 10, token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE")
+    fun productDetailSetting(product_idx: Int) {
+        val call: Call<ProductDetailData> = RequestURL.service.getProductDetail(
+            product_idx = product_idx,
+            token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
+        )
         call.enqueue(
-            object : Callback<ProductDetailData>{
+            object : Callback<ProductDetailData> {
                 override fun onFailure(call: Call<ProductDetailData>, t: Throwable) {
                     Log.d("productDetailSetting onFrailure", t.toString())
                 }
@@ -90,39 +90,52 @@ class DetailActivity : AppCompatActivity(), pickerCallback {
                     response: Response<ProductDetailData>
                 ) {
 
-                    try{
+                    try {
                         val data = response.body()!!.data
                         Log.d("테스트임", data.toString())
-                        Glide.with(baseContext).load(data.product_image_key).into(img_product_detail)
+                        Glide.with(baseContext).load(data.product_image_key)
+                            .into(img_product_detail)
 
                         txt_product_detail_brand.text = data.brand_name
+
+                        txt_product_detail_name.text = data.product_name
 
                         txt_product_detail_origin.text = data.product_is_import
                         txt_product_detail_maintenance_per.text = data.product_maintain_month.toString()
                         txt_product_detail_lowest_price.text = data.product_low_price.toString()
                         txt_product_detail_30_per_price.text = data.product_monthly_price.toString()
 
+                        txt_product_detail_standard_1.text = data.product_criterion[0]
+                        txt_product_detail_standard_2.text = data.product_criterion[1]
+                        txt_product_detail_standard_3.text = data.product_criterion[2]
+
+
                         productEfficacySetting(data.product_efficacy)
 
                         ViewPagerSetting(data)
-                    }catch (e: Exception){Log.d("에러잡기", e.toString())}
+                    } catch (e: Exception) {
+                        Log.d("에러잡기", e.toString())
+                    }
                 }
             }
         )
     }
 
-    fun productEfficacySetting(product_efficacy: List<String>){
+    fun productEfficacySetting(product_efficacy: List<String>) {
         val careCategoryAdapter = CareCategoryRvAdapter()
         careCategoryAdapter.items.addAll(product_efficacy)
         rv_product_detail_care_category.adapter = careCategoryAdapter
 
     }
 
-    fun productLikeSetting(product_idx: Int){
-        btn_product_detail_like.setOnClickListener{
-            val call: Call<ProductLikeData> = RequestURL.service.postProductLike(product_idx = 10, token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE")
+    fun productLikeSetting(product_idx: Int) {
+        btn_product_detail_like.setOnClickListener {
+            val call: Call<ProductLikeData> = RequestURL.service.postProductLike(
+                product_idx = 10,
+                token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
+            )
             call.enqueue(
-                object : Callback<ProductLikeData>{
+                object : Callback<ProductLikeData> {
                     override fun onFailure(call: Call<ProductLikeData>, t: Throwable) {
                         TODO("Not yet implemented")
                     }
@@ -138,11 +151,14 @@ class DetailActivity : AppCompatActivity(), pickerCallback {
         }
     }
 
-    fun productRegister(){
-        btn_product_detail_product_register.setOnClickListener{
-            val call: Call<RegisterTakeProductData> = RequestURL.service.postTakeProduct(product_idx = 10, token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE")
+    fun productRegister() {
+        btn_product_detail_product_register.setOnClickListener {
+            val call: Call<RegisterTakeProductData> = RequestURL.service.postTakeProduct(
+                product_idx = 10,
+                token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
+            )
             call.enqueue(
-                object : Callback<RegisterTakeProductData>{
+                object : Callback<RegisterTakeProductData> {
                     override fun onFailure(call: Call<RegisterTakeProductData>, t: Throwable) {
                         TODO("Not yet implemented")
                     }
