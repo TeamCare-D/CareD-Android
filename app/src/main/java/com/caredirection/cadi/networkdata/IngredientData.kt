@@ -7,7 +7,7 @@ data class IngredientDetail(
 )
 
 data class IngredientData(
-    val graphVitaminMineralDetail: GraphVitaminMineralDetailData,
+    val graphDetail: GraphVitaminMineralDetailData,
     val magazineList: MutableList<MagazineListData>
 )
 data class GraphVitaminMineralDetailData(

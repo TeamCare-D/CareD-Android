@@ -15,7 +15,6 @@ import com.caredirection.cadi.home.caredetail.Behavior
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.networkdata.GraphFunctionList
 import com.caredirection.cadi.networkdata.IngredientDetail
-import com.caredirection.cadi.networkdata.MagazineList
 import com.caredirection.cadi.networkdata.MagazineListData
 import kotlinx.android.synthetic.main.view_home_care_user_detail.*
 import retrofit2.Call
@@ -129,11 +128,11 @@ class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail2) {
                     if(response.isSuccessful){
                         try{
                             val data = response.body()!!.data
-                            txt_home_detail_desc_title.text = data.graphVitaminMineralDetail.ingredient_name
-                            txt_home_detail_user_bottom_limit.text = data.graphVitaminMineralDetail.vitamin_mineral_recommended_amount
-                            txt_home_detail_user_top_limit.text = data.graphVitaminMineralDetail.vitamin_mineral_upper_amount
-                            textView13.text = data.graphVitaminMineralDetail.ingredient_description
-                            txt_home_detail_user_Intake.text = data.graphVitaminMineralDetail.my_amount
+                            txt_home_detail_desc_title.text = data.graphDetail.ingredient_name
+                            txt_home_detail_user_bottom_limit.text = data.graphDetail.vitamin_mineral_recommended_amount
+                            txt_home_detail_user_top_limit.text = data.graphDetail.vitamin_mineral_upper_amount
+                            textView13.text = data.graphDetail.ingredient_description
+                            txt_home_detail_user_Intake.text = data.graphDetail.my_amount
 
 
                             MagazineSetting(data.magazineList)

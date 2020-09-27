@@ -1,20 +1,16 @@
 package com.caredirection.cadi.home.caredetail
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.caredirection.cadi.R
-import com.caredirection.cadi.adapter.ChartAdapter
 import com.caredirection.cadi.adapter.ChartBitaminAdapter
-import com.caredirection.cadi.adapter.ChartData
 import com.caredirection.cadi.custom.OnSnapPositionChangeListener
 import com.caredirection.cadi.custom.getSnapPosition
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.networkdata.GraphBitamin
-import com.caredirection.cadi.networkdata.GraphBitaminList
 import com.caredirection.cadi.networkdata.IngredientDetail
 import kotlinx.android.synthetic.main.fragment_home_care_detail_chart.*
 import retrofit2.Call
@@ -111,10 +107,10 @@ class FragmentChartBitamin: Fragment(R.layout.fragment_home_care_detail_chart) {
                     response: Response<IngredientDetail>
                 ) {
                     val data = response.body()!!.data
-                    txt_home_care_detail_chart_content_title.text = data.graphVitaminMineralDetail.ingredient_name
-                    txt_home_care_detail_chart_content_recommended_number1.text = data.graphVitaminMineralDetail.vitamin_mineral_recommended_amount
-                    txt_home_care_detail_chart_content_recommended_number2.text = data.graphVitaminMineralDetail.vitamin_mineral_upper_amount
-                    txt_home_care_detail_chart_content_intake_number.text = data.graphVitaminMineralDetail.my_amount
+                    txt_home_care_detail_chart_content_title.text = data.graphDetail.ingredient_name
+                    txt_home_care_detail_chart_content_recommended_number1.text = data.graphDetail.vitamin_mineral_recommended_amount
+                    txt_home_care_detail_chart_content_recommended_number2.text = data.graphDetail.vitamin_mineral_upper_amount
+                    txt_home_care_detail_chart_content_intake_number.text = data.graphDetail.my_amount
 
                 }
             }
