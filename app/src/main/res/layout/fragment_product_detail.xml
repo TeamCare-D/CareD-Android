@@ -168,6 +168,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@+id/layout_product_detail_intake_function_content_title" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,6 @@
 package com.caredirection.cadi.product.detail.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,24 +9,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
 import com.caredirection.cadi.networkdata.ProductFunctionalGraphData
 
-class RvIngredientAdapter(val context: Context): RecyclerView.Adapter<RvIngredientAdapter.RvIngredientHoler>(){
+class RvIngredientBitaminAdapter(val context: Context): RecyclerView.Adapter<RvIngredientBitaminAdapter.RvIngredientBitaminHolder>(){
 
     val items = mutableListOf<ProductFunctionalGraphData>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RvIngredientHoler {
-        val view = LayoutInflater.from(context).inflate(R.layout.rv_item_detail_ingredient, parent, false)
-        return RvIngredientHoler(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RvIngredientBitaminHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.rv_item_detail_ingredient_bitamin, parent, false)
+        return RvIngredientBitaminHolder(view)
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 
-    override fun onBindViewHolder(holder: RvIngredientHoler, position: Int) {
+    override fun onBindViewHolder(holder: RvIngredientBitaminHolder, position: Int) {
         holder.bind(items[position])
     }
 
-    inner class RvIngredientHoler(view: View): RecyclerView.ViewHolder(view){
+    inner class RvIngredientBitaminHolder(view: View): RecyclerView.ViewHolder(view){
         val rv_rv_item_detail_ingredient: RecyclerView = itemView.findViewById(R.id.rv_rv_item_detail_ingredient)
         val rvCategoryAdapter = RvCategoryAdapter(context)
         val txt_rv_item_detail_ingredient_day_content: TextView = itemView.findViewById(R.id.txt_rv_item_detail_ingredient_day_content2)
@@ -51,6 +50,9 @@ class RvIngredientAdapter(val context: Context): RecyclerView.Adapter<RvIngredie
             txt_rv_item_detail_ingredient_prediction.text = item.product_ingredient_value
             txt_rv_item_detail_ingredient_under.text = item.isExpectedAmountProper
             txt_rv_item_detail_ingredient_increase.text = item.product_increase_value.toString()
+
+
+
             txt_rv_item_detail_ingredient_day_content.text = item.upper_amount
             txt_rv_item_detail_ingredient_prediction.text = item.expected_intake_value
         }

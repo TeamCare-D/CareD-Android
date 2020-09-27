@@ -1,6 +1,7 @@
 package com.caredirection.cadi.product.detail
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
@@ -39,11 +40,15 @@ class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
     fun ingredientSetting(){
         val ingredientAdapter = RvIngredientAdapter(requireContext())
 
+        Log.d("이ㅣ것또한 테스트", productDetailData.toString())
 
         ingredientAdapter.items.addAll(productDetailData.product_functional_graph)
         rv_product_detail_intake_functional.adapter = ingredientAdapter
     }
 
+    fun ingredientBitaminSetting(){
+
+    }
 
     fun bitaminSetting(){
         var charBitaminAdapter = DetailBitaminChartAdapter(requireContext())
@@ -62,6 +67,7 @@ class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
 
         rv_product_detail_intake_information_certification.adapter = certicationRvAdapter
     }
+
 
     fun productBuySetting(){
 
