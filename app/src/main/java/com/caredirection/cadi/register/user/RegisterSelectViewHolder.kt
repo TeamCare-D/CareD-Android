@@ -16,10 +16,5 @@ class RegisterSelectViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
     fun onBind(ingredient : RvSelectListItem){
         txtIngredientName.text = ingredient.name
-//        txtIngredientUnit.text = ingredient.unit[0].toString()
-
-//        itemView.setOnClickListener {
-//            btnVitaminCheck.isChecked = !btnVitaminCheck.isChecked
-//        }
     }
 }
