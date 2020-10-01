@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/yellow_fill_10"
+        android:background="@drawable/yellow_fill_20"
         android:layout_height="27dp">
 
     <TextView
