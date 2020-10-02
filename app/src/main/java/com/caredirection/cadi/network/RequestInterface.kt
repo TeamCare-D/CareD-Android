@@ -146,4 +146,11 @@ interface RequestInterface {
         @Header("token") token: String
     ): Call<CareDetailData>
 
+    // dictionary/{ingredient_idx}특정 성분백과
+    @GET("/dictionary/{ingredient_idx}")
+    fun getDictionary(
+        @Path("ingredient_idx") ingredient_idx: Int,
+        @Header("token") token: String
+    ): Call<DictionaryData>
+
 }
