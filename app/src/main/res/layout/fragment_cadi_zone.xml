@@ -10,6 +10,13 @@
         android:layout_height="wrap_content"
         tools:context=".MainActivity">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_cadi_zone_top"
+            android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/colorDuckEggBlue"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="wrap_content">
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_top_title"
             android:layout_width="wrap_content"
@@ -43,7 +50,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tab_top_dic" />
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_rv_direction_title"
             android:layout_width="wrap_content"
@@ -53,7 +60,9 @@
             android:text="CARE Direction"
             android:textColor="@color/colorBlack"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vp_viewPager" />
+            app:layout_constraintTop_toBottomOf="@id/layout_cadi_zone_top" />
+
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_direction_sub"
@@ -67,6 +76,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_direction_list"
             android:layout_width="wrap_content"
+            android:layout_marginTop="18dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_direction_sub" />
@@ -93,8 +103,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_guide_list"
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_guide_sub" />
 
@@ -123,6 +133,7 @@
             android:layout_height="wrap_content"
             android:nestedScrollingEnabled="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="18dp"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="@+id/tv_magazine_title"
             app:layout_constraintEnd_toEndOf="parent"

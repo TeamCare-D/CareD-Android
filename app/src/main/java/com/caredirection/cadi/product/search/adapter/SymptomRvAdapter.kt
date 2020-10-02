@@ -16,12 +16,7 @@ import com.caredirection.cadi.R
 import java.lang.Exception
 
 
-class SymptomRvAdapter(private val context: Context) :
-    RecyclerView.Adapter<SymptomRvAdapter.SymptomViewHolder>() {
-
-    companion object{
-        lateinit var testRv: RecyclerView
-    }
+class SymptomRvAdapter(private val context: Context) : RecyclerView.Adapter<SymptomRvAdapter.SymptomViewHolder>() {
 
     var items = mutableListOf<item>()
 
