@@ -28,6 +28,8 @@ class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
         certificationSetting()
 
         productBuySetting()
+
+        productExplainDetail()
     }
     fun intakeRvSetting(){
         val chartAdapter = DetailFunctionChartAdapter(requireContext())
@@ -60,11 +62,7 @@ class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
 
     fun certificationSetting(){
         val certicationRvAdapter = CertificationRvAdapter()
-
-        certicationRvAdapter.items.add("")
-        certicationRvAdapter.items.add("")
-        certicationRvAdapter.items.add("")
-
+        certicationRvAdapter.items.addAll(productDetailData.product_certification)
         rv_product_detail_intake_information_certification.adapter = certicationRvAdapter
     }
 
@@ -75,6 +73,14 @@ class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
         productBuyRvAdapter.items.addAll(productDetailData.store_info)
 
         rv_product_detail_buy.adapter = productBuyRvAdapter
+
+    }
+
+    fun productExplainDetail(){
+        txt_product_detail_intake_informatioin_way_content.text = productDetailData.product_suggested_use
+        txt_product_detail_intake_informatioin_way_shape_content.text = productDetailData.product_capsule_info
+        txt_product_detail_intake_informatioin_way_packing_content.text = productDetailData.product_package
+        txt_product_detail_intake_informatioin_caution_content.text = productDetailData.product_warnings
 
     }
 }

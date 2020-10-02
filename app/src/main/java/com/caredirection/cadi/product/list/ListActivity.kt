@@ -50,6 +50,8 @@ class ListActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_product_list_detail, FragmentInstance).commit()
 
+
+
         img_product_list_btn.setOnClickListener {
 
             if (active == fragmentDetail) {
@@ -83,6 +85,7 @@ class ListActivity : AppCompatActivity() {
             else -> {
                 fragmentDetail = FragmentDetail()
                 (fragmentDetail as FragmentDetail).productName = productName.toString()
+                fragmentDetailsimplicity.productName = productName.toString()
             }
         }
 

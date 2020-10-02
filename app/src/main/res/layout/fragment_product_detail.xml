@@ -583,7 +583,7 @@
                         android:lineSpacingExtra="4dp"
                         android:fontFamily="@font/notosanskr_bold"
                         android:includeFontPadding="false"
-                        tools:text="#새우 알레르기 주의 #새우 알레르기 주의\n#새우 알레르기 주의 #새우 알레르기 주의"
+                        android:text="#새우 알레르기 주의 #새우 알레르기 주의\n#새우 알레르기 주의 #새우 알레르기 주의"
                         />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

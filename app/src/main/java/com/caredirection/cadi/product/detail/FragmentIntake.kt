@@ -66,17 +66,13 @@ class FragmentIntake : Fragment(R.layout.fragment_product_detail) {
     }
 
     fun certificationSetting(){
+
         val certicationRvAdapter = CertificationRvAdapter()
-
-        certicationRvAdapter.items.add("")
-        certicationRvAdapter.items.add("")
-        certicationRvAdapter.items.add("")
-
+        certicationRvAdapter.items.addAll(productDetailData.product_certification)
         rv_product_detail_intake_information_certification.adapter = certicationRvAdapter
     }
 
     fun productBuySetting(){
-
         val productBuyRvAdapter = ProductBuyRvAdapter(requireContext())
         productBuyRvAdapter.items.addAll(productDetailData.store_info)
 

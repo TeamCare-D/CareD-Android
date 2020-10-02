@@ -1,8 +1,10 @@
 package com.caredirection.cadi.product.detail
 
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
@@ -105,10 +107,25 @@ class DetailActivity : AppCompatActivity(), pickerCallback {
                         txt_product_detail_lowest_price.text = data.product_low_price.toString()
                         txt_product_detail_30_per_price.text = data.product_monthly_price.toString()
 
+
+
+
+//                        if(!data.product_criterion[0].equals(null) && !data.product_criterion[0].equals("")){
+//                            txt_product_detail_standard_1.visibility = View.VISIBLE
+//                            txt_product_detail_standard_1.text = data.product_criterion[0]
+//                        }
+//                        if(!data.product_criterion[1].equals(null) && !data.product_criterion[1].equals("")){
+//                            txt_product_detail_standard_2.visibility = View.VISIBLE
+//                            txt_product_detail_standard_2.text = data.product_criterion[1]
+//                        }
+//
+//                        if(!data.product_criterion[2].equals(null) && !data.product_criterion[2].equals("")){
+//                            txt_product_detail_standard_3.visibility = View.VISIBLE
+//                            txt_product_detail_standard_3.text = data.product_criterion[2]
+//                        }
                         txt_product_detail_standard_1.text = data.product_criterion[0]
                         txt_product_detail_standard_2.text = data.product_criterion[1]
                         txt_product_detail_standard_3.text = data.product_criterion[2]
-
 
                         productEfficacySetting(data.product_efficacy)
 
