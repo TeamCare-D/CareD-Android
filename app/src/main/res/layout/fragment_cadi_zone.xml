@@ -132,7 +132,6 @@
 
         <TextView
             android:id="@+id/tv_magazine_sub"
-            style="@style/light12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -146,22 +145,44 @@
             android:paddingBottom="10dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:background="@drawable/gray_line_4"
+            android:background="@drawable/pointgray_line_4"
             app:layout_constraintStart_toStartOf="@+id/tv_magazine_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_magazine_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_magazine_list"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:nestedScrollingEnabled="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="@+id/tv_magazine_title"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_magazine_sub"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_magazine_sub">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="76dp"
+            android:layout_marginBottom="80dp"
+            android:background="@drawable/gray_line_25"
+            android:fontFamily="@font/notosanskr_bold"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="6sp"
+            android:text="더 많은 콘텐츠 보기"
+            android:stateListAnimator="@null"
+            android:textColor="@color/colorBlack"
+            android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_magazine_list" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

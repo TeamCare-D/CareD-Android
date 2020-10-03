@@ -4,25 +4,24 @@
     android:layout_height="140dp"
     android:layout_marginLeft="6dp"
     android:layout_marginRight="6dp"
-    android:background="@color/colorPaleGray"
+    android:background="@drawable/gray_fill_4"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:id="@+id/txt_rv_item_guide_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="18dp"
         android:fontFamily="@font/notosanskr_bold"
-        android:gravity="left"
+        android:textAlignment="textStart"
         android:includeFontPadding="false"
         android:lineSpacingExtra="6dp"
         android:text="CARE.D\n그래프 설명서"
         android:textColor="@color/colorBlack"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
