@@ -3,10 +3,7 @@ package com.caredirection.cadi.product.detail
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.adapter.ChartAdapter
-import com.caredirection.cadi.adapter.ChartData
 import com.caredirection.cadi.networkdata.ProductDetailList
 import com.caredirection.cadi.product.detail.adapter.*
 import kotlinx.android.synthetic.main.fragment_product_detail.*
@@ -19,9 +16,11 @@ class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
         super.onActivityCreated(savedInstanceState)
 
 
-        intakeRvSetting()
+        functionSetting()
 
-        ingredientSetting()
+        functionDetailSetting()
+
+        bitaminDetailSetting()
 
         bitaminSetting()
 
@@ -30,17 +29,21 @@ class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
         productBuySetting()
 
         productExplainDetail()
+
+
     }
-    fun intakeRvSetting(){
+    fun functionSetting(){
         val chartAdapter = DetailFunctionChartAdapter(requireContext())
 
         chartAdapter.items.addAll(productDetailData.product_functional_graph)
 
         chart_product_detail_intake.adapter = chartAdapter
+
+        functionSizeSetting()
     }
 
-    fun ingredientSetting(){
-        val ingredientAdapter = RvIngredientAdapter(requireContext())
+    fun functionDetailSetting(){
+        val ingredientAdapter = FunctionDetailAdapter(requireContext())
 
         Log.d("이ㅣ것또한 테스트", productDetailData.toString())
 
@@ -48,8 +51,8 @@ class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
         rv_product_detail_intake_functional.adapter = ingredientAdapter
     }
 
-    fun ingredientBitaminSetting(){
-
+    fun functionSizeSetting(){
+        txt_product_detail_intake_function_number.text = productDetailData.product_functional_graph.size.toString()
     }
 
     fun bitaminSetting(){
@@ -58,7 +61,25 @@ class FragmentContent : Fragment(R.layout.fragment_product_detail)  {
         charBitaminAdapter.items.addAll(productDetailData.product_vitamin_mineral_graph)
 
         chart_product_detail_bitamin.adapter = charBitaminAdapter
+
+        bitaminSizeSetting()
     }
+
+    fun bitaminSizeSetting(){
+        txt_product_detail_bitamin_title_number.text = productDetailData.product_vitamin_mineral_graph.size.toString()
+    }
+
+    fun bitaminDetailSetting(){
+        val bitaminDetailAdapter = BitaminDetailAdapter(requireContext())
+
+        bitaminDetailAdapter.items.addAll(productDetailData.product_vitamin_mineral_graph)
+
+        rv_product_detail_intake_bitamin.adapter = bitaminDetailAdapter
+    }
+
+
+
+
 
     fun certificationSetting(){
         val certicationRvAdapter = CertificationRvAdapter()

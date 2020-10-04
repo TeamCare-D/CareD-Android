@@ -7,27 +7,26 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
-import com.caredirection.cadi.networkdata.ProductDetailGraph
 import com.caredirection.cadi.networkdata.ProductFunctionalGraphData
 
-class RvIngredientBitaminAdapter(val context: Context): RecyclerView.Adapter<RvIngredientBitaminAdapter.RvIngredientBitaminHolder>(){
+class FunctionDetailAdapter(val context: Context): RecyclerView.Adapter<FunctionDetailAdapter.RvIngredientHoler>(){
 
-    val items = mutableListOf<ProductDetailGraph>()
+    val items = mutableListOf<ProductFunctionalGraphData>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RvIngredientBitaminHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.rv_item_detail_ingredient_bitamin, parent, false)
-        return RvIngredientBitaminHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RvIngredientHoler {
+        val view = LayoutInflater.from(context).inflate(R.layout.rv_item_detail_ingredient, parent, false)
+        return RvIngredientHoler(view)
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 
-    override fun onBindViewHolder(holder: RvIngredientBitaminHolder, position: Int) {
+    override fun onBindViewHolder(holder: RvIngredientHoler, position: Int) {
         holder.bind(items[position])
     }
 
-    inner class RvIngredientBitaminHolder(view: View): RecyclerView.ViewHolder(view){
+    inner class RvIngredientHoler(view: View): RecyclerView.ViewHolder(view){
         val rv_rv_item_detail_ingredient: RecyclerView = itemView.findViewById(R.id.rv_rv_item_detail_ingredient)
         val rvCategoryAdapter = RvCategoryAdapter(context)
         val txt_rv_item_detail_ingredient_day_content: TextView = itemView.findViewById(R.id.txt_rv_item_detail_ingredient_day_content2)
@@ -41,7 +40,7 @@ class RvIngredientBitaminAdapter(val context: Context): RecyclerView.Adapter<RvI
 
 
 
-        fun bind(item: ProductDetailGraph){
+        fun bind(item: ProductFunctionalGraphData){
             rvCategoryAdapter.items.addAll(item.ingredient_sub_name)
             rv_rv_item_detail_ingredient.adapter = rvCategoryAdapter
 
@@ -51,9 +50,6 @@ class RvIngredientBitaminAdapter(val context: Context): RecyclerView.Adapter<RvI
             txt_rv_item_detail_ingredient_prediction.text = item.product_ingredient_value
             txt_rv_item_detail_ingredient_under.text = item.isExpectedAmountProper
             txt_rv_item_detail_ingredient_increase.text = item.product_increase_value.toString()
-
-
-
             txt_rv_item_detail_ingredient_day_content.text = item.upper_amount
             txt_rv_item_detail_ingredient_prediction.text = item.expected_intake_value
         }

@@ -25,7 +25,7 @@
                 android:id="@+id/img_home_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="8dp"
                 android:src="@drawable/btn_search"
                 app:layout_constraintEnd_toEndOf="parent"
