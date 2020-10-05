@@ -41,6 +41,8 @@ class ResearchInterestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_interest)
 
+        ResearchSelectList.researchActivityList.add(this)
+
         windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
         setStatusBarTransparent()
@@ -122,15 +124,27 @@ class ResearchInterestActivity : AppCompatActivity() {
 
     private fun setNextClickListener(){
         btn_interest_next.setOnClickListener {
-            showToastMessage()
+            if(ResearchSelectList.getCheckFirst()){
+                showToastMessage()
 
-            ResearchSelectList.setInterestList(detailAdapter.selectedItem)
+                ResearchSelectList.setCheckFist(false)
+                Log.d("명",ResearchSelectList.getCheckFirst().toString())
 
-            postResearchSelectResponse()
+                ResearchSelectList.setInterestList(detailAdapter.selectedItem)
 
-            val registerIntent = Intent(this, RegisterListActivity::class.java)
+                postResearchSelectResponse()
 
-            startActivity(registerIntent)
+                val registerIntent = Intent(this, RegisterListActivity::class.java)
+
+                startActivity(registerIntent)
+            }
+            else{
+                (0 until ResearchSelectList.getActivityList().size).forEach {
+                    ResearchSelectList.getActivityList()[it].finish()
+                }
+                Log.d("명",ResearchSelectList.getCheckFirst().toString())
+            }
+
         }
     }
 

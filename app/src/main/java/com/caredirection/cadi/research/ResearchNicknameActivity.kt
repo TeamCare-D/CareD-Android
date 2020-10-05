@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.UserController
+import com.caredirection.cadi.data.research.ResearchSelectList
 import kotlinx.android.synthetic.main.activity_research_name.*
 
 class ResearchNicknameActivity : AppCompatActivity() {
@@ -21,9 +22,19 @@ class ResearchNicknameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_name)
 
+        ResearchSelectList.researchActivityList.add(this)
+
         setStatusBarTransparent()
 
         makeListener()
+
+        initName()
+    }
+
+    private fun initName(){
+        if(UserController.getName(this).isNotEmpty()){
+            edt_nick.text = Editable.Factory.getInstance().newEditable(UserController.getName(this))
+        }
     }
 
     private fun makeListener(){
@@ -41,9 +52,8 @@ class ResearchNicknameActivity : AppCompatActivity() {
     }
 
     private fun setNextClickListener(){
-        btn_nickNext?.setOnClickListener{
+        btn_nick_next?.setOnClickListener{
             val genderIntent = Intent(this,ResearchGenderActivity::class.java)
-            UserController.setName(this, edt_nick.text.toString())
 
             startActivity(genderIntent)
         }
@@ -56,13 +66,13 @@ class ResearchNicknameActivity : AppCompatActivity() {
                 nickLength = edt_nick?.length()!!
 
                 if(nickLength > 0){
-                    btn_nickNext?.isEnabled = true
-                    btn_nickNext?.setTextColor(resources.getColor(R.color.colorWhite))
+                    btn_nick_next?.isEnabled = true
+                    btn_nick_next?.setTextColor(resources.getColor(R.color.colorWhite))
                 }
 
                 else{
-                    btn_nickNext?.isEnabled = false
-                    btn_nickNext?.setTextColor(resources.getColor(R.color.colorCoolGray2))
+                    btn_nick_next?.isEnabled = false
+                    btn_nick_next?.setTextColor(resources.getColor(R.color.colorCoolGray2))
                 }
             }
 

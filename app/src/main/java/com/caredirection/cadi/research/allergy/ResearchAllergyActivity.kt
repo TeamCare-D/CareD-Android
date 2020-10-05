@@ -31,6 +31,8 @@ class ResearchAllergyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_allergy)
 
+        ResearchSelectList.researchActivityList.add(this)
+
         windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
         setStatusBarTransparent()

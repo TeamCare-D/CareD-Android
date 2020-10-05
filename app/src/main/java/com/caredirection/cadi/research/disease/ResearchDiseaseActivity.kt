@@ -37,6 +37,8 @@ class ResearchDiseaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_disease)
 
+        ResearchSelectList.researchActivityList.add(this)
+
         windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
         setStatusBarTransparent()

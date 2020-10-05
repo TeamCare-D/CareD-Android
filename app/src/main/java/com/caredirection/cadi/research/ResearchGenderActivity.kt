@@ -33,18 +33,34 @@ class ResearchGenderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_gender)
 
+        ResearchSelectList.researchActivityList.add(this)
+
         windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
         setStatusBarTransparent()
 
-        initTitle()
+        initContent()
         initProgressBar()
 
         makeListener()
     }
 
-    private fun initTitle(){
+    private fun initContent(){
         txt_gender_title.text = UserController.getName(this) + "님의\n건강기능식품 선택을 도와드릴게요"
+
+        if(ResearchSelectList.getAge() != 0){
+            btn_year.text = ResearchSelectList.getAge().toString()
+            btn_year.isChecked = true
+
+            if(ResearchSelectList.getGender() == 0){
+                btn_women.isChecked = true
+            }
+            else{
+                btn_man.isChecked = true
+            }
+
+            checkNextButton()
+        }
     }
 
     private fun initProgressBar(){
@@ -159,7 +175,7 @@ class ResearchGenderActivity : AppCompatActivity() {
     }
 
     private fun setNextClickListener() {
-        btn_genderNext?.setOnClickListener {
+        btn_gender_next?.setOnClickListener {
             setSelectedList()
 
             val diseaseIntent = Intent(this, ResearchDiseaseActivity::class.java)
@@ -181,10 +197,10 @@ class ResearchGenderActivity : AppCompatActivity() {
 
     // 다음 버튼 처리를 위한 확인
     private fun checkNextButton(){
-        btn_genderNext.isEnabled = (btn_women.isChecked || btn_man.isChecked) && btn_year.isChecked
+        btn_gender_next.isEnabled = (btn_women.isChecked || btn_man.isChecked) && btn_year.isChecked
 
-        if(btn_genderNext.isEnabled) btn_genderNext.setTextColor(resources.getColor(R.color.colorWhite))
-        else btn_genderNext.setTextColor(resources.getColor(R.color.colorCoolGray2))
+        if(btn_gender_next.isEnabled) btn_gender_next.setTextColor(resources.getColor(R.color.colorWhite))
+        else btn_gender_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
     }
 
     private fun showDeleteDialog(){

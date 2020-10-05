@@ -1,5 +1,13 @@
 package com.caredirection.cadi.data.research
 
+import android.app.Activity
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatDialog
+import com.caredirection.cadi.R
+
 class ResearchSelectList {
 
     companion object{
@@ -9,6 +17,9 @@ class ResearchSelectList {
         private var selectedMedicineList = mutableListOf<Int>()
         private var selectedAllergyList = mutableListOf<Int>()
         private var selectedInterestList = mutableListOf<Int>()
+
+        private var checkFirst = true
+        var researchActivityList = mutableListOf<Activity>()
 
         fun setAge(age : String){
             this.age = age.toInt()
@@ -56,6 +67,43 @@ class ResearchSelectList {
 
         fun getInterestList() : MutableList<Int>{
             return selectedInterestList
+        }
+
+        fun setCheckFist(checkFirst : Boolean){
+            this.checkFirst = checkFirst
+        }
+
+        fun getCheckFirst() : Boolean{
+            return checkFirst
+        }
+
+        fun getActivityList() : MutableList<Activity>{
+            return researchActivityList
+        }
+
+        private fun showDeleteDialog(){
+            val deleteDialog = AppCompatDialog(this)
+            val deleteLayout : LayoutInflater = LayoutInflater.from(this)
+            val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup,null)
+
+            val btnCancel : Button = deleteView.findViewById(R.id.btn_popup_cancel)
+            val btnConfirm : Button = deleteView.findViewById(R.id.btn_popup_confirm)
+            val txtTitle : TextView = deleteView.findViewById(R.id.txt_popup_tilte)
+
+            txtTitle.text = "지금 설문을 중단하시면\n케어디의 서비스를 이용할 수 없습니다."
+
+            btnCancel.setOnClickListener {
+                deleteDialog.cancel()
+            }
+
+            btnConfirm.setOnClickListener {
+                deleteDialog.dismiss()
+            }
+
+            deleteDialog.setContentView(deleteView)
+            deleteDialog.setCanceledOnTouchOutside(false)
+            deleteDialog.create()
+            deleteDialog.show()
         }
     }
 }
