@@ -9,11 +9,9 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
 import android.widget.NumberPicker
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.UserController
@@ -26,6 +24,11 @@ import java.time.format.DateTimeFormatter
 
 
 class ResearchGenderActivity : AppCompatActivity() {
+
+    companion object{
+        var gender = 0
+        lateinit var age : String
+    }
 
     private var displayMetrics = DisplayMetrics()
 
@@ -48,11 +51,11 @@ class ResearchGenderActivity : AppCompatActivity() {
     private fun initContent(){
         txt_gender_title.text = UserController.getName(this) + "님의\n건강기능식품 선택을 도와드릴게요"
 
-        if(ResearchSelectList.getAge() != 0){
-            btn_year.text = ResearchSelectList.getAge().toString()
+        if(!ResearchSelectList.checkFirst){
+            btn_year.text = ResearchSelectList.age.toString()
             btn_year.isChecked = true
 
-            if(ResearchSelectList.getGender() == 0){
+            if(ResearchSelectList.gender == 0){
                 btn_women.isChecked = true
             }
             else{
@@ -170,7 +173,7 @@ class ResearchGenderActivity : AppCompatActivity() {
     }
     private fun setCloseClickListener(){
         btn_gender_close.setOnClickListener {
-            showDeleteDialog()
+            ResearchSelectList.showStopDialog(this)
         }
     }
 
@@ -185,14 +188,11 @@ class ResearchGenderActivity : AppCompatActivity() {
     }
 
     private fun setSelectedList(){
-        if(btn_women.isChecked){
-            ResearchSelectList.setGender(0)
-        }
-        else{
-            ResearchSelectList.setGender(1)
+        if(btn_man.isChecked){
+            gender = 1
         }
 
-        ResearchSelectList.setAge(btn_year.text.toString())
+        age = btn_year.text.toString()
     }
 
     // 다음 버튼 처리를 위한 확인
@@ -201,33 +201,6 @@ class ResearchGenderActivity : AppCompatActivity() {
 
         if(btn_gender_next.isEnabled) btn_gender_next.setTextColor(resources.getColor(R.color.colorWhite))
         else btn_gender_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
-    }
-
-    private fun showDeleteDialog(){
-        val deleteDialog = AppCompatDialog(this)
-        val deleteLayout : LayoutInflater = LayoutInflater.from(this)
-        val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup, null)
-
-        val btnCancel : Button = deleteView.findViewById(R.id.btn_popup_cancel)
-        val btnConfirm : Button = deleteView.findViewById(R.id.btn_popup_confirm)
-        val txtTitle : TextView = deleteView.findViewById(R.id.txt_popup_tilte)
-
-        txtTitle.text = "지금 설문을 중단하시면\n케어디의 서비스를 이용할 수 없습니다."
-
-        btnCancel.setOnClickListener {
-            deleteDialog.cancel()
-        }
-
-        btnConfirm.setOnClickListener {
-            deleteDialog.dismiss()
-        }
-
-        deleteDialog.setContentView(deleteView)
-        deleteDialog.setCanceledOnTouchOutside(false)
-        deleteDialog.create()
-        if(isFinishing){
-            deleteDialog.show()
-        }
     }
 
     // 상태바 투명 설정

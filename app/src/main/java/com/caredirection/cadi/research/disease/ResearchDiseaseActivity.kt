@@ -5,15 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
@@ -31,7 +27,7 @@ import retrofit2.Response
 class ResearchDiseaseActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var detailAdapter: ResearchDiseaseAdapter
+    private lateinit var diseaseAdapter: ResearchDiseaseAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,13 +46,15 @@ class ResearchDiseaseActivity : AppCompatActivity() {
     }
 
     private fun initDiseaseList(){
-        detailAdapter = ResearchDiseaseAdapter(this)
+        diseaseAdapter = ResearchDiseaseAdapter(this)
 
-        rv_research_disease.adapter = detailAdapter
+        rv_research_disease.adapter = diseaseAdapter
 
         rv_research_disease.layoutManager = GridLayoutManager(this,2)
 
         getResearchItemResponse()
+
+        diseaseAdapter.initList()
     }
 
     private fun getResearchItemResponse(){
@@ -85,9 +83,9 @@ class ResearchDiseaseActivity : AppCompatActivity() {
                             )
                         }
 
-                        detailAdapter.data=researchItem
+                        diseaseAdapter.data=researchItem
 
-                        detailAdapter.notifyDataSetChanged()
+                        diseaseAdapter.notifyDataSetChanged()
                     }
                 }
 
@@ -136,14 +134,12 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
     private fun setCloseClickListener(){
         btn_disease_close.setOnClickListener {
-            showDeleteDialog()
+            ResearchSelectList.showStopDialog(this)
         }
     }
 
     private fun setNextClickListener(){
         btn_disease_next.setOnClickListener {
-            ResearchSelectList.setDiseaseList(detailAdapter.selectedItem)
-
             val medicineIntent = Intent(this, ResearchMedicineActivity::class.java)
 
             startActivity(medicineIntent)
@@ -152,7 +148,7 @@ class ResearchDiseaseActivity : AppCompatActivity() {
 
     // 다음 버튼 활성화 처리
     fun checkNextButton(){
-        if(detailAdapter.selectedItem.size > 0){
+        if(ResearchDiseaseAdapter.selectedItem.size > 0){
             btn_disease_next.isEnabled = true
             btn_disease_next.setTextColor(resources.getColor(R.color.colorWhite))
         }
@@ -160,31 +156,6 @@ class ResearchDiseaseActivity : AppCompatActivity() {
             btn_disease_next.isEnabled = false
             btn_disease_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
         }
-    }
-
-    private fun showDeleteDialog(){
-        val deleteDialog = AppCompatDialog(this)
-        val deleteLayout : LayoutInflater = LayoutInflater.from(this)
-        val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup,null)
-
-        val btnCancel : Button = deleteView.findViewById(R.id.btn_popup_cancel)
-        val btnConfirm : Button = deleteView.findViewById(R.id.btn_popup_confirm)
-        val txtTitle : TextView = deleteView.findViewById(R.id.txt_popup_tilte)
-
-        txtTitle.text = "지금 설문을 중단하시면\n케어디의 서비스를 이용할 수 없습니다."
-
-        btnCancel.setOnClickListener {
-            deleteDialog.cancel()
-        }
-
-        btnConfirm.setOnClickListener {
-            deleteDialog.dismiss()
-        }
-
-        deleteDialog.setContentView(deleteView)
-        deleteDialog.setCanceledOnTouchOutside(false)
-        deleteDialog.create()
-        deleteDialog.show()
     }
 
     // 상태바 투명 설정

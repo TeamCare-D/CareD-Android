@@ -4,15 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
@@ -25,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_research_medicine.*
 class ResearchMedicineActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var detailAdapter: ResearchMedicineAdapter
+    private lateinit var medicineAdapter: ResearchMedicineAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +40,9 @@ class ResearchMedicineActivity : AppCompatActivity() {
     }
 
     private fun initMedicineList(){
-        detailAdapter = ResearchMedicineAdapter(this)
+        medicineAdapter = ResearchMedicineAdapter(this)
 
-        rv_research_medicine.adapter = detailAdapter
+        rv_research_medicine.adapter = medicineAdapter
 
         rv_research_medicine.layoutManager = GridLayoutManager(this, 2)
 
@@ -61,9 +57,9 @@ class ResearchMedicineActivity : AppCompatActivity() {
             )
         }
 
-        detailAdapter.data = researchItem
+        medicineAdapter.data = researchItem
 
-        detailAdapter.notifyDataSetChanged()
+        medicineAdapter.notifyDataSetChanged()
     }
 
     private fun initProgressBar(){
@@ -94,7 +90,6 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
     // 버튼 클릭리스너 지정
     private fun makeListener(){
-        //setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
         setCloseClickListener()
@@ -108,14 +103,12 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
     private fun setCloseClickListener(){
         btn_medicine_close.setOnClickListener {
-            showDeleteDialog()
+            ResearchSelectList.showStopDialog(this)
         }
     }
 
     private fun setNextClickListener(){
         btn_medicine_next.setOnClickListener {
-            ResearchSelectList.setMedicineList(detailAdapter.selectedItem)
-
             val allergyIntent = Intent(this, ResearchAllergyActivity::class.java)
 
             startActivity(allergyIntent)
@@ -124,7 +117,7 @@ class ResearchMedicineActivity : AppCompatActivity() {
 
     // 다음 버튼 활성화 처리
     fun checkNextButton(){
-        if(detailAdapter.selectedItem.size > 0){
+        if(ResearchMedicineAdapter.selectedItem.size > 0){
             btn_medicine_next.isEnabled = true
             btn_medicine_next.setTextColor(resources.getColor(R.color.colorWhite))
         }
@@ -132,31 +125,6 @@ class ResearchMedicineActivity : AppCompatActivity() {
             btn_medicine_next.isEnabled = false
             btn_medicine_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
         }
-    }
-
-    private fun showDeleteDialog(){
-        val deleteDialog = AppCompatDialog(this)
-        val deleteLayout : LayoutInflater = LayoutInflater.from(this)
-        val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup,null)
-
-        val btnCancel : Button = deleteView.findViewById(R.id.btn_popup_cancel)
-        val btnConfirm : Button = deleteView.findViewById(R.id.btn_popup_confirm)
-        val txtTitle : TextView = deleteView.findViewById(R.id.txt_popup_tilte)
-
-        txtTitle.text = "지금 설문을 중단하시면\n케어디의 서비스를 이용할 수 없습니다."
-
-        btnCancel.setOnClickListener {
-            deleteDialog.cancel()
-        }
-
-        btnConfirm.setOnClickListener {
-            deleteDialog.dismiss()
-        }
-
-        deleteDialog.setContentView(deleteView)
-        deleteDialog.setCanceledOnTouchOutside(false)
-        deleteDialog.create()
-        deleteDialog.show()
     }
 
     // 상태바 투명 설정

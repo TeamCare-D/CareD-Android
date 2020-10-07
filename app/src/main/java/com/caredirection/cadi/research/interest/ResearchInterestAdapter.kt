@@ -12,9 +12,11 @@ import kotlinx.android.synthetic.main.rv_item_research.view.*
 
 class ResearchInterestAdapter(private val context: Context) : RecyclerView.Adapter<ResearchInterestViewHolder>(){
 
-    var data : List<RvResearchListItem> = listOf()
-    var selectedItem = ResearchSelectList.getInterestList()
+    companion object{
+        var selectedItem = ResearchSelectList.selectedInterestList
+    }
 
+    var data : List<RvResearchListItem> = listOf()
     private lateinit var btnInterest : TextView
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResearchInterestViewHolder {
