@@ -10,12 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.caredirection.cadi.MainActivity
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.research.ResearchSelectList
 import kotlinx.android.synthetic.main.activity_register_list_complete.*
 
 class RegisterListCompleteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_list_complete)
+
+        ResearchSelectList.researchActivityList.add(this)
 
         setStatusBarTransparent()
 
@@ -29,8 +32,6 @@ class RegisterListCompleteActivity : AppCompatActivity() {
 
         hand.postDelayed({
             val registerCompleteIntent = Intent(this, MainActivity::class.java)
-
-            registerCompleteIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
             startActivity(registerCompleteIntent)
         }, 2000)

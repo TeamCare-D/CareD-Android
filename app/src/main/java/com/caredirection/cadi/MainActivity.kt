@@ -6,6 +6,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
+import com.caredirection.cadi.data.research.ResearchSelectList
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -13,9 +14,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initActivity()
         initNavigation()
 
         setStatusBarTransparent()
+    }
+
+    private fun initActivity(){
+        (0 until ResearchSelectList.researchActivityList.size).forEach {
+            ResearchSelectList.researchActivityList[it].finish()
+        }
     }
 
     private fun initNavigation() {

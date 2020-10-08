@@ -14,6 +14,7 @@ import com.caredirection.cadi.MainActivity
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.network.TakeProductData
 import com.caredirection.cadi.data.register.RvTakeListItem
+import com.caredirection.cadi.data.research.ResearchSelectList
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.register.search.RegisterSearchActivity
 import kotlinx.android.synthetic.main.activity_register_list.*
@@ -28,6 +29,8 @@ class RegisterListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_list)
+
+        ResearchSelectList.researchActivityList.add(this)
 
         setStatusBarTransparent()
         setSkipUnderLine()
