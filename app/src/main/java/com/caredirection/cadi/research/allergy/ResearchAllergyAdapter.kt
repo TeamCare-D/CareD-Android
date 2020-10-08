@@ -12,9 +12,11 @@ import kotlinx.android.synthetic.main.rv_item_research.view.*
 
 class ResearchAllergyAdapter(private val context: Context) : RecyclerView.Adapter<ResearchAllergyViewHolder>(){
 
-    var data : List<RvResearchListItem> = listOf()
-    var selectedItem = ResearchSelectList.getAllergyList()
+    companion object{
+        var selectedItem = ResearchSelectList.selectedAllergyList
+    }
 
+    var data : List<RvResearchListItem> = listOf()
     private lateinit var btnAllergy : TextView
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResearchAllergyViewHolder {

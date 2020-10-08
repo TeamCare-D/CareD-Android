@@ -48,7 +48,11 @@
         <activity android:name=".research.disease.ResearchDiseaseActivity" />
         <activity android:name=".research.ResearchGenderActivity" />
         <activity android:name=".research.ResearchNicknameActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".product.detail.DetailActivity">

@@ -4,15 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
@@ -25,11 +21,13 @@ import kotlinx.android.synthetic.main.activity_research_allergy.*
 class ResearchAllergyActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var detailAdapter: ResearchAllergyAdapter
+    private lateinit var allergyAdapter: ResearchAllergyAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_allergy)
+
+        ResearchSelectList.researchActivityList.add(this)
 
         windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
@@ -42,9 +40,9 @@ class ResearchAllergyActivity : AppCompatActivity() {
     }
 
     private fun initAllergyList(){
-        detailAdapter = ResearchAllergyAdapter(this)
+        allergyAdapter = ResearchAllergyAdapter(this)
 
-        rv_research_allergy.adapter = detailAdapter
+        rv_research_allergy.adapter = allergyAdapter
 
         rv_research_allergy.layoutManager = GridLayoutManager(this,2)
 
@@ -59,9 +57,9 @@ class ResearchAllergyActivity : AppCompatActivity() {
             )
         }
 
-        detailAdapter.data = researchItem
+        allergyAdapter.data = researchItem
 
-        detailAdapter.notifyDataSetChanged()
+        allergyAdapter.notifyDataSetChanged()
     }
 
     private fun initProgressBar(){
@@ -103,14 +101,12 @@ class ResearchAllergyActivity : AppCompatActivity() {
 
     private fun setCloseClickListener(){
         btn_allergy_close.setOnClickListener {
-            showDeleteDialog()
+            ResearchSelectList.showStopDialog(this)
         }
     }
 
     private fun setNextClickListener(){
         btn_allergy_next.setOnClickListener {
-            ResearchSelectList.setAllergyList(detailAdapter.selectedItem)
-
             val interestIntent = Intent(this, ResearchInterestActivity::class.java)
 
             startActivity(interestIntent)
@@ -119,7 +115,7 @@ class ResearchAllergyActivity : AppCompatActivity() {
 
     // 다음 버튼 활성화 처리
     fun checkNextButton(){
-        if(detailAdapter.selectedItem.size > 0){
+        if(ResearchAllergyAdapter.selectedItem.size > 0){
             btn_allergy_next.isEnabled = true
             btn_allergy_next.setTextColor(resources.getColor(R.color.colorWhite))
         }
@@ -127,31 +123,6 @@ class ResearchAllergyActivity : AppCompatActivity() {
             btn_allergy_next.isEnabled = false
             btn_allergy_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
         }
-    }
-
-    private fun showDeleteDialog(){
-        val deleteDialog = AppCompatDialog(this)
-        val deleteLayout : LayoutInflater = LayoutInflater.from(this)
-        val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup,null)
-
-        val btnCancel : Button = deleteView.findViewById(R.id.btn_popup_cancel)
-        val btnConfirm : Button = deleteView.findViewById(R.id.btn_popup_confirm)
-        val txtTitle : TextView = deleteView.findViewById(R.id.txt_popup_tilte)
-
-        txtTitle.text = "지금 설문을 중단하시면\n케어디의 서비스를 이용할 수 없습니다."
-
-        btnCancel.setOnClickListener {
-            deleteDialog.cancel()
-        }
-
-        btnConfirm.setOnClickListener {
-            deleteDialog.dismiss()
-        }
-
-        deleteDialog.setContentView(deleteView)
-        deleteDialog.setCanceledOnTouchOutside(false)
-        deleteDialog.create()
-        deleteDialog.show()
     }
 
     // 상태바 투명 설정

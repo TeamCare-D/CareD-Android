@@ -6,16 +6,12 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.Gravity
-import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
@@ -27,6 +23,10 @@ import com.caredirection.cadi.data.research.ResearchSelectList
 import com.caredirection.cadi.data.research.RvResearchListItem
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.register.list.RegisterListActivity
+import com.caredirection.cadi.research.ResearchGenderActivity
+import com.caredirection.cadi.research.allergy.ResearchAllergyAdapter
+import com.caredirection.cadi.research.disease.ResearchDiseaseAdapter
+import com.caredirection.cadi.research.medicine.ResearchMedicineAdapter
 import kotlinx.android.synthetic.main.activity_research_interest.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -35,11 +35,13 @@ import retrofit2.Response
 class ResearchInterestActivity : AppCompatActivity() {
 
     private var displayMetrics = DisplayMetrics()
-    private lateinit var detailAdapter: ResearchInterestAdapter
+    private lateinit var interestAdapter: ResearchInterestAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_interest)
+
+        ResearchSelectList.researchActivityList.add(this)
 
         windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
@@ -52,9 +54,9 @@ class ResearchInterestActivity : AppCompatActivity() {
     }
 
     private fun initInterestList(){
-        detailAdapter = ResearchInterestAdapter(this)
+        interestAdapter = ResearchInterestAdapter(this)
 
-        rv_research_interest.adapter = detailAdapter
+        rv_research_interest.adapter = interestAdapter
 
         rv_research_interest.layoutManager = LinearLayoutManager(this)
 
@@ -69,9 +71,9 @@ class ResearchInterestActivity : AppCompatActivity() {
             )
         }
 
-        detailAdapter.data = researchItem
+        interestAdapter.data = researchItem
 
-        detailAdapter.notifyDataSetChanged()
+        interestAdapter.notifyDataSetChanged()
     }
 
     private fun initProgressBar(){
@@ -102,7 +104,6 @@ class ResearchInterestActivity : AppCompatActivity() {
 
     // 버튼 클릭리스너 지정
     private fun makeListener(){
-        //setButtonsClickListener()
         setBackClickListener()
         setNextClickListener()
         setCloseClickListener()
@@ -116,34 +117,53 @@ class ResearchInterestActivity : AppCompatActivity() {
 
     private fun setCloseClickListener(){
         btn_interest_close.setOnClickListener {
-            showDeleteDialog()
+            ResearchSelectList.showStopDialog(this)
         }
     }
 
     private fun setNextClickListener(){
         btn_interest_next.setOnClickListener {
-            showToastMessage()
+            if(ResearchSelectList.checkFirst){
+                showToastMessage()
 
-            ResearchSelectList.setInterestList(detailAdapter.selectedItem)
+                ResearchSelectList.checkFirst = false
 
-            postResearchSelectResponse()
+                setSelectList()
 
-            val registerIntent = Intent(this, RegisterListActivity::class.java)
+                postResearchSelectResponse()
 
-            startActivity(registerIntent)
+                val registerIntent = Intent(this, RegisterListActivity::class.java)
+
+                startActivity(registerIntent)
+            }
+            else{
+                (0 until ResearchSelectList.researchActivityList.size).forEach {
+                    ResearchSelectList.researchActivityList[it].finish()
+                }
+            }
+
         }
+    }
+
+    private fun setSelectList(){
+        ResearchSelectList.age = ResearchGenderActivity.age.toInt()
+        ResearchSelectList.gender = ResearchGenderActivity.gender
+        ResearchSelectList.selectedDiseaseList = ResearchDiseaseAdapter.selectedItem
+        ResearchSelectList.selectedMedicineList = ResearchMedicineAdapter.selectedItem
+        ResearchSelectList.selectedAllergyList = ResearchAllergyAdapter.selectedItem
+        ResearchSelectList.selectedInterestList = ResearchInterestAdapter.selectedItem
     }
 
     private fun postResearchSelectResponse(){
         Log.d("실행", "실행됩니다")
         val call: Call<ResearchTokenData> = RequestURL.service.postResearchSelectedList(
             nickName = UserController.getName(this),
-            gender = ResearchSelectList.getAge(),
-            age = ResearchSelectList.getAge(),
-            warning = ResearchSelectList.getDiseaseList(),
-            diseaseMedicine = ResearchSelectList.getMedicineList(),
-            allergy = ResearchSelectList.getAllergyList(),
-            efficacy = ResearchSelectList.getInterestList()
+            gender = ResearchSelectList.gender,
+            age = ResearchSelectList.age,
+            warning = ResearchSelectList.selectedDiseaseList,
+            diseaseMedicine = ResearchSelectList.selectedMedicineList,
+            allergy = ResearchSelectList.selectedAllergyList,
+            efficacy = ResearchSelectList.selectedInterestList
         )
         call.enqueue(
             object : Callback<ResearchTokenData> {
@@ -188,7 +208,7 @@ class ResearchInterestActivity : AppCompatActivity() {
 
     // 다음 버튼 활성화 처리
     fun checkNextButton(){
-        if(detailAdapter.selectedItem.size > 0){
+        if(ResearchInterestAdapter.selectedItem.size > 0){
             btn_interest_next.isEnabled = true
             btn_interest_next.setTextColor(resources.getColor(R.color.colorWhite))
         }
@@ -196,31 +216,6 @@ class ResearchInterestActivity : AppCompatActivity() {
             btn_interest_next.isEnabled = false
             btn_interest_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
         }
-    }
-
-    private fun showDeleteDialog(){
-        val deleteDialog = AppCompatDialog(this)
-        val deleteLayout : LayoutInflater = LayoutInflater.from(this)
-        val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup,null)
-
-        val btnCancel : Button = deleteView.findViewById(R.id.btn_popup_cancel)
-        val btnConfirm : Button = deleteView.findViewById(R.id.btn_popup_confirm)
-        val txtTitle : TextView = deleteView.findViewById(R.id.txt_popup_tilte)
-
-        txtTitle.text = "지금 설문을 중단하시면\n케어디의 서비스를 이용할 수 없습니다."
-
-        btnCancel.setOnClickListener {
-            deleteDialog.cancel()
-        }
-
-        btnConfirm.setOnClickListener {
-            deleteDialog.dismiss()
-        }
-
-        deleteDialog.setContentView(deleteView)
-        deleteDialog.setCanceledOnTouchOutside(false)
-        deleteDialog.create()
-        deleteDialog.show()
     }
 
     // 상태바 투명 설정

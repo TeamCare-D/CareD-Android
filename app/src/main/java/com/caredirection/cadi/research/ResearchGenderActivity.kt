@@ -9,11 +9,9 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
 import android.widget.NumberPicker
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.UserController
@@ -27,24 +25,45 @@ import java.time.format.DateTimeFormatter
 
 class ResearchGenderActivity : AppCompatActivity() {
 
+    companion object{
+        var gender = 0
+        lateinit var age : String
+    }
+
     private var displayMetrics = DisplayMetrics()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_gender)
 
+        ResearchSelectList.researchActivityList.add(this)
+
         windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
         setStatusBarTransparent()
 
-        initTitle()
+        initContent()
         initProgressBar()
 
         makeListener()
     }
 
-    private fun initTitle(){
+    private fun initContent(){
         txt_gender_title.text = UserController.getName(this) + "님의\n건강기능식품 선택을 도와드릴게요"
+
+        if(!ResearchSelectList.checkFirst){
+            btn_year.text = ResearchSelectList.age.toString()
+            btn_year.isChecked = true
+
+            if(ResearchSelectList.gender == 0){
+                btn_women.isChecked = true
+            }
+            else{
+                btn_man.isChecked = true
+            }
+
+            checkNextButton()
+        }
     }
 
     private fun initProgressBar(){
@@ -154,12 +173,12 @@ class ResearchGenderActivity : AppCompatActivity() {
     }
     private fun setCloseClickListener(){
         btn_gender_close.setOnClickListener {
-            showDeleteDialog()
+            ResearchSelectList.showStopDialog(this)
         }
     }
 
     private fun setNextClickListener() {
-        btn_genderNext?.setOnClickListener {
+        btn_gender_next?.setOnClickListener {
             setSelectedList()
 
             val diseaseIntent = Intent(this, ResearchDiseaseActivity::class.java)
@@ -169,49 +188,19 @@ class ResearchGenderActivity : AppCompatActivity() {
     }
 
     private fun setSelectedList(){
-        if(btn_women.isChecked){
-            ResearchSelectList.setGender(0)
-        }
-        else{
-            ResearchSelectList.setGender(1)
+        if(btn_man.isChecked){
+            gender = 1
         }
 
-        ResearchSelectList.setAge(btn_year.text.toString())
+        age = btn_year.text.toString()
     }
 
     // 다음 버튼 처리를 위한 확인
     private fun checkNextButton(){
-        btn_genderNext.isEnabled = (btn_women.isChecked || btn_man.isChecked) && btn_year.isChecked
+        btn_gender_next.isEnabled = (btn_women.isChecked || btn_man.isChecked) && btn_year.isChecked
 
-        if(btn_genderNext.isEnabled) btn_genderNext.setTextColor(resources.getColor(R.color.colorWhite))
-        else btn_genderNext.setTextColor(resources.getColor(R.color.colorCoolGray2))
-    }
-
-    private fun showDeleteDialog(){
-        val deleteDialog = AppCompatDialog(this)
-        val deleteLayout : LayoutInflater = LayoutInflater.from(this)
-        val deleteView : View = deleteLayout.inflate(R.layout.dialog_popup, null)
-
-        val btnCancel : Button = deleteView.findViewById(R.id.btn_popup_cancel)
-        val btnConfirm : Button = deleteView.findViewById(R.id.btn_popup_confirm)
-        val txtTitle : TextView = deleteView.findViewById(R.id.txt_popup_tilte)
-
-        txtTitle.text = "지금 설문을 중단하시면\n케어디의 서비스를 이용할 수 없습니다."
-
-        btnCancel.setOnClickListener {
-            deleteDialog.cancel()
-        }
-
-        btnConfirm.setOnClickListener {
-            deleteDialog.dismiss()
-        }
-
-        deleteDialog.setContentView(deleteView)
-        deleteDialog.setCanceledOnTouchOutside(false)
-        deleteDialog.create()
-        if(isFinishing){
-            deleteDialog.show()
-        }
+        if(btn_gender_next.isEnabled) btn_gender_next.setTextColor(resources.getColor(R.color.colorWhite))
+        else btn_gender_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
     }
 
     // 상태바 투명 설정

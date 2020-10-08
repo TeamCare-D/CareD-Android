@@ -56,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_nick_title" />
 
     <Button
-        android:id="@+id/btn_nickNext"
+        android:id="@+id/btn_nick_next"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="28dp"

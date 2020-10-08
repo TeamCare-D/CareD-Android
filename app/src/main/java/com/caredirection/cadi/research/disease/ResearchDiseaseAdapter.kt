@@ -1,9 +1,9 @@
 package com.caredirection.cadi.research.disease
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.research.ResearchSelectList
@@ -12,15 +12,20 @@ import kotlinx.android.synthetic.main.rv_item_research.view.*
 
 class ResearchDiseaseAdapter(private val context: Context) : RecyclerView.Adapter<ResearchDiseaseViewHolder>(){
 
-    var data : List<RvResearchListItem> = listOf()
-    var selectedItem = ResearchSelectList.getDiseaseList()
+    companion object{
+        var selectedItem = mutableListOf<Int>()
+    }
 
-    private lateinit var btnDisease : TextView
+    var data : List<RvResearchListItem> = listOf()
+
+    fun initList(){
+        (0 until ResearchSelectList.selectedDiseaseList.size).forEach {
+            selectedItem.add(ResearchSelectList.selectedDiseaseList[it])
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResearchDiseaseViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.rv_item_research, parent, false)
-
-        btnDisease = view.findViewById(R.id.btn_item)
 
         return ResearchDiseaseViewHolder(view)
     }
@@ -68,6 +73,9 @@ class ResearchDiseaseAdapter(private val context: Context) : RecyclerView.Adapte
                 selectedItem.remove(0)
             }
         }
+
+        Log.d("명1", selectedItem.toString())
+        Log.d("명2", ResearchSelectList.selectedDiseaseList.toString())
 
         notifyDataSetChanged()
     }

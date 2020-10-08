@@ -12,7 +12,7 @@ import com.caredirection.cadi.mypage.interest.MypageInterestProductActivity
 import com.caredirection.cadi.mypage.notice.MypageNoticeActivity
 import com.caredirection.cadi.mypage.take.MypageTakeProductActivity
 import com.caredirection.cadi.network.RequestURL
-import com.caredirection.cadi.research.disease.ResearchDiseaseActivity
+import com.caredirection.cadi.research.ResearchNicknameActivity
 import kotlinx.android.synthetic.main.fragment_mypage.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -95,7 +95,7 @@ class MypageFragment : Fragment(R.layout.fragment_mypage) {
     
     private fun setResearchClickListener(){
         btn_mypage_modified.setOnClickListener {
-            val researchIntent = Intent(context, ResearchDiseaseActivity::class.java)
+            val researchIntent = Intent(context, ResearchNicknameActivity::class.java)
 
             startActivity(researchIntent)
         }
