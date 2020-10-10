@@ -5,16 +5,22 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.register.IngredientSelectList
 import com.caredirection.cadi.data.register.RvSelectListItem
 import kotlinx.android.synthetic.main.rv_item_register_product_ingredient.view.*
 
 class RegisterSelectAdapter (private val context: Context?) : RecyclerView.Adapter<RegisterSelectViewHolder>(){
     var data: List<RvSelectListItem> = listOf()
 
+    lateinit var btnIngredientUnit : ImageView
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RegisterSelectViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.rv_item_register_product_ingredient, parent, false)
+
+        btnIngredientUnit = view.findViewById(R.id.btn_register_ingredient_unit)
 
         return RegisterSelectViewHolder(
             view
@@ -29,6 +35,8 @@ class RegisterSelectAdapter (private val context: Context?) : RecyclerView.Adapt
         holder.onBind(data[position])
 
         checkContentEmpty(holder)
+
+        unitClickListener()
     }
 
     private fun checkContentEmpty(holder: RegisterSelectViewHolder){
@@ -53,5 +61,11 @@ class RegisterSelectAdapter (private val context: Context?) : RecyclerView.Adapt
                 //TODO("Not yet implemented")
             }
         })
+    }
+
+    private fun unitClickListener(){
+        btnIngredientUnit.setOnClickListener {
+            IngredientSelectList.showUnitPicker(context!!)
+        }
     }
 }

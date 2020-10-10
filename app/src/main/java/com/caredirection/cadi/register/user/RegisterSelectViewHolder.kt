@@ -1,8 +1,6 @@
 package com.caredirection.cadi.register.user
 
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
