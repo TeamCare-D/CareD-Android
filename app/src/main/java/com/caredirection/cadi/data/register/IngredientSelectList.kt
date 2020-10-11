@@ -39,7 +39,7 @@ class IngredientSelectList {
             return ingredientSelectedList
         }
 
-        fun getIngredientUnit(ingredient : String) : List<String>{
+        private fun getIngredientUnit(ingredient : String) : List<String>{
             var group1 = listOf("비타민A","비타민D")
             var group2 = listOf("비타민E")
             var group3 = listOf("비타민B12","비오틴","엽산","셀레늄","비타민K1","비타민K2","구리","크롬","요오드","몰리브덴")
@@ -71,16 +71,16 @@ class IngredientSelectList {
 
         }
 
-        fun showUnitPicker(context: Context, units: List<String>){
+        fun showUnitPicker(context: Context, unitList: List<String>, unit: TextView){
             val contentDialog = BottomSheetDialog(context)
             val contentLayout : LayoutInflater = LayoutInflater.from(context)
             val contentView : View = contentLayout.inflate(R.layout.dialog_register_ingredient, null)
 
-            val npContent : WheelPicker = contentView.findViewById(R.id.np_ingredient_unit)
+            val npUnit : WheelPicker = contentView.findViewById(R.id.np_ingredient_unit)
             val btnCancel : TextView = contentView.findViewById(R.id.btn_ingredient_cancel)
             val btnConfirm : TextView = contentView.findViewById(R.id.btn_ingredient_confirm)
 
-            npContent.setAdapter(RegisterUnitPicker(units))
+            npUnit.setAdapter(RegisterUnitPicker(unitList))
 
             btnCancel.setOnClickListener {
                 contentDialog.cancel()
@@ -88,8 +88,7 @@ class IngredientSelectList {
             }
 
             btnConfirm.setOnClickListener {
-//                btn_year.text = npYear.getCurrentItem()
-//                btn_year?.isChecked = true
+                unit.text = npUnit.getCurrentItem()
 
                 contentDialog.dismiss()
 
