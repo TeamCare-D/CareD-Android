@@ -81,6 +81,7 @@ class IngredientSelectList {
             val btnConfirm : TextView = contentView.findViewById(R.id.btn_ingredient_confirm)
 
             npUnit.setAdapter(RegisterUnitPicker(unitList))
+            npUnit.setUnselectedTextColor(R.color.colorCoolGray1)
 
             btnCancel.setOnClickListener {
                 contentDialog.cancel()

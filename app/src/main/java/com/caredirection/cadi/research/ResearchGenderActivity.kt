@@ -9,7 +9,6 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.NumberPicker
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -18,6 +17,7 @@ import com.caredirection.cadi.data.UserController
 import com.caredirection.cadi.data.research.ResearchSelectList
 import com.caredirection.cadi.research.disease.ResearchDiseaseActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.super_rabbit.wheel_picker.WheelPicker
 import kotlinx.android.synthetic.main.activity_research_gender.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -129,7 +129,7 @@ class ResearchGenderActivity : AppCompatActivity() {
         val yearLayout : LayoutInflater = LayoutInflater.from(this)
         val yearView : View = yearLayout.inflate(R.layout.dialog_research_year, null)
 
-        val npYear : NumberPicker = yearView.findViewById(R.id.np_year)
+        val npYear : WheelPicker = yearView.findViewById(R.id.np_research_year)
         val btnCancel : TextView = yearView.findViewById(R.id.btn_cancel)
         val btnConfirm : TextView = yearView.findViewById(R.id.btn_confirm)
 
@@ -137,12 +137,13 @@ class ResearchGenderActivity : AppCompatActivity() {
         val formatter = DateTimeFormatter.ofPattern("yyyy")
         val formatted = current.format(formatter)
 
-        npYear.minValue = 1900
-        npYear.maxValue = formatted.toInt()
-        npYear.value = 1990
+        npYear.setMax(formatted.toInt()-1910)
+        npYear.setMin(0)
 
-        npYear.wrapSelectorWheel = false
-        npYear.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
+        npYear.setUnselectedTextColor(R.color.colorCoolGray1)
+        npYear.setSelectorRoundedWrapPreferred(false)
+
+        npYear.setAdapter(ResearchYearPicker())
 
         btnCancel.setOnClickListener {
             yearDialog.cancel()
@@ -151,7 +152,7 @@ class ResearchGenderActivity : AppCompatActivity() {
         }
 
         btnConfirm.setOnClickListener {
-            btn_year.text = npYear.value.toString()
+            btn_year.text = npYear.getCurrentItem()
             btn_year?.isChecked = true
 
             yearDialog.dismiss()
