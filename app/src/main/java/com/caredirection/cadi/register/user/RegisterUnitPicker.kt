@@ -2,7 +2,7 @@ package com.caredirection.cadi.register.user
 
 import com.super_rabbit.wheel_picker.WheelAdapter
 
-class RegisterUnitPicker : WheelAdapter {
+class RegisterUnitPicker(units : List<String>) : WheelAdapter {
 
     //get item value based on item position in wheel
     override fun getValue(position: Int): String {
@@ -30,12 +30,12 @@ class RegisterUnitPicker : WheelAdapter {
 
     //return the maximum index
     override fun getMaxIndex(): Int {
-        return Integer.MAX_VALUE
+        return 1
     }
 
     //return the minimum index
     override fun getMinIndex(): Int {
-        return Integer.MIN_VALUE
+        return -1
     }
 
 

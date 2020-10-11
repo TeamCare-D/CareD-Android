@@ -36,7 +36,7 @@ class RegisterSelectAdapter (private val context: Context?) : RecyclerView.Adapt
 
         checkContentEmpty(holder)
 
-        unitClickListener()
+        unitClickListener(position)
     }
 
     private fun checkContentEmpty(holder: RegisterSelectViewHolder){
@@ -63,9 +63,9 @@ class RegisterSelectAdapter (private val context: Context?) : RecyclerView.Adapt
         })
     }
 
-    private fun unitClickListener(){
+    private fun unitClickListener(position: Int){
         btnIngredientUnit.setOnClickListener {
-            IngredientSelectList.showUnitPicker(context!!)
+            IngredientSelectList.showUnitPicker(context!!, data[position].unit)
         }
     }
 }

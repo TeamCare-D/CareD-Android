@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.super_rabbit.wheel_picker.WheelPicker
-        android:id="@+id/np_ingredient_content"
+        android:id="@+id/np_ingredient_unit"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_marginTop="63dp"

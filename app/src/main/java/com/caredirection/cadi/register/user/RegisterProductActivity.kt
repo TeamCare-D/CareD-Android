@@ -9,14 +9,13 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.register.DummySelectIngredient
+import com.caredirection.cadi.data.register.IngredientSelectList
 import com.caredirection.cadi.register.user.ingredient.RegisterIngredientFragment
 import kotlinx.android.synthetic.main.activity_register_product.*
 
 class RegisterProductActivity : AppCompatActivity() {
 
     private lateinit var registerSelectAdapter: RegisterSelectAdapter
-    private var dummySelectIngredient = DummySelectIngredient()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +46,7 @@ class RegisterProductActivity : AppCompatActivity() {
 
         rv_register_product_ingredient.layoutManager = LinearLayoutManager(this)
 
-        registerSelectAdapter.data = dummySelectIngredient.getSelectIngredientList()
+        registerSelectAdapter.data = IngredientSelectList.getSelectedIngredientList()
 
         registerSelectAdapter.notifyDataSetChanged()
     }
