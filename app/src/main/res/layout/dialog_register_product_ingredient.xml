@@ -36,11 +36,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20"
         app:tabTextAppearance="@style/RegisterIngredientTab"
-        app:tabPaddingEnd="18dp"
+        android:background="@drawable/tab_background"
         app:tabIndicator="@drawable/tab_indicator"
+        app:tabIndicatorHeight="2dp"
+        app:tabIndicatorGravity="bottom"
+        app:tabPaddingBottom="-5dp"
         app:tabSelectedTextColor="@color/colorPointBlue"
         app:tabTextColor="@color/colorWhite3"
         app:tabIndicatorColor="@color/colorPointBlue">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비타민 &amp; 미네랄"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="기능성 원료"/>
 
     </com.google.android.material.tabs.TabLayout>
 
