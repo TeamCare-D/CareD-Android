@@ -21,6 +21,7 @@ class IngredientSelectList {
             (0 until selectedVitaminList.size).forEach {
                 val item = RvSelectListItem(
                     name = selectedVitaminList[it],
+                    content = null,
                     unit = getIngredientUnit(selectedVitaminList[it])
                 )
 
@@ -30,6 +31,7 @@ class IngredientSelectList {
             (0 until selectedMaterialList.size).forEach {
                 val item = RvSelectListItem(
                     name = selectedMaterialList[it],
+                    content = null,
                     unit = getIngredientUnit(selectedMaterialList[it])
                 )
 
