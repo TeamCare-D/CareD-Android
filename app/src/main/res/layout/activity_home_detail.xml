@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorWhite"
     android:layout_height="match_parent"
     tools:context=".home.careuser.HomeDetailActivity">
     <ImageView
@@ -41,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
-                    android:text="비타민 amp;미네랄"
+                    android:text="영양소 섭취현황"
                     android:layout_marginTop="56dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/constraintLayout4" />
@@ -52,15 +53,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="나만을 위한 성분 가이드예요."
+                    android:text="사용자 정보를 바탕으로 한 나만의 기준이에요."
                     app:layout_constraintStart_toStartOf="@+id/txt_home_detail_title"
                     app:layout_constraintTop_toBottomOf="@+id/txt_home_detail_title" />
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tab_layout_home_care_user_detail"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="40dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="25dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txt_home_detail_sub">
 

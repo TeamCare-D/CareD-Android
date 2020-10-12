@@ -8,6 +8,24 @@ import retrofit2.http.*
 
 interface RequestInterface {
 
+    // 설문조사 - 설문조사 리스트 조회
+    @GET("/user/survey-item")
+    fun getResearchList(
+    ): Call<ResearchItemData>
+
+    // 설문조사 - 설문조사 등록
+    @FormUrlEncoded
+    @POST("/user/survey")
+    fun postResearchSelectedList(
+        @Field("nickName") nickName: String,
+        @Field("gender") gender: Int,
+        @Field("age") age: Int,
+        @Field("warning") warning: List<Int>,
+        @Field("diseaseMedicine") diseaseMedicine: List<Int>,
+        @Field("allergy") allergy: List<Int>,
+        @Field("efficacy") efficacy: List<Int>
+    ): Call<ResearchTokenData>
+
     // 복용제품등록, 마이페이지 - 복용 제품 리스트 조회
     @GET("/dose/product")
     fun getTakeList(
@@ -37,7 +55,7 @@ interface RequestInterface {
     ): Call<RegisterTakeProductData>
 
     // 나만의 복용 제품 - 성분 리스트 조회
-    @GET("/search/ingredient")
+    @GET("/ingredient")
     fun getIngredientList(
     ): Call<RegisterIngredientData>
 
@@ -67,9 +85,17 @@ interface RequestInterface {
 
     // 마이페이지 - 제품 등록 요청
     @FormUrlEncoded
-    @POST("/request")
+    @POST("/request/product")
     fun postProductRequest(
         @Field("productName") productName: String,
+        @Header("token") token: String
+    ): Call<MypageRequestData>
+
+    // 마이페이지 - 문의하기
+    @FormUrlEncoded
+    @POST("/request")
+    fun postRequest(
+        @Field("contents") contents: String,
         @Header("token") token: String
     ): Call<MypageRequestData>
 
@@ -109,7 +135,7 @@ interface RequestInterface {
     // search/product 제품 검색 하기
     @GET("/search/product")
     fun getSearchPrudct(
-        @Query("keyword") keyword: String,
+        @Query("keyword") keyword: String?,
         @Header("token") token: String
     ) : Call<ProductSearchData>
 
@@ -124,4 +150,33 @@ interface RequestInterface {
     // magazine/guide 메거진 가이드 리스트 가져오기
     @GET("/magazine/guide")
     fun getMAgazineGuide(): Call<MagazineGuideData>
+
+    // product/{product_idx} 제품 상세보기
+    @GET("/product/{product_idx}")
+    fun getProductDetail(
+        @Path("product_idx") product_idx: Int,
+        @Header("token")token : String
+    ): Call<ProductDetailData>
+
+    // product/{product_idx}/like 제품 찜하기
+    @POST("/product/{product_idx}/like")
+    fun postProductLike(
+        @Path("product_idx") product_idx: Int,
+        @Header("token") token: String
+    ): Call<ProductLikeData>
+
+
+    // user/care/detail 케어받는 기능 & 비슷한 사람들 케어 상세정보 가져오기
+    @GET("/user/care/detail")
+    fun getUserCareDetail(
+        @Header("token") token: String
+    ): Call<CareDetailData>
+
+    // dictionary/{ingredient_idx}특정 성분백과
+    @GET("/dictionary/{ingredient_idx}")
+    fun getDictionary(
+        @Path("ingredient_idx") ingredient_idx: Int,
+        @Header("token") token: String
+    ): Call<DictionaryData>
+
 }

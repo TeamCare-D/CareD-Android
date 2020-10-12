@@ -5,7 +5,7 @@
     android:id="@+id/cl_research_disease"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".research.detail.ResearchDiseaseActivity"
+    tools:context=".research.disease.ResearchDiseaseActivity"
     android:background="@color/colorWhite">
 
     <ImageView
@@ -41,7 +41,7 @@
         android:id="@+id/txt_disease_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="111dp"
+        android:layout_marginTop="112dp"
         android:fontFamily="@font/notosanskr_light"
         android:includeFontPadding="false"
         android:lineSpacingExtra="9sp"
@@ -71,15 +71,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_research_disease"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
         android:layout_marginTop="34dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="29dp"
         android:clipToPadding="false"
-        android:scrollbarThumbVertical="@drawable/scrollbar_research"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btn_disease_next"
+        android:overScrollMode="never"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_disease_subtitle" />
@@ -92,7 +89,7 @@
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="80dp"
         android:background="@drawable/selector_research_next"
-        android:enabled="true"
+        android:enabled="false"
         android:fontFamily="@font/notosanskr_bold"
         android:includeFontPadding="false"
         android:lineSpacingExtra="6sp"

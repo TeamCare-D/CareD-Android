@@ -5,7 +5,7 @@
     android:id="@+id/cl_research_allergy"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".research.detail.ResearchAllergyActivity"
+    tools:context=".research.allergy.ResearchAllergyActivity"
     android:background="@color/colorWhite">
 
     <ImageView
@@ -72,11 +72,12 @@
         android:id="@+id/rv_research_allergy"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="29dp"
         android:layout_marginTop="34dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="29dp"
         android:layout_marginBottom="50dp"
         android:clipToPadding="false"
+        android:scrollbarSize="3dp"
         android:scrollbarThumbVertical="@drawable/scrollbar_research"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btn_allergy_next"
@@ -92,7 +93,7 @@
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="80dp"
         android:background="@drawable/selector_research_next"
-        android:enabled="true"
+        android:enabled="false"
         android:fontFamily="@font/notosanskr_bold"
         android:includeFontPadding="false"
         android:lineSpacingExtra="6sp"

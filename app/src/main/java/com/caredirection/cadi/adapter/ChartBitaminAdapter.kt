@@ -15,7 +15,7 @@ import com.caredirection.cadi.networkdata.GraphBitamin
 
 class ChartBitaminAdapter(private val context: Context): RecyclerView.Adapter<ChartBitaminAdapter.ChartBitaminHolder>() {
 
-    val items = mutableListOf<GraphBitamin>()
+    var items = mutableListOf<GraphBitamin>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChartBitaminHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.rv_item_chart, parent, false)
@@ -38,6 +38,7 @@ class ChartBitaminAdapter(private val context: Context): RecyclerView.Adapter<Ch
         val txt_rv_item_name: TextView = view.findViewById(R.id.txt_rv_item_chart_name)
 
         fun bind(item: GraphBitamin){
+            Log.d("값이", item.toString())
             var h = item.ingredient_percentage * 1.7 * 3
 
 //            if(item.height == 0){

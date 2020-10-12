@@ -9,17 +9,26 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.NumberPicker
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.caredirection.cadi.R
-import com.caredirection.cadi.research.detail.ResearchDiseaseActivity
+import com.caredirection.cadi.data.UserController
+import com.caredirection.cadi.data.research.ResearchSelectList
+import com.caredirection.cadi.research.disease.ResearchDiseaseActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.super_rabbit.wheel_picker.WheelPicker
 import kotlinx.android.synthetic.main.activity_research_gender.*
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 class ResearchGenderActivity : AppCompatActivity() {
+
+    companion object{
+        var gender = 0
+        lateinit var age : String
+    }
 
     private var displayMetrics = DisplayMetrics()
 
@@ -27,20 +36,34 @@ class ResearchGenderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_gender)
 
+        ResearchSelectList.researchActivityList.add(this)
+
         windowManager.defaultDisplay.getRealMetrics(displayMetrics)
 
         setStatusBarTransparent()
 
-        initTitle()
+        initContent()
         initProgressBar()
 
         makeListener()
     }
 
-    private fun initTitle(){
-        val nick = intent.getStringExtra("nick")
+    private fun initContent(){
+        txt_gender_title.text = UserController.getName(this) + "님의\n건강기능식품 선택을 도와드릴게요"
 
-        txt_genderTitle.text = nick + "님의\n건강기능식품 선택을 도와드릴게요"
+        if(!ResearchSelectList.checkFirst){
+            btn_year.text = ResearchSelectList.age.toString()
+            btn_year.isChecked = true
+
+            if(ResearchSelectList.gender == 0){
+                btn_women.isChecked = true
+            }
+            else{
+                btn_man.isChecked = true
+            }
+
+            checkNextButton()
+        }
     }
 
     private fun initProgressBar(){
@@ -54,7 +77,10 @@ class ResearchGenderActivity : AppCompatActivity() {
         pb_research_gender.layoutParams = param
         pb_research_gender.progress = 100
 
-        val animation: Animation = AnimationUtils.loadAnimation(applicationContext,R.anim.translate)
+        val animation: Animation = AnimationUtils.loadAnimation(
+            applicationContext,
+            R.anim.translate
+        )
         pb_research_gender.startAnimation(animation)
     }
 
@@ -75,6 +101,7 @@ class ResearchGenderActivity : AppCompatActivity() {
         setYearClickListener()
         setBackClickListener()
         setNextClickListener()
+        setCloseClickListener()
     }
 
     private fun setGenderClickListener(){
@@ -102,18 +129,21 @@ class ResearchGenderActivity : AppCompatActivity() {
         val yearLayout : LayoutInflater = LayoutInflater.from(this)
         val yearView : View = yearLayout.inflate(R.layout.dialog_research_year, null)
 
-        val npYear : NumberPicker = yearView.findViewById(R.id.np_year)
+        val npYear : WheelPicker = yearView.findViewById(R.id.np_research_year)
         val btnCancel : TextView = yearView.findViewById(R.id.btn_cancel)
         val btnConfirm : TextView = yearView.findViewById(R.id.btn_confirm)
 
-        npYear.minValue = 1900
-        npYear.maxValue = 2020
-        npYear.value = 1990
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy")
+        val formatted = current.format(formatter)
 
-        npYear.wrapSelectorWheel = false
-        npYear.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
+        npYear.setMax(formatted.toInt()-1910)
+        npYear.setMin(0)
 
-        npYear.textColor = this.resources.getColor(R.color.colorPointBlue)
+        npYear.setUnselectedTextColor(R.color.colorCoolGray1)
+        npYear.setSelectorRoundedWrapPreferred(false)
+
+        npYear.setAdapter(ResearchYearPicker())
 
         btnCancel.setOnClickListener {
             yearDialog.cancel()
@@ -122,7 +152,7 @@ class ResearchGenderActivity : AppCompatActivity() {
         }
 
         btnConfirm.setOnClickListener {
-            btn_year.text = npYear.value.toString()
+            btn_year.text = npYear.getCurrentItem()
             btn_year?.isChecked = true
 
             yearDialog.dismiss()
@@ -130,6 +160,7 @@ class ResearchGenderActivity : AppCompatActivity() {
             checkNextButton()
         }
 
+        yearDialog.behavior.isHideable = false
         yearDialog.setContentView(yearView)
         yearDialog.setCanceledOnTouchOutside(false)
         yearDialog.create()
@@ -137,25 +168,40 @@ class ResearchGenderActivity : AppCompatActivity() {
     }
 
     private fun setBackClickListener(){
-        btn_genderBack?.setOnClickListener {
+        btn_gender_back?.setOnClickListener {
             finish()
+        }
+    }
+    private fun setCloseClickListener(){
+        btn_gender_close.setOnClickListener {
+            ResearchSelectList.showStopDialog(this)
         }
     }
 
     private fun setNextClickListener() {
-        btn_genderNext?.setOnClickListener {
+        btn_gender_next?.setOnClickListener {
+            setSelectedList()
+
             val diseaseIntent = Intent(this, ResearchDiseaseActivity::class.java)
 
             startActivity(diseaseIntent)
         }
     }
 
+    private fun setSelectedList(){
+        if(btn_man.isChecked){
+            gender = 1
+        }
+
+        age = btn_year.text.toString()
+    }
+
     // 다음 버튼 처리를 위한 확인
     private fun checkNextButton(){
-        btn_genderNext.isEnabled = (btn_women.isChecked || btn_man.isChecked) && btn_year.isChecked
+        btn_gender_next.isEnabled = (btn_women.isChecked || btn_man.isChecked) && btn_year.isChecked
 
-        if(btn_genderNext.isEnabled) btn_genderNext.setTextColor(resources.getColor(R.color.colorWhite))
-        else btn_genderNext.setTextColor(resources.getColor(R.color.colorCoolGray2))
+        if(btn_gender_next.isEnabled) btn_gender_next.setTextColor(resources.getColor(R.color.colorWhite))
+        else btn_gender_next.setTextColor(resources.getColor(R.color.colorCoolGray2))
     }
 
     // 상태바 투명 설정
@@ -196,5 +242,15 @@ class ResearchGenderActivity : AppCompatActivity() {
         )
 
         return context.resources.getBoolean(resourceBottom)
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) setDarkStatusBar()
+    }
+
+    // 상태바 어둡게
+    private fun setDarkStatusBar() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
     }
 }

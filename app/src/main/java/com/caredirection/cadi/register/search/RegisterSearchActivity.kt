@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.network.RegisterTakeProductData
 import com.caredirection.cadi.data.network.TakeSearchData
+import com.caredirection.cadi.data.register.DummyRegisterSearchList
 import com.caredirection.cadi.data.register.RvTakeSearchItem
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.register.user.RegisterProductActivity
@@ -26,6 +27,7 @@ import retrofit2.Response
 class RegisterSearchActivity : AppCompatActivity() {
 
     private lateinit var registerSearchListAdapter: RegisterSearchAdapter
+    private val dummyRegisterSearchList = DummyRegisterSearchList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +47,15 @@ class RegisterSearchActivity : AppCompatActivity() {
 
         rv_register_search_list.layoutManager = GridLayoutManager(this,2)
 
-        getTakeSearchResponse(edt_register_search_keyword.text.toString())
+        registerSearchListAdapter.data = dummyRegisterSearchList.getRegisterSearchResultList()
+
+        registerSearchListAdapter.notifyDataSetChanged()
+
+        txt_register_search_count.text = "결과 ${registerSearchListAdapter.itemCount}건"
+
+        checkSearchResult()
+
+        //getTakeSearchResponse(edt_register_search_keyword.text.toString())
     }
 
     private fun makeListener(){
@@ -100,6 +110,18 @@ class RegisterSearchActivity : AppCompatActivity() {
         }
         else{
             txt_register_search_none.visibility = View.VISIBLE
+        }
+    }
+
+    fun checkRegisterButton(){
+
+        if(registerSearchListAdapter.selectedItem.size > 0){
+            btn_register_search_complete.isEnabled = true
+            btn_register_search_complete.setTextColor(getColor(R.color.colorWhite))
+        }
+        else{
+            btn_register_search_complete.isEnabled = false
+            btn_register_search_complete.setTextColor(getColor(R.color.colorCoolGray2))
         }
     }
 
@@ -217,5 +239,15 @@ class RegisterSearchActivity : AppCompatActivity() {
 
         return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
         else 0
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) setDarkStatusBar()
+    }
+
+    // 상태바 어둡게
+    private fun setDarkStatusBar() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
     }
 }

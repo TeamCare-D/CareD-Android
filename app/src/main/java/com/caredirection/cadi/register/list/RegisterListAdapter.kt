@@ -18,7 +18,7 @@ import retrofit2.Response
 
 class RegisterListAdapter(private val context: Context) : RecyclerView.Adapter<RegisterListViewHolder>(){
 
-    var data  : List<RvTakeListItem> = listOf()
+    var data  : MutableList<RvTakeListItem> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RegisterListViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.rv_item_register_list, parent, false)
@@ -51,6 +51,10 @@ class RegisterListAdapter(private val context: Context) : RecyclerView.Adapter<R
         }
 
         btnConfirm.setOnClickListener {
+            data.removeAt(position)
+            notifyItemRemoved(position)
+            notifyItemRangeChanged(position, itemCount)
+            (context as RegisterListActivity).checkCompleteButton()
             //deleteTakeProductResponse(position)
             deleteDialog.dismiss()
         }

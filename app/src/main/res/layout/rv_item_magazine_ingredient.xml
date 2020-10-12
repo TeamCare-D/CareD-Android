@@ -3,16 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="319dp"
-    android:layout_marginTop="20dp"
-
+    android:layout_height="304dp"
     >
 
     <ImageView
         android:id="@+id/img_rv_item_magazine_ingredient"
-        android:layout_width="304dp"
-        android:layout_height="319dp"
-        android:src="@drawable/blue_line_4"
+        android:layout_width="302dp"
+        android:layout_height="304dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/pawel_czerwinski_kxbl_pqf_yc_9_e_unsplash"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:elevation="3dp"
@@ -20,7 +19,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_rv_item_magazine_ingredient"
-        android:layout_width="304dp"
+        android:layout_width="0dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="28dp"
         android:layout_height="120dp"
         android:background="@color/colorTransparentWhite"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +31,9 @@
 
         <TextView
             android:id="@+id/txt_rv_item_magazine_ingredient"
-            android:layout_width="264dp"
+            android:layout_width="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="천연의 함정 화학 부형제는 정말\n안 좋은 것일까?"

@@ -9,7 +9,7 @@
     android:background="@color/colorWhite">
 
     <ImageView
-        android:id="@+id/btn_genderBack"
+        android:id="@+id/btn_gender_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/btn_back" />
 
     <ImageView
-        android:id="@+id/btn_genderClose"
+        android:id="@+id/btn_gender_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
@@ -39,13 +39,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_genderTitle"
+        android:id="@+id/txt_gender_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="111dp"
+        android:layout_marginTop="112dp"
         android:fontFamily="@font/notosanskr_light"
         android:includeFontPadding="false"
-        android:lineSpacingExtra="9sp"
+        android:lineSpacingExtra="2sp"
         android:text="님의\n건강기능식품 선택을 도와드릴게요"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_genderSubtitle"
+        android:id="@+id/txt_gender_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -67,7 +67,7 @@
         android:textColor="@color/colorBlack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_genderTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_gender_title" />
 
     <CheckedTextView
         android:id="@+id/btn_women"
@@ -88,7 +88,7 @@
         android:textSize="14dp"
         app:layout_constraintEnd_toStartOf="@+id/btn_man"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_genderSubtitle" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_gender_subtitle" />
 
     <CheckedTextView
         android:id="@+id/btn_man"
@@ -108,14 +108,14 @@
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_women"
-        app:layout_constraintTop_toBottomOf="@+id/txt_genderSubtitle" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_gender_subtitle" />
 
     <CheckedTextView
         android:id="@+id/btn_year"
         android:layout_width="0dp"
         android:layout_height="44dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="154dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
         android:background="@drawable/selector_research_userinfo"
         android:checked="false"
@@ -129,10 +129,10 @@
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_genderSubtitle" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_women" />
 
     <Button
-        android:id="@+id/btn_genderNext"
+        android:id="@+id/btn_gender_next"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="28dp"

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_home_care_user_detail"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="245dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/img_view_home_care_detail2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/standard"
+            />
+
+        <ImageView
+            android:id="@+id/img_view_home_care_user_detail_high"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/img_view_home_care_detail2"
+            android:layout_marginLeft="21dp"
+            app:layout_constraintTop_toTopOf="@+id/img_view_home_care_detail2"
+            android:src="@drawable/line_graph_high"
+            />
+
+        <ImageView
+            android:id="@+id/img_view_pager_home_chart_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/img_view_home_care_detail2"
+            app:layout_constraintBottom_toBottomOf="@+id/img_view_home_care_detail2"
+            android:layout_marginLeft="21dp"
+            android:src="@drawable/line_graph_low"
+            />
+        <TextView
+            android:id="@+id/box_home_care_user_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rv_home_care_detail"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="38dp"
+            android:layout_width="50dp"
+            android:layout_height="177dp"
+            android:background="@color/colorWindowDuckEggBlue"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home_care_user_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="37dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_view_home_care_detail2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/img_view_home_care_user_detail_drop_down"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            app:layout_constraintTop_toBottomOf="@+id/box_home_care_user_detail"
+            app:layout_constraintStart_toStartOf="@+id/box_home_care_user_detail"
+            app:layout_constraintEnd_toEndOf="@+id/box_home_care_user_detail"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/btn_dropdown"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorDuckEggBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/layout_home_care_user_detail">
+
+        <TextView
+            android:id="@+id/txt_home_detail_desc_title"
+            style="@style/bold20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="20dp"
+            android:text="비타민C 에 대하여"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_home_detail_desc_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:fontFamily="@font/notosanskr_bold"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="6sp"
+            android:text="성분백과"
+            android:textSize="12dp"
+            android:textColor="@color/colorDarkGray"
+            app:layout_constraintEnd_toStartOf="@+id/btn_home_detail_desc_more"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_home_detail_desc_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/btn_next" />
+
+        <TextView
+            android:id="@+id/txt_home_detail_desc_bottom_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:fontFamily="@font/notosanskr_light"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="8sp"
+            android:text="권장량"
+            android:textColor="@color/colorGrayishBrown1"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="@+id/txt_home_detail_desc_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_home_detail_desc_title" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="8dp"
+            android:layout_height="1dp"
+            android:background="@color/colorGrayish"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_home_detail_desc_bottom_limit"
+            app:layout_constraintEnd_toStartOf="@+id/txt_home_detail_desc__top_limit"
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_desc_bottom_limit"
+            app:layout_constraintTop_toTopOf="@id/txt_home_detail_desc_bottom_limit" />
+
+        <TextView
+            android:id="@+id/txt_home_detail_desc__top_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/notosanskr_light"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="8sp"
+            android:text="상한량"
+            android:textColor="@color/colorGrayishBrown1"
+            android:textSize="14dp"
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_desc_bottom_limit"
+            app:layout_constraintTop_toTopOf="@+id/txt_home_detail_desc_bottom_limit" />
+
+        <TextView
+            android:id="@+id/txt_home_detail_user_bottom_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="8sp"
+            android:text="3000mg"
+            android:textColor="@color/colorBlack"
+            android:textSize="14dp"
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_desc__top_limit"
+            app:layout_constraintTop_toTopOf="@+id/txt_home_detail_desc__top_limit" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="8dp"
+            android:layout_height="1dp"
+            android:background="@color/colorGrayish"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_home_detail_user_bottom_limit"
+            app:layout_constraintEnd_toStartOf="@+id/txt_home_detail_user_top_limit"
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_user_bottom_limit"
+            app:layout_constraintTop_toTopOf="@+id/txt_home_detail_user_bottom_limit" />
+
+        <TextView
+            android:id="@+id/txt_home_detail_user_top_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="8sp"
+            android:text="3000mg"
+            android:textColor="@color/colorBlack"
+            android:textSize="14dp"
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_user_bottom_limit"
+            app:layout_constraintTop_toTopOf="@+id/txt_home_detail_user_bottom_limit" />
+
+        <TextView
+            android:id="@+id/txt_home_detail_desc_Intake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/notosanskr_light"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="8sp"
+            android:text="나의 섭취량"
+            android:textColor="@color/colorGrayishBrown1"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="@+id/txt_home_detail_desc_bottom_limit"
+            app:layout_constraintTop_toBottomOf="@+id/txt_home_detail_desc_bottom_limit" />
+
+        <TextView
+            android:id="@+id/txt_home_detail_user_Intake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/notosanskr_bold"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="8sp"
+            android:text="500mg"
+            android:textColor="@color/colorPointBlue"
+            android:textSize="14dp"
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_desc_Intake"
+            app:layout_constraintTop_toTopOf="@+id/txt_home_detail_desc_Intake" />
+
+        <TextView
+            android:id="@+id/txt_home_detail_user_intake_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/txt_home_detail_user_Intake"
+            app:layout_constraintTop_toTopOf="@+id/txt_home_detail_user_Intake"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_home_detail_user_Intake"
+            android:layout_marginLeft="10dp"
+            android:textSize="9dp"
+            android:textColor="@color/colorBlack"
+            android:lineSpacingExtra="4dp"
+            android:text="10,000%"
+            />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="8sp"
+            android:text="근육과 스트레스관리에 효과적으로 작용해요.\n 이완작용을 하는 대표적인 성분입니다.\n 아아, 오이, 아오, 아이오에 많이 들어있어요."
+            android:textColor="@color/colorBlack"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_home_detail_desc_Intake" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btn_home_care_user_detail_product"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="28dp"
+        android:text="제품 보러가기"
+        android:background="@drawable/black_fill_4"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="@font/notosanskr_bold"
+        android:textSize="14dp"
+        android:lineSpacingExtra="6sp"
+        android:includeFontPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
+
+
+    <TextView
+        android:id="@+id/txt_home_care_user_detail_magazine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
+        style="@style/bold20"
+        android:text="CARE Magazine"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="28dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_home_care_user_detail_product"
+        android:layout_marginTop="50dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_home_Care_user_detail_magazine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/txt_home_care_user_detail_magazine"
+        android:layout_marginTop="18dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

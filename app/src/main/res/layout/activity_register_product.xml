@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:src="@drawable/ic_product_1"
+                android:src="@drawable/img_register"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView15" />
@@ -147,67 +147,87 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_register_product_more" />
 
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_register_product_ingredient"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="26dp"
-                android:text="성분"
-                android:fontFamily="@font/notosanskr_bold"
-                android:textSize="14dp"
-                android:lineSpacingExtra="4sp"
-                android:includeFontPadding="false"
-                android:textColor="@color/colorBlack"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/gray_line_4"
-                android:ems="10"
-                android:enabled="false"
-                android:fontFamily="@font/notosanskr_regular"
-                android:hint="함량"
-                android:includeFontPadding="false"
-                android:lineSpacingExtra="4sp"
-                android:paddingStart="10dp"
-                android:paddingTop="12dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="12dp"
-                android:textColorHint="@color/colorPinkishGray"
-                android:textSize="14dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView19"
-                app:layout_constraintEnd_toStartOf="@+id/textView18"
-                app:layout_constraintTop_toTopOf="@+id/textView19" />
-
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="3dp"
-                android:fontFamily="@font/notosanskr_medium"
-                android:includeFontPadding="false"
-                android:lineSpacingExtra="6sp"
-                android:text="mg NE"
-                android:textColor="@color/colorBlack"
-                android:textSize="12dp"
-                app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
-                app:layout_constraintEnd_toStartOf="@+id/imageView4"
-                app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="33dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView18"
+                android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView18"
-                app:srcCompat="@drawable/btn_dropdown" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_register_product_ingredient"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_register_ingredient_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="4sp"
+                    android:text="성분"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/edt_register_ingredient_content"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/gray_line_4"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:hint="함량"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="4sp"
+                    android:paddingStart="10dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="12dp"
+                    android:textColorHint="@color/colorPinkishGray"
+                    android:textSize="14dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_register_ingredient_name"
+                    app:layout_constraintEnd_toStartOf="@+id/txt_register_ingredient_unit"
+                    app:layout_constraintTop_toTopOf="@+id/txt_register_ingredient_name" />
+
+                <TextView
+                    android:id="@+id/txt_register_ingredient_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="3dp"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="6sp"
+                    android:text="mg NE"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/edt_register_ingredient_content"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_register_ingredient_dropdown"
+                    app:layout_constraintTop_toTopOf="@+id/edt_register_ingredient_content" />
+
+                <ImageView
+                    android:id="@+id/btn_register_ingredient_dropdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="33dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_register_ingredient_unit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txt_register_ingredient_unit"
+                    app:srcCompat="@drawable/btn_dropdown_unselected_product_register" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
                 android:id="@+id/btn_register_product_complete"
@@ -228,7 +248,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+                app:layout_constraintTop_toBottomOf="@+id/cl_register_product_ingredient" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

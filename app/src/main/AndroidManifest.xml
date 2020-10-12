@@ -25,30 +25,27 @@
         <activity android:name=".mypage.notice.MypageNoticeActivity" />
         <activity android:name=".mypage.interest.MypageInterestProductActivity" />
         <activity android:name=".home.careuser.HomeDetailActivity" />
-        <activity android:name=".register.user.RegisterProductActivity" />
-
-
-        <activity android:name="com.caredirection.cadi.MainActivity">
+        <activity android:name=".register.user.RegisterProductActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.caredirection.cadi.MainActivity">
+
+        </activity>
         <activity android:name=".register.list.RegisterListCompleteActivity" />
-        <activity android:name=".register.user.RegisterProductCompleteActivity" />
         <activity android:name=".register.search.RegisterSearchActivity" />
         <activity android:name=".register.list.RegisterListActivity">
 
         </activity>
-
-
         <activity android:name=".product.search.ProductSearch" />
-        <activity android:name=".research.detail.ResearchInterestActivity" />
+        <activity android:name=".research.interest.ResearchInterestActivity" />
         <activity android:name=".product.list.ListActivity" />
-        <activity android:name=".research.detail.ResearchAllergyActivity"></activity>
-        <activity android:name=".research.detail.ResearchMedicineActivity" />
-        <activity android:name=".research.detail.ResearchDiseaseActivity" />
+        <activity android:name=".research.allergy.ResearchAllergyActivity"></activity>
+        <activity android:name=".research.medicine.ResearchMedicineActivity" />
+        <activity android:name=".research.disease.ResearchDiseaseActivity" />
         <activity android:name=".research.ResearchGenderActivity" />
         <activity android:name=".research.ResearchNicknameActivity">
 

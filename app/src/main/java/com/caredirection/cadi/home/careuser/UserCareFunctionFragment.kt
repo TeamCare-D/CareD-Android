@@ -7,23 +7,23 @@ import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.caredirection.cadi.R
-import com.caredirection.cadi.adapter.ChartBitaminAdapter
 import com.caredirection.cadi.adapter.ChartFunctionAdapter
 import com.caredirection.cadi.adapter.MagazineIngredientRvAdapter
 import com.caredirection.cadi.custom.OnSnapPositionChangeListener
 import com.caredirection.cadi.custom.getSnapPosition
 import com.caredirection.cadi.home.caredetail.Behavior
 import com.caredirection.cadi.network.RequestURL
-import com.caredirection.cadi.networkdata.GraphBitaminList
 import com.caredirection.cadi.networkdata.GraphFunctionList
 import com.caredirection.cadi.networkdata.IngredientDetail
 import com.caredirection.cadi.networkdata.MagazineList
+import com.caredirection.cadi.networkdata.MagazineListData
 import kotlinx.android.synthetic.main.view_home_care_user_detail.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 
-class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail) {
+class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail2) {
     lateinit var chartRvADapter: ChartFunctionAdapter
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -62,6 +62,7 @@ class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail) {
             if (snapPositionChanged) {
                 onSnapPositionChangeListener?.onSnapPositionChange(snapPosition)
                 this.snapPosition = snapPosition
+                Log.d("진상", chartRvADapter.items[snapPosition].toString())
                 ChartIngredientDetail(chartRvADapter.items[snapPosition].ingredient_idx)
             }
         }
@@ -126,14 +127,19 @@ class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail) {
                     response: Response<IngredientDetail>
                 ) {
                     if(response.isSuccessful){
-                        txt_home_detail_desc_title.text = response.body()!!.data[1].ingredient_name
-                        txt_home_detail_user_bottom_limit.text = response.body()!!.data[1].vitamin_mineral_recommended_amount
-                        txt_home_detail_user_top_limit.text = response.body()!!.data[1].vitamin_mineral_upper_amount
-                        textView13.text = response.body()!!.data[1].ingredient_description
-                        txt_home_detail_user_Intake.text = response.body()!!.data[1].my_amount
+                        try{
+                            val data = response.body()!!.data
+                            txt_home_detail_desc_title.text = data.graphDetail.ingredient_name
+                            txt_home_detail_user_bottom_limit.text = data.graphDetail.vitamin_mineral_recommended_amount
+                            txt_home_detail_user_top_limit.text = data.graphDetail.vitamin_mineral_upper_amount
+                            textView13.text = data.graphDetail.ingredient_description
+                            txt_home_detail_user_Intake.text = data.graphDetail.my_amount
 
-                        Log.d("테스트다", response.body()!!.data[0].magazineList.toString())
-                        MagazineSetting(response.body()!!.data[0].magazineList)
+
+                            MagazineSetting(data.magazineList)
+                        }catch (e: Exception){
+                        }
+
                     }
                 }
             }
@@ -141,7 +147,7 @@ class UserCareFunctionFragment: Fragment(R.layout.view_home_care_user_detail) {
     }
 
 
-    fun MagazineSetting(items: MutableList<MagazineList>){
+    fun MagazineSetting(items: MutableList<MagazineListData>){
         val magazineIngredientRvAdapter = MagazineIngredientRvAdapter()
 
         magazineIngredientRvAdapter.items.addAll(items)

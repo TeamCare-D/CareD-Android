@@ -7,7 +7,9 @@ data class ProductSearchData(
 )
 
 data class ProductSearchInfoList(
-    val criterion: ProductSearchInfo
+    val criterion: ProductSearchInfo,
+    val products: List<ProductInfo>,
+    val user: userData
 )
 data class ProductSearchInfo(
     val ingredientName: String,
@@ -21,8 +23,21 @@ data class ProductSearchInfo(
     val criterionValue3: List<String>,
     val criterionDescription1: criterionDescription1Data,
     val criterionDescription2: criterionDescription2Data,
-    val criterionDescription3: criterionDescription3Data,
-    val products: List<String>
+    val criterionDescription3: criterionDescription3Data
+)
+
+data class ProductInfo(
+    val productIdx: Int,
+    val productName: String,
+    val imgUrl: String,
+    val isImport: Int,
+    val brandName: String,
+    val criterion1: String,
+    val criterion2: String,
+    val criterion3: String,
+    val lowPrice: Int,
+    val monthlyPrice: Int,
+    val maintainDays: Int
 )
 
 data class criterionDescription1Data(
@@ -38,4 +53,9 @@ data class criterionDescription2Data(
 data class criterionDescription3Data(
     val subTitle: List<String>,
     val content: List<String>
+)
+data class userData(
+    val gender: String,
+    val doseAmount: MutableList<String>,
+    val age: String
 )

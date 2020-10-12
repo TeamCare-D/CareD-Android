@@ -8,16 +8,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
+import com.caredirection.cadi.product.search.adapter.ingredientIdxData
 
-class TabMenuRecyclerViewAdapter :
-    ListAdapter<Ingredient, TabMenuRecyclerViewAdapter.ViewHolder>(DiffTool()) {
+class TabMenuRecyclerViewAdapter : ListAdapter<ingredientIdxData, TabMenuRecyclerViewAdapter.ViewHolder>(DiffTool()) {
 
-    private class DiffTool : DiffUtil.ItemCallback<Ingredient>() {
-        override fun areItemsTheSame(oldItem: Ingredient, newItem: Ingredient): Boolean {
-            return oldItem.idx == newItem.idx
+    private class DiffTool : DiffUtil.ItemCallback<ingredientIdxData>() {
+        override fun areItemsTheSame(oldItem: ingredientIdxData, newItem: ingredientIdxData): Boolean {
+            return oldItem.ingredient_idx == newItem.ingredient_idx
         }
 
-        override fun areContentsTheSame(oldItem: Ingredient, newItem: Ingredient): Boolean {
+        override fun areContentsTheSame(oldItem: ingredientIdxData, newItem: ingredientIdxData): Boolean {
             return oldItem == newItem
         }
     }
@@ -29,7 +29,7 @@ class TabMenuRecyclerViewAdapter :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.text.text = getItem(position).name
+        holder.text.text = getItem(position).nameItem
     }
 
 

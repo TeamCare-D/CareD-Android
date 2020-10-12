@@ -3,7 +3,7 @@
     android:layout_width="140dp"
     android:layout_height="140dp"
     android:layout_marginLeft="12dp"
-    android:background="@color/colorPaleGray"
+    android:background="@drawable/pale_gray_fill_4"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView

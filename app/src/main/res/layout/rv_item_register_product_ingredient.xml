@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txt_register_ingredient_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="4sp"
+        android:text="성분"
+        android:textColor="@color/colorBlack"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/edt_register_ingredient_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_register_ingredient_content"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/gray_line_4"
+        android:ems="10"
+        android:fontFamily="@font/notosanskr_regular"
+        android:hint="함량"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="4sp"
+        android:paddingStart="10dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="9dp"
+        android:textColorHint="@color/colorPinkishGray"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txt_register_ingredient_unit"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_register_ingredient_unit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_register_ingredient_dropdown"
+        app:layout_constraintEnd_toEndOf="@+id/btn_register_ingredient_dropdown"
+        app:layout_constraintStart_toStartOf="@+id/txt_register_ingredient_unit"
+        app:layout_constraintTop_toTopOf="@+id/btn_register_ingredient_dropdown"
+        app:srcCompat="@color/colorTransparentWhite" />
+
+    <TextView
+        android:id="@+id/txt_register_ingredient_unit"
+        android:layout_width="37dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="6sp"
+        android:text="mg NE"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/edt_register_ingredient_content"
+        app:layout_constraintEnd_toStartOf="@+id/btn_register_ingredient_dropdown"
+        app:layout_constraintTop_toTopOf="@+id/edt_register_ingredient_content" />
+
+    <ImageView
+        android:id="@+id/btn_register_ingredient_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_register_ingredient_unit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_register_ingredient_unit"
+        app:srcCompat="@drawable/btn_dropdown_product_register" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

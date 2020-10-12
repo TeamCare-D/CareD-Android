@@ -14,6 +14,7 @@ import com.caredirection.cadi.MainActivity
 import com.caredirection.cadi.R
 import com.caredirection.cadi.data.network.TakeProductData
 import com.caredirection.cadi.data.register.RvTakeListItem
+import com.caredirection.cadi.data.research.ResearchSelectList
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.register.search.RegisterSearchActivity
 import kotlinx.android.synthetic.main.activity_register_list.*
@@ -28,6 +29,8 @@ class RegisterListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_list)
+
+        ResearchSelectList.researchActivityList.add(this)
 
         setStatusBarTransparent()
         setSkipUnderLine()
@@ -76,8 +79,11 @@ class RegisterListActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkCompleteButton(){
+    fun checkCompleteButton(){
         btn_register_list_complete.isEnabled = false
+        btn_register_list_complete.setTextColor(resources.getColor(R.color.colorCoolGray2))
+        btn_register_list_skip.visibility = View.VISIBLE
+        btn_register_list_close.visibility = View.INVISIBLE
 
         if(registerListAdapter.itemCount > 0){
             btn_register_list_complete.isEnabled = true
@@ -85,6 +91,8 @@ class RegisterListActivity : AppCompatActivity() {
             btn_register_list_skip.visibility = View.GONE
             btn_register_list_close.visibility = View.VISIBLE
         }
+
+
     }
 
     private fun setSkipUnderLine(){
@@ -147,5 +155,15 @@ class RegisterListActivity : AppCompatActivity() {
 
         return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
         else 0
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) setDarkStatusBar()
+    }
+
+    // 상태바 어둡게
+    private fun setDarkStatusBar() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
     }
 }

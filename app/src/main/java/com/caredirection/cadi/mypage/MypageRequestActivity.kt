@@ -103,7 +103,6 @@ class MypageRequestActivity : AppCompatActivity() {
     }
 
     private fun postRequestProductResponse(productName: String){
-        Log.d("명", "실행1")
         val call: Call<MypageRequestData> = RequestURL.service.postProductRequest(
             productName = productName,
             token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE"
@@ -141,5 +140,15 @@ class MypageRequestActivity : AppCompatActivity() {
 
         return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
         else 0
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) setDarkStatusBar()
+    }
+
+    // 상태바 어둡게
+    private fun setDarkStatusBar() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
     }
 }

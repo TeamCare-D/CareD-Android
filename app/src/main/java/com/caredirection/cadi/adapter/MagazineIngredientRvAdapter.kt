@@ -7,12 +7,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
 import com.caredirection.cadi.networkdata.MagazineList
+import com.caredirection.cadi.networkdata.MagazineListData
 
-class MagazineIngredientRvAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MagazineIngredientRvAdapter: RecyclerView.Adapter<MagazineIngredientRvAdapter.MagazineIngredientRvHolder>() {
 
-    val items = mutableListOf<MagazineList>()
+    val items = mutableListOf<MagazineListData>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MagazineIngredientRvHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_item_magazine_ingredient, parent, false)
         return MagazineIngredientRvHolder(view)
     }
@@ -21,10 +22,8 @@ class MagazineIngredientRvAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>
         return items.size
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if(holder is MagazineIngredientRvHolder){
+    override fun onBindViewHolder(holder: MagazineIngredientRvHolder, position: Int) {
             holder.bind(items[position])
-        }
     }
 
     inner class MagazineIngredientRvHolder(view: View): RecyclerView.ViewHolder(view){
@@ -33,7 +32,7 @@ class MagazineIngredientRvAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>
         val magazineTagRvAdapter = MagazineTagRvAdapter()
 
 
-        fun bind(item: MagazineList){
+        fun bind(item: MagazineListData){
             txt_rv_item_magazine_ingredient.text = item.magazine_title
             magazineTagRvAdapter.items.addAll(item.hashtag_name)
             rv_rv_item_magazine_ingredient.adapter = magazineTagRvAdapter

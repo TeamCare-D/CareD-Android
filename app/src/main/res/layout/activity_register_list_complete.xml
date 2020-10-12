@@ -8,25 +8,6 @@
     tools:context=".register.list.RegisterListCompleteActivity"
     android:background="@color/colorWhite">
 
-    <ImageView
-        android:id="@+id/btn_register_list_complete_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="6dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/btn_back" />
-
-    <ImageView
-        android:id="@+id/btn_register_list_complete_close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/btn_close" />
 
     <TextView
         android:id="@+id/textView12"
@@ -42,4 +23,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_register_complete"
+        android:layout_width="185dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:srcCompat="@color/colorWhite" />
 </androidx.constraintlayout.widget.ConstraintLayout>

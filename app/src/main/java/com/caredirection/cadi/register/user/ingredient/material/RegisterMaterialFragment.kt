@@ -48,7 +48,7 @@ class RegisterMaterialFragment : Fragment(){
         call.enqueue(
             object : Callback<RegisterIngredientData> {
                 override fun onFailure(call: Call<RegisterIngredientData>, t: Throwable) {
-                    Log.d("성분 리스트 조회 실패", "메시지 : $t")
+                    Log.d("성분(기능성 원료) 리스트 조회 실패", "메시지 : $t")
                 }
 
                 override fun onResponse(
@@ -59,7 +59,7 @@ class RegisterMaterialFragment : Fragment(){
                         val ingredientList=response.body()!!
 
                         val ingredientItem = mutableListOf<RvIngredientListItem>()
-                        for(item in ingredientList.data){
+                        for(item in ingredientList.data.functionalIngredients){
                             ingredientItem.add(
                                 RvIngredientListItem(
                                     item.ingredientIdx,

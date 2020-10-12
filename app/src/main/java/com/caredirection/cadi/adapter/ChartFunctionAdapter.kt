@@ -13,7 +13,7 @@ import com.caredirection.cadi.networkdata.GraphFunction
 
 class ChartFunctionAdapter(private val context: Context): RecyclerView.Adapter<ChartFunctionAdapter.ChartFunctionHolder>() {
 
-    val items = mutableListOf<GraphFunction>()
+    var items = mutableListOf<GraphFunction>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChartFunctionHolder {

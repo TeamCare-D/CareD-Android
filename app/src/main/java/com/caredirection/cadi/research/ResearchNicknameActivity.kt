@@ -2,12 +2,15 @@ package com.caredirection.cadi.research
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.UserController
+import com.caredirection.cadi.data.research.ResearchSelectList
 import kotlinx.android.synthetic.main.activity_research_name.*
 
 class ResearchNicknameActivity : AppCompatActivity() {
@@ -15,54 +18,74 @@ class ResearchNicknameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_research_name)
 
+        ResearchSelectList.researchActivityList.add(this)
+
         setStatusBarTransparent()
 
-        checkNicknameEmpty()
-
         makeListener()
+
+        initName()
     }
 
-    // 버튼 클릭리스너 지정
+    private fun initName(){
+        if(UserController.getName(this).isNotEmpty()){
+            edt_nick.text = Editable.Factory.getInstance().newEditable(UserController.getName(this))
+        }
+    }
+
     private fun makeListener(){
         setNextClickListener()
+        setCloseClickListener()
+
+        checkNicknameEmpty()
+        checkNicknameFocus()
+    }
+
+    private fun setCloseClickListener(){
+        btn_nick_close.setOnClickListener {
+            ResearchSelectList.showStopDialog(this)
+        }
     }
 
     private fun setNextClickListener(){
-        btn_nickNext?.setOnClickListener{
+        btn_nick_next?.setOnClickListener{
+            UserController.setName(this, edt_nick.text.toString())
+
             val genderIntent = Intent(this,ResearchGenderActivity::class.java)
-            genderIntent.putExtra("nick", edt_nick.text.toString())
 
             startActivity(genderIntent)
         }
     }
 
-    // 사용자 입력 확인
     private fun checkNicknameEmpty(){
-        // 이름 입력 실시간 검사
         edt_nick?.addTextChangedListener(object: TextWatcher{
             var nickLength = 0
             override fun afterTextChanged(p0: Editable?) {
                 nickLength = edt_nick?.length()!!
-                // 입력값 있는 경우
+
                 if(nickLength > 0){
-                    btn_nickNext?.isEnabled = true
-                    btn_nickNext?.setTextColor(resources.getColor(R.color.colorWhite))
+                    btn_nick_next?.isEnabled = true
+                    btn_nick_next?.setTextColor(resources.getColor(R.color.colorWhite))
                 }
-                // 입력값 없는 경우
+
                 else{
-                    btn_nickNext?.isEnabled = false
-                    btn_nickNext?.setTextColor(resources.getColor(R.color.colorCoolGray2))
+                    btn_nick_next?.isEnabled = false
+                    btn_nick_next?.setTextColor(resources.getColor(R.color.colorCoolGray2))
                 }
             }
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                //TODO("Not yet implemented")
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                //TODO("Not yet implemented")
             }
         })
+    }
+
+    private fun checkNicknameFocus(){
+        edt_nick.setOnFocusChangeListener { _, hasFocus ->
+            edt_nick.hint = ""
+        }
     }
 
     // 상태바 투명 설정
@@ -77,5 +100,15 @@ class ResearchNicknameActivity : AppCompatActivity() {
 
         return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
         else 0
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) setDarkStatusBar()
+    }
+
+    // 상태바 어둡게
+    private fun setDarkStatusBar() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
     }
 }

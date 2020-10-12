@@ -4,13 +4,20 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
+import com.caredirection.cadi.data.register.IngredientSelectList
 import com.caredirection.cadi.register.user.ingredient.RegisterIngredientFragment
 import kotlinx.android.synthetic.main.activity_register_product.*
 
 class RegisterProductActivity : AppCompatActivity() {
+
+    private lateinit var registerSelectAdapter: RegisterSelectAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_product)
@@ -20,6 +27,29 @@ class RegisterProductActivity : AppCompatActivity() {
         makeListener()
 
         checkNameEmpty()
+    }
+
+    private fun setIngredientView(){
+        txt_register_ingredient_name.visibility = View.GONE
+        edt_register_ingredient_content.visibility = View.GONE
+        txt_register_ingredient_unit.visibility = View.GONE
+        btn_register_ingredient_dropdown.visibility = View.GONE
+
+        rv_register_product_ingredient.visibility = View.VISIBLE
+    }
+
+    fun getIngredientList(){
+        setIngredientView()
+
+        registerSelectAdapter = RegisterSelectAdapter(this)
+
+        rv_register_product_ingredient.adapter = registerSelectAdapter
+
+        rv_register_product_ingredient.layoutManager = LinearLayoutManager(this)
+
+        registerSelectAdapter.data = IngredientSelectList.getSelectedIngredientList()
+
+        registerSelectAdapter.notifyDataSetChanged()
     }
 
     private fun makeListener(){
@@ -58,6 +88,7 @@ class RegisterProductActivity : AppCompatActivity() {
                 else{
                     edt_register_product_name.background = resources.getDrawable(R.drawable.gray_line_4)
                 }
+                checkNextButton()
             }
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -68,6 +99,26 @@ class RegisterProductActivity : AppCompatActivity() {
                 //TODO("Not yet implemented")
             }
         })
+    }
+
+    fun checkNextButton(){
+        var checkEmpty = true
+
+        btn_register_product_complete.isEnabled = false
+        btn_register_product_complete.setTextColor(getColor(R.color.colorCoolGray2))
+
+        if(edt_register_product_name.length() > 0){
+            (0 until registerSelectAdapter.itemCount).forEach {
+                if(registerSelectAdapter.data[it].content!!.isEmpty()){
+                    checkEmpty = false
+                }
+            }
+            if(checkEmpty){
+                btn_register_product_complete.isEnabled = true
+                btn_register_product_complete.setTextColor(getColor(R.color.colorWhite))
+            }
+        }
+        Log.d("명",registerSelectAdapter.data.toString())
     }
 
     // 상태바 투명 설정
@@ -82,5 +133,15 @@ class RegisterProductActivity : AppCompatActivity() {
 
         return if (resourceId > 0) context.resources.getDimensionPixelSize(resourceId)
         else 0
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) setDarkStatusBar()
+    }
+
+    // 상태바 어둡게
+    private fun setDarkStatusBar() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
     }
 }
