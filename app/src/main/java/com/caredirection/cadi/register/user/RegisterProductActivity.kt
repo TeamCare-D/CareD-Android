@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -87,6 +88,7 @@ class RegisterProductActivity : AppCompatActivity() {
                 else{
                     edt_register_product_name.background = resources.getDrawable(R.drawable.gray_line_4)
                 }
+                checkNextButton()
             }
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -97,6 +99,26 @@ class RegisterProductActivity : AppCompatActivity() {
                 //TODO("Not yet implemented")
             }
         })
+    }
+
+    fun checkNextButton(){
+        var checkEmpty = true
+
+        btn_register_product_complete.isEnabled = false
+        btn_register_product_complete.setTextColor(getColor(R.color.colorCoolGray2))
+
+        if(edt_register_product_name.length() > 0){
+            (0 until registerSelectAdapter.itemCount).forEach {
+                if(registerSelectAdapter.data[it].content!!.isEmpty()){
+                    checkEmpty = false
+                }
+            }
+            if(checkEmpty){
+                btn_register_product_complete.isEnabled = true
+                btn_register_product_complete.setTextColor(getColor(R.color.colorWhite))
+            }
+        }
+        Log.d("명",registerSelectAdapter.data.toString())
     }
 
     // 상태바 투명 설정
