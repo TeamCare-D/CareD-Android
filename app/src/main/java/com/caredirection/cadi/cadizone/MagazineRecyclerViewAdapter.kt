@@ -38,7 +38,6 @@ class MagazineRecyclerViewAdapter :
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         val rvMagazineTagAdapter = MagazineTagRvAdapter()
         val rv_rv_item_magazine_ingredient: RecyclerView = itemView.findViewById(R.id.rv_rv_item_magazine_ingredient)
 
