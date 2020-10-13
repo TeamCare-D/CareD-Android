@@ -5,11 +5,14 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
+import com.caredirection.cadi.adapter.MagazineIngredientRvAdapter
 import com.caredirection.cadi.network.RequestURL
+import com.caredirection.cadi.networkdata.EfficacyListData
 import com.caredirection.cadi.networkdata.MagazineDirectionData
 import com.caredirection.cadi.networkdata.MagazineGuideData
 import com.caredirection.cadi.networkdata.MagazineHome
-import com.caredirection.cadi.product.list.adapter.ProductMagazineRvAdapter
+import com.caredirection.cadi.product.search.adapter.ingredientIdxData
+import com.caredirection.cadi.product.search.adapter.item
 import kotlinx.android.synthetic.main.fragment_cadi_zone.*
 import retrofit2.Call
 import retrofit2.Callback
