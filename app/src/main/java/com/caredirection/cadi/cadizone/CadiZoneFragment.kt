@@ -28,7 +28,7 @@ class CadiZoneFragment : Fragment(R.layout.fragment_cadi_zone) {
     private fun initViewPager() {
         val tabLayout = tab_top_dic
         val viewPager = vp_viewPager
-        val menu = arrayListOf("피부회복", "활력 · 성기능", "피부 · 모발", "뼈 · 관절")
+        val menu = arrayListOf("피부회복", "활력 · 성기능", "피부 · 모발", "뼈 · 관절","피부회복", "활력 · 성기능", "피부 · 모발", "뼈 · 관절")
         val viewPagerAdapter = CadiZoneViewPagerAdapter(fragmentManager!!, menu.count())
         viewPager.adapter = viewPagerAdapter
 
