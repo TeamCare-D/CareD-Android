@@ -7,8 +7,8 @@
     android:layout_marginRight="6dp"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
-    android:background="@color/colorWhite"
-    android:elevation="3dp"
+    android:background="@drawable/only_white_fill_4"
+    android:elevation="2dp"
     >
 
     <TextView

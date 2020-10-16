@@ -21,7 +21,6 @@
         android:fontFamily="@font/notosanskr_regular"
         android:includeFontPadding="false"
         android:gravity="center"
-        android:background="@drawable/sky_fill_4"
-
+        android:background="@drawable/sky_blue_fill_2"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
