@@ -11,55 +11,57 @@
         android:layout_height="wrap_content"
         tools:context=".MainActivity">
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/vp_viewPager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@color/colorDuckEggBlue" />
-
-        <TextView
-            android:id="@+id/tv_top_title"
-            style="@style/bold20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="28dp"
-            android:layout_marginTop="51dp"
-            android:text="성분 백과"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_top_dic"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/tab_cadizone_background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_top_title"
-            app:tabIndicatorFullWidth="true"
-            app:tabIndicatorGravity="bottom"
-            app:tabIndicatorHeight="2dp"
-            app:tabMode="scrollable"
-            android:paddingStart="10dp"
-            android:clipToPadding="false"
-            app:tabSelectedTextColor="@color/colorPointBlue"
-            app:tabTextAppearance="@style/RegisterIngredientTab"
-            app:tabTextColor="@color/colorCoolGray2" />
-
-
-        <com.caredirection.cadi.custom.WrapContentViewPager
-            android:id="@+id/vp_viewPager"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_cadizone_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:background="@color/colorDuckEggBlue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tab_top_dic" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_top_title"
+                style="@style/bold20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="51dp"
+                android:text="성분 백과"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_top_dic"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/tab_cadizone_background"
+                android:clipToPadding="false"
+                android:paddingStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_top_title"
+                app:tabIndicatorFullWidth="true"
+                app:tabIndicatorGravity="bottom"
+                app:tabIndicatorHeight="2dp"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="@color/colorPointBlue"
+                app:tabTextAppearance="@style/RegisterIngredientTab"
+                app:tabTextColor="@color/colorCoolGray2" />
+
+
+            <com.caredirection.cadi.custom.WrapContentViewPager
+                android:id="@+id/vp_viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tab_top_dic" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/tv_rv_direction_title"
@@ -71,7 +73,7 @@
             android:text="CARE Direction"
             android:textColor="@color/colorBlack"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/cl_cadizone_top" />
 
         <TextView
             android:id="@+id/tv_direction_sub"
