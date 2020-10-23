@@ -51,7 +51,7 @@
                 app:tabTextColor="@color/colorCoolGray2" />
 
 
-            <androidx.viewpager.widget.ViewPager2
+            <com.caredirection.cadi.custom.WrapContentViewPager
                 android:id="@+id/vp_viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
