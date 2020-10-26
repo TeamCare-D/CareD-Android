@@ -52,6 +52,7 @@ class RegisterSelectAdapter (private val context: Context?) : RecyclerView.Adapt
                 else{
                     holder.itemView.edt_register_ingredient_content.background = context!!.getDrawable(R.drawable.gray_line_4)
                 }
+                IngredientSelectList.selectedContent.add(holder.itemView.edt_register_ingredient_content.text.toString())
                 (context as RegisterProductActivity).checkNextButton()
             }
 

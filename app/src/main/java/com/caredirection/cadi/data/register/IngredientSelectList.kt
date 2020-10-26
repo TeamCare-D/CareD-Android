@@ -14,6 +14,7 @@ class IngredientSelectList {
     companion object{
         var selectedVitaminList = mutableListOf<String>()
         var selectedMaterialList = mutableListOf<String>()
+        var selectedContent = mutableListOf<String>()
 
         fun getSelectedIngredientList() : List<RvSelectListItem>{
             val ingredientSelectedList = mutableListOf<RvSelectListItem>()
