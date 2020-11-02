@@ -47,15 +47,11 @@ class RegisterSearchActivity : AppCompatActivity() {
 
         rv_register_search_list.layoutManager = GridLayoutManager(this,2)
 
-        registerSearchListAdapter.data = dummyRegisterSearchList.getRegisterSearchResultList()
-
-        registerSearchListAdapter.notifyDataSetChanged()
-
         txt_register_search_count.text = "결과 ${registerSearchListAdapter.itemCount}건"
 
         checkSearchResult()
 
-        //getTakeSearchResponse(edt_register_search_keyword.text.toString())
+        getTakeSearchResponse(edt_register_search_keyword.text.toString())
     }
 
     private fun makeListener(){
@@ -88,7 +84,6 @@ class RegisterSearchActivity : AppCompatActivity() {
         btn_register_search_complete.setOnClickListener {
 
             for(item in registerSearchListAdapter.selectedItem) {
-                Log.d("명111, 선택번호", item.toString())
                 //postTakeProductResponse(item)
             }
 
@@ -107,8 +102,10 @@ class RegisterSearchActivity : AppCompatActivity() {
     private fun checkSearchResult(){
         if(registerSearchListAdapter.itemCount > 0){
             cl_register_search_result.visibility = View.VISIBLE
+            txt_register_search_none.visibility = View.GONE
         }
         else{
+            cl_register_search_result.visibility = View.GONE
             txt_register_search_none.visibility = View.VISIBLE
         }
     }
@@ -193,7 +190,7 @@ class RegisterSearchActivity : AppCompatActivity() {
                         txt_register_search_count.text = "결과 "+registerSearchListAdapter.itemCount+"건"
                         checkSearchResult()
 
-                        //Log.d("복용 제품 검색 성공", "메시지 : $message")
+//                        Log.d("복용 제품 검색 성공", "메시지 : ${searchList.message}")
                     }
                 }
 

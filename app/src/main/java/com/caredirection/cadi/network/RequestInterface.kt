@@ -42,7 +42,7 @@ interface RequestInterface {
     // 복용제품등록, 마이페이지 - 복용 제품 검색
     @GET("/dose/search")
     fun getTakeSearchList(
-        @Query("query") keyword: String,
+        @Query("keyword") keyword: String,
         @Header("token") token: String
     ): Call<TakeSearchData>
 
