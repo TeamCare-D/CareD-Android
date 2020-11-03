@@ -64,6 +64,10 @@ class MypageInterestProductActivity : AppCompatActivity() {
             rv_mypage_interest_list.visibility = View.VISIBLE
             txt_mypage_interest_none.visibility = View.GONE
         }
+        else{
+            rv_mypage_interest_list.visibility = View.GONE
+            txt_mypage_interest_none.visibility = View.VISIBLE
+        }
     }
 
     private fun getInterestProductResponse(){
