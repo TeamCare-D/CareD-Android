@@ -84,7 +84,7 @@ class MypageTakeProductActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkCompleteButton(){
+    fun checkCompleteButton(){
         btn_mypage_take_product_complete.isEnabled = false
 
         if(mypageTakeProductAdapter.itemCount > 0){
