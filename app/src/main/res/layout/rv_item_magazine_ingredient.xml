@@ -21,6 +21,16 @@
         app:srcCompat="@drawable/pawel_czerwinski_kxbl_pqf_yc_9_e_unsplash" />
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#26ffffff"
+        />
+
+    <ImageView
         android:id="@+id/imageView20"
         android:layout_width="0dp"
         android:layout_height="3dp"
@@ -29,14 +39,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@color/colorWhite" />
 
-    <ImageView
+    <com.github.mmin18.widget.RealtimeBlurView
         android:id="@+id/bv_magazine_ingredient"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@color/colorTransparentWhite"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView7" />
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:realtimeBlurRadius="8dp"
+        app:realtimeOverlayColor="@color/colorTransparency"/>
 
     <TextView
         android:id="@+id/txt_rv_item_magazine_ingredient"
