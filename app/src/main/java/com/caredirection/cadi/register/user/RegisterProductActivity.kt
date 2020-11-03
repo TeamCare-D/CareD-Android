@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -118,7 +117,6 @@ class RegisterProductActivity : AppCompatActivity() {
                 btn_register_product_complete.setTextColor(getColor(R.color.colorWhite))
             }
         }
-        Log.d("명",registerSelectAdapter.data.toString())
     }
 
     // 상태바 투명 설정
