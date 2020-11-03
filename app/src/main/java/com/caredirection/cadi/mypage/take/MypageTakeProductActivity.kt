@@ -11,8 +11,9 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caredirection.cadi.R
-import com.caredirection.cadi.data.register.RvTakeListItem
+import com.caredirection.cadi.data.UserController
 import com.caredirection.cadi.data.network.TakeProductData
+import com.caredirection.cadi.data.register.RvTakeListItem
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.register.search.RegisterSearchActivity
 import kotlinx.android.synthetic.main.activity_mypage_take_product.*
@@ -31,8 +32,13 @@ class MypageTakeProductActivity : AppCompatActivity() {
         setStatusBarTransparent()
         setSkipUnderLine()
 
+        initTitle()
         takeListInit()
         makeListener()
+    }
+
+    private fun initTitle(){
+        txt_mypage_take_title.text = UserController.getName(this) + "님의 복용제품 입니다."
     }
 
     private fun takeListInit(){
