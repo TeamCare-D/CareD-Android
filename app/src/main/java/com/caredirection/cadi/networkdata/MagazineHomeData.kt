@@ -8,15 +8,9 @@ data class MagazineHome(
 
 data class MagazineHomeData(
     val directions: MutableList<MagazineDirections>,
-    val magazine: MutableList<MagazineHomeList>
+    val magazine: MutableList<MagazineListData>
 )
 data class MagazineDirections(
-    val magazine_idx: Int,
-    val magazine_title: String,
-    val magazine_thumbnail_key: String,
-    val hashtag_name: MutableList<String>
-)
-data class MagazineHomeList(
     val magazine_idx: Int,
     val magazine_title: String,
     val magazine_thumbnail_key: String,

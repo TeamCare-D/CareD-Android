@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_contents_top"
+                android:layout_width="match_parent"
+                android:layout_height="238dp"
+                android:background="@color/warm_grey"
+                app:layout_constraintEnd_toEndOf="parent">
+
+
+                <ImageView
+                    android:id="@+id/img_contents_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="6dp"
+                    android:src="@drawable/btn_back_care_d"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_contents_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginTop="51dp"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="2dp"
+                    android:text="마그네슘"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="26dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_contents_back" />
+
+                <TextView
+                    android:id="@+id/txt_contents_sub_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="12dp"
+                    android:text="최고의 진정제"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toStartOf="@+id/txt_contents_title"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_contents_title" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_contents_sub_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintStart_toStartOf="@+id/txt_contents_sub_title"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_contents_sub_title"
+                    tool:listitem="@layout/rv_item_magazine_tag" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_contents_top">
+
+                <TextView
+                    android:id="@+id/txt_contents_ingredient_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginTop="46dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="9dp"
+                    android:text="비타민B 컴플랙스"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/txt_contents_ingredient_title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="9dp"
+                    android:layout_marginLeft="4dp"
+                    android:text="일일 섭취량"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toEndOf="@+id/txt_contents_ingredient_title"
+                    app:layout_constraintTop_toTopOf="@+id/txt_contents_ingredient_title" />
+
+                <TextView
+                    android:id="@+id/txt_contents_ingredient_person"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="6dp"
+                    android:text="25세 남성"
+                    android:textColor="@color/colorPointBlue"
+                    android:textSize="14dp"
+                    app:layout_constraintStart_toStartOf="@+id/txt_contents_ingredient_title"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_contents_ingredient_title" />
+
+
+
+                <TextView
+                    android:id="@+id/txt_contents_ingredient_sub_explain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="6dp"
+                    android:text="식약처 기준 일일 섭취량이에요."
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    app:layout_constraintStart_toEndOf="@+id/txt_contents_ingredient_person"
+                    app:layout_constraintTop_toTopOf="@+id/txt_contents_ingredient_person" />
+
+                <TextView
+                    android:id="@+id/txt_contents_ingredient_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="6dp"
+                    android:text="권장량"
+                    android:textColor="@color/colorGrayishBrown1"
+                    android:textSize="14dp"
+                    app:layout_constraintStart_toStartOf="@+id/txt_contents_ingredient_person"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_contents_ingredient_person" />
+
+                <TextView
+                    android:id="@+id/txt_contents_ingredient_low_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="4dp"
+                    android:text="3000mg"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    app:layout_constraintStart_toEndOf="@+id/txt_contents_ingredient_low"
+                    app:layout_constraintTop_toTopOf="@+id/txt_contents_ingredient_low" />
+
+
+                <ImageView
+                    android:id="@+id/bar_contents_ingredient"
+                    android:layout_width="5dp"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="6dp"
+                    android:background="@color/colorPointGray"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_contents_ingredient_low_num"
+                    app:layout_constraintStart_toEndOf="@+id/txt_contents_ingredient_low_num"
+                    app:layout_constraintTop_toTopOf="@+id/txt_contents_ingredient_low_num"
+                    app:layout_goneMarginLeft="6dp" />
+
+                <TextView
+                    android:id="@+id/txt_contents_ingredient_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="26dp"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="6dp"
+                    android:text="권장량"
+                    android:textColor="@color/colorGrayishBrown1"
+                    android:textSize="14dp"
+                    app:layout_constraintStart_toEndOf="@+id/bar_contents_ingredient"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_contents_ingredient_person" />
+
+                <TextView
+                    android:id="@+id/txt_contents_ingredient_high_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="4dp"
+                    android:text="3000mg"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    app:layout_constraintStart_toEndOf="@+id/txt_contents_ingredient_high"
+                    app:layout_constraintTop_toTopOf="@+id/txt_contents_ingredient_high" />
+
+                <TextView
+                    android:id="@+id/txt_contents_encyclopedia_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="56dp"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="9dp"
+                    android:text="성분백과"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="@+id/txt_contents_ingredient_low"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_contents_ingredient_low" />
+
+                <TextView
+                    android:id="@+id/txt_contents_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="28dp"
+                    android:fontFamily="@font/notosanskr_light"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="8dp"
+                    android:text="마그네슘(영어: Magnesium 매그니지엄, 문화어:
+마그네시움←독일어: Magnesium 마그네지움)은
+알칼리 토금속에 속하는 화학 원소로 기호는 Mg
+(←라틴어: Magnesium 마그네시움)이고 원자 번호는 12이다.
+실온에서 은백색의 가벼운 금속으로 존재한다.
+반응성이 크고 2가 양이온이 되려는 경향이
+있으므로 자연에서는 주로 마그네사이트, 백운암,
+활석, 석면 등의 화합물의 형태로 발견된다. 지구의 지각에서는 질량 기준으로 약 2.5%를 차지하여
+8번째로 많이 존재하는 원소이며, 우주 전체에서도 8번째로 많이 존재하는 원소이다.
+우주에 있는 마그네슘은 주로 3개의 헬륨 원자핵과 1개의 탄소 원자핵이 크고 오래된 별 안에서 핵융합을 함으로써 생성되었다. 해수에는 이온(Mg2+)의 형태로 존재하며, 해수 속 이온 중에서는 염화 이온(Cl-), 나트륨 이온(Na+) 이어 세 번째로 많은
+양이다.
+주로 해수에서 얻은 염화마그네슘(MgCl2)을 전기분해하여 얻거나 마그네사이트, 백운암 등의 광물에서 얻는다. 인체 내에서는 11번째로 많이 존재하는 원소이며, 300여가지 효소들과 모든 세포에게 필수적인 원소이다. 마그네슘은 세포 내에서 인산기를 가지는 DNA, RNA, ATP등의 물질을 생성하고 수백가지의 효소들이 작용하는 데 관여한다. 또한 탄수화물
+대사 과정에서 촉매로 작용하므로 생명 활동에
+중요한 역할을 한다. 식물의 엽록소에도 마그네슘 이온이 포함되어 있어 광합성에 중요한 역할을
+한다. 마그네슘 화합물들은 의학적으로 변비약, 제산제(예시: 마그네시아 유제, milk of Magnesia),
+비정상적인 신경 자극 또는 혈관 경련을 안정화하는 데 사용된다."
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_contents_encyclopedia_title" />
+
+                <ImageView
+                    android:id="@+id/img_contents_product_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/btn_next"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_contents_content"
+                    android:layout_marginTop="40dp"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_contents_magazine_title"
+                    style="@style/bold20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="28dp"
+                    app:layout_constraintTop_toBottomOf="@+id/img_contents_product_search"
+                    android:layout_marginTop="60dp"
+                    android:text="CARE.D Magazine"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_contents_magazine"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_contents_magazine_title"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginRight="28dp"
+                    android:layout_marginTop="18dp"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

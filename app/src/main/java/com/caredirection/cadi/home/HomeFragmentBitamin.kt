@@ -37,6 +37,7 @@ class HomeFragmentBitamin: Fragment(R.layout.view_pager_home_chart) {
                     try{
                          chartBitaminAdapter.items.addAll(response.body()!!.data)
 
+                        Log.d("이거거거", response.body()!!.data.toString())
 
                         rv_view_pager_home_chart.adapter = chartBitaminAdapter
                     }catch (e: Exception){

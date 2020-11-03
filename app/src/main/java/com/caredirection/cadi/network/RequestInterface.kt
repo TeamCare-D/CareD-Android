@@ -135,7 +135,7 @@ interface RequestInterface {
     // search/product 제품 검색 하기
     @GET("/search/product")
     fun getSearchPrudct(
-        @Query("keyword") keyword: String,
+        @Query("keyword") keyword: String?,
         @Header("token") token: String
     ) : Call<ProductSearchData>
 
@@ -150,4 +150,33 @@ interface RequestInterface {
     // magazine/guide 메거진 가이드 리스트 가져오기
     @GET("/magazine/guide")
     fun getMAgazineGuide(): Call<MagazineGuideData>
+
+    // product/{product_idx} 제품 상세보기
+    @GET("/product/{product_idx}")
+    fun getProductDetail(
+        @Path("product_idx") product_idx: Int,
+        @Header("token")token : String
+    ): Call<ProductDetailData>
+
+    // product/{product_idx}/like 제품 찜하기
+    @POST("/product/{product_idx}/like")
+    fun postProductLike(
+        @Path("product_idx") product_idx: Int,
+        @Header("token") token: String
+    ): Call<ProductLikeData>
+
+
+    // user/care/detail 케어받는 기능 & 비슷한 사람들 케어 상세정보 가져오기
+    @GET("/user/care/detail")
+    fun getUserCareDetail(
+        @Header("token") token: String
+    ): Call<CareDetailData>
+
+    // dictionary/{ingredient_idx}특정 성분백과
+    @GET("/dictionary/{ingredient_idx}")
+    fun getDictionary(
+        @Path("ingredient_idx") ingredient_idx: Int,
+        @Header("token") token: String
+    ): Call<DictionaryData>
+
 }

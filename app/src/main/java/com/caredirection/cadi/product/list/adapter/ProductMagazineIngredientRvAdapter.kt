@@ -10,13 +10,13 @@ import com.caredirection.cadi.R
 import com.caredirection.cadi.adapter.MagazineMarketingAdapter
 import com.caredirection.cadi.adapter.MagazineTagRvAdapter
 import com.caredirection.cadi.networkdata.MagazineDirections
-import com.caredirection.cadi.networkdata.MagazineHomeList
+import com.caredirection.cadi.networkdata.MagazineListData
 
 class ProductMagazineRvAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     //큰거
-    val items = mutableListOf<MagazineHomeList>()
+    val items = mutableListOf<MagazineListData>()
     //작은거
     val marketingItems = mutableListOf<MagazineDirections>()
 
@@ -63,7 +63,7 @@ class ProductMagazineRvAdapter :
         val txt_rv_item_magazine_ingredient: TextView =
             view.findViewById(R.id.txt_rv_item_magazine_ingredient)
 
-        fun bind(items: MagazineHomeList) {
+        fun bind(items: MagazineListData) {
             Log.d("String", items.magazine_title)
             txt_rv_item_magazine_ingredient.text = items.magazine_title
             rv_rv_item_magazine_ingredient.adapter = rvMagazineTagAdapter

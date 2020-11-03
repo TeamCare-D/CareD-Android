@@ -8,6 +8,10 @@
 
     <ScrollView
         android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +25,7 @@
                 android:id="@+id/img_home_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="8dp"
                 android:src="@drawable/btn_search"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +33,7 @@
 
 
             <TextView
-                android:id="@+id/txt_home_user_intake_title"
+                android:id="@+id/txt_home_user_intake_title1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanskr_bold"
@@ -39,15 +43,28 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginLeft="28dp"
                 style="@style/bold20"
-                android:text="진오님의\n 영양소 섭취현황 "
+                android:text="진오님의"
+                />
+            <TextView
+                android:id="@+id/txt_home_user_intake_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_home_user_intake_title1"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="28dp"
+                style="@style/bold20"
+                android:text="영양소 섭취현황 "
                 />
             <ImageView
                 android:id="@+id/img_home_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/btn_more"
-                app:layout_constraintStart_toEndOf="@+id/txt_home_user_intake_title"
-                app:layout_constraintTop_toTopOf="@+id/txt_home_user_intake_title"
+                app:layout_constraintStart_toEndOf="@+id/txt_home_user_intake_title2"
+                app:layout_constraintTop_toTopOf="@+id/txt_home_user_intake_title1"
                 android:layout_marginTop="32dp"
                 />
             <TextView
@@ -56,8 +73,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanskr_light"
                 android:includeFontPadding="false"
-                app:layout_constraintStart_toStartOf="@+id/txt_home_user_intake_title"
-                app:layout_constraintTop_toBottomOf="@+id/txt_home_user_intake_title"
+                app:layout_constraintStart_toStartOf="@+id/txt_home_user_intake_title2"
+                app:layout_constraintTop_toBottomOf="@+id/txt_home_user_intake_title2"
                 android:layout_marginTop="8dp"
                 style="@style/light12"
                 android:text="사용자 정보를 반영한 현재 섭취량이에요."
@@ -66,9 +83,9 @@
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout_home"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
+                android:layout_height="40dp"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="25dp"
                 app:layout_constraintTop_toBottomOf="@+id/txt_home_user_intake_sub_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 >
@@ -77,13 +94,13 @@
                     android:id="@+id/tab_item1_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="증상"
+                    android:text="비타민 &amp; 미네랄"
                     />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="이름"
+                    android:text="기능성 원료"
                     />
 
             </com.google.android.material.tabs.TabLayout>
@@ -105,7 +122,7 @@
                 style="@style/bold20"
                 android:fontFamily="@font/notosanskr_bold"
                 android:includeFontPadding="false"
-                app:layout_constraintStart_toStartOf="@+id/txt_home_user_intake_title"
+                app:layout_constraintStart_toStartOf="@+id/txt_home_user_intake_title1"
                 app:layout_constraintTop_toBottomOf="@+id/view_pager_home"
                 android:layout_marginTop="50dp"
                 android:text="케어 받는 분야"

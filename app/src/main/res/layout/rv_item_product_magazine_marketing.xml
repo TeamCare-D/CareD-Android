@@ -3,53 +3,54 @@
     android:layout_width="274dp"
     android:layout_height="160dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginLeft="25dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginBottom="10dp"
-    android:background="@color/colorWhite"
-    android:elevation="3dp"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/only_white_fill_4"
+    android:elevation="2dp"
     >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_txt_rv_item_product_magazine_marketing"
-        android:layout_width="58dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/yellow_fill_10"
-        android:layout_height="27dp">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#24ffffff"/>
 
     <TextView
         android:id="@+id/txt_rv_item_product_magazine_marketing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/yellow_fill_20"
         android:fontFamily="@font/notosanskr_bold"
         android:includeFontPadding="false"
-        android:textSize="13dp"
         android:text="방향성"
-        />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:paddingLeft="11dp"
+        android:paddingRight="11dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_rv_item_product_magazine_marketing_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textColor="@color/colorBlack"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/notosanskr_medium"
         android:includeFontPadding="false"
         android:lineSpacingExtra="10sp"
-        android:fontFamily="@font/notosanskr_medium"
-        app:layout_constraintStart_toStartOf="@+id/layout_txt_rv_item_product_magazine_marketing"
-        app:layout_constraintTop_toBottomOf="@+id/layout_txt_rv_item_product_magazine_marketing"
-        android:layout_marginTop="10dp"
-        android:text="천연의 함정 화학 부형제는
-정말\n 안 좋은 것일까?"
-    />
+        android:text="천연의 함정 화학 부형제는\n정말 안 좋은 것일까?"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorBlack"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rv_item_product_magazine_marketing" />
     
 </androidx.constraintlayout.widget.ConstraintLayout>

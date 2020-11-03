@@ -9,6 +9,7 @@ import com.caredirection.cadi.R
 import com.caredirection.cadi.network.RequestURL
 import com.caredirection.cadi.networkdata.ProductSearchData
 import com.caredirection.cadi.networkdata.ProductSearchInfoList
+import com.caredirection.cadi.networkdata.criterionDescription1Data
 import com.caredirection.cadi.product.list.FragmentDetail.FragmentBitaminComplex
 import com.caredirection.cadi.product.list.FragmentDetail.FragmentDetail
 import com.caredirection.cadi.product.list.FragmentDetail.FragmentDetailMulti
@@ -34,13 +35,13 @@ class ListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_list)
 
-        val productName = intent?.getStringExtra("name")
+        val productName = intent.getStringExtra("name")
 
         Log.d("실험이다", productName.toString())
 
         keyowrdSetting(productName)
 
-        productRvSetting()
+
 
 
     }
@@ -48,6 +49,8 @@ class ListActivity : AppCompatActivity() {
     fun changeFragment(FragmentInstance: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_product_list_detail, FragmentInstance).commit()
+
+
 
         img_product_list_btn.setOnClickListener {
 
@@ -69,6 +72,7 @@ class ListActivity : AppCompatActivity() {
 
     fun keyowrdSetting(productName: String?) {
         Log.d("종합 비타민은?", productName.toString())
+        productRvSetting(productName)
 
 
         when (productName) {
@@ -81,6 +85,7 @@ class ListActivity : AppCompatActivity() {
             else -> {
                 fragmentDetail = FragmentDetail()
                 (fragmentDetail as FragmentDetail).productName = productName.toString()
+                fragmentDetailsimplicity.productName = productName.toString()
             }
         }
 
@@ -89,68 +94,36 @@ class ListActivity : AppCompatActivity() {
         changeFragment(fragmentDetail)
     }
 
-    fun productRvSetting() {
+    fun productRvSetting(productName: String?) {
         val productListAdapter = ProductListRvAdapter(this@ListActivity)
 
-        var testString = mutableListOf<String>()
-        testString.add("산화 마그네슘")
-        testString.add("RTG")
+
+        val call: Call<ProductSearchData> = RequestURL.service.getSearchPrudct(keyword = productName, token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDYXJlRCIsInVzZXJfaWR4Ijo0NH0.6CVrPAgdAkapMrWtK40oXP_3-vjCAaSxR3gcSrVgVhE")
+        call.enqueue(
+            object : Callback<ProductSearchData>{
+                override fun onFailure(call: Call<ProductSearchData>, t: Throwable) {
+
+                }
+
+                override fun onResponse(
+                    call: Call<ProductSearchData>,
+                    response: Response<ProductSearchData>
+                ) {
+                    try{
+                        val data = response.body()!!.data
+                        Log.d("이건 테스트", data.toString())
+                        productListAdapter.items.addAll(data.products)
+                        rv_product_list.adapter = productListAdapter
+                    }catch (e: Exception){
+                        Log.d("이건 에러", e.toString())
+                    }
 
 
-        productListAdapter.items.add(
-            ProductListData(
-                "브랜드",
-                "제품 이름",
-                "30",
-                "21000",
-                "20000",
-                testString
-            )
-        )
-        productListAdapter.items.add(
-            ProductListData(
-                "브랜드",
-                "제품 이름",
-                "30",
-                "21000",
-                "20000",
-                testString
-            )
-        )
-        productListAdapter.items.add(
-            ProductListData(
-                "브랜드",
-                "제품 이름",
-                "30",
-                "21000",
-                "20000",
-                testString
-            )
-        )
-        productListAdapter.items.add(
-            ProductListData(
-                "브랜드",
-                "제품 이름",
-                "30",
-                "21000",
-                "20000",
-                testString
-            )
-        )
-        productListAdapter.items.add(
-            ProductListData(
-                "브랜드",
-                "제품 이름",
-                "30",
-                "21000",
-                "20000",
-                testString
-            )
+                }
+            }
+
         )
 
-
-        rv_product_list.adapter = productListAdapter
-        rv_product_list.layoutManager = LinearLayoutManager(this@ListActivity)
     }
 
 

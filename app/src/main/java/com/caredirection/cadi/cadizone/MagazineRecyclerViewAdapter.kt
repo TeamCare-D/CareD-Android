@@ -3,25 +3,23 @@ package com.caredirection.cadi.cadizone
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.caredirection.cadi.R
 import com.caredirection.cadi.adapter.MagazineTagRvAdapter
-import com.caredirection.cadi.networkdata.MagazineHomeList
+import com.caredirection.cadi.networkdata.MagazineListData
 
 class MagazineRecyclerViewAdapter :
-    ListAdapter<MagazineHomeList, MagazineRecyclerViewAdapter.ViewHolder>(DiffTool()) {
+    ListAdapter<MagazineListData, MagazineRecyclerViewAdapter.ViewHolder>(DiffTool()) {
 
-    private class DiffTool : DiffUtil.ItemCallback<MagazineHomeList>() {
-        override fun areItemsTheSame(oldItem: MagazineHomeList, newItem: MagazineHomeList): Boolean {
+    private class DiffTool : DiffUtil.ItemCallback<MagazineListData>() {
+        override fun areItemsTheSame(oldItem: MagazineListData, newItem: MagazineListData): Boolean {
             return oldItem.magazine_idx == newItem.magazine_idx
         }
 
-        override fun areContentsTheSame(oldItem: MagazineHomeList, newItem: MagazineHomeList): Boolean {
+        override fun areContentsTheSame(oldItem: MagazineListData, newItem: MagazineListData): Boolean {
             return oldItem == newItem
         }
     }
@@ -40,7 +38,6 @@ class MagazineRecyclerViewAdapter :
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         val rvMagazineTagAdapter = MagazineTagRvAdapter()
         val rv_rv_item_magazine_ingredient: RecyclerView = itemView.findViewById(R.id.rv_rv_item_magazine_ingredient)
 

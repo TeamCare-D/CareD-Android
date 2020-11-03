@@ -4,55 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="319dp"
-    android:layout_marginTop="20dp"
-
-    >
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="28dp"
+    android:layout_marginRight="28dp">
 
     <ImageView
-        android:id="@+id/img_rv_item_magazine_ingredient"
-        android:layout_width="304dp"
-        android:layout_height="319dp"
-        android:src="@drawable/blue_line_4"
+        android:id="@+id/imageView7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:elevation="3dp"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:srcCompat="@drawable/pawel_czerwinski_kxbl_pqf_yc_9_e_unsplash" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_rv_item_magazine_ingredient"
-        android:layout_width="304dp"
-        android:layout_height="120dp"
-        android:background="@color/colorTransparentWhite"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:elevation="3dp"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#24ffffff"
+        />
 
-        <TextView
-            android:id="@+id/txt_rv_item_magazine_ingredient"
-            android:layout_width="264dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="천연의 함정 화학 부형제는 정말\n안 좋은 것일까?"
-            android:includeFontPadding="false"
-            android:textColor="@color/colorBlack"
-            android:fontFamily="@font/notosanskr_medium"
-            android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/bv_magazine_ingredient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@color/colorWhite" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_rv_item_magazine_ingredient"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintStart_toStartOf="@+id/txt_rv_item_magazine_ingredient"
-            app:layout_constraintTop_toBottomOf="@+id/txt_rv_item_magazine_ingredient"
-            tools:listitem="@layout/rv_item_magazine_tag" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.github.mmin18.widget.RealtimeBlurView
+        android:id="@+id/bv_magazine_ingredient"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:realtimeBlurRadius="8dp"
+        app:realtimeOverlayColor="@color/colorTransparency"/>
 
+    <TextView
+        android:id="@+id/txt_rv_item_magazine_ingredient"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false"
+        android:text="천연의 함정 화학 부형제는 정말\n안 좋은 것일까?"
+        android:textColor="@color/colorBlack"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView20" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_rv_item_magazine_ingredient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="@+id/txt_rv_item_magazine_ingredient"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rv_item_magazine_ingredient"
+        tools:listitem="@layout/rv_item_magazine_tag" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

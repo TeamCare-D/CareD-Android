@@ -7,12 +7,11 @@ import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.caredirection.cadi.R
-import com.caredirection.cadi.adapter.ChartAdapter
-import com.caredirection.cadi.adapter.ChartData
 import com.caredirection.cadi.adapter.ChartFunctionAdapter
 import com.caredirection.cadi.custom.OnSnapPositionChangeListener
 import com.caredirection.cadi.custom.getSnapPosition
 import com.caredirection.cadi.network.RequestURL
+import com.caredirection.cadi.networkdata.GraphFunction
 import com.caredirection.cadi.networkdata.GraphFunctionList
 import com.caredirection.cadi.networkdata.IngredientDetail
 import kotlinx.android.synthetic.main.fragment_home_care_detail_chart.*
@@ -20,8 +19,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FragmentChartFunction : Fragment(R.layout.fragment_home_care_detail_chart) {
+class FragmentChartFunction : Fragment(R.layout.fragment_home_care_detail_chart2) {
     lateinit var chartRvADapter: ChartFunctionAdapter
+    var items = mutableListOf<GraphFunction>()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -49,12 +49,6 @@ class FragmentChartFunction : Fragment(R.layout.fragment_home_care_detail_chart)
                 && newState == RecyclerView.SCROLL_STATE_IDLE
             ) {
                 maybeNotifySnapPositionChange(recyclerView)
-                Log.d(
-                    "승희 테스트",
-                    chartRvADapter.items[snapHelper.getSnapPosition(rv_home_care_detail)].toString()
-                )
-                txt_home_care_detail_chart_content_intake_number.text =
-                    chartRvADapter.items[snapHelper.getSnapPosition(rv_home_care_detail)].ingredient_percentage.toString()
             }
         }
 
@@ -75,6 +69,7 @@ class FragmentChartFunction : Fragment(R.layout.fragment_home_care_detail_chart)
         val snapHelper = LinearSnapHelper()
 
         chartRvADapter = ChartFunctionAdapter(requireContext())
+        chartRvADapter.items = items
 
         snapHelper.attachToRecyclerView(rv_home_care_detail)
         val layoutManager = rv_home_care_detail.layoutManager
@@ -127,10 +122,10 @@ class FragmentChartFunction : Fragment(R.layout.fragment_home_care_detail_chart)
                     response: Response<IngredientDetail>
                 ) {
                     val data = response.body()!!.data
-                    txt_home_care_detail_chart_content_title.text = data[1].ingredient_name
-                    txt_home_care_detail_chart_content_recommended_number1.text = data[1].vitamin_mineral_recommended_amount
-                    txt_home_care_detail_chart_content_recommended_number2.text = data[1].vitamin_mineral_upper_amount
-                    txt_home_care_detail_chart_content_intake_number.text = data[1].my_amount
+                    txt_home_care_detail_chart_content_title.text = data.graphDetail.ingredient_name
+                    txt_home_care_detail_chart_content_recommended_number1.text = data.graphDetail.vitamin_mineral_recommended_amount
+                    txt_home_care_detail_chart_content_recommended_number2.text = data.graphDetail.vitamin_mineral_upper_amount
+                    txt_home_care_detail_chart_content_intake_number.text = data.graphDetail.my_amount
 
                 }
             }

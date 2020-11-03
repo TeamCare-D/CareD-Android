@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/yellow_fill_10"
+    android:background="@drawable/yellow_fill_20"
     android:layout_marginRight="6dp">
 
     <TextView
@@ -12,8 +12,10 @@
         android:layout_height="wrap_content"
         android:text="스트레스, 피로"
         android:gravity="center"
-        android:textSize="10dp"
+        android:textSize="13dp"
         android:textColor="@color/colorWhite"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
